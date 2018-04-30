@@ -1,1 +1,9 @@
 d:\vandal\documentos\visual studio 2015\Projects\MuseoArkham\MuseoArkham\bin\Debug\MuseoArkham.exe.config
+D:\Vandal\Documentos\Visual Studio 2015\Projects\MuseoArkham\MuseoArkham\bin\Debug\MuseoArkham.exe
+D:\Vandal\Documentos\Visual Studio 2015\Projects\MuseoArkham\MuseoArkham\bin\Debug\MuseoArkham.pdb
+D:\Vandal\Documentos\Visual Studio 2015\Projects\MuseoArkham\MuseoArkham\obj\Debug\MuseoArkham.csprojResolveAssemblyReference.cache
+D:\Vandal\Documentos\Visual Studio 2015\Projects\MuseoArkham\MuseoArkham\obj\Debug\MuseoArkham.VistaLogIn.resources
+D:\Vandal\Documentos\Visual Studio 2015\Projects\MuseoArkham\MuseoArkham\obj\Debug\MuseoArkham.Properties.Resources.resources
+D:\Vandal\Documentos\Visual Studio 2015\Projects\MuseoArkham\MuseoArkham\obj\Debug\MuseoArkham.csproj.GenerateResource.Cache
+D:\Vandal\Documentos\Visual Studio 2015\Projects\MuseoArkham\MuseoArkham\obj\Debug\MuseoArkham.exe
+D:\Vandal\Documentos\Visual Studio 2015\Projects\MuseoArkham\MuseoArkham\obj\Debug\MuseoArkham.pdb
