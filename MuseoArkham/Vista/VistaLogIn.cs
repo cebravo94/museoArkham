@@ -10,10 +10,14 @@ using System.Windows.Forms;
 
 namespace MuseoArkham
 {
-    public partial class Form1 : Form
+    public partial class VistaLogIn : Form
     {
-        public Form1() {
+        public VistaLogIn() {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+
         }
     }
 }
