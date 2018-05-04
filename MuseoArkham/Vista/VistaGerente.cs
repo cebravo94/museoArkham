@@ -12,6 +12,7 @@ namespace MuseoArkham.Vista
 {
     public partial class VentanaDePruebas : Form
     {
+
         public VentanaDePruebas()
         {
             InitializeComponent();
@@ -19,7 +20,7 @@ namespace MuseoArkham.Vista
 
         private void VentanaDePruebas_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -50,6 +51,16 @@ namespace MuseoArkham.Vista
         private void label1_Click_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void cerrarSesion_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
  }
