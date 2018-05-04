@@ -31,21 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaSecretaria));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tablaDepartamento = new System.Windows.Forms.DataGridView();
-            this.columnaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaNombreDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaSalas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.botonAsignarAdmin = new System.Windows.Forms.Button();
             this.botonAsignarSala = new System.Windows.Forms.Button();
             this.botonEliminarDepto = new System.Windows.Forms.Button();
             this.botonCrearDepto = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -65,16 +61,19 @@
             this.columnaNombreSala = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.botonCrearSala = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tablaDepartamento = new System.Windows.Forms.DataGridView();
+            this.columnaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaNombreDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaSalas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaDepartamento)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -85,6 +84,7 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDepartamento)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -110,6 +110,17 @@
             this.panel1.Size = new System.Drawing.Size(788, 81);
             this.panel1.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(312, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(164, 37);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ARKHAM\r\n";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tabControl1);
@@ -125,14 +136,15 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(7, 19);
+            this.tabControl1.Location = new System.Drawing.Point(2, 11);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(781, 337);
-            this.tabControl1.TabIndex = 0;
+            this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.Transparent;
             this.tabPage1.Controls.Add(this.tableLayoutPanel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -140,15 +152,14 @@
             this.tabPage1.Size = new System.Drawing.Size(773, 311);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Departamento";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.0733F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.9267F));
+            this.tableLayoutPanel2.Controls.Add(this.groupBox3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox3, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 1);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -156,51 +167,9 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(764, 304);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tablaDepartamento);
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(536, 298);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tabla";
-            // 
-            // tablaDepartamento
-            // 
-            this.tablaDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablaDepartamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.columnaId,
-            this.columnaNombreDepartamento,
-            this.columnaSalas,
-            this.columnaAdmin});
-            this.tablaDepartamento.Location = new System.Drawing.Point(6, 19);
-            this.tablaDepartamento.Name = "tablaDepartamento";
-            this.tablaDepartamento.Size = new System.Drawing.Size(524, 270);
-            this.tablaDepartamento.TabIndex = 1;
-            // 
-            // columnaId
-            // 
-            this.columnaId.HeaderText = "ID";
-            this.columnaId.Name = "columnaId";
-            // 
-            // columnaNombreDepartamento
-            // 
-            this.columnaNombreDepartamento.HeaderText = "Nombre Departamento";
-            this.columnaNombreDepartamento.Name = "columnaNombreDepartamento";
-            // 
-            // columnaSalas
-            // 
-            this.columnaSalas.HeaderText = "Salas";
-            this.columnaSalas.Name = "columnaSalas";
-            // 
-            // columnaAdmin
-            // 
-            this.columnaAdmin.HeaderText = "Administrador";
-            this.columnaAdmin.Name = "columnaAdmin";
-            // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
             this.groupBox3.Controls.Add(this.botonAsignarAdmin);
             this.groupBox3.Controls.Add(this.botonAsignarSala);
             this.groupBox3.Controls.Add(this.botonEliminarDepto);
@@ -208,7 +177,7 @@
             this.groupBox3.Location = new System.Drawing.Point(546, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(215, 289);
-            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Administrar";
             // 
@@ -248,8 +217,19 @@
             this.botonCrearDepto.Text = "Crear Departamento";
             this.botonCrearDepto.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tablaDepartamento);
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(536, 298);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tabla";
+            // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.Transparent;
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -257,7 +237,6 @@
             this.tabPage2.Size = new System.Drawing.Size(773, 311);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Usuarios";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3
             // 
@@ -351,6 +330,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.Color.Transparent;
             this.tabPage3.Controls.Add(this.tableLayoutPanel4);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -358,7 +338,6 @@
             this.tabPage3.Size = new System.Drawing.Size(773, 311);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Salas";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel4
             // 
@@ -424,16 +403,38 @@
             this.botonCrearSala.Text = "Crear Sala";
             this.botonCrearSala.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // tablaDepartamento
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(312, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ARKHAM\r\n";
+            this.tablaDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaDepartamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columnaId,
+            this.columnaNombreDepartamento,
+            this.columnaSalas,
+            this.columnaAdmin});
+            this.tablaDepartamento.Location = new System.Drawing.Point(6, 14);
+            this.tablaDepartamento.Name = "tablaDepartamento";
+            this.tablaDepartamento.Size = new System.Drawing.Size(524, 270);
+            this.tablaDepartamento.TabIndex = 2;
+            // 
+            // columnaId
+            // 
+            this.columnaId.HeaderText = "ID";
+            this.columnaId.Name = "columnaId";
+            // 
+            // columnaNombreDepartamento
+            // 
+            this.columnaNombreDepartamento.HeaderText = "Nombre Departamento";
+            this.columnaNombreDepartamento.Name = "columnaNombreDepartamento";
+            // 
+            // columnaSalas
+            // 
+            this.columnaSalas.HeaderText = "Salas";
+            this.columnaSalas.Name = "columnaSalas";
+            // 
+            // columnaAdmin
+            // 
+            this.columnaAdmin.HeaderText = "Administrador";
+            this.columnaAdmin.Name = "columnaAdmin";
             // 
             // VistaSecretaria
             // 
@@ -450,9 +451,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tablaDepartamento)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -463,6 +463,7 @@
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDepartamento)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -472,24 +473,23 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button botonAsignarAdmin;
+        private System.Windows.Forms.Button botonAsignarSala;
+        private System.Windows.Forms.Button botonEliminarDepto;
+        private System.Windows.Forms.Button botonCrearDepto;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView tablaDepartamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaId;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaNombreDepartamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaSalas;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaAdmin;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button botonAsignarAdmin;
-        private System.Windows.Forms.Button botonAsignarSala;
-        private System.Windows.Forms.Button botonEliminarDepto;
-        private System.Windows.Forms.Button botonCrearDepto;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaIdUsuario;
@@ -499,12 +499,13 @@
         private System.Windows.Forms.Button botonFiltrarUsuarios;
         private System.Windows.Forms.Button botonDeshabilitarUsuario;
         private System.Windows.Forms.Button botonAgregarUsuario;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button botonCrearSala;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaIdSala;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaNombreSala;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button botonCrearSala;
     }
 }
