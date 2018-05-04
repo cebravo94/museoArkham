@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Vista\VistaEncargadoDeBodega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistaEncargadoDeBodega.Designer.cs">
+      <DependentUpon>VistaEncargadoDeBodega.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\VistaLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     <Compile Include="Vista\VistaSecretaria.Designer.cs">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vista\VistaEncargadoDeBodega.resx">
+      <DependentUpon>VistaEncargadoDeBodega.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\VistaLogIn.resx">
       <DependentUpon>VistaLogIn.cs</DependentUpon>
     </EmbeddedResource>
