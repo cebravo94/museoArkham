@@ -42,6 +42,11 @@
             this.botonEliminarDepto = new System.Windows.Forms.Button();
             this.botonCrearDepto = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tablaDepartamento = new System.Windows.Forms.DataGridView();
+            this.columnaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaNombreDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaSalas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -61,11 +66,6 @@
             this.columnaNombreSala = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.botonCrearSala = new System.Windows.Forms.Button();
-            this.tablaDepartamento = new System.Windows.Forms.DataGridView();
-            this.columnaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaNombreDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaSalas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -74,6 +74,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDepartamento)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -84,7 +85,6 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaDepartamento)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -93,12 +93,12 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, -3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.6868F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.3132F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 446);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(803, 462);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -107,7 +107,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(788, 81);
+            this.panel1.Size = new System.Drawing.Size(797, 80);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -115,7 +115,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(312, 25);
+            this.label1.Location = new System.Drawing.Point(316, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(164, 37);
             this.label1.TabIndex = 0;
@@ -124,9 +124,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tabControl1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 90);
+            this.groupBox1.Location = new System.Drawing.Point(3, 93);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(788, 353);
+            this.groupBox1.Size = new System.Drawing.Size(788, 366);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Secretaria";
@@ -136,10 +136,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(2, 11);
+            this.tabControl1.Location = new System.Drawing.Point(0, 11);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(781, 337);
+            this.tabControl1.Size = new System.Drawing.Size(783, 348);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -149,7 +149,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(773, 311);
+            this.tabPage1.Size = new System.Drawing.Size(775, 322);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Departamento";
             // 
@@ -164,7 +164,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(764, 304);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(764, 315);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // groupBox3
@@ -176,7 +176,7 @@
             this.groupBox3.Controls.Add(this.botonCrearDepto);
             this.groupBox3.Location = new System.Drawing.Point(546, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(215, 289);
+            this.groupBox3.Size = new System.Drawing.Size(215, 303);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Administrar";
@@ -222,10 +222,43 @@
             this.groupBox2.Controls.Add(this.tablaDepartamento);
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(536, 298);
+            this.groupBox2.Size = new System.Drawing.Size(536, 309);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tabla";
+            // 
+            // tablaDepartamento
+            // 
+            this.tablaDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaDepartamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columnaId,
+            this.columnaNombreDepartamento,
+            this.columnaSalas,
+            this.columnaAdmin});
+            this.tablaDepartamento.Location = new System.Drawing.Point(6, 14);
+            this.tablaDepartamento.Name = "tablaDepartamento";
+            this.tablaDepartamento.Size = new System.Drawing.Size(524, 289);
+            this.tablaDepartamento.TabIndex = 2;
+            // 
+            // columnaId
+            // 
+            this.columnaId.HeaderText = "ID";
+            this.columnaId.Name = "columnaId";
+            // 
+            // columnaNombreDepartamento
+            // 
+            this.columnaNombreDepartamento.HeaderText = "Nombre Departamento";
+            this.columnaNombreDepartamento.Name = "columnaNombreDepartamento";
+            // 
+            // columnaSalas
+            // 
+            this.columnaSalas.HeaderText = "Salas";
+            this.columnaSalas.Name = "columnaSalas";
+            // 
+            // columnaAdmin
+            // 
+            this.columnaAdmin.HeaderText = "Administrador";
+            this.columnaAdmin.Name = "columnaAdmin";
             // 
             // tabPage2
             // 
@@ -234,7 +267,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(773, 311);
+            this.tabPage2.Size = new System.Drawing.Size(775, 322);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Usuarios";
             // 
@@ -249,7 +282,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(764, 304);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(764, 313);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // groupBox4
@@ -257,7 +290,7 @@
             this.groupBox4.Controls.Add(this.dataGridView1);
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(535, 298);
+            this.groupBox4.Size = new System.Drawing.Size(535, 307);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tabla";
@@ -271,7 +304,7 @@
             this.columnaFecha});
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(523, 273);
+            this.dataGridView1.Size = new System.Drawing.Size(523, 279);
             this.dataGridView1.TabIndex = 0;
             // 
             // columnaIdUsuario
@@ -335,7 +368,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(773, 311);
+            this.tabPage3.Size = new System.Drawing.Size(775, 322);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Salas";
             // 
@@ -403,44 +436,11 @@
             this.botonCrearSala.Text = "Crear Sala";
             this.botonCrearSala.UseVisualStyleBackColor = true;
             // 
-            // tablaDepartamento
-            // 
-            this.tablaDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablaDepartamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.columnaId,
-            this.columnaNombreDepartamento,
-            this.columnaSalas,
-            this.columnaAdmin});
-            this.tablaDepartamento.Location = new System.Drawing.Point(6, 14);
-            this.tablaDepartamento.Name = "tablaDepartamento";
-            this.tablaDepartamento.Size = new System.Drawing.Size(524, 270);
-            this.tablaDepartamento.TabIndex = 2;
-            // 
-            // columnaId
-            // 
-            this.columnaId.HeaderText = "ID";
-            this.columnaId.Name = "columnaId";
-            // 
-            // columnaNombreDepartamento
-            // 
-            this.columnaNombreDepartamento.HeaderText = "Nombre Departamento";
-            this.columnaNombreDepartamento.Name = "columnaNombreDepartamento";
-            // 
-            // columnaSalas
-            // 
-            this.columnaSalas.HeaderText = "Salas";
-            this.columnaSalas.Name = "columnaSalas";
-            // 
-            // columnaAdmin
-            // 
-            this.columnaAdmin.HeaderText = "Administrador";
-            this.columnaAdmin.Name = "columnaAdmin";
-            // 
             // VistaSecretaria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(804, 461);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VistaSecretaria";
@@ -453,6 +453,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDepartamento)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -463,7 +464,6 @@
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tablaDepartamento)).EndInit();
             this.ResumeLayout(false);
 
         }
