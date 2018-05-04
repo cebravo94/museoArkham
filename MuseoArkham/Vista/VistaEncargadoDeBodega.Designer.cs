@@ -157,6 +157,7 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Objetos";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -191,9 +192,9 @@
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 20);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 20);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(554, 288);
+            this.dataGridView1.Size = new System.Drawing.Size(555, 288);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -249,11 +250,11 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.Controls.Add(this.groupBox6, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.groupBox7, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 4);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 6);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(765, 320);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(765, 318);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // groupBox6
@@ -261,7 +262,7 @@
             this.groupBox6.Controls.Add(this.dataGridView2);
             this.groupBox6.Location = new System.Drawing.Point(3, 3);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(567, 313);
+            this.groupBox6.Size = new System.Drawing.Size(567, 312);
             this.groupBox6.TabIndex = 3;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Tabla";
@@ -302,7 +303,7 @@
             this.groupBox7.Controls.Add(this.button5);
             this.groupBox7.Location = new System.Drawing.Point(576, 3);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(184, 313);
+            this.groupBox7.Size = new System.Drawing.Size(184, 312);
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Administrar";
@@ -403,6 +404,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Desincorporar Objeto";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -422,6 +424,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "Consulta";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -431,6 +434,7 @@
             this.button5.TabIndex = 0;
             this.button5.Text = "Ver Detalles";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -440,6 +444,7 @@
             this.button6.TabIndex = 1;
             this.button6.Text = "Consulta";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -449,6 +454,7 @@
             this.button7.TabIndex = 2;
             this.button7.Text = "Registrar";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Column11
             // 
