@@ -15,7 +15,7 @@ namespace MuseoArkham
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VistaLogIn());
+            Application.Run(new Vista.VentanaDePruebas());
         }
     }
 }
