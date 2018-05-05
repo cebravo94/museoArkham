@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Vista\VistaAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistaAdministrador.Designer.cs">
+      <DependentUpon>VistaAdministrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\VistaLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Vista\VistaAdministrador.resx">
+      <DependentUpon>VistaAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\VistaLogIn.resx">
       <DependentUpon>VistaLogIn.cs</DependentUpon>
     </EmbeddedResource>
