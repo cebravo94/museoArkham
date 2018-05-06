@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaSecretaria));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -66,6 +65,7 @@
             this.columnaNombreSala = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.botonCrearSala = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -96,8 +96,8 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1, -3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.6868F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.3132F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.09957F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.90044F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(803, 462);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -107,24 +107,13 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(797, 80);
+            this.panel1.Size = new System.Drawing.Size(797, 70);
             this.panel1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(316, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ARKHAM\r\n";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tabControl1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 93);
+            this.groupBox1.Location = new System.Drawing.Point(3, 82);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(788, 366);
             this.groupBox1.TabIndex = 2;
@@ -139,7 +128,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 11);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(783, 348);
+            this.tabControl1.Size = new System.Drawing.Size(783, 359);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -149,7 +138,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(775, 322);
+            this.tabPage1.Size = new System.Drawing.Size(775, 333);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Departamento";
             // 
@@ -164,7 +153,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(764, 315);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(764, 326);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // groupBox3
@@ -176,7 +165,7 @@
             this.groupBox3.Controls.Add(this.botonCrearDepto);
             this.groupBox3.Location = new System.Drawing.Point(546, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(215, 303);
+            this.groupBox3.Size = new System.Drawing.Size(215, 320);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Administrar";
@@ -222,7 +211,7 @@
             this.groupBox2.Controls.Add(this.tablaDepartamento);
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(536, 309);
+            this.groupBox2.Size = new System.Drawing.Size(536, 320);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tabla";
@@ -237,7 +226,7 @@
             this.columnaAdmin});
             this.tablaDepartamento.Location = new System.Drawing.Point(6, 14);
             this.tablaDepartamento.Name = "tablaDepartamento";
-            this.tablaDepartamento.Size = new System.Drawing.Size(524, 289);
+            this.tablaDepartamento.Size = new System.Drawing.Size(524, 300);
             this.tablaDepartamento.TabIndex = 2;
             // 
             // columnaId
@@ -267,7 +256,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(775, 322);
+            this.tabPage2.Size = new System.Drawing.Size(775, 343);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Usuarios";
             // 
@@ -368,7 +357,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(775, 322);
+            this.tabPage3.Size = new System.Drawing.Size(775, 343);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Salas";
             // 
@@ -436,6 +425,17 @@
             this.botonCrearSala.Text = "Crear Sala";
             this.botonCrearSala.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(316, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 39);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "ARKHAM";
+            // 
             // VistaSecretaria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,9 +444,10 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VistaSecretaria";
-            this.Text = "VistaSecretaria";
+            this.Text = "Museo Arkham";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -473,7 +474,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -507,5 +507,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaNombreSala;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button botonCrearSala;
+        private System.Windows.Forms.Label label1;
     }
 }
