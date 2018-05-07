@@ -64,6 +64,12 @@
     <Compile Include="Vista\VistaGerente.Designer.cs">
       <DependentUpon>VistaGerente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\VistaDirector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistaDirector.Designer.cs">
+      <DependentUpon>VistaDirector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\VistaLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
