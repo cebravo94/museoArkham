@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaDirector));
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.botonCancelar = new System.Windows.Forms.Button();
+            this.botonGenerar = new System.Windows.Forms.Button();
             this.comboOrigen = new System.Windows.Forms.ComboBox();
             this.combestilo = new System.Windows.Forms.ComboBox();
             this.comboMarca = new System.Windows.Forms.ComboBox();
@@ -38,9 +41,7 @@
             this.combColeccion = new System.Windows.Forms.ComboBox();
             this.comboDepartamento = new System.Windows.Forms.ComboBox();
             this.comboReporte = new System.Windows.Forms.ComboBox();
-            this.botonGenerar = new System.Windows.Forms.Button();
-            this.botonCancelar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -57,16 +58,16 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.41344F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.58656F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(317, 387);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(799, 455);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(311, 73);
+            this.panel2.Size = new System.Drawing.Size(793, 86);
             this.panel2.TabIndex = 0;
             // 
             // groupBox2
@@ -80,17 +81,36 @@
             this.groupBox2.Controls.Add(this.combColeccion);
             this.groupBox2.Controls.Add(this.comboDepartamento);
             this.groupBox2.Controls.Add(this.comboReporte);
-            this.groupBox2.Location = new System.Drawing.Point(3, 82);
+            this.groupBox2.Location = new System.Drawing.Point(3, 95);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(310, 302);
+            this.groupBox2.Size = new System.Drawing.Size(793, 357);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Director";
             // 
+            // botonCancelar
+            // 
+            this.botonCancelar.Location = new System.Drawing.Point(321, 288);
+            this.botonCancelar.Name = "botonCancelar";
+            this.botonCancelar.Size = new System.Drawing.Size(137, 40);
+            this.botonCancelar.TabIndex = 8;
+            this.botonCancelar.Text = "Cancelar";
+            this.botonCancelar.UseVisualStyleBackColor = true;
+            this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
+            // 
+            // botonGenerar
+            // 
+            this.botonGenerar.Location = new System.Drawing.Point(321, 229);
+            this.botonGenerar.Name = "botonGenerar";
+            this.botonGenerar.Size = new System.Drawing.Size(137, 40);
+            this.botonGenerar.TabIndex = 7;
+            this.botonGenerar.Text = "Generar";
+            this.botonGenerar.UseVisualStyleBackColor = true;
+            // 
             // comboOrigen
             // 
             this.comboOrigen.FormattingEnabled = true;
-            this.comboOrigen.Location = new System.Drawing.Point(9, 81);
+            this.comboOrigen.Location = new System.Drawing.Point(282, 122);
             this.comboOrigen.Name = "comboOrigen";
             this.comboOrigen.Size = new System.Drawing.Size(218, 21);
             this.comboOrigen.TabIndex = 6;
@@ -100,7 +120,7 @@
             // combestilo
             // 
             this.combestilo.FormattingEnabled = true;
-            this.combestilo.Location = new System.Drawing.Point(9, 81);
+            this.combestilo.Location = new System.Drawing.Point(283, 122);
             this.combestilo.Name = "combestilo";
             this.combestilo.Size = new System.Drawing.Size(218, 21);
             this.combestilo.TabIndex = 5;
@@ -110,7 +130,7 @@
             // comboMarca
             // 
             this.comboMarca.FormattingEnabled = true;
-            this.comboMarca.Location = new System.Drawing.Point(9, 81);
+            this.comboMarca.Location = new System.Drawing.Point(282, 122);
             this.comboMarca.Name = "comboMarca";
             this.comboMarca.Size = new System.Drawing.Size(218, 21);
             this.comboMarca.TabIndex = 4;
@@ -120,7 +140,7 @@
             // combautor
             // 
             this.combautor.FormattingEnabled = true;
-            this.combautor.Location = new System.Drawing.Point(9, 81);
+            this.combautor.Location = new System.Drawing.Point(282, 122);
             this.combautor.Name = "combautor";
             this.combautor.Size = new System.Drawing.Size(218, 21);
             this.combautor.TabIndex = 3;
@@ -130,7 +150,7 @@
             // combColeccion
             // 
             this.combColeccion.FormattingEnabled = true;
-            this.combColeccion.Location = new System.Drawing.Point(9, 81);
+            this.combColeccion.Location = new System.Drawing.Point(282, 122);
             this.combColeccion.Name = "combColeccion";
             this.combColeccion.Size = new System.Drawing.Size(218, 21);
             this.combColeccion.TabIndex = 2;
@@ -140,7 +160,7 @@
             // comboDepartamento
             // 
             this.comboDepartamento.FormattingEnabled = true;
-            this.comboDepartamento.Location = new System.Drawing.Point(9, 81);
+            this.comboDepartamento.Location = new System.Drawing.Point(282, 122);
             this.comboDepartamento.Name = "comboDepartamento";
             this.comboDepartamento.Size = new System.Drawing.Size(218, 21);
             this.comboDepartamento.TabIndex = 1;
@@ -158,50 +178,34 @@
             "Reporte por marca",
             "Reporte por estilo artistico",
             "Reporte por año de origen de objeto"});
-            this.comboReporte.Location = new System.Drawing.Point(8, 34);
+            this.comboReporte.Location = new System.Drawing.Point(282, 66);
             this.comboReporte.Name = "comboReporte";
             this.comboReporte.Size = new System.Drawing.Size(219, 21);
             this.comboReporte.TabIndex = 0;
             this.comboReporte.Text = "Seleccionar tipo de reporte";
             this.comboReporte.SelectedIndexChanged += new System.EventHandler(this.comboReporte_SelectedIndexChanged);
             // 
-            // botonGenerar
+            // label1
             // 
-            this.botonGenerar.Location = new System.Drawing.Point(9, 216);
-            this.botonGenerar.Name = "botonGenerar";
-            this.botonGenerar.Size = new System.Drawing.Size(137, 23);
-            this.botonGenerar.TabIndex = 7;
-            this.botonGenerar.Text = "Generar";
-            this.botonGenerar.UseVisualStyleBackColor = true;
-            // 
-            // botonCancelar
-            // 
-            this.botonCancelar.Location = new System.Drawing.Point(167, 216);
-            this.botonCancelar.Name = "botonCancelar";
-            this.botonCancelar.Size = new System.Drawing.Size(137, 23);
-            this.botonCancelar.TabIndex = 8;
-            this.botonCancelar.Text = "Cancelar";
-            this.botonCancelar.UseVisualStyleBackColor = true;
-            this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(86, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 31);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "ARKHAM";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(314, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 39);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "ARKHAM";
             // 
             // VistaDirector
             // 
-            this.ClientSize = new System.Drawing.Size(319, 392);
+            this.ClientSize = new System.Drawing.Size(800, 457);
             this.Controls.Add(this.tableLayoutPanel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "VistaDirector";
-            this.Text = "Museo arkham";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Museo Arkham";
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -225,6 +229,6 @@
         private System.Windows.Forms.ComboBox comboReporte;
         private System.Windows.Forms.Button botonGenerar;
         private System.Windows.Forms.Button botonCancelar;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

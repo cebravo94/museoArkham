@@ -84,6 +84,9 @@
     <Compile Include="Vista\VistaSecretaria.Designer.cs">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vista\VistaDirector.resx">
+      <DependentUpon>VistaDirector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\VistaEncargadoDeBodega.resx">
       <DependentUpon>VistaEncargadoDeBodega.cs</DependentUpon>
     </EmbeddedResource>

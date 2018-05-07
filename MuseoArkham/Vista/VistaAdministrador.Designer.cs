@@ -30,31 +30,31 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaAdministrador));
             this.banner = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBoxAdministrador = new System.Windows.Forms.GroupBox();
             this.tabControl1Administrador = new System.Windows.Forms.TabControl();
             this.tabPageSolicitudesTraslado = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tabPageObjetos = new System.Windows.Forms.TabPage();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.buttonFiltrar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.tabPageObjetos = new System.Windows.Forms.TabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.codigoObjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.anno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.buttonFiltrar = new System.Windows.Forms.Button();
             this.banner.SuspendLayout();
             this.groupBoxAdministrador.SuspendLayout();
             this.tabControl1Administrador.SuspendLayout();
@@ -63,16 +63,16 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.tabPageObjetos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,6 +84,17 @@
             this.banner.Name = "banner";
             this.banner.Size = new System.Drawing.Size(802, 70);
             this.banner.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(319, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 39);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "ARKHAM";
             // 
             // groupBoxAdministrador
             // 
@@ -133,70 +144,15 @@
             this.splitContainer1.SplitterDistance = 563;
             this.splitContainer1.TabIndex = 0;
             // 
-            // button3
+            // groupBox1
             // 
-            this.button3.Location = new System.Drawing.Point(39, 134);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(120, 41);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Filtrar Solicitudes";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(39, 87);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 41);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Cancelar Solicitud";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(39, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 41);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Crear Solicitud";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // tabPageObjetos
-            // 
-            this.tabPageObjetos.Controls.Add(this.splitContainer2);
-            this.tabPageObjetos.Location = new System.Drawing.Point(4, 22);
-            this.tabPageObjetos.Name = "tabPageObjetos";
-            this.tabPageObjetos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageObjetos.Size = new System.Drawing.Size(782, 336);
-            this.tabPageObjetos.TabIndex = 1;
-            this.tabPageObjetos.Text = "Objetos";
-            this.tabPageObjetos.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.groupBox2);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.groupBox4);
-            this.splitContainer2.Size = new System.Drawing.Size(776, 330);
-            this.splitContainer2.SplitterDistance = 566;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // buttonFiltrar
-            // 
-            this.buttonFiltrar.Location = new System.Drawing.Point(35, 50);
-            this.buttonFiltrar.Name = "buttonFiltrar";
-            this.buttonFiltrar.Size = new System.Drawing.Size(120, 44);
-            this.buttonFiltrar.TabIndex = 0;
-            this.buttonFiltrar.Text = "Filtrar Objetos";
-            this.buttonFiltrar.UseVisualStyleBackColor = true;
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Location = new System.Drawing.Point(4, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(556, 323);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tabla";
             // 
             // dataGridView1
             // 
@@ -231,15 +187,73 @@
             this.departamento.HeaderText = "Departamento";
             this.departamento.Name = "departamento";
             // 
-            // groupBox1
+            // groupBox3
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(4, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(556, 323);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tabla";
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Location = new System.Drawing.Point(4, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 323);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Administrar";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(39, 40);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 41);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Crear Solicitud";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(39, 134);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(120, 41);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Filtrar Solicitudes";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(39, 87);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 41);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Cancelar Solicitud";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // tabPageObjetos
+            // 
+            this.tabPageObjetos.Controls.Add(this.splitContainer2);
+            this.tabPageObjetos.Location = new System.Drawing.Point(4, 22);
+            this.tabPageObjetos.Name = "tabPageObjetos";
+            this.tabPageObjetos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageObjetos.Size = new System.Drawing.Size(782, 336);
+            this.tabPageObjetos.TabIndex = 1;
+            this.tabPageObjetos.Text = "Objetos";
+            this.tabPageObjetos.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox2);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.groupBox4);
+            this.splitContainer2.Size = new System.Drawing.Size(776, 330);
+            this.splitContainer2.SplitterDistance = 566;
+            this.splitContainer2.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -284,29 +298,6 @@
             this.sala.HeaderText = "Sala";
             this.sala.Name = "sala";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(319, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 39);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "ARKHAM";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Location = new System.Drawing.Point(4, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 323);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Administrar";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.buttonFiltrar);
@@ -317,15 +308,27 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Administrar";
             // 
+            // buttonFiltrar
+            // 
+            this.buttonFiltrar.Location = new System.Drawing.Point(35, 50);
+            this.buttonFiltrar.Name = "buttonFiltrar";
+            this.buttonFiltrar.Size = new System.Drawing.Size(120, 44);
+            this.buttonFiltrar.TabIndex = 0;
+            this.buttonFiltrar.Text = "Filtrar Objetos";
+            this.buttonFiltrar.UseVisualStyleBackColor = true;
+            // 
             // VistaAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 461);
+            this.ClientSize = new System.Drawing.Size(800, 457);
             this.Controls.Add(this.groupBoxAdministrador);
             this.Controls.Add(this.banner);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "VistaAdministrador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Museo Arkham";
             this.banner.ResumeLayout(false);
             this.banner.PerformLayout();
@@ -336,16 +339,16 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.tabPageObjetos.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
