@@ -55,7 +55,6 @@
             this.columnaNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnaFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adminGroupBox = new System.Windows.Forms.GroupBox();
-            this.botonFiltrarUsuarios = new System.Windows.Forms.Button();
             this.botonDeshabilitarUsuario = new System.Windows.Forms.Button();
             this.botonAgregarUsuario = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -325,7 +324,6 @@
             // 
             // adminGroupBox
             // 
-            this.adminGroupBox.Controls.Add(this.botonFiltrarUsuarios);
             this.adminGroupBox.Controls.Add(this.botonDeshabilitarUsuario);
             this.adminGroupBox.Controls.Add(this.botonAgregarUsuario);
             this.adminGroupBox.Location = new System.Drawing.Point(545, 3);
@@ -335,18 +333,9 @@
             this.adminGroupBox.TabStop = false;
             this.adminGroupBox.Text = "Administrar";
             // 
-            // botonFiltrarUsuarios
-            // 
-            this.botonFiltrarUsuarios.Location = new System.Drawing.Point(54, 179);
-            this.botonFiltrarUsuarios.Name = "botonFiltrarUsuarios";
-            this.botonFiltrarUsuarios.Size = new System.Drawing.Size(108, 47);
-            this.botonFiltrarUsuarios.TabIndex = 3;
-            this.botonFiltrarUsuarios.Text = "Filtrar Usuarios";
-            this.botonFiltrarUsuarios.UseVisualStyleBackColor = true;
-            // 
             // botonDeshabilitarUsuario
             // 
-            this.botonDeshabilitarUsuario.Location = new System.Drawing.Point(54, 126);
+            this.botonDeshabilitarUsuario.Location = new System.Drawing.Point(54, 152);
             this.botonDeshabilitarUsuario.Name = "botonDeshabilitarUsuario";
             this.botonDeshabilitarUsuario.Size = new System.Drawing.Size(108, 47);
             this.botonDeshabilitarUsuario.TabIndex = 2;
@@ -355,12 +344,13 @@
             // 
             // botonAgregarUsuario
             // 
-            this.botonAgregarUsuario.Location = new System.Drawing.Point(54, 73);
+            this.botonAgregarUsuario.Location = new System.Drawing.Point(54, 99);
             this.botonAgregarUsuario.Name = "botonAgregarUsuario";
             this.botonAgregarUsuario.Size = new System.Drawing.Size(108, 47);
             this.botonAgregarUsuario.TabIndex = 1;
             this.botonAgregarUsuario.Text = "Agregar Usuario";
             this.botonAgregarUsuario.UseVisualStyleBackColor = true;
+            this.botonAgregarUsuario.Click += new System.EventHandler(this.botonAgregarUsuario_Click);
             // 
             // tabPage3
             // 
@@ -500,7 +490,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaFecha;
         private System.Windows.Forms.GroupBox adminGroupBox;
-        private System.Windows.Forms.Button botonFiltrarUsuarios;
         private System.Windows.Forms.Button botonDeshabilitarUsuario;
         private System.Windows.Forms.Button botonAgregarUsuario;
         private System.Windows.Forms.TabPage tabPage3;
