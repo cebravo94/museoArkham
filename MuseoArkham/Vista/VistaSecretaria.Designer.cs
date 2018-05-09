@@ -216,6 +216,7 @@
             this.botonCrearDepto.TabIndex = 0;
             this.botonCrearDepto.Text = "Crear Departamento";
             this.botonCrearDepto.UseVisualStyleBackColor = true;
+            this.botonCrearDepto.Click += new System.EventHandler(this.botonCrearDepto_Click);
             // 
             // groupBox2
             // 
