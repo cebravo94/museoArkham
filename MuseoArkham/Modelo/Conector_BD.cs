@@ -12,7 +12,7 @@ namespace MuseoArkham.Modelo
         MySqlConnection con;
 
         public Conector_BD() {
-            string conS = "Server=localhost;Port=3306;Database=museo;Uid=root;password=password";
+            string conS = "Server=localhost;Port=3306;Database=museo;Uid=root;password=20318756cb";
             this.con = new MySqlConnection(conS);
         }
 
@@ -22,7 +22,6 @@ namespace MuseoArkham.Modelo
             try {
                 con.Open();
                 MySqlDataReader reader = command.ExecuteReader();
-                con.Close();
                 return reader;
             }
             catch (Exception e) {
@@ -32,5 +31,8 @@ namespace MuseoArkham.Modelo
             return null;
         }
 
+        public void cerrarConexion() {
+            this.con.Close();
+        }
     }
 }

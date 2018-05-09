@@ -33,8 +33,8 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxIdentificador = new System.Windows.Forms.TextBox();
+            this.textBoxContrasenna = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -98,8 +98,8 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.textBox1, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.textBox2, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxIdentificador, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxContrasenna, 1, 2);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 19);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
@@ -130,22 +130,22 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña";
             // 
-            // textBox1
+            // textBoxIdentificador
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 50);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBoxIdentificador.Location = new System.Drawing.Point(105, 50);
+            this.textBoxIdentificador.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.textBoxIdentificador.Name = "textBoxIdentificador";
+            this.textBoxIdentificador.Size = new System.Drawing.Size(227, 20);
+            this.textBoxIdentificador.TabIndex = 2;
             // 
-            // textBox2
+            // textBoxContrasenna
             // 
-            this.textBox2.Location = new System.Drawing.Point(105, 81);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(227, 20);
-            this.textBox2.TabIndex = 3;
+            this.textBoxContrasenna.Location = new System.Drawing.Point(105, 81);
+            this.textBoxContrasenna.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.textBoxContrasenna.Name = "textBoxContrasenna";
+            this.textBoxContrasenna.PasswordChar = '*';
+            this.textBoxContrasenna.Size = new System.Drawing.Size(227, 20);
+            this.textBoxContrasenna.TabIndex = 3;
             // 
             // VistaLogIn
             // 
@@ -177,8 +177,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox textBoxIdentificador;
+        public System.Windows.Forms.TextBox textBoxContrasenna;
     }
 }
 
