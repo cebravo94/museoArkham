@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Vista\VistaIncorporarObjeto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistaIncorporarObjeto.Designer.cs">
+      <DependentUpon>VistaIncorporarObjeto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\VistaCrearSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistaCrearSolicitud.Designer.cs">
+      <DependentUpon>VistaCrearSolicitud.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\VistaEncargadoDeBodega.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +96,12 @@
     <Compile Include="Vista\VistaSecretaria.Designer.cs">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vista\VistaIncorporarObjeto.resx">
+      <DependentUpon>VistaIncorporarObjeto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\VistaCrearSolicitud.resx">
+      <DependentUpon>VistaCrearSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\VistaDirector.resx">
       <DependentUpon>VistaDirector.cs</DependentUpon>
     </EmbeddedResource>
