@@ -7,21 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MuseoArkham.Vista;
 
 namespace MuseoArkham.Vista
 {
-    public partial class VistaSecretaria : Form
+    public partial class VistaCrearDepartamento : Form
     {
-        public VistaSecretaria()
+        public VistaCrearDepartamento()
         {
             InitializeComponent();
-        }
-
-        private void botonCrearDepto_Click(object sender, EventArgs e)
-        {
-            VistaCrearDepartamento vcd = new VistaCrearDepartamento();
-            vcd.Show();
         }
     }
 }
