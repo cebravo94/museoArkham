@@ -46,6 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelo\Departamento.cs" />
+    <Compile Include="Modelo\Documento.cs" />
+    <Compile Include="Modelo\Item.cs" />
+    <Compile Include="Modelo\Obra.cs" />
+    <Compile Include="Modelo\Pieza.cs" />
+    <Compile Include="Modelo\Registro.cs" />
+    <Compile Include="Modelo\Sala.cs" />
+    <Compile Include="Modelo\Solicitud.cs" />
+    <Compile Include="Modelo\Usuario.cs" />
+    <Compile Include="Modelo\Vehiculo.cs" />
     <Compile Include="Vista\VistaEncargadoDeBodega.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,7 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controlador\" />
-    <Folder Include="Modelo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
