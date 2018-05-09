@@ -12,7 +12,7 @@ namespace MuseoArkham.Modelo
         MySqlConnection con;
 
         public Conector_BD() {
-            string conS = "Server=localhost;Port=3306;Database=museo;Uid=root;password=20318756cb";
+            string conS = "Server=localhost;Port=3306;Database=museo;Uid=root;password=password";
             this.con = new MySqlConnection(conS);
         }
 

@@ -2,6 +2,7 @@ CREATE DATABASE IF NOT EXISTS museo;
  
 USE museo;
  
+ 
 DROP TABLE IF EXISTS usuario;
  
 CREATE TABLE usuario(

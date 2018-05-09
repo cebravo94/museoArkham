@@ -1,5 +1,6 @@
 USE museo;
 
+
 INSERT INTO Usuario (contrasenna,nombre,rut,correo,fecha_ingreso,tipo) VALUES (1234,'Juana Maria',11658123-8,'juanamaria@gmail.com',14/05/1987,'Secretaria');
 INSERT INTO Usuario (contrasenna,nombre,rut,correo,fecha_ingreso,tipo) VALUES (1234,'Juan Letelier',23658123-8,'juanletelier@gmail.com',14/06/9287,'Bodega');
 INSERT INTO Usuario (contrasenna,nombre,rut,correo,fecha_ingreso,tipo) VALUES (1234,'Miguel Gonzalez',18563987-1,'miguelgonzalez@gmail.com',13/05/2000,'Director');
