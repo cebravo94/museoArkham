@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Vista\VistaAgregarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistaAgregarUsuario.Designer.cs">
+      <DependentUpon>VistaAgregarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\VistaCrearDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistaCrearDepartamento.Designer.cs">
+      <DependentUpon>VistaCrearDepartamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\VistaEncargadoDeBodega.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +96,12 @@
     <Compile Include="Vista\VistaSecretaria.Designer.cs">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vista\VistaAgregarUsuario.resx">
+      <DependentUpon>VistaAgregarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\VistaCrearDepartamento.resx">
+      <DependentUpon>VistaCrearDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\VistaDirector.resx">
       <DependentUpon>VistaDirector.cs</DependentUpon>
     </EmbeddedResource>

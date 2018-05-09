@@ -7,21 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MuseoArkham.Vista;
 
 namespace MuseoArkham.Vista
 {
-    public partial class VistaSecretaria : Form
+    public partial class VistaAgregarUsuario : Form
     {
-        public VistaSecretaria()
+        public VistaAgregarUsuario()
         {
             InitializeComponent();
         }
 
-        private void botonAgregarUsuario_Click(object sender, EventArgs e)
+        private void label5_Click(object sender, EventArgs e)
         {
-            VistaAgregarUsuario vau = new VistaAgregarUsuario();
-            vau.ShowDialog();
+
         }
     }
 }
