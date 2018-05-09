@@ -53,112 +53,112 @@
     <Compile Include="Controlador\Controlador.cs" />
     <Compile Include="Controlador\ControladorLogIn.cs" />
     <Compile Include="Modelo\Conector_BD.cs" />
-    <Compile Include="Vista\VistaCrearDepartamento.cs">
+    <Compile Include="Vista\Vistas Secretaria\VistaCrearDepartamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\VistaCrearDepartamento.Designer.cs">
+    <Compile Include="Vista\Vistas Secretaria\VistaCrearDepartamento.Designer.cs">
       <DependentUpon>VistaCrearDepartamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\VistaAgregarUsuario.cs">
+    <Compile Include="Vista\Vistas Secretaria\VistaAgregarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\VistaAgregarUsuario.Designer.cs">
+    <Compile Include="Vista\Vistas Secretaria\VistaAgregarUsuario.Designer.cs">
       <DependentUpon>VistaAgregarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\VistaIncorporarObjeto.cs">
+    <Compile Include="Vista\Vistas Bodeguero\VistaIncorporarObjeto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\VistaIncorporarObjeto.Designer.cs">
+    <Compile Include="Vista\Vistas Bodeguero\VistaIncorporarObjeto.Designer.cs">
       <DependentUpon>VistaIncorporarObjeto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\VistaCrearSolicitud.cs">
+    <Compile Include="Vista\Vistas Administrador\VistaCrearSolicitud.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\VistaCrearSolicitud.Designer.cs">
+    <Compile Include="Vista\Vistas Administrador\VistaCrearSolicitud.Designer.cs">
       <DependentUpon>VistaCrearSolicitud.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Departamento.cs" />
-    <Compile Include="Modelo\Documento.cs" />
-    <Compile Include="Modelo\Item.cs" />
-    <Compile Include="Modelo\Obra.cs" />
-    <Compile Include="Modelo\Pieza.cs" />
-    <Compile Include="Modelo\Registro.cs" />
-    <Compile Include="Modelo\Sala.cs" />
-    <Compile Include="Modelo\Solicitud.cs" />
-    <Compile Include="Modelo\Usuario.cs" />
-    <Compile Include="Modelo\Vehiculo.cs" />
-    <Compile Include="Vista\VistaCrearSala.cs">
+    <Compile Include="Modelo\Modelo de Datos\Departamento.cs" />
+    <Compile Include="Modelo\Modelo de Objetos\Documento.cs" />
+    <Compile Include="Modelo\Modelo de Objetos\Item.cs" />
+    <Compile Include="Modelo\Modelo de Objetos\Obra.cs" />
+    <Compile Include="Modelo\Modelo de Objetos\Pieza.cs" />
+    <Compile Include="Modelo\Modelo de Datos\Registro.cs" />
+    <Compile Include="Modelo\Modelo de Datos\Sala.cs" />
+    <Compile Include="Modelo\Modelo de Datos\Solicitud.cs" />
+    <Compile Include="Modelo\Modelo de Datos\Usuario.cs" />
+    <Compile Include="Modelo\Modelo de Objetos\Vehiculo.cs" />
+    <Compile Include="Vista\Vistas Secretaria\VistaCrearSala.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\VistaCrearSala.Designer.cs">
+    <Compile Include="Vista\Vistas Secretaria\VistaCrearSala.Designer.cs">
       <DependentUpon>VistaCrearSala.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\VistaEncargadoDeBodega.cs">
+    <Compile Include="Vista\Vistas Bodeguero\VistaEncargadoDeBodega.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\VistaEncargadoDeBodega.Designer.cs">
+    <Compile Include="Vista\Vistas Bodeguero\VistaEncargadoDeBodega.Designer.cs">
       <DependentUpon>VistaEncargadoDeBodega.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\VistaAdministrador.cs">
+    <Compile Include="Vista\Vistas Administrador\VistaAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\VistaAdministrador.Designer.cs">
+    <Compile Include="Vista\Vistas Administrador\VistaAdministrador.Designer.cs">
       <DependentUpon>VistaAdministrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\VistaGerente.cs">
+    <Compile Include="Vista\Vistas Gerente\VistaGerente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\VistaGerente.Designer.cs">
+    <Compile Include="Vista\Vistas Gerente\VistaGerente.Designer.cs">
       <DependentUpon>VistaGerente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\VistaDirector.cs">
+    <Compile Include="Vista\Vistas Director\VistaDirector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\VistaDirector.Designer.cs">
+    <Compile Include="Vista\Vistas Director\VistaDirector.Designer.cs">
       <DependentUpon>VistaDirector.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\VistaLogIn.cs">
+    <Compile Include="Vista\Vistas LogIn\VistaLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\VistaLogIn.Designer.cs">
+    <Compile Include="Vista\Vistas LogIn\VistaLogIn.Designer.cs">
       <DependentUpon>VistaLogIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vista\VistaSecretaria.cs">
+    <Compile Include="Vista\Vistas Secretaria\VistaSecretaria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\VistaSecretaria.Designer.cs">
+    <Compile Include="Vista\Vistas Secretaria\VistaSecretaria.Designer.cs">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Vista\VistaIncorporarObjeto.resx">
+    <EmbeddedResource Include="Vista\Vistas Bodeguero\VistaIncorporarObjeto.resx">
       <DependentUpon>VistaIncorporarObjeto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\VistaCrearSolicitud.resx">
+    <EmbeddedResource Include="Vista\Vistas Administrador\VistaCrearSolicitud.resx">
       <DependentUpon>VistaCrearSolicitud.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\VistaCrearDepartamento.resx">
+    <EmbeddedResource Include="Vista\Vistas Secretaria\VistaCrearDepartamento.resx">
       <DependentUpon>VistaCrearDepartamento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\VistaAgregarUsuario.resx">
+    <EmbeddedResource Include="Vista\Vistas Secretaria\VistaAgregarUsuario.resx">
       <DependentUpon>VistaAgregarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\VistaCrearSala.resx">
+    <EmbeddedResource Include="Vista\Vistas Secretaria\VistaCrearSala.resx">
       <DependentUpon>VistaCrearSala.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\VistaDirector.resx">
+    <EmbeddedResource Include="Vista\Vistas Director\VistaDirector.resx">
       <DependentUpon>VistaDirector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\VistaEncargadoDeBodega.resx">
+    <EmbeddedResource Include="Vista\Vistas Bodeguero\VistaEncargadoDeBodega.resx">
       <DependentUpon>VistaEncargadoDeBodega.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\VistaAdministrador.resx">
+    <EmbeddedResource Include="Vista\Vistas Administrador\VistaAdministrador.resx">
       <DependentUpon>VistaAdministrador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\VistaGerente.resx">
+    <EmbeddedResource Include="Vista\Vistas Gerente\VistaGerente.resx">
       <DependentUpon>VistaGerente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\VistaLogIn.resx">
+    <EmbeddedResource Include="Vista\Vistas LogIn\VistaLogIn.resx">
       <DependentUpon>VistaLogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -170,7 +170,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Vista\VistaSecretaria.resx">
+    <EmbeddedResource Include="Vista\Vistas Secretaria\VistaSecretaria.resx">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -187,9 +187,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Folder Include="Controlador\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
