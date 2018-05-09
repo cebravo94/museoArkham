@@ -69,7 +69,8 @@ namespace MuseoArkham.Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Form ventanaIncorporarObjeto = new VistaIncorporarObjeto();
+            ventanaIncorporarObjeto.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
