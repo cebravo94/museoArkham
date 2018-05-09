@@ -34,7 +34,8 @@ namespace MuseoArkham.Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Form ventanaCrearSolicitud = new VistaCrearSolicitud();
+            ventanaCrearSolicitud.ShowDialog();
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)

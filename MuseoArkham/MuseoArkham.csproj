@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.10.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bdd\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +50,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\Controlador.cs" />
+    <Compile Include="Controlador\ControladorLogIn.cs" />
+    <Compile Include="Modelo\Conector_BD.cs" />
+    <Compile Include="Vista\VistaCrearDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistaCrearDepartamento.Designer.cs">
+      <DependentUpon>VistaCrearDepartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\VistaAgregarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistaAgregarUsuario.Designer.cs">
+      <DependentUpon>VistaAgregarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\VistaIncorporarObjeto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistaIncorporarObjeto.Designer.cs">
+      <DependentUpon>VistaIncorporarObjeto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\VistaCrearSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistaCrearSolicitud.Designer.cs">
+      <DependentUpon>VistaCrearSolicitud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Departamento.cs" />
+    <Compile Include="Modelo\Documento.cs" />
+    <Compile Include="Modelo\Item.cs" />
+    <Compile Include="Modelo\Obra.cs" />
+    <Compile Include="Modelo\Pieza.cs" />
+    <Compile Include="Modelo\Registro.cs" />
+    <Compile Include="Modelo\Sala.cs" />
+    <Compile Include="Modelo\Solicitud.cs" />
+    <Compile Include="Modelo\Usuario.cs" />
+    <Compile Include="Modelo\Vehiculo.cs" />
+    <Compile Include="Vista\VistaCrearSala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistaCrearSala.Designer.cs">
+      <DependentUpon>VistaCrearSala.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\VistaEncargadoDeBodega.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +131,21 @@
     <Compile Include="Vista\VistaSecretaria.Designer.cs">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vista\VistaIncorporarObjeto.resx">
+      <DependentUpon>VistaIncorporarObjeto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\VistaCrearSolicitud.resx">
+      <DependentUpon>VistaCrearSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\VistaCrearDepartamento.resx">
+      <DependentUpon>VistaCrearDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\VistaAgregarUsuario.resx">
+      <DependentUpon>VistaAgregarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\VistaCrearSala.resx">
+      <DependentUpon>VistaCrearSala.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\VistaDirector.resx">
       <DependentUpon>VistaDirector.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,9 +186,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Folder Include="Controlador\" />
-    <Folder Include="Modelo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

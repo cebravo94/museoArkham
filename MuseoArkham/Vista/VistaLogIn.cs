@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuseoArkham.Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,14 @@ namespace MuseoArkham
 {
     public partial class VistaLogIn : Form
     {
+        private ControladorLogIn controlador;
         public VistaLogIn() {
+            this.controlador = new ControladorLogIn();
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e) {
-
+            controlador.botonAceptar(this.textBoxIdentificador.Text, this.textBoxContrasenna.Text);
         }
     }
 }
