@@ -23,5 +23,17 @@ namespace MuseoArkham.Vista
             VistaAgregarUsuario vau = new VistaAgregarUsuario();
             vau.ShowDialog();
         }
+
+        private void botonCrearDepto_Click(object sender, EventArgs e)
+        {
+            VistaCrearDepartamento vcd = new VistaCrearDepartamento();
+            vcd.ShowDialog();
+        }
+
+        private void botonCrearSala_Click(object sender, EventArgs e)
+        {
+            VistaCrearSala vcs = new VistaCrearSala();
+            vcs.ShowDialog();
+        }
     }
 }

@@ -426,6 +426,7 @@
             this.botonCrearSala.TabIndex = 2;
             this.botonCrearSala.Text = "Crear Sala";
             this.botonCrearSala.UseVisualStyleBackColor = true;
+            this.botonCrearSala.Click += new System.EventHandler(this.botonCrearSala_Click);
             // 
             // VistaSecretaria
             // 
