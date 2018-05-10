@@ -15,6 +15,7 @@ namespace MuseoArkham.Modelo
         public String Descripcion { get; set; }
         public ArrayList Registros;
         public ArrayList Solicitudes;
+        public ArrayList Salas;
 
         public Departamento(int id, int idUsuario, string nombre, string descripcion)
         {
@@ -24,6 +25,7 @@ namespace MuseoArkham.Modelo
             Descripcion = descripcion;
             Registros = new ArrayList();
             Solicitudes = new ArrayList();
+            Salas = new ArrayList();
         }
 
         public void AgregarRegistro(Registro registro)
@@ -34,6 +36,11 @@ namespace MuseoArkham.Modelo
         public void AgregarSolicitud(Solicitud solicitud)
         {
             this.Solicitudes.Add(solicitud);
+        }
+
+        public void AgregarSala(Sala sala)
+        {
+            this.Salas.Add(sala);
         }
     }
 }

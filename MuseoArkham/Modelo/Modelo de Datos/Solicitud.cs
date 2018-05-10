@@ -11,7 +11,6 @@ namespace MuseoArkham.Modelo
     {
         public int Id { get; }
         public int IdDpto { get; }
-        public int IdItem { get; }
         public int IdAdministrador { get; }
         public int IdSalaOrigen { get; }
         public int IdSalaDestino { get; }
@@ -19,11 +18,10 @@ namespace MuseoArkham.Modelo
         public String Estado { get; set; }
         public ArrayList Items;
 
-        public Solicitud(int id, int idDpto, int idItem, int idAdministrador, int idSalaOrigen, int idSalaDestino, string comentario, string estado)
+        public Solicitud(int id, int idDpto, int idAdministrador, int idSalaOrigen, int idSalaDestino, string comentario, string estado)
         {
             Id = id;
             IdDpto = idDpto;
-            IdItem = idItem;
             IdAdministrador = idAdministrador;
             IdSalaOrigen = idSalaOrigen;
             IdSalaDestino = idSalaDestino;
