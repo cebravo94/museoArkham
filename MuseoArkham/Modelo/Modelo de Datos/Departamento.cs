@@ -25,5 +25,15 @@ namespace MuseoArkham.Modelo
             Registros = new ArrayList();
             Solicitudes = new ArrayList();
         }
+
+        public void AgregarRegistro(Registro registro)
+        {
+            this.Registros.Add(registro);
+        }
+
+        public void AgregarSolicitud(Solicitud solicitud)
+        {
+            this.Solicitudes.Add(solicitud);
+        }
     }
 }
