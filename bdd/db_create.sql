@@ -33,6 +33,7 @@ CREATE TABLE sala(
   nombre VARCHAR(63) NOT NULL,
   descripcion VARCHAR(63),
   area INT NOT NULL,
+  estado VARCHAR(63),
   FOREIGN KEY (id_dpto) REFERENCES departamento(id_dpto) ON DELETE RESTRICT
 );
  
@@ -47,7 +48,7 @@ CREATE TABLE item(
   descripcion VARCHAR(63),
   coleccion VARCHAR(63),
   estado VARCHAR(63),
-  anno VARCHAR(63) NOT NULL,
+  anno INT NOT NULL,
   era VARCHAR (63) NOT NULL,
   FOREIGN KEY (id_dpto) REFERENCES departamento(id_dpto) ON DELETE RESTRICT,
   FOREIGN KEY (id_sala) REFERENCES sala(id_sala) ON DELETE RESTRICT
