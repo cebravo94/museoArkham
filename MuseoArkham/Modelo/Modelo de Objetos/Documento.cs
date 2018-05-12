@@ -8,10 +8,12 @@ namespace MuseoArkham.Modelo
 {
     public class Documento : Item
     {
+        
+
         public String Tipo { get; set; }
         public String Autor { get; set; }
 
-        public Documento(int idItem, int idDpto, int idSala, DateTime fechaIngreso, string descripcion, string coleccion, string estado, string nombre, int anno, bool era, string tipo, string autor) : base(idItem, idDpto, idSala, fechaIngreso, descripcion, coleccion, estado, nombre, anno, era)
+        public Documento(int idItem, int idDpto, int idSala, DateTime fechaIngreso, string descripcion, string coleccion, string estado, string nombre, string tipoItem, int anno, bool era, string tipo, string autor) : base(idItem, idDpto, idSala, fechaIngreso, descripcion, coleccion, estado, nombre, tipoItem, anno, era)
         {
             Tipo = tipo;
             Autor = autor;

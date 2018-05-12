@@ -9,12 +9,12 @@ namespace MuseoArkham.Modelo
     public class Pieza : Item
     {
         public String Periodo { get; set; }
-        public String Tipo { get; set; }
+        public String TipoPieza { get; set; }
 
-        public Pieza(int idItem, int idDpto, int idSala, DateTime fechaIngreso, string descripcion, string coleccion, string estado, string nombre, int anno, bool era, string periodo, string tipo) : base(idItem, idDpto, idSala, fechaIngreso, descripcion, coleccion, estado, nombre, anno, era)
+        public Pieza(int idItem, int idDpto, int idSala, DateTime fechaIngreso, string descripcion, string coleccion, string estado, string nombre, string tipoItem, int anno, bool era, string periodo, string tipoPieza) : base(idItem, idDpto, idSala, fechaIngreso, descripcion, coleccion, estado, nombre, tipoItem, anno, era)
         {
             Periodo = periodo;
-            Tipo = tipo;
+            TipoPieza = tipoPieza;
         }
     }
 }

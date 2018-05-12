@@ -14,16 +14,26 @@ namespace MuseoArkham.Modelo
         public String Nombre { get; set; }
         public String Descripcion { get; set; }
         public Boolean Estado { get; set; }
+        public int Area { get; set; }
         public ArrayList Items;
 
-        public Sala(int id, int idDpto, string nombre, string descripcion, bool estado)
+        public Sala(int id, int idDpto, string nombre, string descripcion, bool estado, int area, ArrayList items)
         {
             Id = id;
             IdDpto = idDpto;
             Nombre = nombre;
             Descripcion = descripcion;
             Estado = estado;
+            Area = area;
+            Items = items;
             Items = new ArrayList();
         }
+
+        public void AgregarItem(Item item)
+        {
+            this.Items.Add(item);
+        }
+
+
     }
 }
