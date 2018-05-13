@@ -484,6 +484,7 @@
             this.Name = "VistaEncargadoDeBodega";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Museo Arkham";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VistaEncargadoDeBodega_FormClosing);
             this.Load += new System.EventHandler(this.VistaEncargadoDeBodega_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MuseoArkham.Vista;
+using MuseoArkham.Controlador.Controlador_Secretaria;
 
 namespace MuseoArkham.Vista
 {
     public partial class VistaSecretaria : Form
     {
+        private ControladorSecretaria controlador;
         public VistaSecretaria()
         {
+            this.controlador = new ControladorSecretaria(this);
             InitializeComponent();
         }
 
@@ -34,6 +37,10 @@ namespace MuseoArkham.Vista
         {
             VistaCrearSala vcs = new VistaCrearSala();
             vcs.ShowDialog();
+        }
+
+        private void VistaSecretaria_FormClosing(object sender, FormClosingEventArgs e) {
+            this.controlador.CerrarVentana(this);
         }
     }
 }
