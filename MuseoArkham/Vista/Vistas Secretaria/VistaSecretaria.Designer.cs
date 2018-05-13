@@ -440,6 +440,7 @@
             this.Name = "VistaSecretaria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Museo Arkham";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VistaSecretaria_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

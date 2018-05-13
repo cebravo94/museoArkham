@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuseoArkham.Controlador.Controlador_Administrador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace MuseoArkham.Vista
 {
     public partial class VistaAdministrador : Form
     {
+        private ControladorAdministrador controlador;
         public VistaAdministrador()
         {
+            this.controlador = new ControladorAdministrador(this);
             InitializeComponent();
         }
 
@@ -41,6 +44,10 @@ namespace MuseoArkham.Vista
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void VistaAdministrador_FormClosing(object sender, FormClosingEventArgs e) {
+            this.controlador.CerrarVentana(this);
         }
     }
 }

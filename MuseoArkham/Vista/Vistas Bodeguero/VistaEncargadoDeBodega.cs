@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuseoArkham.Controlador.Controlador_Bodeguero;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace MuseoArkham.Vista
 {
     public partial class VistaEncargadoDeBodega : Form
     {
+        private ControladorBodeguero controlador;
         public VistaEncargadoDeBodega()
         {
+            this.controlador = new ControladorBodeguero(this);
             InitializeComponent();
         }
 
@@ -111,6 +114,10 @@ namespace MuseoArkham.Vista
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void VistaEncargadoDeBodega_FormClosing(object sender, FormClosingEventArgs e) {
+            this.controlador.CerrarVentana(this);
         }
     }
 }

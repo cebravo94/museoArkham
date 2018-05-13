@@ -330,6 +330,7 @@
             this.Name = "VistaAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Museo Arkham";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VistaAdministrador_FormClosing);
             this.banner.ResumeLayout(false);
             this.banner.PerformLayout();
             this.groupBoxAdministrador.ResumeLayout(false);
