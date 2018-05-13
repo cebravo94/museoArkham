@@ -33,26 +33,26 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridViewSolicitudesTraslado = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonCrearSolicitud = new System.Windows.Forms.Button();
-            this.buttonCancelarSolicitud = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonFiltrarSolicitudes = new System.Windows.Forms.Button();
+            this.buttonCancelarSolicitud = new System.Windows.Forms.Button();
+            this.buttonCrearSolicitud = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dataGridViewObjetos = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.buttonFiltrarObjetos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -60,21 +60,21 @@
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSolicitudesTraslado)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -130,17 +130,6 @@
             this.tabPage1.Text = "Solicitudes de traslado";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.splitContainer3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(818, 286);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Objetos";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -170,21 +159,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.buttonFiltrarSolicitudes);
-            this.groupBox3.Controls.Add(this.buttonCancelarSolicitud);
-            this.groupBox3.Controls.Add(this.buttonCrearSolicitud);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox3.Size = new System.Drawing.Size(128, 280);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // dataGridViewSolicitudesTraslado
             // 
@@ -218,16 +192,31 @@
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
-            // buttonCrearSolicitud
+            // groupBox3
             // 
-            this.buttonCrearSolicitud.BackColor = System.Drawing.Color.Transparent;
-            this.buttonCrearSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonCrearSolicitud.Location = new System.Drawing.Point(5, 18);
-            this.buttonCrearSolicitud.Name = "buttonCrearSolicitud";
-            this.buttonCrearSolicitud.Size = new System.Drawing.Size(118, 30);
-            this.buttonCrearSolicitud.TabIndex = 0;
-            this.buttonCrearSolicitud.Text = "Crear solicitud";
-            this.buttonCrearSolicitud.UseVisualStyleBackColor = false;
+            this.groupBox3.Controls.Add(this.buttonFiltrarSolicitudes);
+            this.groupBox3.Controls.Add(this.buttonCancelarSolicitud);
+            this.groupBox3.Controls.Add(this.buttonCrearSolicitud);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(5);
+            this.groupBox3.Size = new System.Drawing.Size(128, 280);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // buttonFiltrarSolicitudes
+            // 
+            this.buttonFiltrarSolicitudes.BackColor = System.Drawing.Color.Transparent;
+            this.buttonFiltrarSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonFiltrarSolicitudes.Location = new System.Drawing.Point(5, 78);
+            this.buttonFiltrarSolicitudes.Name = "buttonFiltrarSolicitudes";
+            this.buttonFiltrarSolicitudes.Size = new System.Drawing.Size(118, 30);
+            this.buttonFiltrarSolicitudes.TabIndex = 2;
+            this.buttonFiltrarSolicitudes.Text = "Filtrar";
+            this.buttonFiltrarSolicitudes.UseVisualStyleBackColor = false;
             // 
             // buttonCancelarSolicitud
             // 
@@ -240,16 +229,27 @@
             this.buttonCancelarSolicitud.Text = "Cancelar solicitud";
             this.buttonCancelarSolicitud.UseVisualStyleBackColor = false;
             // 
-            // buttonFiltrarSolicitudes
+            // buttonCrearSolicitud
             // 
-            this.buttonFiltrarSolicitudes.BackColor = System.Drawing.Color.Transparent;
-            this.buttonFiltrarSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonFiltrarSolicitudes.Location = new System.Drawing.Point(5, 78);
-            this.buttonFiltrarSolicitudes.Name = "buttonFiltrarSolicitudes";
-            this.buttonFiltrarSolicitudes.Size = new System.Drawing.Size(118, 30);
-            this.buttonFiltrarSolicitudes.TabIndex = 2;
-            this.buttonFiltrarSolicitudes.Text = "Filtrar";
-            this.buttonFiltrarSolicitudes.UseVisualStyleBackColor = false;
+            this.buttonCrearSolicitud.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCrearSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonCrearSolicitud.Location = new System.Drawing.Point(5, 18);
+            this.buttonCrearSolicitud.Name = "buttonCrearSolicitud";
+            this.buttonCrearSolicitud.Size = new System.Drawing.Size(118, 30);
+            this.buttonCrearSolicitud.TabIndex = 0;
+            this.buttonCrearSolicitud.Text = "Crear solicitud";
+            this.buttonCrearSolicitud.UseVisualStyleBackColor = false;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.splitContainer3);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(818, 286);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Objetos";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // splitContainer3
             // 
@@ -279,18 +279,6 @@
             this.groupBox4.Size = new System.Drawing.Size(680, 280);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.buttonFiltrarObjetos);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(0, 0);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox5.Size = new System.Drawing.Size(128, 280);
-            this.groupBox5.TabIndex = 0;
-            this.groupBox5.TabStop = false;
             // 
             // dataGridViewObjetos
             // 
@@ -338,6 +326,18 @@
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.buttonFiltrarObjetos);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(0, 0);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(5);
+            this.groupBox5.Size = new System.Drawing.Size(128, 280);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            // 
             // buttonFiltrarObjetos
             // 
             this.buttonFiltrarObjetos.Dock = System.Windows.Forms.DockStyle.Top;
@@ -355,6 +355,7 @@
             this.ClientSize = new System.Drawing.Size(838, 441);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(854, 480);
             this.Name = "VistaAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Museo Arkham";
@@ -366,21 +367,21 @@
             this.groupBox1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSolicitudesTraslado)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).EndInit();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
