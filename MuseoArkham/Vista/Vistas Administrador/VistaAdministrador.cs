@@ -49,5 +49,19 @@ namespace MuseoArkham.Vista
         private void VistaAdministrador_FormClosing(object sender, FormClosingEventArgs e) {
             this.controlador.CerrarVentana(this);
         }
+
+        private void VistaAdministrador_Load(object sender, EventArgs e)
+        {
+                   }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
