@@ -119,5 +119,15 @@ namespace MuseoArkham.Vista
         private void VistaEncargadoDeBodega_FormClosing(object sender, FormClosingEventArgs e) {
             this.controlador.CerrarVentana(this);
         }
+
+        private void groupBox4_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox6_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
