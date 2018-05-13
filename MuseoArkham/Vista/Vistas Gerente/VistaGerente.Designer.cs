@@ -229,6 +229,7 @@
             this.Name = "VistaGerente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Museo Arkham";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VistaGerente_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

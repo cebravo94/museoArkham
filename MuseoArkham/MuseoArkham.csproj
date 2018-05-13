@@ -50,8 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controlador\Controlador.cs" />
-    <Compile Include="Controlador\ControladorLogIn.cs" />
+    <Compile Include="Controlador\Controlador Administrador\ControladorAdministrador.cs" />
+    <Compile Include="Controlador\Controlador Bodeguero\ControladorBodeguero.cs" />
+    <Compile Include="Controlador\Controlador Gerente\ControladorGerente.cs" />
+    <Compile Include="Controlador\Controlador Secretaria\ControladorSecretaria.cs" />
+    <Compile Include="Controlador\ControladorDirector\ControladorDirector.cs" />
+    <Compile Include="Controlador\Controlador\Controlador.cs" />
+    <Compile Include="Controlador\Controlador LogIn\ControladorLogIn.cs" />
     <Compile Include="Modelo\Conector_BD.cs" />
     <Compile Include="Vista\Vistas Secretaria\VistaCrearDepartamento.cs">
       <SubType>Form</SubType>

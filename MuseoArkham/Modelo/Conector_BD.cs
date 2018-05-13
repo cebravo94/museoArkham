@@ -9,30 +9,52 @@ namespace MuseoArkham.Modelo
 {
     class Conector_BD
     {
-        MySqlConnection con;
+        //Esto es para que sea un Singleton
+        private static readonly Lazy<Conector_BD> instance = new Lazy<Conector_BD>(() => new Conector_BD());
 
-        public Conector_BD() {
-            string conS = "Server=localhost;Port=3306;Database=museo;Uid=root;password=password";
-            this.con = new MySqlConnection(conS);
+        private MySqlConnection Con;
+
+        private Conector_BD() {
+            string conS = "Server=localhost;Port=3306;Database=museo;Uid=conexion;password=123456";
+            this.Con = new MySqlConnection(conS);
         }
 
-        public MySqlDataReader realizarConsulta(String consulta) {
-            MySqlCommand command = con.CreateCommand();
+        public static Conector_BD Instance {
+            get {
+                return instance.Value;
+            }
+        }
+
+        /**
+         * Este metodo recibe un String con la consulta en lenguaje SQL y
+         * retorna un lector con la respuesta de la consulta o null si
+         * es que no se pudo realizar.
+         * 
+         * @param consulta - es la consulta SQL
+         * 
+         * @returns un objeto MySqlDataReader iterable con el cual se puede
+         * leer el resultado de la consulta; null si no se pudo realizar la
+         * consulta.
+         * 
+         */
+        public MySqlDataReader RealizarConsulta(String consulta) {
+            MySqlCommand command = Con.CreateCommand();
             command.CommandText = consulta;
             try {
-                con.Open();
+                Con.Open();
                 MySqlDataReader reader = command.ExecuteReader();
-                return reader;
+                if (reader.HasRows) return reader;
             }
             catch (Exception e) {
                 Console.WriteLine(e.Message);
-                con.Close();
+                Con.Close();
             }
             return null;
         }
 
-        public void cerrarConexion() {
-            this.con.Close();
+        //Cierra la conexión con la base de datos.
+        public void CerrarConexion() {
+            this.Con.Close();
         }
     }
 }
