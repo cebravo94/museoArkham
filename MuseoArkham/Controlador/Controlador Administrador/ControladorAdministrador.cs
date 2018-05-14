@@ -17,5 +17,23 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
             this.ventana = ventana;
         }
 
+        /**
+         * <summary>
+         *Realiza la consulta SQL que se hará al apretar el botón "CancelarSolicitud"
+         * En la pestaña "Solicitudes de Traslado"
+         * </summary>
+         */
+        public void botonCancelarSolicitud()
+        {
+
+        }
+
+        /**
+         * <summary>
+         * Ejecuta SQL para filtrar los objetos.
+         * </summary>
+         */
+         public void botonFiltrarSolicitudes() {
+        }
     }
 }

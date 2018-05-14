@@ -7,13 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MuseoArkham.Controlador;
+using MuseoArkham.Controlador.Controlador_Administrador;
 
 namespace MuseoArkham.Vista
 {
     public partial class VistaCrearSolicitud : Form
     {
+        private ControladorCrearSolicitud controlador;
         public VistaCrearSolicitud()
         {
+            this.controlador = new ControladorCrearSolicitud(this);
             InitializeComponent();
         }
 
@@ -24,7 +28,7 @@ namespace MuseoArkham.Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.controlador.botonCrear();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -43,3 +47,4 @@ namespace MuseoArkham.Vista
         }
     }
 }
+
