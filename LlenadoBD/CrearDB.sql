@@ -45,10 +45,11 @@ CREATE TABLE item(
   id_sala INT NOT NULL,
   nombre VARCHAR(100),
   fecha_ingreso DATE NOT NULL,
-  descripcion VARCHAR(100),
+  descripcion VARCHAR(500),
   coleccion VARCHAR(100),
   estado VARCHAR(100),
   anno INT NOT NULL,
+  tipo VARCHAR (100),
   era VARCHAR (100) NOT NULL,
   FOREIGN KEY (id_dpto) REFERENCES departamento(id_dpto) ON DELETE RESTRICT,
   FOREIGN KEY (id_sala) REFERENCES sala(id_sala) ON DELETE RESTRICT
