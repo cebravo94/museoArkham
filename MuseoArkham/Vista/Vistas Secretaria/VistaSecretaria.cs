@@ -24,23 +24,28 @@ namespace MuseoArkham.Vista
         private void botonAgregarUsuario_Click(object sender, EventArgs e)
         {
             VistaAgregarUsuario vau = new VistaAgregarUsuario();
-            vau.ShowDialog();
+            vau.ShowDialog(this);
         }
 
         private void botonCrearDepto_Click(object sender, EventArgs e)
         {
             VistaCrearDepartamento vcd = new VistaCrearDepartamento();
-            vcd.ShowDialog();
+            vcd.ShowDialog(this);
         }
 
         private void botonCrearSala_Click(object sender, EventArgs e)
         {
             VistaCrearSala vcs = new VistaCrearSala();
-            vcs.ShowDialog();
+            vcs.ShowDialog(this);
         }
 
         private void VistaSecretaria_FormClosing(object sender, FormClosingEventArgs e) {
             this.controlador.CerrarVentana(this);
+        }
+
+        private void botonEliminarDepto_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
