@@ -23,5 +23,17 @@ namespace MuseoArkham.Vista
         private void VistaGerente_FormClosing(object sender, FormClosingEventArgs e) {
             this.controlador.CerrarVentana(this);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Este metodo debe recibir u obtener una solicitud en particular que se haya selecionado para cambiar su estado a "Aceptada".
+            this.controlador.aceptarSolicitud();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Este metodo debe recibir u obtener una solicitud en particular que se haya seleccionado para cambiar su estado a "Rechazada".
+            this.controlador.rechazarSolicitud();
+        }
     }
 }
