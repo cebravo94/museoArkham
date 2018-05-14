@@ -282,7 +282,7 @@
             this.tabPageSalas.Location = new System.Drawing.Point(4, 22);
             this.tabPageSalas.Name = "tabPageSalas";
             this.tabPageSalas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSalas.Size = new System.Drawing.Size(818, 286);
+            this.tabPageSalas.Size = new System.Drawing.Size(818, 279);
             this.tabPageSalas.TabIndex = 1;
             this.tabPageSalas.Text = "Salas";
             this.tabPageSalas.UseVisualStyleBackColor = true;
@@ -300,7 +300,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.groupBox5);
-            this.splitContainer3.Size = new System.Drawing.Size(812, 280);
+            this.splitContainer3.Size = new System.Drawing.Size(812, 273);
             this.splitContainer3.SplitterDistance = 675;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -312,7 +312,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox4.Size = new System.Drawing.Size(675, 280);
+            this.groupBox4.Size = new System.Drawing.Size(675, 273);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             // 
@@ -328,7 +328,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(5, 18);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(665, 257);
+            this.dataGridView1.Size = new System.Drawing.Size(665, 250);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column5
@@ -363,7 +363,7 @@
             this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox5.Size = new System.Drawing.Size(133, 280);
+            this.groupBox5.Size = new System.Drawing.Size(133, 273);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             // 
@@ -383,7 +383,7 @@
             this.tabPageUsuario.Location = new System.Drawing.Point(4, 22);
             this.tabPageUsuario.Name = "tabPageUsuario";
             this.tabPageUsuario.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUsuario.Size = new System.Drawing.Size(818, 286);
+            this.tabPageUsuario.Size = new System.Drawing.Size(818, 279);
             this.tabPageUsuario.TabIndex = 2;
             this.tabPageUsuario.Text = "Usuarios";
             this.tabPageUsuario.UseVisualStyleBackColor = true;
@@ -401,7 +401,7 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.groupBox7);
-            this.splitContainer4.Size = new System.Drawing.Size(812, 280);
+            this.splitContainer4.Size = new System.Drawing.Size(812, 273);
             this.splitContainer4.SplitterDistance = 675;
             this.splitContainer4.TabIndex = 0;
             // 
@@ -413,7 +413,7 @@
             this.groupBox6.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox6.Size = new System.Drawing.Size(675, 280);
+            this.groupBox6.Size = new System.Drawing.Size(675, 273);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             // 
@@ -429,7 +429,7 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(5, 18);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(665, 257);
+            this.dataGridView2.Size = new System.Drawing.Size(665, 250);
             this.dataGridView2.TabIndex = 0;
             // 
             // Column9
@@ -465,7 +465,7 @@
             this.groupBox7.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox7.Size = new System.Drawing.Size(133, 280);
+            this.groupBox7.Size = new System.Drawing.Size(133, 273);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             // 
