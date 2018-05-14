@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaSecretaria));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageDepartamento = new System.Windows.Forms.TabPage();
@@ -66,7 +67,6 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.buttonDeshabilitarUsuario = new System.Windows.Forms.Button();
             this.buttonAgregarUsuario = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -118,6 +118,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(838, 441);
             this.splitContainer1.SplitterDistance = 100;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
+            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 10);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(838, 90);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -275,6 +285,7 @@
             this.buttonCrearDepartamento.TabIndex = 0;
             this.buttonCrearDepartamento.Text = "Crear departamento";
             this.buttonCrearDepartamento.UseVisualStyleBackColor = true;
+            this.buttonCrearDepartamento.Click += new System.EventHandler(this.buttonCrearDepartamento_Click);
             // 
             // tabPageSalas
             // 
@@ -376,6 +387,7 @@
             this.buttonCrearSala.TabIndex = 0;
             this.buttonCrearSala.Text = "Crear sala";
             this.buttonCrearSala.UseVisualStyleBackColor = true;
+            this.buttonCrearSala.Click += new System.EventHandler(this.buttonCrearSala_Click);
             // 
             // tabPageUsuario
             // 
@@ -488,16 +500,7 @@
             this.buttonAgregarUsuario.TabIndex = 0;
             this.buttonAgregarUsuario.Text = "Agregar usuario";
             this.buttonAgregarUsuario.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
-            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 10);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(838, 90);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.buttonAgregarUsuario.Click += new System.EventHandler(this.buttonAgregarUsuario_Click);
             // 
             // VistaSecretaria
             // 

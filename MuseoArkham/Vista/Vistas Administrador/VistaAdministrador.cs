@@ -20,31 +20,6 @@ namespace MuseoArkham.Vista
             InitializeComponent();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form ventanaCrearSolicitud = new VistaCrearSolicitud();
-            ventanaCrearSolicitud.ShowDialog();
-        }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void VistaAdministrador_FormClosing(object sender, FormClosingEventArgs e) {
             this.controlador.CerrarVentana(this);
@@ -62,6 +37,12 @@ namespace MuseoArkham.Vista
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonCrearSolicitud_Click(object sender, EventArgs e)
+        {
+            Form ventanaCrearSolicitud = new VistaCrearSolicitud();
+            ventanaCrearSolicitud.ShowDialog();
         }
     }
 }

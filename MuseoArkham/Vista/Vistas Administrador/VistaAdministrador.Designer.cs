@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaAdministrador));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -54,7 +55,6 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.buttonFiltrarObjetos = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -99,6 +99,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(838, 441);
             this.splitContainer1.SplitterDistance = 100;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
+            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 10);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(838, 90);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -242,6 +252,7 @@
             this.buttonCrearSolicitud.TabIndex = 0;
             this.buttonCrearSolicitud.Text = "Crear solicitud";
             this.buttonCrearSolicitud.UseVisualStyleBackColor = false;
+            this.buttonCrearSolicitud.Click += new System.EventHandler(this.buttonCrearSolicitud_Click);
             // 
             // tabPage2
             // 
@@ -249,7 +260,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(818, 286);
+            this.tabPage2.Size = new System.Drawing.Size(818, 279);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Objetos";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -267,7 +278,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.groupBox5);
-            this.splitContainer3.Size = new System.Drawing.Size(812, 280);
+            this.splitContainer3.Size = new System.Drawing.Size(812, 273);
             this.splitContainer3.SplitterDistance = 675;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -279,7 +290,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox4.Size = new System.Drawing.Size(675, 280);
+            this.groupBox4.Size = new System.Drawing.Size(675, 273);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             // 
@@ -296,7 +307,7 @@
             this.dataGridViewObjetos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewObjetos.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewObjetos.Name = "dataGridViewObjetos";
-            this.dataGridViewObjetos.Size = new System.Drawing.Size(665, 257);
+            this.dataGridViewObjetos.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewObjetos.TabIndex = 0;
             // 
             // Column4
@@ -337,7 +348,7 @@
             this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox5.Size = new System.Drawing.Size(133, 280);
+            this.groupBox5.Size = new System.Drawing.Size(133, 273);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             // 
@@ -350,16 +361,6 @@
             this.buttonFiltrarObjetos.TabIndex = 0;
             this.buttonFiltrarObjetos.Text = "Filtrar";
             this.buttonFiltrarObjetos.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
-            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 10);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(838, 90);
-            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // VistaAdministrador
             // 
