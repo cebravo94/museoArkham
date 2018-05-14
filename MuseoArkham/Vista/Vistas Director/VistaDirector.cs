@@ -64,5 +64,12 @@ namespace MuseoArkham.Vista
         private void VistaDirector_FormClosing(object sender, FormClosingEventArgs e) {
             this.controlador.CerrarVentana(this);
         }
+
+
+        private void botonGenerar_Click(object sender, EventArgs e)
+        {
+            //el segundo parametro queda sujeto a condiciones
+            this.controlador.botonGenerar(comboReporte.Text ,comboReporte.Text);
+        }
     }
 }
