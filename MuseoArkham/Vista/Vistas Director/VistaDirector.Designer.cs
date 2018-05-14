@@ -36,7 +36,9 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonGenerarReporte = new System.Windows.Forms.Button();
             this.comboBoxReporte = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -57,11 +59,12 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Black;
+            this.splitContainer1.Panel1.Controls.Add(this.flowLayoutPanel1);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(3);
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.splitContainer1.Size = new System.Drawing.Size(838, 441);
             this.splitContainer1.SplitterDistance = 100;
             this.splitContainer1.TabIndex = 0;
@@ -70,9 +73,9 @@
             // 
             this.groupBox1.Controls.Add(this.splitContainer2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(3, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(832, 331);
+            this.groupBox1.Size = new System.Drawing.Size(832, 324);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Director";
@@ -90,8 +93,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox3);
-            this.splitContainer2.Size = new System.Drawing.Size(826, 312);
-            this.splitContainer2.SplitterDistance = 680;
+            this.splitContainer2.Size = new System.Drawing.Size(826, 305);
+            this.splitContainer2.SplitterDistance = 675;
             this.splitContainer2.TabIndex = 0;
             // 
             // groupBox2
@@ -101,7 +104,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox2.Size = new System.Drawing.Size(680, 312);
+            this.groupBox2.Size = new System.Drawing.Size(675, 305);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
@@ -114,7 +117,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox3.Size = new System.Drawing.Size(142, 312);
+            this.groupBox3.Size = new System.Drawing.Size(147, 305);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
@@ -123,7 +126,7 @@
             this.buttonGenerarReporte.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonGenerarReporte.Location = new System.Drawing.Point(5, 39);
             this.buttonGenerarReporte.Name = "buttonGenerarReporte";
-            this.buttonGenerarReporte.Size = new System.Drawing.Size(132, 30);
+            this.buttonGenerarReporte.Size = new System.Drawing.Size(137, 30);
             this.buttonGenerarReporte.TabIndex = 1;
             this.buttonGenerarReporte.Text = "Generar reporte";
             this.buttonGenerarReporte.UseVisualStyleBackColor = true;
@@ -134,8 +137,18 @@
             this.comboBoxReporte.FormattingEnabled = true;
             this.comboBoxReporte.Location = new System.Drawing.Point(5, 18);
             this.comboBoxReporte.Name = "comboBoxReporte";
-            this.comboBoxReporte.Size = new System.Drawing.Size(132, 21);
+            this.comboBoxReporte.Size = new System.Drawing.Size(137, 21);
             this.comboBoxReporte.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
+            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 10);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(838, 90);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // VistaDirector
             // 
@@ -148,6 +161,7 @@
             this.Text = "Museo Arkham";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VistaDirector_FormClosing);
             this.Load += new System.EventHandler(this.VistaDirector_Load);
+            this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -170,5 +184,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button buttonGenerarReporte;
         private System.Windows.Forms.ComboBox comboBoxReporte;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

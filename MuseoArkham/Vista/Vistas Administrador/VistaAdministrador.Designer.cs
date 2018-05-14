@@ -54,7 +54,9 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.buttonFiltrarObjetos = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -88,11 +90,12 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Black;
+            this.splitContainer1.Panel1.Controls.Add(this.flowLayoutPanel1);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(3);
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.splitContainer1.Size = new System.Drawing.Size(838, 441);
             this.splitContainer1.SplitterDistance = 100;
             this.splitContainer1.TabIndex = 0;
@@ -101,9 +104,9 @@
             // 
             this.groupBox1.Controls.Add(this.tabControl1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(3, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(832, 331);
+            this.groupBox1.Size = new System.Drawing.Size(832, 324);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administrador";
@@ -116,7 +119,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 16);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(826, 312);
+            this.tabControl1.Size = new System.Drawing.Size(826, 305);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -125,7 +128,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(818, 286);
+            this.tabPage1.Size = new System.Drawing.Size(818, 279);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Solicitudes de traslado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -143,8 +146,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox3);
-            this.splitContainer2.Size = new System.Drawing.Size(812, 280);
-            this.splitContainer2.SplitterDistance = 680;
+            this.splitContainer2.Size = new System.Drawing.Size(812, 273);
+            this.splitContainer2.SplitterDistance = 675;
             this.splitContainer2.TabIndex = 0;
             // 
             // groupBox2
@@ -155,7 +158,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox2.Size = new System.Drawing.Size(680, 280);
+            this.groupBox2.Size = new System.Drawing.Size(675, 273);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
@@ -171,7 +174,7 @@
             this.dataGridViewSolicitudesTraslado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSolicitudesTraslado.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewSolicitudesTraslado.Name = "dataGridViewSolicitudesTraslado";
-            this.dataGridViewSolicitudesTraslado.Size = new System.Drawing.Size(670, 257);
+            this.dataGridViewSolicitudesTraslado.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewSolicitudesTraslado.TabIndex = 0;
             // 
             // Column1
@@ -202,7 +205,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox3.Size = new System.Drawing.Size(128, 280);
+            this.groupBox3.Size = new System.Drawing.Size(133, 273);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
@@ -213,7 +216,7 @@
             this.buttonFiltrarSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonFiltrarSolicitudes.Location = new System.Drawing.Point(5, 78);
             this.buttonFiltrarSolicitudes.Name = "buttonFiltrarSolicitudes";
-            this.buttonFiltrarSolicitudes.Size = new System.Drawing.Size(118, 30);
+            this.buttonFiltrarSolicitudes.Size = new System.Drawing.Size(123, 30);
             this.buttonFiltrarSolicitudes.TabIndex = 2;
             this.buttonFiltrarSolicitudes.Text = "Filtrar";
             this.buttonFiltrarSolicitudes.UseVisualStyleBackColor = false;
@@ -224,7 +227,7 @@
             this.buttonCancelarSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonCancelarSolicitud.Location = new System.Drawing.Point(5, 48);
             this.buttonCancelarSolicitud.Name = "buttonCancelarSolicitud";
-            this.buttonCancelarSolicitud.Size = new System.Drawing.Size(118, 30);
+            this.buttonCancelarSolicitud.Size = new System.Drawing.Size(123, 30);
             this.buttonCancelarSolicitud.TabIndex = 1;
             this.buttonCancelarSolicitud.Text = "Cancelar solicitud";
             this.buttonCancelarSolicitud.UseVisualStyleBackColor = false;
@@ -235,7 +238,7 @@
             this.buttonCrearSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonCrearSolicitud.Location = new System.Drawing.Point(5, 18);
             this.buttonCrearSolicitud.Name = "buttonCrearSolicitud";
-            this.buttonCrearSolicitud.Size = new System.Drawing.Size(118, 30);
+            this.buttonCrearSolicitud.Size = new System.Drawing.Size(123, 30);
             this.buttonCrearSolicitud.TabIndex = 0;
             this.buttonCrearSolicitud.Text = "Crear solicitud";
             this.buttonCrearSolicitud.UseVisualStyleBackColor = false;
@@ -265,7 +268,7 @@
             // 
             this.splitContainer3.Panel2.Controls.Add(this.groupBox5);
             this.splitContainer3.Size = new System.Drawing.Size(812, 280);
-            this.splitContainer3.SplitterDistance = 680;
+            this.splitContainer3.SplitterDistance = 675;
             this.splitContainer3.TabIndex = 0;
             // 
             // groupBox4
@@ -276,7 +279,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox4.Size = new System.Drawing.Size(680, 280);
+            this.groupBox4.Size = new System.Drawing.Size(675, 280);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             // 
@@ -293,7 +296,7 @@
             this.dataGridViewObjetos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewObjetos.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewObjetos.Name = "dataGridViewObjetos";
-            this.dataGridViewObjetos.Size = new System.Drawing.Size(670, 257);
+            this.dataGridViewObjetos.Size = new System.Drawing.Size(665, 257);
             this.dataGridViewObjetos.TabIndex = 0;
             // 
             // Column4
@@ -334,7 +337,7 @@
             this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox5.Size = new System.Drawing.Size(128, 280);
+            this.groupBox5.Size = new System.Drawing.Size(133, 280);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             // 
@@ -343,10 +346,20 @@
             this.buttonFiltrarObjetos.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonFiltrarObjetos.Location = new System.Drawing.Point(5, 18);
             this.buttonFiltrarObjetos.Name = "buttonFiltrarObjetos";
-            this.buttonFiltrarObjetos.Size = new System.Drawing.Size(118, 30);
+            this.buttonFiltrarObjetos.Size = new System.Drawing.Size(123, 30);
             this.buttonFiltrarObjetos.TabIndex = 0;
             this.buttonFiltrarObjetos.Text = "Filtrar";
             this.buttonFiltrarObjetos.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
+            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 10);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(838, 90);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // VistaAdministrador
             // 
@@ -361,6 +374,7 @@
             this.Text = "Museo Arkham";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VistaAdministrador_FormClosing);
             this.Load += new System.EventHandler(this.VistaAdministrador_Load);
+            this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -413,5 +427,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button buttonFiltrarObjetos;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
