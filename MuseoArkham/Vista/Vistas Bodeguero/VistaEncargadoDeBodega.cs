@@ -78,12 +78,12 @@ namespace MuseoArkham.Vista
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            this.controlador.enviarARestauracion();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            this.controlador.verDetallesRegistros();
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -93,27 +93,28 @@ namespace MuseoArkham.Vista
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            this.controlador.registrarSolicitud();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            this.controlador.verDetallesSolicitudes();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            this.controlador.consultaSolicitudes();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
+            this.controlador.desincorporarObjeto();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            this.controlador.consultaSobreObjetos();
         }
 
         private void VistaEncargadoDeBodega_FormClosing(object sender, FormClosingEventArgs e) {
