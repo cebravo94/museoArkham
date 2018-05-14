@@ -50,7 +50,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tablaUsuarios = new System.Windows.Forms.DataGridView();
             this.columnaIdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnaNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnaFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,7 +60,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tablaSalas = new System.Windows.Forms.DataGridView();
             this.columnaIdSala = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnaNombreSala = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -77,12 +77,12 @@
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaUsuarios)).BeginInit();
             this.adminGroupBox.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaSalas)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -206,6 +206,7 @@
             this.botonEliminarDepto.TabIndex = 1;
             this.botonEliminarDepto.Text = "Eliminar Departamento";
             this.botonEliminarDepto.UseVisualStyleBackColor = true;
+            this.botonEliminarDepto.Click += new System.EventHandler(this.botonEliminarDepto_Click);
             // 
             // botonCrearDepto
             // 
@@ -287,7 +288,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.dataGridView1);
+            this.groupBox4.Controls.Add(this.tablaUsuarios);
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(535, 307);
@@ -295,17 +296,17 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tabla";
             // 
-            // dataGridView1
+            // tablaUsuarios
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tablaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnaIdUsuario,
             this.columnaNombre,
             this.columnaFecha});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(523, 279);
-            this.dataGridView1.TabIndex = 0;
+            this.tablaUsuarios.Location = new System.Drawing.Point(6, 19);
+            this.tablaUsuarios.Name = "tablaUsuarios";
+            this.tablaUsuarios.Size = new System.Drawing.Size(523, 279);
+            this.tablaUsuarios.TabIndex = 0;
             // 
             // columnaIdUsuario
             // 
@@ -379,7 +380,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.dataGridView2);
+            this.groupBox5.Controls.Add(this.tablaSalas);
             this.groupBox5.Location = new System.Drawing.Point(3, 3);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(535, 298);
@@ -387,16 +388,16 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Tabla";
             // 
-            // dataGridView2
+            // tablaSalas
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tablaSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaSalas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnaIdSala,
             this.columnaNombreSala});
-            this.dataGridView2.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(529, 279);
-            this.dataGridView2.TabIndex = 0;
+            this.tablaSalas.Location = new System.Drawing.Point(6, 19);
+            this.tablaSalas.Name = "tablaSalas";
+            this.tablaSalas.Size = new System.Drawing.Size(529, 279);
+            this.tablaSalas.TabIndex = 0;
             // 
             // columnaIdSala
             // 
@@ -454,12 +455,12 @@
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaUsuarios)).EndInit();
             this.adminGroupBox.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaSalas)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -487,7 +488,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView tablaUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaIdUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaFecha;
@@ -497,7 +498,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView tablaSalas;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaIdSala;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaNombreSala;
         private System.Windows.Forms.GroupBox groupBox6;

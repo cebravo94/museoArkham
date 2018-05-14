@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuseoArkham.Controlador.Controlador_Secretaria;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,22 @@ namespace MuseoArkham.Vista
 {
     public partial class VistaAgregarUsuario : Form
     {
+        ControladorAgregarUsuario controlador;
         public VistaAgregarUsuario()
-        {
+        {         
+            this.controlador = new ControladorAgregarUsuario(this);
             InitializeComponent();
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void botonAceptar_Click(object sender, EventArgs e)
+        {
+            this.controlador.botonAceptar(textBoxNombre.Text, textBoxRut.Text, textBoxCorreo.Text, comboBoxTipo.Text, textBoxContrasenna.Text);
+            
         }
     }
 }
