@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuseoArkham.Controlador.Controlador_Secretaria;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace MuseoArkham.Vista
 {
     public partial class VistaCrearDepartamento : Form
     {
+        private ControladorCrearDepartamento controlador;
         public VistaCrearDepartamento()
         {
+            this.controlador = new ControladorCrearDepartamento(this);
             InitializeComponent();
+        }
+
+        private void botonAceptar_Click(object sender, EventArgs e)
+        {
+            this.controlador.crearDepartamento(textBox1.Text, descripcionTextBox.Text);
         }
     }
 }
