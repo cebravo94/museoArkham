@@ -117,6 +117,7 @@
             this.botonGenerar.TabIndex = 7;
             this.botonGenerar.Text = "Generar";
             this.botonGenerar.UseVisualStyleBackColor = true;
+            this.botonGenerar.Click += new System.EventHandler(this.botonGenerar_Click);
             // 
             // comboOrigen
             // 
