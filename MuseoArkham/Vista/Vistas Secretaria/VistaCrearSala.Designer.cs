@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaCrearSala));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.botonAceptar = new System.Windows.Forms.Button();
+            this.botonCancelar = new System.Windows.Forms.Button();
+            this.numericArea = new System.Windows.Forms.NumericUpDown();
             this.textBoxNombreSala = new System.Windows.Forms.TextBox();
             this.textBoxDescripcionSala = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericArea = new System.Windows.Forms.NumericUpDown();
-            this.botonCancelar = new System.Windows.Forms.Button();
-            this.botonAceptar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericArea)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +58,32 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Crear Sala";
+            // 
+            // botonAceptar
+            // 
+            this.botonAceptar.Location = new System.Drawing.Point(127, 356);
+            this.botonAceptar.Name = "botonAceptar";
+            this.botonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.botonAceptar.TabIndex = 8;
+            this.botonAceptar.Text = "Aceptar";
+            this.botonAceptar.UseVisualStyleBackColor = true;
+            this.botonAceptar.Click += new System.EventHandler(this.botonAceptar_Click);
+            // 
+            // botonCancelar
+            // 
+            this.botonCancelar.Location = new System.Drawing.Point(207, 356);
+            this.botonCancelar.Name = "botonCancelar";
+            this.botonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.botonCancelar.TabIndex = 7;
+            this.botonCancelar.Text = "Cancelar";
+            this.botonCancelar.UseVisualStyleBackColor = true;
+            // 
+            // numericArea
+            // 
+            this.numericArea.Location = new System.Drawing.Point(127, 158);
+            this.numericArea.Name = "numericArea";
+            this.numericArea.Size = new System.Drawing.Size(155, 20);
+            this.numericArea.TabIndex = 6;
             // 
             // textBoxNombreSala
             // 
@@ -103,31 +129,6 @@
             this.label1.Size = new System.Drawing.Size(94, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre Sala :";
-            // 
-            // numericArea
-            // 
-            this.numericArea.Location = new System.Drawing.Point(127, 158);
-            this.numericArea.Name = "numericArea";
-            this.numericArea.Size = new System.Drawing.Size(155, 20);
-            this.numericArea.TabIndex = 6;
-            // 
-            // botonCancelar
-            // 
-            this.botonCancelar.Location = new System.Drawing.Point(207, 356);
-            this.botonCancelar.Name = "botonCancelar";
-            this.botonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.botonCancelar.TabIndex = 7;
-            this.botonCancelar.Text = "Cancelar";
-            this.botonCancelar.UseVisualStyleBackColor = true;
-            // 
-            // botonAceptar
-            // 
-            this.botonAceptar.Location = new System.Drawing.Point(127, 356);
-            this.botonAceptar.Name = "botonAceptar";
-            this.botonAceptar.Size = new System.Drawing.Size(75, 23);
-            this.botonAceptar.TabIndex = 8;
-            this.botonAceptar.Text = "Aceptar";
-            this.botonAceptar.UseVisualStyleBackColor = true;
             // 
             // VistaCrearSala
             // 

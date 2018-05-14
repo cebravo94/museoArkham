@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaCrearDepartamento));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelNombre = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.descripcionTextBox = new System.Windows.Forms.TextBox();
-            this.botonCancelar = new System.Windows.Forms.Button();
             this.botonAceptar = new System.Windows.Forms.Button();
+            this.botonCancelar = new System.Windows.Forms.Button();
+            this.descripcionTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.labelNombre = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,22 +54,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Crear Departamento";
             // 
-            // labelNombre
+            // botonAceptar
             // 
-            this.labelNombre.AutoSize = true;
-            this.labelNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.Location = new System.Drawing.Point(19, 68);
-            this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(150, 16);
-            this.labelNombre.TabIndex = 0;
-            this.labelNombre.Text = "Nombre departamento :";
+            this.botonAceptar.Location = new System.Drawing.Point(229, 368);
+            this.botonAceptar.Name = "botonAceptar";
+            this.botonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.botonAceptar.TabIndex = 5;
+            this.botonAceptar.Text = "Aceptar";
+            this.botonAceptar.UseVisualStyleBackColor = true;
+            this.botonAceptar.Click += new System.EventHandler(this.botonAceptar_Click);
             // 
-            // textBox1
+            // botonCancelar
             // 
-            this.textBox1.Location = new System.Drawing.Point(175, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(129, 20);
-            this.textBox1.TabIndex = 1;
+            this.botonCancelar.Location = new System.Drawing.Point(148, 368);
+            this.botonCancelar.Name = "botonCancelar";
+            this.botonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.botonCancelar.TabIndex = 4;
+            this.botonCancelar.Text = "Cancelar";
+            this.botonCancelar.UseVisualStyleBackColor = true;
+            // 
+            // descripcionTextBox
+            // 
+            this.descripcionTextBox.Location = new System.Drawing.Point(175, 116);
+            this.descripcionTextBox.Multiline = true;
+            this.descripcionTextBox.Name = "descripcionTextBox";
+            this.descripcionTextBox.Size = new System.Drawing.Size(129, 207);
+            this.descripcionTextBox.TabIndex = 3;
             // 
             // label1
             // 
@@ -81,31 +91,22 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Descripción(opcional) :\r\n";
             // 
-            // descripcionTextBox
+            // textBox1
             // 
-            this.descripcionTextBox.Location = new System.Drawing.Point(175, 116);
-            this.descripcionTextBox.Multiline = true;
-            this.descripcionTextBox.Name = "descripcionTextBox";
-            this.descripcionTextBox.Size = new System.Drawing.Size(129, 207);
-            this.descripcionTextBox.TabIndex = 3;
+            this.textBox1.Location = new System.Drawing.Point(175, 66);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(129, 20);
+            this.textBox1.TabIndex = 1;
             // 
-            // botonCancelar
+            // labelNombre
             // 
-            this.botonCancelar.Location = new System.Drawing.Point(148, 368);
-            this.botonCancelar.Name = "botonCancelar";
-            this.botonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.botonCancelar.TabIndex = 4;
-            this.botonCancelar.Text = "Cancelar";
-            this.botonCancelar.UseVisualStyleBackColor = true;
-            // 
-            // botonAceptar
-            // 
-            this.botonAceptar.Location = new System.Drawing.Point(229, 368);
-            this.botonAceptar.Name = "botonAceptar";
-            this.botonAceptar.Size = new System.Drawing.Size(75, 23);
-            this.botonAceptar.TabIndex = 5;
-            this.botonAceptar.Text = "Aceptar";
-            this.botonAceptar.UseVisualStyleBackColor = true;
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre.Location = new System.Drawing.Point(19, 68);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(150, 16);
+            this.labelNombre.TabIndex = 0;
+            this.labelNombre.Text = "Nombre departamento :";
             // 
             // VistaCrearDepartamento
             // 
