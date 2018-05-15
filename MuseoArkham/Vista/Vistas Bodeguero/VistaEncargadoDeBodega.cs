@@ -72,8 +72,7 @@ namespace MuseoArkham.Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form ventanaIncorporarObjeto = new VistaIncorporarObjeto();
-            ventanaIncorporarObjeto.ShowDialog();
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -119,6 +118,27 @@ namespace MuseoArkham.Vista
 
         private void VistaEncargadoDeBodega_FormClosing(object sender, FormClosingEventArgs e) {
             this.controlador.CerrarVentana(this);
+        }
+
+        private void groupBox4_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox6_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonIncorporarObjeto_Click(object sender, EventArgs e)
+        {
+            Form ventanaIncorporarObjeto = new VistaIncorporarObjeto();
+            ventanaIncorporarObjeto.ShowDialog();
+        }
+
+        private void buttonDesincorporarObjeto_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
