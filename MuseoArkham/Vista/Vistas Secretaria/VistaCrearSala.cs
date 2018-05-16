@@ -20,9 +20,11 @@ namespace MuseoArkham.Vista
             InitializeComponent();
         }
 
-        private void botonAceptar_Click(object sender, EventArgs e)
+        
+
+        private void VistaCrearSala_Load(object sender, EventArgs e)
         {
-            this.controlador.crearSala(textBoxNombreSala.Text, (int)numericArea.Value, textBoxDescripcionSala.Text);
+
         }
     }
 }
