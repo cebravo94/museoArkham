@@ -25,10 +25,9 @@ namespace MuseoArkham.Vista
 
         }
 
-        private void botonAceptar_Click(object sender, EventArgs e)
+        private void VistaAgregarUsuario_Load(object sender, EventArgs e)
         {
-            this.controlador.botonAceptar(textBoxNombre.Text, textBoxRut.Text, textBoxCorreo.Text, comboBoxTipo.Text, textBoxContrasenna.Text);
-            
+
         }
     }
 }

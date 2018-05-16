@@ -26,5 +26,15 @@ namespace MuseoArkham.Vista
         {
 
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel11_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
