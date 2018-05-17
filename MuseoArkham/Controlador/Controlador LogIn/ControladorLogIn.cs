@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using MuseoArkham.Vista;
 using System.Windows.Forms;
+using MuseoArkham.Modelo;
 
 namespace MuseoArkham.Controlador
 {
@@ -25,10 +26,10 @@ namespace MuseoArkham.Controlador
          * </summary>
          */
         public void botonAceptar() {
-            string tipo = this.verificarUsuario(this.ventana.textBoxIdentificador.Text, this.ventana.textBoxContrasenna.Text);
-            if (tipo != null) {
+            Usuario personal = this.verificarUsuario(this.ventana.textBoxIdentificador.Text, this.ventana.textBoxContrasenna.Text);
+            if (personal != null) {
                 Form nuevaVentana = null;
-                switch (tipo) {
+                switch (personal.Tipo) {
                     case "Secretaria":
                         nuevaVentana = new VistaSecretaria();
                         break;
@@ -42,7 +43,7 @@ namespace MuseoArkham.Controlador
                         nuevaVentana = new VistaGerente();
                         break;
                     case "Administrador":
-                        nuevaVentana = new VistaAdministrador();
+                        nuevaVentana = new VistaAdministrador(personal);
                         break;
                 }
                 if (nuevaVentana != null) {
@@ -68,16 +69,16 @@ namespace MuseoArkham.Controlador
          * 
          * <returns>Tipo de usuario</returns>
          */
-        private string verificarUsuario(string usuario, string contrasenna) {
+        private Usuario verificarUsuario(string usuario, string contrasenna) {
             string consulta = "select * from usuario where usuario.id_usuario = " + usuario;
             MySqlDataReader reader = this.RealizarConsulta(consulta);
-
             if (reader != null) {
                 reader.Read();
-                if (reader["contrasenna"].ToString().Equals(contrasenna)) {
-                    String tipo = reader["tipo"].ToString();
+                Usuario personal;
+                personal = new Usuario(reader);
+                if (personal.Contrasenna.Equals(contrasenna)) {
                     this.CerrarConexion();
-                    return tipo;
+                    return personal;
                 }
             }
             return null;

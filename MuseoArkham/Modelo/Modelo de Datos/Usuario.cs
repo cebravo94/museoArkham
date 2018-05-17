@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,16 @@ namespace MuseoArkham.Modelo
             FechaIngreso = fechaIngreso;
             Correo = correo;
             Tipo = tipo;
+        }
+
+        public Usuario(MySqlDataReader reader) {
+            Id = Int32.Parse(reader["id_usuario"].ToString());
+            Contrasenna = reader["contrasenna"].ToString();
+            Nombre = reader["nombre"].ToString();
+            Rut = reader["rut"].ToString();
+            DateTime FechaIngreso = DateTime.Parse(reader["fecha_ingreso"].ToString());
+            Correo = reader["correo"].ToString();
+            Tipo = reader["tipo"].ToString();
         }
     }
 }

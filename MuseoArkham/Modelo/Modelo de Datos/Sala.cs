@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,11 @@ namespace MuseoArkham.Modelo
         public int IdDpto { get; }
         public String Nombre { get; set; }
         public String Descripcion { get; set; }
-        public Boolean Estado { get; set; }
+        public String Estado { get; set; }
         public int Area { get; set; }
         public ArrayList Items;
 
-        public Sala(int id, int idDpto, string nombre, string descripcion, bool estado, int area, ArrayList items)
+        public Sala(int id, int idDpto, string nombre, string descripcion, String estado, int area)
         {
             Id = id;
             IdDpto = idDpto;
@@ -25,7 +26,16 @@ namespace MuseoArkham.Modelo
             Descripcion = descripcion;
             Estado = estado;
             Area = area;
-            Items = items;
+            Items = new ArrayList();
+        }
+
+        public Sala(MySqlDataReader reader) {
+            Id = Int32.Parse(reader["id_sala"].ToString()); ;
+            IdDpto = Int32.Parse(reader["id_dpto"].ToString());
+            Nombre = reader["nombre"].ToString();
+            Descripcion = reader["descripcion"].ToString();
+            Estado = reader["estado"].ToString();
+            Area = Int32.Parse(reader["area"].ToString());
             Items = new ArrayList();
         }
 
