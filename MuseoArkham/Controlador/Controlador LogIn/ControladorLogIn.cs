@@ -77,7 +77,7 @@ namespace MuseoArkham.Controlador
                 reader.Read();
                 Usuario personal;
                 personal = new Usuario(Int32.Parse(reader["id_usuario"].ToString()),reader["contrasenna"].ToString(),
-                    reader["nombre"].ToString(),reader["rut"].ToString(), DateTime.Parse(reader["fechaIngreso"].ToString()),
+                    reader["nombre"].ToString(),reader["rut"].ToString(), DateTime.Parse(reader["fecha_ingreso"].ToString()),
                     reader["correo"].ToString(),reader["tipo"].ToString());
                 if (personal.Contrasenna.Equals(contrasenna)) {
                     this.CerrarConexion();
