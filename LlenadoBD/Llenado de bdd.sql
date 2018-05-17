@@ -44,10 +44,10 @@ INSERT INTO sala(id_dpto,nombre,descripcion,area,estado) VALUES
 INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (1,1,'2017-05-25','cartas de las hermanas frank a amigas en estados unidos','documentos historicos','en exhibicion',1942,'documento','cartas de ana frank','D.C');
 INSERT INTO documento (id_item,tipo,autor) VALUES (1,'documento historico','Ana frank');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (1,1,'2017-05-25','tratado de paz y amistad entre chile y peru(copia)','documentos historicos','en exhibicion',1884,'documento','tratado de paz chile peru','D.C');2
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (1,1,'2017-05-25','tratado de paz y amistad entre chile y peru(copia)','documentos historicos','en exhibicion',1884,'documento','tratado de paz chile peru','D.C');
 INSERT INTO documento (id_item,tipo,autor) VALUES (2,'documento historico','N');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (1,1,'2017-06-30','documento que contiene el acta de matrimonio de adolf hitler y eva broun','documentos historicos',en exhibicion,1945,'documento','acta de matrimonio de hitler','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (1,1,'2017-06-30','documento que contiene el acta de matrimonio de adolf hitler y eva broun','documentos historicos','en exhibicion',1945,'documento','acta de matrimonio de hitler','D.C');
 INSERT INTO documento (id_item,tipo,autor) VALUES (3,'documento','anonimo');
 
 INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (1,1,'2017-06-30','Instrumento de Rendición de
@@ -109,7 +109,7 @@ INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (19,'Oleo sobre tel
 
 INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,4,'2016-07-13',' El Huaso y la lavandera
 , 1835','obras chilenas','en exhibicion',1835,'obra','El huaso y la lavandera','D.C');
-INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES 20,'Oleo sobre tela','Oleo sobre tela','pintura','Johann Moritz Rugendas');
+INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (20,'Oleo sobre tela','Oleo sobre tela','pintura','Johann Moritz Rugendas');
 
 INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,4,'2016-07-13',' Retrato de Julia Codesido de Mora','obras chilenas','en exhibicion',1846,'obra','Retrato de Julia Codesido de Mora','D.C');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (21,'Oleo sobre tela','Oleo sobre tela','pintura','Raymond Monvoisin');
