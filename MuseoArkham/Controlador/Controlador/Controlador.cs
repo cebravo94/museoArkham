@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,8 +60,18 @@ namespace MuseoArkham.Controlador
          * Cierra la conexión con la base de datos.
          * </summary>
          */
-        protected void CerrarConexion() {
-            this.conector.CerrarConexion();
+        public void CerrarConexion() {
+            Conector_BD.CerrarConexion();
+        }
+
+        protected void PoblarTabla(DataGridView tabla, MySqlDataReader reader) {
+            DataTable dataTable = new DataTable();
+            if (reader != null) {
+                dataTable.Load(reader);
+                tabla.DataSource = true;
+                tabla.DataSource = dataTable;
+                tabla.Refresh();
+            }
         }
     }
 }

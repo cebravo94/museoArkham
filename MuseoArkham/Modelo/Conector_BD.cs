@@ -12,11 +12,11 @@ namespace MuseoArkham.Modelo
         //Esto es para que sea un Singleton
         private static readonly Lazy<Conector_BD> instance = new Lazy<Conector_BD>(() => new Conector_BD());
 
-        private MySqlConnection Con;
+        private static MySqlConnection Con;
 
         private Conector_BD() {
             string conS = "Server=localhost;Port=3306;Database=museo;Uid=conexion;password=123456";
-            this.Con = new MySqlConnection(conS);
+            Con = new MySqlConnection(conS);
         }
 
         public static Conector_BD Instance {
@@ -53,8 +53,8 @@ namespace MuseoArkham.Modelo
         }
 
         //Cierra la conexión con la base de datos.
-        public void CerrarConexion() {
-            this.Con.Close();
+        public static void CerrarConexion() {
+            Con.Close();
         }
     }
 }

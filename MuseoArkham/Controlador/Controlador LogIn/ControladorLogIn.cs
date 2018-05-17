@@ -72,13 +72,10 @@ namespace MuseoArkham.Controlador
         private Usuario verificarUsuario(string usuario, string contrasenna) {
             string consulta = "select * from usuario where usuario.id_usuario = " + usuario;
             MySqlDataReader reader = this.RealizarConsulta(consulta);
-
             if (reader != null) {
                 reader.Read();
                 Usuario personal;
-                personal = new Usuario(Int32.Parse(reader["id_usuario"].ToString()),reader["contrasenna"].ToString(),
-                    reader["nombre"].ToString(),reader["rut"].ToString(), DateTime.Parse(reader["fecha_ingreso"].ToString()),
-                    reader["correo"].ToString(),reader["tipo"].ToString());
+                personal = new Usuario(reader);
                 if (personal.Contrasenna.Equals(contrasenna)) {
                     this.CerrarConexion();
                     return personal;

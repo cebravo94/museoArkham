@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace MuseoArkham.Modelo
         public DateTime FechaIngreso { get; set; } //(anno/mes/dia)
         public ArrayList Items;
 
-        public Registro(int idRegistro, int idDpto, int idItem, int idAdmin, int idGerente, int idSalaOrigen, int idSalaDestino, DateTime fechaIngreso, ArrayList items)
+        public Registro(int idRegistro, int idDpto, int idItem, int idAdmin, int idGerente, int idSalaOrigen, int idSalaDestino, DateTime fechaIngreso)
         {
             IdRegistro = idRegistro;
             IdDpto = idDpto;
@@ -29,8 +30,18 @@ namespace MuseoArkham.Modelo
             IdSalaOrigen = idSalaOrigen;
             IdSalaDestino = idSalaDestino;
             FechaIngreso = fechaIngreso;
-            Items = items;
             Items = new ArrayList();
+        }
+
+        public Registro(MySqlDataReader reader) {
+            IdRegistro = Int32.Parse(reader["id_registro"].ToString());
+            IdDpto = Int32.Parse(reader["id_dpto"].ToString());
+            IdItem = Int32.Parse(reader["id_item"].ToString());
+            IdAdmin = Int32.Parse(reader["id_admin"].ToString());
+            IdGerente = Int32.Parse(reader["id_gerente"].ToString());
+            IdSalaOrigen = Int32.Parse(reader["id_sala_origen"].ToString());
+            IdSalaDestino = Int32.Parse(reader["id_sala_destino"].ToString());
+            FechaIngreso = DateTime.Parse(reader["id_fecha_ingreso"].ToString());
         }
 
         public void AgregarItem(Item item)

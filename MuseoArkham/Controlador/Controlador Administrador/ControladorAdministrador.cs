@@ -49,28 +49,17 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
                     MySqlDataReader reader = this.RealizarConsulta("select * from departamento where id_usuario=" + this.usuario.Id);
                     reader.Read();
                     if (reader != null) {
-                        Departamento departamento = new Departamento(Int32.Parse(reader["id_dpto"].ToString()), this.usuario.Id,
-                            reader["nombre"].ToString(), reader["descripcion"].ToString());
+                        Departamento departamento = new Departamento(reader);
                         this.CerrarConexion();
                         String consulta = "select * from item, departamento"+
-                                                        " where item.id_dpto=departamento.id_dpto" +
-                                                        " and departamento.id_dpto=" + departamento.Id;
+                                          " where item.id_dpto=departamento.id_dpto" +
+                                          " and departamento.id_dpto=" + departamento.Id;
                         Debug.WriteLine(consulta);
                         reader = this.RealizarConsulta(consulta);
-                        this.llenarTablaObjetos(reader);
+                        this.PoblarTabla(ventana.dataGridViewObjetos, reader);
                     }
                     this.CerrarConexion();
                     break;
-            }
-        }
-
-        public void llenarTablaObjetos(MySqlDataReader data) {
-            DataTable dataTable = new DataTable();
-            if (data != null) { 
-            dataTable.Load(data);
-            ventana.dataGridViewObjetos.DataSource = true;
-            ventana.dataGridViewObjetos.DataSource = dataTable;
-            ventana.dataGridViewObjetos.Refresh();
             }
         }
     }

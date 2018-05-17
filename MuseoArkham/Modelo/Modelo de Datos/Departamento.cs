@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,16 @@ namespace MuseoArkham.Modelo
             IdUsuario = idUsuario;
             Nombre = nombre;
             Descripcion = descripcion;
+            Registros = new ArrayList();
+            Solicitudes = new ArrayList();
+            Salas = new ArrayList();
+        }
+
+        public Departamento(MySqlDataReader reader) {
+            Id = Int32.Parse(reader["id_dpto"].ToString());
+            IdUsuario = Int32.Parse(reader["id_usuario"].ToString());
+            Nombre = reader["nombre"].ToString();
+            Descripcion = reader["descripcion"].ToString();
             Registros = new ArrayList();
             Solicitudes = new ArrayList();
             Salas = new ArrayList();
