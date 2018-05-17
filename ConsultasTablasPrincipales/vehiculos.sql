@@ -1,6 +1,6 @@
 use museo;
 
-SELECT sala.nombre as Ubicacion,  vehiculo.marca as Marca, vehiculo.modelo as Modelo , item.anno AS Año, item.estado AS Estado
+SELECT  vehiculo.id_item AS ID,sala.nombre as Ubicacion,  vehiculo.marca as Marca, vehiculo.modelo as Modelo , item.anno AS Año, item.estado AS Estado
 
 FROM sala,item,vehiculo
 

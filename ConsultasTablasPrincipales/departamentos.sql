@@ -1,6 +1,6 @@
 use museo;
 
-SELECT usuario.nombre AS Administrador, departamento.nombre as Departamento
+SELECT  departamento.id_dpto AS ID,usuario.nombre AS Administrador, departamento.nombre as Departamento
 
 FROM departamento, usuario
  

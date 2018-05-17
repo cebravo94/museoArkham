@@ -1,6 +1,6 @@
 use museo;
 
-SELECT sala.nombre as Ubicacion, item.nombre as Item,  obra.autor as Autor , obra.tipo AS Tipo, obra.estilo AS Estilo, obra.material AS Material, item.estado AS Estado , item.anno AS Año
+SELECT obra.id_item AS ID,sala.nombre as Ubicacion, item.nombre as Item,  obra.autor as Autor , obra.tipo AS Tipo, obra.estilo AS Estilo, obra.material AS Material, item.estado AS Estado , item.anno AS Año
 
 FROM sala,item,obra
 
