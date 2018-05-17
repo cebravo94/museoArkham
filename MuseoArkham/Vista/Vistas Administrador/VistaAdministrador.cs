@@ -1,4 +1,5 @@
 ﻿using MuseoArkham.Controlador.Controlador_Administrador;
+using MuseoArkham.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +15,9 @@ namespace MuseoArkham.Vista
     public partial class VistaAdministrador : Form
     {
         private ControladorAdministrador controlador;
-        public VistaAdministrador()
+        public VistaAdministrador(Usuario usuario)
         {
-            this.controlador = new ControladorAdministrador(this);
+            this.controlador = new ControladorAdministrador(this, usuario);
             InitializeComponent();
         }
 
@@ -43,6 +44,10 @@ namespace MuseoArkham.Vista
         {
             Form ventanaCrearSolicitud = new VistaCrearSolicitud();
             ventanaCrearSolicitud.ShowDialog(this);
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e) {
+            this.controlador.cargarDatosTabla((sender as TabControl).SelectedIndex);
         }
     }
 }

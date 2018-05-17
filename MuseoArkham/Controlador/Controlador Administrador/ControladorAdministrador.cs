@@ -6,15 +6,19 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using MuseoArkham.Vista;
 using System.Windows.Forms;
+using System.Data;
+using MuseoArkham.Modelo;
 
 namespace MuseoArkham.Controlador.Controlador_Administrador
 {
     class ControladorAdministrador : Controlador
     {
         private VistaAdministrador ventana;
+        private Usuario usuario;
 
-        public ControladorAdministrador(VistaAdministrador ventana) {
+        public ControladorAdministrador(VistaAdministrador ventana, Usuario usuario) {
             this.ventana = ventana;
+            this.usuario = usuario;
         }
 
         /**
@@ -33,7 +37,20 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
          * Ejecuta SQL para filtrar los objetos.
          * </summary>
          */
-         public void botonFiltrarSolicitudes() {
+        public void botonFiltrarSolicitudes() {
+        }
+
+        public void cargarDatosTabla(int index) {
+
+        }
+
+        public void llenarTablaObjetos() {
+            DataSet ds = new DataSet();
+            DataTable dataTable = new DataTable();
+            ds.Tables.Add(dataTable);
+            ds.EnforceConstraints = false;
+            dataTable.Load(this.RealizarConsulta(""));
+            ventana.dataGridViewObjetos.DataSource(dataTable);
         }
     }
 }
