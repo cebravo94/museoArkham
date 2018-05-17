@@ -44,23 +44,44 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
         public void cargarDatosTabla(int index) {
             switch (index) {
                 case 0:
+                    this.cargarSolicitudes();
                     break;
                 case 1:
-                    MySqlDataReader reader = this.RealizarConsulta("select * from departamento where id_usuario=" + this.usuario.Id);
-                    reader.Read();
-                    if (reader != null) {
-                        Departamento departamento = new Departamento(reader);
-                        this.CerrarConexion();
-                        String consulta = "select * from item, departamento"+
-                                          " where item.id_dpto=departamento.id_dpto" +
-                                          " and departamento.id_dpto=" + departamento.Id;
-                        Debug.WriteLine(consulta);
-                        reader = this.RealizarConsulta(consulta);
-                        this.PoblarTabla(ventana.dataGridViewObjetos, reader);
-                    }
-                    this.CerrarConexion();
+                    this.cargarItems();
                     break;
             }
+        }
+
+        private void cargarSolicitudes() {
+            MySqlDataReader reader = this.RealizarConsulta("select * from departamento where id_usuario=" + this.usuario.Id);
+            reader.Read();
+            if (reader != null) {
+                Departamento departamento = new Departamento(reader);
+                this.CerrarConexion();
+                String consulta = "select * from solicitud, departamento" +
+                                  " where solicitud.id_dpto=departamento.id_dpto" +
+                                  " and departamento.id_dpto=" + departamento.Id;
+                Debug.WriteLine(consulta);
+                reader = this.RealizarConsulta(consulta);
+                this.PoblarTabla(ventana.dataGridViewObjetos, reader);
+            }
+            this.CerrarConexion();
+        }
+
+        private void cargarItems() {
+            MySqlDataReader reader = this.RealizarConsulta("select * from departamento where id_usuario=" + this.usuario.Id);
+            reader.Read();
+            if (reader != null) {
+                Departamento departamento = new Departamento(reader);
+                this.CerrarConexion();
+                String consulta = "select * from item, departamento" +
+                                  " where item.id_dpto=departamento.id_dpto" +
+                                  " and departamento.id_dpto=" + departamento.Id;
+                Debug.WriteLine(consulta);
+                reader = this.RealizarConsulta(consulta);
+                this.PoblarTabla(ventana.dataGridViewObjetos, reader);
+            }
+            this.CerrarConexion();
         }
     }
 }

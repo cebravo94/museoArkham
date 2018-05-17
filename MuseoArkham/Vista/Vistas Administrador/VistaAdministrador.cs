@@ -18,6 +18,7 @@ namespace MuseoArkham.Vista
         public VistaAdministrador(Usuario usuario)
         {
             this.controlador = new ControladorAdministrador(this, usuario);
+            this.controlador.cargarDatosTabla(0);
             InitializeComponent();
         }
 
