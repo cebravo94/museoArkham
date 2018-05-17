@@ -39,8 +39,8 @@ UPDATE solicitud SET solicitud.estado = 'nuevo estado' WHERE solicitud.id_solici
 UPDATE solicitud SET solicitud.estado = 'nuevo estado' WHERE solicitud.id_solicitud = 'valor';
 
 --Crear un item generico -> Item 
-INSERT INTO item (id_depto, id_sala, nombre, fecha_ingreso, descripcion, coleccion, estado, anno, era) VALUES ('valor_id_depto', 
-	'valor_id_sala', 'valor_nombre', 'valor_fecha_ingreso', 'valor_descripcion', 'valor_coleccion', 'valor_estado', 'valor_anno', 'valor_era');
+INSERT INTO item (id_depto, id_sala, nombre, fecha_ingreso, descripcion, coleccion, estado, anno, era,tipo) VALUES ('valor_id_depto', 
+	'valor_id_sala', 'valor_nombre', 'valor_fecha_ingreso', 'valor_descripcion', 'valor_coleccion', 'valor_estado', 'valor_anno', 'valor_era','tipo');
 
 --Crear un item de tipo documento -> LAST_INSERT_ID supuestamente detecta la ultima ronda de AUTO_INCREMENT que se ha insertado. Al ser un proceso que ocurre inmediatamente 
 --despues de insertar la parte principal del item, el id obtenido corresponderia con el id del item.
