@@ -15,6 +15,7 @@ namespace MuseoArkham.Modelo
         public int IdAdministrador { get; }
         public int IdSalaOrigen { get; }
         public int IdSalaDestino { get; }
+        public DateTime FechaSolicitud { get; }
         public String Comentario { get; set; }
         public String Estado { get; set; }
         public ArrayList Items;
@@ -28,6 +29,7 @@ namespace MuseoArkham.Modelo
             IdSalaDestino = idSalaDestino;
             Comentario = comentario;
             Estado = estado;
+            FechaSolicitud = DateTime.Now;
             Items = new ArrayList();
         }
 
@@ -40,6 +42,13 @@ namespace MuseoArkham.Modelo
             Comentario = reader["comentario"].ToString();
             Estado = reader["estado"].ToString();
             Items = new ArrayList();
+        }
+
+        public static string generarStringConsulta(int idDpto, int idAdministrador, int idSalaOrigen, int idSalaDestino, string comentario, string estado) {
+            string consulta;
+            consulta = "INSERT INTO solicitud(id_dpto,id_administrador,id_sala_origen,id_sala_destino,comentario,estado,fecha_solicitud) VALUES (" +
+                idDpto + "," + idAdministrador + "," + idSalaOrigen + "," + idSalaDestino + ",'" + comentario + "','" + estado + "',\"" + DateTime.Now.ToString("yyyy-MM-dd") +"\");";
+            return consulta;
         }
 
         public void AgregarItem(Item item)

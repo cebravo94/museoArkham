@@ -31,7 +31,7 @@ namespace MuseoArkham.Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.controlador.crearSolicitud();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
