@@ -33,7 +33,7 @@ INSERT INTO departamento (id_usuario,nombre,descripcion) VALUES
 /*Llenado de salas*/
 
 INSERT INTO sala(id_dpto,nombre,descripcion,area,estado) VALUES 
-(2,'Bodega','Sala de Bodega','Sala donde se almacenan todos los ítems que no están en exhibición',1000,'En uso'),
+(2,'Bodega','Sala donde se almacenan todos los ítems que no están en exhibición',1000,'En uso'),
 (3,'Sala de cartas 1','Sala con todo tipos de cartas escritas a la largo de la historia por personajes emblematios',5,'En uso'),
 (3,'Sala de cartas 2','Sala con todo tipos de cartas escritas a la largo de la historia por personajes emblematios',5,'En uso'),
 (4,'Sala de obras 1','Sala con todo tipo de obras chilenas',5,'En uso'),
