@@ -67,7 +67,7 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
 
         private void cargarSolicitudes() {
             if (this.departamento != null) {
-                String consulta = "SELECT solicitud.id_solicitud AS Solicitud, item.nombre as Item, sala.nombre as Origen," +
+                string consulta = "SELECT solicitud.id_solicitud AS Solicitud, item.nombre as Item, sala.nombre as Origen," +
                     " sala.nombre as Destino, solicitud.estado AS Estado, itemSolicitado.fecha_solicitud AS Fecha," +
                     " solicitud.comentario as Comentario FROM solicitud, sala, item, itemSolicitado" +
                     " WHERE solicitud.id_item = item.id_item" +
@@ -83,7 +83,7 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
 
         private void cargarItems() {
             if (this.departamento != null) {
-                String consulta = "SELECT item.id_item AS ID, item.nombre AS Nombre, sala.nombre AS Ubicación,"+
+                string consulta = "SELECT item.id_item AS ID, item.nombre AS Nombre, sala.nombre AS Ubicación,"+
                     " item.estado AS Estado, item.tipo AS Tipo, item.descripcion AS Descripción" +
                     " FROM item, departamento, sala" +
                     " WHERE item.id_dpto = departamento.id_dpto" +

@@ -63,17 +63,56 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
         }
 
         public void llenarSalas() {
-            MySqlDataReader reader = this.RealizarConsulta("SELECT sala.nombre AS Sala FROM sala, departamento"+
-                " WHERE sala.id_dpto = departamento.id_dpto AND departamento.id_dpto = "+this.departamento.Id);
+            string consulta = "SELECT sala.nombre AS Sala FROM sala, departamento"+
+                " WHERE sala.id_dpto = departamento.id_dpto AND departamento.id_dpto = " + this.departamento.Id;
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
             if (reader != null) {
                 DataTable dataTable = new DataTable();
                 dataTable.Load(reader);
-                //dataTable.Rows[0]["nombre"].ToString();
-                List<string> myList = new List<string>();
+                List<string> listaOrigen = new List<string>();
+                List<string> listaDestino = new List<string>();
+                listaOrigen.Add("Bodega");
                 foreach (DataRow row in dataTable.Rows) {
-                    myList.Add(row[0].ToString());
+                    listaOrigen.Add(row[0].ToString());
+                    listaDestino.Add(row[0].ToString());
                 }
-                ventana.comboBoxSalaOrigen.DataSource = myList;
+                ventana.comboBoxSalaOrigen.DataSource = listaOrigen;
+                ventana.comboBoxSalaDestino.DataSource = listaDestino;
+            }
+            this.CerrarConexion();
+        }
+
+        public void ajustarSalaDestino(String salaOrigen) {
+            string consulta = "SELECT sala.nombre AS Sala FROM sala, departamento" +
+                " WHERE sala.id_dpto = departamento.id_dpto AND departamento.id_dpto = " + this.departamento.Id;
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            if (reader != null) {
+                DataTable dataTable = new DataTable();
+                dataTable.Load(reader);
+                List<string> listaDestino = new List<string>();
+                if (salaOrigen!="Bodega") listaDestino.Add("Bodega");
+                foreach (DataRow row in dataTable.Rows) {
+                    if (row[0].ToString() != salaOrigen) listaDestino.Add(row[0].ToString());
+                }
+                ventana.comboBoxSalaDestino.DataSource = listaDestino;
+            }
+            this.CerrarConexion();
+        }
+
+        public void cargarObjetosSala(string nombreSala) {
+            string consulta = "SELECT item.id_item AS ID, item.nombre AS Nombre," +
+                    " item.tipo AS Tipo, item.descripcion AS Descripción" +
+                    " FROM item, sala" +
+                    " WHERE sala.id_sala = item.id_sala" +
+                    " AND sala.nombre = '"+nombreSala+"'"+
+                    " AND sala.id_dpto = "+this.departamento.Id;
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            if (reader != null) {
+                this.PoblarTabla(this.ventana.dataGridViewObjetosEnBodega, reader);
+            }
+            else {
+                this.ventana.dataGridViewObjetosEnBodega.DataSource = null;
+                this.ventana.dataGridViewObjetosEnBodega.Refresh();
             }
             this.CerrarConexion();
         }

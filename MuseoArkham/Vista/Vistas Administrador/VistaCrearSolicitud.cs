@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -81,6 +82,12 @@ namespace MuseoArkham.Vista
         private void dataGridViewSeleccionObjetos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void comboBoxSalaOrigen_SelectionChangeCommitted(object sender, EventArgs e) {
+            ComboBox cb = (ComboBox)sender;
+            this.controlador.cargarObjetosSala(cb.Text);
+            this.controlador.ajustarSalaDestino(cb.Text);
         }
     }
 }
