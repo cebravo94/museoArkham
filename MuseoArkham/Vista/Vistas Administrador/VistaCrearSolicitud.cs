@@ -89,5 +89,9 @@ namespace MuseoArkham.Vista
             this.controlador.cargarObjetosSala(cb.Text);
             this.controlador.ajustarSalaDestino(cb.Text);
         }
+
+        private void buttonCancelar_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }
