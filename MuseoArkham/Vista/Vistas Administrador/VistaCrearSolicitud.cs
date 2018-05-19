@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MuseoArkham.Controlador.Controlador_Administrador;
+using MuseoArkham.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,13 @@ namespace MuseoArkham.Vista
 {
     public partial class VistaCrearSolicitud : Form
     {
-        public VistaCrearSolicitud()
+        private ControladorCrearSolicitud controlador;
+
+        public VistaCrearSolicitud(Departamento departamento)
         {
             InitializeComponent();
+            this.controlador = new ControladorCrearSolicitud(this, departamento);
+            this.controlador.llenarSalas();
         }
 
         private void CrearSolicitud_Load(object sender, EventArgs e)

@@ -48,14 +48,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewObjetosEnBodega = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewSeleccionObjetos = new System.Windows.Forms.DataGridView();
             this.Column5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxCrearSolicitud.SuspendLayout();
@@ -147,6 +141,7 @@
             // comboBoxSalaOrigen
             // 
             this.comboBoxSalaOrigen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxSalaOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSalaOrigen.FormattingEnabled = true;
             this.comboBoxSalaOrigen.Location = new System.Drawing.Point(79, 3);
             this.comboBoxSalaOrigen.Name = "comboBoxSalaOrigen";
@@ -294,10 +289,7 @@
             this.dataGridViewObjetosEnBodega.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewObjetosEnBodega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewObjetosEnBodega.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
+            this.Column1});
             this.dataGridViewObjetosEnBodega.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewObjetosEnBodega.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewObjetosEnBodega.Name = "dataGridViewObjetosEnBodega";
@@ -309,33 +301,12 @@
             this.Column1.HeaderText = "Column1";
             this.Column1.Name = "Column1";
             // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Column3";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Column4";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
             // dataGridViewSeleccionObjetos
             // 
             this.dataGridViewSeleccionObjetos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSeleccionObjetos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSeleccionObjetos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8});
+            this.Column5});
             this.dataGridViewSeleccionObjetos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSeleccionObjetos.Location = new System.Drawing.Point(3, 162);
             this.dataGridViewSeleccionObjetos.Name = "dataGridViewSeleccionObjetos";
@@ -347,24 +318,6 @@
             // 
             this.Column5.HeaderText = "Column5";
             this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Column6";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Column7";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Column8";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
             // 
             // label1
             // 
@@ -424,27 +377,21 @@
         private System.Windows.Forms.Label labelComentario;
         private System.Windows.Forms.Label labelSalaDestino;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ComboBox comboBoxSalaOrigen;
-        private System.Windows.Forms.ComboBox comboBoxSalaDestino;
-        private System.Windows.Forms.TextBox textBoxComentarios;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dataGridViewObjetosEnBodega;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridView dataGridViewSeleccionObjetos;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button buttonAgregarObjeto;
         private System.Windows.Forms.Button buttonQuitarObjeto;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column5;
+        public System.Windows.Forms.ComboBox comboBoxSalaOrigen;
+        public System.Windows.Forms.ComboBox comboBoxSalaDestino;
+        public System.Windows.Forms.TextBox textBoxComentarios;
     }
 }

@@ -5,17 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using MuseoArkham.Vista;
 using MuseoArkham.Modelo;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace MuseoArkham.Controlador.Controlador_Administrador
 {
     class ControladorCrearSolicitud : Controlador
     {
         private VistaCrearSolicitud ventana;
+        private Departamento departamento;
         Solicitud SolicitudNueva { get; set; }
 
-        public ControladorCrearSolicitud(VistaCrearSolicitud ventana)
+        public ControladorCrearSolicitud(VistaCrearSolicitud ventana, Departamento departamento)
         {
             this.ventana = ventana;
+            this.departamento = departamento;
         }
 
         /**
@@ -56,6 +60,22 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
         public void refrescarTabla()
         {
 
+        }
+
+        public void llenarSalas() {
+            MySqlDataReader reader = this.RealizarConsulta("SELECT sala.nombre AS Sala FROM sala, departamento"+
+                " WHERE sala.id_dpto = departamento.id_dpto AND departamento.id_dpto = "+this.departamento.Id);
+            if (reader != null) {
+                DataTable dataTable = new DataTable();
+                dataTable.Load(reader);
+                //dataTable.Rows[0]["nombre"].ToString();
+                List<string> myList = new List<string>();
+                foreach (DataRow row in dataTable.Rows) {
+                    myList.Add(row[0].ToString());
+                }
+                ventana.comboBoxSalaOrigen.DataSource = myList;
+            }
+            this.CerrarConexion();
         }
     }
 }
