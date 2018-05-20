@@ -100,7 +100,7 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
          */
         public void refrescarTabla()
         {
-
+            ((VistaAdministrador)(this.ventana.Owner)).refrescarTabla(0);
         }
 
         public void llenarSalas() {

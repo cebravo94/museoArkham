@@ -67,14 +67,20 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
 
         private void cargarSolicitudes() {
             if (this.departamento != null) {
-                string consulta = "SELECT solicitud.id_solicitud AS Solicitud, sala.nombre as Origen," +
-                    " sala.nombre as Destino, solicitud.estado AS Estado," +
-                    " solicitud.comentario as Comentario FROM solicitud, sala" +
+                string consulta = "SELECT solicitud.id_solicitud AS ID, usuario.nombre, sala.nombre as Origen," +
+                    " N.salaDestino as Destino, solicitud.estado AS Estado," +
+                    " solicitud.comentario as Comentario FROM usuario, solicitud, sala ,"+ 
+                        " (SELECT sala.nombre AS salaDestino, solicitud.id_solicitud AS iD"+
+                        " FROM sala, solicitud"+
+                        " WHERE solicitud.id_sala_destino = sala.id_sala" +
+                        " AND solicitud.id_dpto = "+departamento.Id+") AS N " +
                     " WHERE solicitud.id_sala_origen = sala.id_sala" +
-                    " AND solicitud.id_sala_destino = sala.id_sala" +
+                    " AND solicitud.id_administrador = usuario.id_usuario"+
+                    " AND N.iD = solicitud.id_solicitud"+
                     " AND solicitud.id_dpto = "+departamento.Id;
+                Debug.WriteLine(consulta);
                 MySqlDataReader reader = this.RealizarConsulta(consulta);
-                this.PoblarTabla(ventana.dataGridViewObjetos, reader);
+                this.PoblarTabla(ventana.dataGridViewSolicitudesTraslado, reader);
                 this.CerrarConexion();
             }
         }

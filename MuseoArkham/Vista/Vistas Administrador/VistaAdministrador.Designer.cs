@@ -351,7 +351,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridViewSolicitudesTraslado;
         private System.Windows.Forms.Button buttonFiltrarSolicitudes;
         private System.Windows.Forms.Button buttonCancelarSolicitud;
         private System.Windows.Forms.Button buttonCrearSolicitud;
@@ -362,5 +361,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.DataGridView dataGridViewObjetos;
         public System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.DataGridView dataGridViewSolicitudesTraslado;
     }
 }

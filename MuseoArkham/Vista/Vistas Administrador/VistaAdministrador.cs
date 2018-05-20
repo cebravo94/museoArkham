@@ -18,8 +18,8 @@ namespace MuseoArkham.Vista
         public VistaAdministrador(Usuario usuario)
         {
             this.controlador = new ControladorAdministrador(this, usuario);
-            this.controlador.cargarDatosTabla(0);
             InitializeComponent();
+            this.controlador.cargarDatosTabla(0);
         }
 
 
@@ -49,6 +49,10 @@ namespace MuseoArkham.Vista
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e) {
             this.controlador.cargarDatosTabla((sender as TabControl).SelectedIndex);
+        }
+
+        public void refrescarTabla(int index) {
+            this.controlador.cargarDatosTabla(index);
         }
     }
 }
