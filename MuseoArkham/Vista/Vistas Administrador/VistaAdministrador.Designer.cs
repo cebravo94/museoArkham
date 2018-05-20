@@ -47,6 +47,7 @@
             this.dataGridViewObjetos = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.buttonFiltrarObjetos = new System.Windows.Forms.Button();
+            this.buttonVerSolicitud = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -181,6 +182,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.buttonVerSolicitud);
             this.groupBox3.Controls.Add(this.buttonFiltrarSolicitudes);
             this.groupBox3.Controls.Add(this.buttonCancelarSolicitud);
             this.groupBox3.Controls.Add(this.buttonCrearSolicitud);
@@ -304,6 +306,17 @@
             this.buttonFiltrarObjetos.Text = "Filtrar";
             this.buttonFiltrarObjetos.UseVisualStyleBackColor = true;
             // 
+            // buttonVerSolicitud
+            // 
+            this.buttonVerSolicitud.BackColor = System.Drawing.Color.Transparent;
+            this.buttonVerSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonVerSolicitud.Location = new System.Drawing.Point(5, 108);
+            this.buttonVerSolicitud.Name = "buttonVerSolicitud";
+            this.buttonVerSolicitud.Size = new System.Drawing.Size(123, 30);
+            this.buttonVerSolicitud.TabIndex = 3;
+            this.buttonVerSolicitud.Text = "Ver Solicitud";
+            this.buttonVerSolicitud.UseVisualStyleBackColor = false;
+            // 
             // VistaAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,5 +376,6 @@
         public System.Windows.Forms.DataGridView dataGridViewObjetos;
         public System.Windows.Forms.TabControl tabControl1;
         public System.Windows.Forms.DataGridView dataGridViewSolicitudesTraslado;
+        private System.Windows.Forms.Button buttonVerSolicitud;
     }
 }

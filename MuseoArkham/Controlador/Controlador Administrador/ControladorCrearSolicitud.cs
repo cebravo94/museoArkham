@@ -49,7 +49,7 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
                 }
                 MessageBox.Show(this.ventana, "Se completó la solicitud","Completado",
                     MessageBoxButtons.OK,MessageBoxIcon.Information);
-                this.refrescarTabla();
+                this.refrescarTablaPadre();
                 this.ventana.Close();
                 return;
             }
@@ -99,7 +99,7 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
          * 
          * <returns></returns>
          */
-        public void refrescarTabla()
+        public void refrescarTablaPadre()
         {
             ((VistaAdministrador)(this.ventana.Owner)).refrescarTabla(0);
         }

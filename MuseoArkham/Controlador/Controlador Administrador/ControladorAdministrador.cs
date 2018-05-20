@@ -31,24 +31,26 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
          * </summary>
          */
         public void botonCancelarSolicitud() {
-            int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
-            DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
-            int idSolicitud = Int32.Parse(data.Cells[0].Value.ToString());
-            string consulta1 = "DELETE FROM itemsolicitado WHERE itemsolicitado.id_solicitud = " + idSolicitud;
-            this.RealizarConsultaNoQuery(consulta1);
-            this.CerrarConexion();
-            string consulta2 = "DELETE FROM solicitud WHERE solicitud.id_solicitud = " + idSolicitud;
-            this.RealizarConsultaNoQuery(consulta2);
-            this.CerrarConexion();
-            string contador = "SELECT COUNT(solicitud.id_solicitud) AS cantidad"+
-                " FROM solicitud"+
-                " WHERE solicitud.id_administrador = "+this.usuario.Id;
-            MySqlDataReader reader = this.RealizarConsulta(contador);
-            reader.Read();
-            int cantidad = Int32.Parse(reader["cantidad"].ToString());
-            this.CerrarConexion();
-            if (cantidad == 0)this.ventana.dataGridViewSolicitudesTraslado.DataSource = null;
-            //this.cargarDatosTabla(0);
+            if (this.ventana.dataGridViewSolicitudesTraslado.RowCount>0) {
+                int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
+                DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
+                int idSolicitud = Int32.Parse(data.Cells[0].Value.ToString());
+                string consulta1 = "DELETE FROM itemsolicitado WHERE itemsolicitado.id_solicitud = " + idSolicitud;
+                this.RealizarConsultaNoQuery(consulta1);
+                this.CerrarConexion();
+                string consulta2 = "DELETE FROM solicitud WHERE solicitud.id_solicitud = " + idSolicitud;
+                this.RealizarConsultaNoQuery(consulta2);
+                this.CerrarConexion();
+                string contador = "SELECT COUNT(solicitud.id_solicitud) AS cantidad" +
+                    " FROM solicitud" +
+                    " WHERE solicitud.id_administrador = " + this.usuario.Id;
+                MySqlDataReader reader = this.RealizarConsulta(contador);
+                reader.Read();
+                int cantidad = Int32.Parse(reader["cantidad"].ToString());
+                this.CerrarConexion();
+                this.cargarDatosTabla(0);
+                if (cantidad == 0) this.ventana.dataGridViewSolicitudesTraslado.DataSource = null;
+            }
         }
 
         /**
@@ -95,7 +97,6 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
                     " AND N.iD = solicitud.id_solicitud" +
                     " AND solicitud.id_dpto = " + departamento.Id;
                 MySqlDataReader reader = this.RealizarConsulta(consulta);
-                Debug.WriteLine(consulta);
                 this.PoblarTabla(ventana.dataGridViewSolicitudesTraslado, reader);
                 this.CerrarConexion();
             }
