@@ -7,6 +7,8 @@ using MuseoArkham.Vista;
 using MuseoArkham.Modelo;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace MuseoArkham.Controlador.Controlador_Administrador
 {
@@ -24,15 +26,54 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
 
         /**
          * <summary>
-         * Este metodo realiza las acciones correspondientes al boton aceptar
+         * Este metodo realiza las acciones correspondientes al boton Solicitar
          * </summary>
-         * <param name="consulta"> Es la consulta SQL</param>
          * 
          * <returns></returns>
          */
-        public void botonCrear()
+        public void crearSolicitud()
         {
+            List<int> objetosSolicitud = new List<int>();
+            foreach (DataGridViewRow r in this.ventana.dataGridViewObjetosEnBodega.Rows) {
+                if (Convert.ToBoolean(r.Cells[0].Value)) {
+                    objetosSolicitud.Add(Int32.Parse(r.Cells[1].Value.ToString()));
+                }
+            }
+            if (objetosSolicitud.Count > 0) {
+                int idSolicitud = this.obtenerIdSolicitud();
+                List<string> stringsSolicitud = new List<string>();
+                string consulta = "INSERT INTO itemsolicitado(id_item,id_solicitud) VALUES (";
+                foreach (int idItem in objetosSolicitud) {
+                    this.RealizarConsulta(consulta + idItem + "," + idSolicitud + ");");
+                    this.CerrarConexion();
+                }
+                MessageBox.Show(this.ventana, "Se completó la solicitud");
+                this.refrescarTabla();
+                this.ventana.Close();
+                return;
+            }
+            MessageBox.Show(this.ventana, "No se pudo crear la solicitud");
+        }
 
+        private int obtenerIdSolicitud() {
+            string generarConsulta = Solicitud.generarStringConsulta(this.departamento.Id, this.departamento.IdUsuario,
+                    buscarIdSala(this.ventana.comboBoxSalaOrigen.Text), buscarIdSala(this.ventana.comboBoxSalaDestino.Text),
+                    this.ventana.textBoxComentarios.Text, "Pendiente");
+            generarConsulta += "SELECT LAST_INSERT_ID();";
+            Debug.WriteLine(generarConsulta);
+            MySqlDataReader reader = this.RealizarConsulta(generarConsulta);
+            reader.Read();
+            int idSolicitud = Int32.Parse(reader["LAST_INSERT_ID()"].ToString());
+            this.CerrarConexion();
+            return idSolicitud;
+        }
+
+        private int buscarIdSala(string nombreSala) {
+            MySqlDataReader reader = this.RealizarConsulta("SELECT sala.id_sala AS id_sala FROM sala WHERE sala.nombre = '"+nombreSala+"'");
+            reader.Read();
+            int idSala = Int32.Parse(reader["id_sala"].ToString());
+            this.CerrarConexion();
+            return idSala;
         }
 
         /**
