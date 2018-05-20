@@ -47,12 +47,14 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
                     this.RealizarConsulta(consulta + idItem + "," + idSolicitud + ");");
                     this.CerrarConexion();
                 }
-                MessageBox.Show(this.ventana, "Se completó la solicitud");
+                MessageBox.Show(this.ventana, "Se completó la solicitud","Completado",
+                    MessageBoxButtons.OK,MessageBoxIcon.Information);
                 this.refrescarTabla();
                 this.ventana.Close();
                 return;
             }
-            MessageBox.Show(this.ventana, "No se pudo crear la solicitud");
+            MessageBox.Show(this.ventana, "No se pudo crear la solicitud","Error",
+                MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
         }
 
         private int obtenerIdSolicitud() {
@@ -60,7 +62,6 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
                     buscarIdSala(this.ventana.comboBoxSalaOrigen.Text), buscarIdSala(this.ventana.comboBoxSalaDestino.Text),
                     this.ventana.textBoxComentarios.Text, "Pendiente");
             generarConsulta += "SELECT LAST_INSERT_ID();";
-            Debug.WriteLine(generarConsulta);
             MySqlDataReader reader = this.RealizarConsulta(generarConsulta);
             reader.Read();
             int idSolicitud = Int32.Parse(reader["LAST_INSERT_ID()"].ToString());

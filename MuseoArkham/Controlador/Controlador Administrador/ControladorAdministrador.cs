@@ -30,9 +30,25 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
          * En la pestaña "Solicitudes de Traslado"
          * </summary>
          */
-        public void botonCancelarSolicitud()
-        {
-
+        public void botonCancelarSolicitud() {
+            int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
+            int idSolicitud = Int32.Parse(data.Cells[0].Value.ToString());
+            string consulta1 = "DELETE FROM itemsolicitado WHERE itemsolicitado.id_solicitud = " + idSolicitud;
+            this.RealizarConsultaNoQuery(consulta1);
+            this.CerrarConexion();
+            string consulta2 = "DELETE FROM solicitud WHERE solicitud.id_solicitud = " + idSolicitud;
+            this.RealizarConsultaNoQuery(consulta2);
+            this.CerrarConexion();
+            string contador = "SELECT COUNT(solicitud.id_solicitud) AS cantidad"+
+                " FROM solicitud"+
+                " WHERE solicitud.id_administrador = "+this.usuario.Id;
+            MySqlDataReader reader = this.RealizarConsulta(contador);
+            reader.Read();
+            int cantidad = Int32.Parse(reader["cantidad"].ToString());
+            this.CerrarConexion();
+            if (cantidad == 0)this.ventana.dataGridViewSolicitudesTraslado.DataSource = null;
+            //this.cargarDatosTabla(0);
         }
 
         /**
@@ -69,17 +85,17 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
             if (this.departamento != null) {
                 string consulta = "SELECT solicitud.id_solicitud AS ID, usuario.nombre, sala.nombre as Origen," +
                     " N.salaDestino as Destino, solicitud.estado AS Estado," +
-                    " solicitud.comentario as Comentario FROM usuario, solicitud, sala ,"+ 
-                        " (SELECT sala.nombre AS salaDestino, solicitud.id_solicitud AS iD"+
-                        " FROM sala, solicitud"+
+                    " solicitud.comentario as Comentario FROM usuario, solicitud, sala ," +
+                        " (SELECT sala.nombre AS salaDestino, solicitud.id_solicitud AS iD" +
+                        " FROM sala, solicitud" +
                         " WHERE solicitud.id_sala_destino = sala.id_sala" +
-                        " AND solicitud.id_dpto = "+departamento.Id+") AS N " +
+                        " AND solicitud.id_dpto = " + departamento.Id + ") AS N " +
                     " WHERE solicitud.id_sala_origen = sala.id_sala" +
-                    " AND solicitud.id_administrador = usuario.id_usuario"+
-                    " AND N.iD = solicitud.id_solicitud"+
-                    " AND solicitud.id_dpto = "+departamento.Id;
-                Debug.WriteLine(consulta);
+                    " AND solicitud.id_administrador = usuario.id_usuario" +
+                    " AND N.iD = solicitud.id_solicitud" +
+                    " AND solicitud.id_dpto = " + departamento.Id;
                 MySqlDataReader reader = this.RealizarConsulta(consulta);
+                Debug.WriteLine(consulta);
                 this.PoblarTabla(ventana.dataGridViewSolicitudesTraslado, reader);
                 this.CerrarConexion();
             }
@@ -87,11 +103,11 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
 
         private void cargarItems() {
             if (this.departamento != null) {
-                string consulta = "SELECT item.id_item AS ID, item.nombre AS Nombre, sala.nombre AS Ubicación,"+
+                string consulta = "SELECT item.id_item AS ID, item.nombre AS Nombre, sala.nombre AS Ubicación," +
                     " item.estado AS Estado, item.tipo AS Tipo, item.descripcion AS Descripción" +
                     " FROM item, departamento, sala" +
                     " WHERE item.id_dpto = departamento.id_dpto" +
-                    " AND sala.id_sala = item.id_sala"+
+                    " AND sala.id_sala = item.id_sala" +
                     " AND departamento.id_dpto = " + departamento.Id;
                 MySqlDataReader reader = this.RealizarConsulta(consulta);
                 this.PoblarTabla(ventana.dataGridViewObjetos, reader);

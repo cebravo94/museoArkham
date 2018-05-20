@@ -54,5 +54,9 @@ namespace MuseoArkham.Vista
         public void refrescarTabla(int index) {
             this.controlador.cargarDatosTabla(index);
         }
+
+        private void buttonCancelarSolicitud_Click(object sender, EventArgs e) {
+            this.controlador.botonCancelarSolicitud();
+        }
     }
 }

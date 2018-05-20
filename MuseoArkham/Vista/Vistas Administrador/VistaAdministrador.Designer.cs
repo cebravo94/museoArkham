@@ -215,6 +215,7 @@
             this.buttonCancelarSolicitud.TabIndex = 1;
             this.buttonCancelarSolicitud.Text = "Cancelar solicitud";
             this.buttonCancelarSolicitud.UseVisualStyleBackColor = false;
+            this.buttonCancelarSolicitud.Click += new System.EventHandler(this.buttonCancelarSolicitud_Click);
             // 
             // buttonCrearSolicitud
             // 
