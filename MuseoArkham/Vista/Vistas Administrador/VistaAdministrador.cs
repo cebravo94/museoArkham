@@ -43,7 +43,7 @@ namespace MuseoArkham.Vista
 
         private void buttonCrearSolicitud_Click(object sender, EventArgs e)
         {
-            Form ventanaCrearSolicitud = new VistaCrearSolicitud();
+            Form ventanaCrearSolicitud = new VistaCrearSolicitud(this.controlador.departamento);
             ventanaCrearSolicitud.ShowDialog(this);
         }
 

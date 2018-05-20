@@ -168,11 +168,14 @@
             // 
             // dataGridViewSolicitudesTraslado
             // 
+            this.dataGridViewSolicitudesTraslado.AllowUserToAddRows = false;
+            this.dataGridViewSolicitudesTraslado.AllowUserToDeleteRows = false;
             this.dataGridViewSolicitudesTraslado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSolicitudesTraslado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSolicitudesTraslado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSolicitudesTraslado.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewSolicitudesTraslado.Name = "dataGridViewSolicitudesTraslado";
+            this.dataGridViewSolicitudesTraslado.ReadOnly = true;
             this.dataGridViewSolicitudesTraslado.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewSolicitudesTraslado.TabIndex = 0;
             // 
@@ -267,11 +270,14 @@
             // 
             // dataGridViewObjetos
             // 
+            this.dataGridViewObjetos.AllowUserToAddRows = false;
+            this.dataGridViewObjetos.AllowUserToDeleteRows = false;
             this.dataGridViewObjetos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewObjetos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewObjetos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewObjetos.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewObjetos.Name = "dataGridViewObjetos";
+            this.dataGridViewObjetos.ReadOnly = true;
             this.dataGridViewObjetos.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewObjetos.TabIndex = 0;
             // 

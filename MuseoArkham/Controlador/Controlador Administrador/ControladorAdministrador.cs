@@ -16,10 +16,12 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
     {
         private VistaAdministrador ventana;
         private Usuario usuario;
+        public Departamento departamento { get; }
 
         public ControladorAdministrador(VistaAdministrador ventana, Usuario usuario) {
             this.ventana = ventana;
             this.usuario = usuario;
+            this.departamento = this.cargarDepartamento();
         }
 
         /**
@@ -41,6 +43,17 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
         public void botonFiltrarSolicitudes() {
         }
 
+        private Departamento cargarDepartamento() {
+            MySqlDataReader reader = this.RealizarConsulta("select * from departamento where id_usuario=" + this.usuario.Id);
+            reader.Read();
+            if (reader != null) {
+                Departamento departamento = new Departamento(reader);
+                this.CerrarConexion();
+                return departamento;
+            }
+            return null;
+        }
+
         public void cargarDatosTabla(int index) {
             switch (index) {
                 case 0:
@@ -53,35 +66,31 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
         }
 
         private void cargarSolicitudes() {
-            MySqlDataReader reader = this.RealizarConsulta("select * from departamento where id_usuario=" + this.usuario.Id);
-            reader.Read();
-            if (reader != null) {
-                Departamento departamento = new Departamento(reader);
-                this.CerrarConexion();
-                String consulta = "select * from solicitud, departamento" +
-                                  " where solicitud.id_dpto=departamento.id_dpto" +
-                                  " and departamento.id_dpto=" + departamento.Id;
-                Debug.WriteLine(consulta);
-                reader = this.RealizarConsulta(consulta);
+            if (this.departamento != null) {
+                string consulta = "SELECT solicitud.id_solicitud AS Solicitud, sala.nombre as Origen," +
+                    " sala.nombre as Destino, solicitud.estado AS Estado," +
+                    " solicitud.comentario as Comentario FROM solicitud, sala" +
+                    " WHERE solicitud.id_sala_origen = sala.id_sala" +
+                    " AND solicitud.id_sala_destino = sala.id_sala" +
+                    " AND solicitud.id_dpto = "+departamento.Id;
+                MySqlDataReader reader = this.RealizarConsulta(consulta);
                 this.PoblarTabla(ventana.dataGridViewObjetos, reader);
+                this.CerrarConexion();
             }
-            this.CerrarConexion();
         }
 
         private void cargarItems() {
-            MySqlDataReader reader = this.RealizarConsulta("select * from departamento where id_usuario=" + this.usuario.Id);
-            reader.Read();
-            if (reader != null) {
-                Departamento departamento = new Departamento(reader);
-                this.CerrarConexion();
-                String consulta = "select * from item, departamento" +
-                                  " where item.id_dpto=departamento.id_dpto" +
-                                  " and departamento.id_dpto=" + departamento.Id;
-                Debug.WriteLine(consulta);
-                reader = this.RealizarConsulta(consulta);
+            if (this.departamento != null) {
+                string consulta = "SELECT item.id_item AS ID, item.nombre AS Nombre, sala.nombre AS Ubicación,"+
+                    " item.estado AS Estado, item.tipo AS Tipo, item.descripcion AS Descripción" +
+                    " FROM item, departamento, sala" +
+                    " WHERE item.id_dpto = departamento.id_dpto" +
+                    " AND sala.id_sala = item.id_sala"+
+                    " AND departamento.id_dpto = " + departamento.Id;
+                MySqlDataReader reader = this.RealizarConsulta(consulta);
                 this.PoblarTabla(ventana.dataGridViewObjetos, reader);
+                this.CerrarConexion();
             }
-            this.CerrarConexion();
         }
     }
 }

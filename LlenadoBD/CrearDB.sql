@@ -60,14 +60,13 @@ DROP TABLE IF EXISTS solicitud;
 CREATE TABLE solicitud(
   id_solicitud INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   id_dpto INT NOT NULL,
-  id_item INT NOT NULL,
   id_administrador INT NOT NULL,
   id_sala_origen INT NOT NULL,
   id_sala_destino INT NOT NULL,
   estado VARCHAR(100) NOT NULL,
   comentario VARCHAR(100),
+  fecha_solicitud DATE NOT NULL,
   FOREIGN KEY (id_dpto) REFERENCES departamento(id_dpto) ON DELETE RESTRICT,
-  FOREIGN KEY (id_item) REFERENCES item(id_item) ON DELETE RESTRICT,
   FOREIGN KEY (id_administrador) REFERENCES usuario(id_usuario) ON DELETE RESTRICT,
   FOREIGN KEY (id_sala_origen) REFERENCES sala(id_sala) ON DELETE RESTRICT,
   FOREIGN KEY (id_sala_destino) REFERENCES sala(id_sala) ON DELETE RESTRICT
@@ -135,7 +134,6 @@ DROP TABLE IF EXISTS itemSolicitado;
 CREATE TABLE itemSolicitado(
 	id_item INT NOT NULL,
 	id_solicitud INT NOT NULL,
-	fecha_solicitud DATE NOT NULL,
 	FOREIGN KEY (id_item) REFERENCES item(id_item)ON DELETE RESTRICT,
 	FOREIGN KEY(id_solicitud) REFERENCES solicitud(id_solicitud) ON DELETE RESTRICT
 );
