@@ -56,5 +56,10 @@ namespace MuseoArkham.Vista
         {
             this.controlador.CargarDatos((sender as TabControl).SelectedIndex);
         }
+
+        public void refrescarTabla(int index)
+        {
+            this.controlador.CargarDatos(index);
+        }
     }
 }

@@ -100,6 +100,7 @@
             this.buttonCrearDepartamento.TabIndex = 0;
             this.buttonCrearDepartamento.Text = "Crear";
             this.buttonCrearDepartamento.UseVisualStyleBackColor = true;
+            this.buttonCrearDepartamento.Click += new System.EventHandler(this.buttonCrearDepartamento_Click);
             // 
             // buttonCancelar
             // 
