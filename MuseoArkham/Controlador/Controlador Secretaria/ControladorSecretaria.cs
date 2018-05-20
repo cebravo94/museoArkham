@@ -82,7 +82,10 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
                     this.cargarDepartamentos();
                     break;
                 case 1:
-                    
+                    this.cargarSalas();
+                    break;
+                case 2:
+                    this.cargarUsuarios();
                     break;
             }
         }
@@ -101,6 +104,28 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             this.PoblarTabla(ventana.dataGridViewDepartamento, reader);
             this.CerrarConexion();
                  
+        }
+
+        public void cargarSalas()
+        {
+            string consulta = "SELECT sala.id_sala AS ID,departamento.nombre AS Departamento," +
+                                " sala.nombre AS Nombre, sala.estado AS Estado," +
+                                " sala.descripcion as Descripcion" +
+                                " FROM departamento ,sala " +
+                                " WHERE  departamento.id_dpto = sala.id_dpto";
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            this.PoblarTabla(ventana.dataGridViewSalas, reader);
+            this.CerrarConexion();
+        }
+
+        public void cargarUsuarios()
+        {
+            string consulta = "SELECT usuario.id_usuario AS ID,usuario.nombre AS Nombre," +
+                               " usuario.rut as Rut, usuario.correo as Correo, usuario.tipo as Cargo" +
+                               " FROM usuario";
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            this.PoblarTabla(ventana.dataGridViewUsuarios, reader);
+            this.CerrarConexion();
         }
     }
 }

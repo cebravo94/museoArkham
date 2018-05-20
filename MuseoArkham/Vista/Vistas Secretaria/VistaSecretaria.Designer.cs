@@ -183,6 +183,7 @@
             // 
             // dataGridViewDepartamento
             // 
+            this.dataGridViewDepartamento.AllowUserToAddRows = false;
             this.dataGridViewDepartamento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDepartamento.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -289,6 +290,7 @@
             // 
             // dataGridViewSalas
             // 
+            this.dataGridViewSalas.AllowUserToAddRows = false;
             this.dataGridViewSalas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSalas.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -362,6 +364,7 @@
             // 
             // dataGridViewUsuarios
             // 
+            this.dataGridViewUsuarios.AllowUserToAddRows = false;
             this.dataGridViewUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
