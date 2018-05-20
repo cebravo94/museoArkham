@@ -13,6 +13,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
     class ControladorSecretaria : Controlador
     {
         private VistaSecretaria ventana;
+        private Departamento Departamento { get; set; }
 
         public ControladorSecretaria(VistaSecretaria ventana) {
             this.ventana = ventana;
@@ -66,6 +67,40 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
          */
         public void botonDeshabilitarUsuario(Usuario usuario)
         {
+        }
+
+        /**
+         * <summary>
+         *  Carga los datos dependiendo de la pestaña que nos encontremos
+         * </summary>
+         */
+        public void CargarDatos(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    this.cargarDepartamentos();
+                    break;
+                case 1:
+                    
+                    break;
+            }
+        }
+
+        /**
+        * <summary>
+        *  Realiza los metodos necesarios para cargar los datos de departamentos
+        * </summary>
+        */
+        public void cargarDepartamentos()
+        {
+            string consulta = "SELECT  departamento.id_dpto AS ID,departamento.nombre AS Departamento, usuario.nombre AS Administrador" + 
+                               " FROM departamento,usuario" +
+                               " WHERE departamento.id_usuario = usuario.id_usuario";
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            this.PoblarTabla(ventana.dataGridViewDepartamento, reader);
+            this.CerrarConexion();
+                 
         }
     }
 }

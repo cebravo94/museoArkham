@@ -18,7 +18,9 @@ namespace MuseoArkham.Vista
         public VistaSecretaria()
         {
             this.controlador = new ControladorSecretaria(this);
+            
             InitializeComponent();
+            this.controlador.CargarDatos(0);
         }
 
 
@@ -48,6 +50,11 @@ namespace MuseoArkham.Vista
         private void botonEliminarDepto_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.controlador.CargarDatos((sender as TabControl).SelectedIndex);
         }
     }
 }
