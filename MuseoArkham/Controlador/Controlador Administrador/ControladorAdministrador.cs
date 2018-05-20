@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Data;
 using MuseoArkham.Modelo;
 using System.Diagnostics;
+using MuseoArkham.Vista.Vistas_Administrador;
 
 namespace MuseoArkham.Controlador.Controlador_Administrador
 {
@@ -32,9 +33,7 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
          */
         public void botonCancelarSolicitud() {
             if (this.ventana.dataGridViewSolicitudesTraslado.RowCount>0) {
-                int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
-                DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
-                int idSolicitud = Int32.Parse(data.Cells[0].Value.ToString());
+                int idSolicitud = this.obtenerIdSolicitud();
                 string consulta1 = "DELETE FROM itemsolicitado WHERE itemsolicitado.id_solicitud = " + idSolicitud;
                 this.RealizarConsultaNoQuery(consulta1);
                 this.CerrarConexion();
@@ -51,6 +50,21 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
                 this.cargarDatosTabla(0);
                 if (cantidad == 0) this.ventana.dataGridViewSolicitudesTraslado.DataSource = null;
             }
+        }
+
+        public void botonVerSolicitud() {
+            if (this.ventana.dataGridViewSolicitudesTraslado.RowCount > 0) {
+                int index = this.obtenerIdSolicitud();
+                VistaVerSolicitud vista = new VistaVerSolicitud(index);
+                vista.ShowDialog(this.ventana);
+            }
+        }
+
+        private int obtenerIdSolicitud() {
+            int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
+            int idSolicitud = Int32.Parse(data.Cells[0].Value.ToString());
+            return idSolicitud;
         }
 
         /**

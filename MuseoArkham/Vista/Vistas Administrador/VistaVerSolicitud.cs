@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MuseoArkham.Controlador.Controlador_Administrador;
+using MuseoArkham.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +14,20 @@ namespace MuseoArkham.Vista.Vistas_Administrador
 {
     public partial class VistaVerSolicitud : Form
     {
-        public VistaVerSolicitud() {
+        ControladorVerSolicitud controlador;
+        public VistaVerSolicitud(int indexSolicitud) {
             InitializeComponent();
+            this.controlador = new ControladorVerSolicitud(this);
+            this.cargarDatos(indexSolicitud);
+
+        }
+
+        private void buttonSalir_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+        private void cargarDatos(int indexSolicitud) {
+            this.controlador.cargarSolicitud(indexSolicitud);
         }
     }
 }

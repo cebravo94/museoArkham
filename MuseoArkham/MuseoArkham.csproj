@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Controlador\Controlador Administrador\ControladorAdministrador.cs" />
     <Compile Include="Controlador\Controlador Administrador\ControladorCrearSolicitud.cs" />
+    <Compile Include="Controlador\Controlador Administrador\ControladorVerSolicitud.cs" />
     <Compile Include="Controlador\Controlador Bodeguero\ControladorBodeguero.cs" />
     <Compile Include="Controlador\Controlador Gerente\ControladorGerente.cs" />
     <Compile Include="Controlador\Controlador Secretaria\ControladorAgregarUsuario.cs" />

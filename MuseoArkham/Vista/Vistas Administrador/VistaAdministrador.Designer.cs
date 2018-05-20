@@ -38,6 +38,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewSolicitudesTraslado = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonVerSolicitud = new System.Windows.Forms.Button();
             this.buttonFiltrarSolicitudes = new System.Windows.Forms.Button();
             this.buttonCancelarSolicitud = new System.Windows.Forms.Button();
             this.buttonCrearSolicitud = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.dataGridViewObjetos = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.buttonFiltrarObjetos = new System.Windows.Forms.Button();
-            this.buttonVerSolicitud = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -196,6 +196,18 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // buttonVerSolicitud
+            // 
+            this.buttonVerSolicitud.BackColor = System.Drawing.Color.Transparent;
+            this.buttonVerSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonVerSolicitud.Location = new System.Drawing.Point(5, 108);
+            this.buttonVerSolicitud.Name = "buttonVerSolicitud";
+            this.buttonVerSolicitud.Size = new System.Drawing.Size(123, 30);
+            this.buttonVerSolicitud.TabIndex = 3;
+            this.buttonVerSolicitud.Text = "Ver Solicitud";
+            this.buttonVerSolicitud.UseVisualStyleBackColor = false;
+            this.buttonVerSolicitud.Click += new System.EventHandler(this.buttonVerSolicitud_Click);
+            // 
             // buttonFiltrarSolicitudes
             // 
             this.buttonFiltrarSolicitudes.BackColor = System.Drawing.Color.Transparent;
@@ -305,17 +317,6 @@
             this.buttonFiltrarObjetos.TabIndex = 0;
             this.buttonFiltrarObjetos.Text = "Filtrar";
             this.buttonFiltrarObjetos.UseVisualStyleBackColor = true;
-            // 
-            // buttonVerSolicitud
-            // 
-            this.buttonVerSolicitud.BackColor = System.Drawing.Color.Transparent;
-            this.buttonVerSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonVerSolicitud.Location = new System.Drawing.Point(5, 108);
-            this.buttonVerSolicitud.Name = "buttonVerSolicitud";
-            this.buttonVerSolicitud.Size = new System.Drawing.Size(123, 30);
-            this.buttonVerSolicitud.TabIndex = 3;
-            this.buttonVerSolicitud.Text = "Ver Solicitud";
-            this.buttonVerSolicitud.UseVisualStyleBackColor = false;
             // 
             // VistaAdministrador
             // 
