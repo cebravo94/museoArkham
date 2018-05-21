@@ -75,7 +75,10 @@ namespace MuseoArkham.Vista
 
         private void buttonAsignarAdministrador_Click(object sender, EventArgs e)
         {
-            VistaAsignarAdministrador vad = new VistaAsignarAdministrador();
+            int index = this.dataGridViewDepartamento.CurrentCell.RowIndex;
+            DataGridViewRow data = this.dataGridViewDepartamento.Rows[index];
+            string id = data.Cells[0].Value.ToString();
+            VistaAsignarAdministrador vad = new VistaAsignarAdministrador(id);
             vad.ShowDialog(this);
         }
     }

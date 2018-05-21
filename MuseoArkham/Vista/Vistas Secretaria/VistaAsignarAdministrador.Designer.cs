@@ -98,6 +98,7 @@
             this.buttonAsignarAdministrador.TabIndex = 0;
             this.buttonAsignarAdministrador.Text = "Asignar";
             this.buttonAsignarAdministrador.UseVisualStyleBackColor = true;
+            this.buttonAsignarAdministrador.Click += new System.EventHandler(this.buttonAsignarAdministrador_Click);
             // 
             // buttonCancelarAsignarAdministrador
             // 
@@ -155,6 +156,7 @@
             this.MinimumSize = new System.Drawing.Size(446, 450);
             this.Name = "VistaAsignarAdministrador";
             this.Padding = new System.Windows.Forms.Padding(3);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VistaAsignarAdministrador";
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
