@@ -431,7 +431,6 @@
             this.label12.Size = new System.Drawing.Size(41, 13);
             this.label12.TabIndex = 5;
             this.label12.Text = "label12";
-            this.label12.Visible = false;
             // 
             // label13
             // 
@@ -453,6 +452,7 @@
             this.label14.Size = new System.Drawing.Size(41, 13);
             this.label14.TabIndex = 7;
             this.label14.Text = "label14";
+            this.label14.Visible = false;
             // 
             // tableLayoutPanel3
             // 

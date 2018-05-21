@@ -10,6 +10,7 @@ using System.Data;
 using MuseoArkham.Modelo;
 using System.Diagnostics;
 using MuseoArkham.Vista.Vistas_Administrador;
+using MuseoArkham.Vista.VistasItem;
 
 namespace MuseoArkham.Controlador.Controlador_Administrador
 {
@@ -58,6 +59,21 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
                 VistaVerSolicitud vista = new VistaVerSolicitud(index);
                 vista.ShowDialog(this.ventana);
             }
+        }
+
+        public void botonVerDetalle() {
+            if (this.ventana.dataGridViewObjetos.RowCount > 0) {
+                int index = this.obtenerIdItem();
+                VistaItem vista = new VistaItem(index);
+                vista.ShowDialog(this.ventana);
+            }
+        }
+
+        private int obtenerIdItem() {
+            int index = this.ventana.dataGridViewObjetos.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewObjetos.Rows[index];
+            int idItem = Int32.Parse(data.Cells[0].Value.ToString());
+            return idItem;
         }
 
         private int obtenerIdSolicitud() {

@@ -62,5 +62,9 @@ namespace MuseoArkham.Vista
         private void buttonVerSolicitud_Click(object sender, EventArgs e) {
             this.controlador.botonVerSolicitud();
         }
+
+        private void button1_Click(object sender, EventArgs e) {
+            this.controlador.botonVerDetalle();
+        }
     }
 }
