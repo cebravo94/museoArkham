@@ -1,4 +1,5 @@
 ﻿using MuseoArkham.Controlador.Controlador_Bodeguero;
+using MuseoArkham.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,12 @@ namespace MuseoArkham.Vista
     public partial class VistaEncargadoDeBodega : Form
     {
         private ControladorBodeguero controlador;
-        public VistaEncargadoDeBodega()
+        public VistaEncargadoDeBodega(Usuario usuario)
         {
-            this.controlador = new ControladorBodeguero(this);
             InitializeComponent();
+            this.controlador = new ControladorBodeguero(this, usuario);
+            this.controlador.CargarDatosTabla(0);
+            
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -77,12 +80,12 @@ namespace MuseoArkham.Vista
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.controlador.enviarARestauracion();
+            this.controlador.EnviarARestauracion();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            this.controlador.verDetallesRegistros();
+            this.controlador.VerDetallesRegistros();
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -92,28 +95,28 @@ namespace MuseoArkham.Vista
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.controlador.registrarSolicitud();
+            this.controlador.RegistrarSolicitud();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            this.controlador.verDetallesSolicitudes();
+            this.controlador.VerDetallesSolicitudes();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            this.controlador.consultaSolicitudes();
+            this.controlador.ConsultaSolicitudes();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
-            this.controlador.desincorporarObjeto();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.controlador.consultaSobreObjetos();
+            this.controlador.ConsultaSobreObjetos();
         }
 
         private void VistaEncargadoDeBodega_FormClosing(object sender, FormClosingEventArgs e) {
@@ -132,13 +135,31 @@ namespace MuseoArkham.Vista
 
         private void buttonIncorporarObjeto_Click(object sender, EventArgs e)
         {
-            Form ventanaIncorporarObjeto = new VistaIncorporarObjeto();
+            Form ventanaIncorporarObjeto = new VistaIncorporarObjeto(this.controlador.departamento);
             ventanaIncorporarObjeto.ShowDialog();
+            this.controlador.CargarDatosTabla(0);
         }
 
         private void buttonDesincorporarObjeto_Click(object sender, EventArgs e)
         {
+            this.controlador.DesincorporarObjeto();
+            this.controlador.CargarDatosTabla(0);
+        }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.controlador.CargarDatosTabla((sender as TabControl).SelectedIndex);
+        }
+
+        private void dataGridViewObjetos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttonEnviarRestauracion_Click(object sender, EventArgs e)
+        {
+            this.controlador.EnviarARestauracion();
+            this.controlador.CargarDatosTabla(0);
         }
     }
 }

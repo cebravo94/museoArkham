@@ -6,15 +6,22 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using MuseoArkham.Vista;
 using System.Windows.Forms;
+using MuseoArkham.Modelo;
+using System.Diagnostics;
 
 namespace MuseoArkham.Controlador.Controlador_Bodeguero
 {
     class ControladorBodeguero : Controlador
     {
         private VistaEncargadoDeBodega ventana;
+        private Usuario usuario;
+        public Departamento departamento { get; }
 
-        public ControladorBodeguero(VistaEncargadoDeBodega ventana) {
+        public ControladorBodeguero(VistaEncargadoDeBodega ventana, Usuario usuario) {
             this.ventana = ventana;
+            this.usuario = usuario;
+            this.departamento = this.cargarDepartamento();
+            
         }
 
         /**
@@ -25,7 +32,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          * En la pestaña "Objetos"
          * </sumary>
         **/
-        public void agregarObjeto()
+        public void IncorporarObjeto()
         {
 
         }
@@ -37,9 +44,15 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          * En la pestaña "Objetos"
          * </sumary>
         **/
-        public void desincorporarObjeto()
+        public void DesincorporarObjeto()
         {
-
+            int index = this.ventana.dataGridViewObjetos.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewObjetos.Rows[index];
+            int id_item = Int32.Parse(data.Cells[0].Value.ToString());
+            Console.WriteLine(id_item);
+            MySqlDataReader reader = this.RealizarConsulta("UPDATE museo.item SET estado = 'deshabilitado' where id_item ="+id_item);
+            this.CerrarConexion();
+            //Console.WriteLine(index);
         }
 
         /**
@@ -50,9 +63,24 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          * En la pestaña "Objetos"
          * </sumary>
         **/
-        public void enviarARestauracion()
+        public void EnviarARestauracion()
         {
-
+            int index = this.ventana.dataGridViewObjetos.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewObjetos.Rows[index];
+            String estado = data.Cells[7].Value.ToString();
+            int id_item = Int32.Parse(data.Cells[0].Value.ToString());
+            if (estado == "en restauracion")
+            {
+                MySqlDataReader reader = this.RealizarConsulta("UPDATE museo.item SET estado = 'guardado' where id_item =" + id_item);
+                this.CerrarConexion();
+                
+            }
+            else
+            {
+                MySqlDataReader reader = this.RealizarConsulta("UPDATE museo.item SET estado = 'en restauracion' where id_item =" + id_item);
+                this.CerrarConexion();
+            }
+                
         }
 
         /**
@@ -62,7 +90,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          *En la pestaña "Objetos" 
          * </sumary>
         **/
-        public void consultaSobreObjetos()
+        public void ConsultaSobreObjetos()
         {
 
         }
@@ -74,7 +102,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          * museo.
          * En la pestaña "Solicitudes"
         **/
-        public void registrarSolicitud()
+        public void RegistrarSolicitud()
         {
 
         }
@@ -85,7 +113,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          * detalles de la solictud seleccionada.
          * En la pestaña "Solicitudes"
         **/
-        public void verDetallesSolicitudes()
+        public void VerDetallesSolicitudes()
         {
 
         }
@@ -96,7 +124,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          * emitidas y aceptadas que son las que el visualiza. (Deberia deplegar las opciones de consulta de solicitudes)
          * En la pestaña "Solicitudes"
         **/
-        public void consultaSolicitudes()
+        public void ConsultaSolicitudes()
         {
 
         }
@@ -107,9 +135,82 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          * detalles del registro seleccionado.
          * En la pestaña "Registros"
         **/
-        public void verDetallesRegistros()
+        public void VerDetallesRegistros()
         {
 
+        }
+
+        private Departamento cargarDepartamento()
+        {
+            MySqlDataReader reader = this.RealizarConsulta("select * from departamento where id_usuario=" + this.usuario.Id);
+            reader.Read();
+            if (reader != null)
+            {
+                Departamento departamento = new Departamento(reader);
+                this.CerrarConexion();
+                return departamento;
+            }
+            return null;
+        }
+
+        public void CargarDatosTabla(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    this.CargarItems();
+                    break;
+                case 1:
+                    this.CargarSolicitudes();
+                    break;
+                case 2:
+                    this.CargarRegistros();
+                    break;
+            }
+        }
+
+        private void CargarItems()
+        {
+            MySqlDataReader reader = this.RealizarConsulta("select * from departamento where id_usuario=" + this.usuario.Id);
+            reader.Read();
+            if (reader != null)
+            {
+                Departamento departamento = new Departamento(reader);
+                this.CerrarConexion();
+                Debug.WriteLine(departamento.Nombre);
+                Debug.WriteLine(departamento.Id);
+                String consulta = "select id_item,item.id_dpto,id_sala,item.nombre,fecha_ingreso,item.descripcion,coleccion,estado,anno,tipo,era" +
+                                  " from museo.item, museo.departamento" +
+                                  " where item.id_dpto=departamento.id_dpto" +
+                                  " and departamento.id_dpto=" + departamento.Id+
+                                  " and item.estado != 'deshabilitado';";
+                Debug.WriteLine(consulta);
+                reader = this.RealizarConsulta(consulta);
+                this.PoblarTabla(ventana.dataGridViewObjetos, reader);
+            }
+            this.CerrarConexion();
+        }
+
+        private void CargarSolicitudes()
+        {
+            MySqlDataReader reader = this.RealizarConsulta("SELECT * FROM museo.solicitud where estado ='aceptada';");
+            //reader.Read();
+            if (reader != null)
+            {
+                this.PoblarTabla(ventana.dataGridViewObjetos, reader);
+            }
+            this.CerrarConexion();
+        }
+
+        private void CargarRegistros()
+        {
+            MySqlDataReader reader = this.RealizarConsulta("SELECT * FROM museo.registro");
+            //reader.Read();
+            if (reader != null)
+            {
+                this.PoblarTabla(ventana.dataGridViewObjetos, reader);
+            }
+            this.CerrarConexion();
         }
     }
 }
