@@ -36,13 +36,15 @@
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.labelNombreSala = new System.Windows.Forms.Label();
-            this.labelAreaSala = new System.Windows.Forms.Label();
-            this.labelDescripcionSala = new System.Windows.Forms.Label();
             this.textBoxNombreSala = new System.Windows.Forms.TextBox();
             this.textBoxDescripcionSala = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.labelMetrosCuadrados = new System.Windows.Forms.Label();
             this.numericUpDownMetrosCuadrados = new System.Windows.Forms.NumericUpDown();
+            this.labelDescripcionSala = new System.Windows.Forms.Label();
+            this.comboBoxDepartamento = new System.Windows.Forms.ComboBox();
+            this.labelAreaSala = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -58,7 +60,7 @@
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.groupBox1.Size = new System.Drawing.Size(424, 405);
+            this.groupBox1.Size = new System.Drawing.Size(424, 406);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Crear Sala";
@@ -75,7 +77,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(404, 372);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(404, 373);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -89,7 +91,7 @@
             this.tableLayoutPanel2.Controls.Add(this.buttonCrearSala, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonCancelar, 4, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 337);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 338);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -105,6 +107,7 @@
             this.buttonCrearSala.TabIndex = 0;
             this.buttonCrearSala.Text = "Crear";
             this.buttonCrearSala.UseVisualStyleBackColor = true;
+            this.buttonCrearSala.Click += new System.EventHandler(this.buttonCrearSala_Click);
             // 
             // buttonCancelar
             // 
@@ -115,6 +118,7 @@
             this.buttonCancelar.TabIndex = 1;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -122,11 +126,13 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.labelNombreSala, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.labelAreaSala, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.labelDescripcionSala, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.textBoxNombreSala, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.textBoxDescripcionSala, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxDescripcionSala, 1, 3);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.labelDescripcionSala, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.comboBoxDepartamento, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.labelAreaSala, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label1, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -135,7 +141,9 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(398, 328);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(398, 329);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // labelNombreSala
@@ -144,29 +152,9 @@
             this.labelNombreSala.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelNombreSala.Location = new System.Drawing.Point(3, 0);
             this.labelNombreSala.Name = "labelNombreSala";
-            this.labelNombreSala.Size = new System.Drawing.Size(94, 82);
+            this.labelNombreSala.Size = new System.Drawing.Size(94, 77);
             this.labelNombreSala.TabIndex = 0;
             this.labelNombreSala.Text = "Nombre";
-            // 
-            // labelAreaSala
-            // 
-            this.labelAreaSala.AutoSize = true;
-            this.labelAreaSala.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelAreaSala.Location = new System.Drawing.Point(3, 82);
-            this.labelAreaSala.Name = "labelAreaSala";
-            this.labelAreaSala.Size = new System.Drawing.Size(94, 82);
-            this.labelAreaSala.TabIndex = 1;
-            this.labelAreaSala.Text = "Área";
-            // 
-            // labelDescripcionSala
-            // 
-            this.labelDescripcionSala.AutoSize = true;
-            this.labelDescripcionSala.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDescripcionSala.Location = new System.Drawing.Point(3, 164);
-            this.labelDescripcionSala.Name = "labelDescripcionSala";
-            this.labelDescripcionSala.Size = new System.Drawing.Size(94, 82);
-            this.labelDescripcionSala.TabIndex = 2;
-            this.labelDescripcionSala.Text = "Descripción";
             // 
             // textBoxNombreSala
             // 
@@ -179,11 +167,11 @@
             // textBoxDescripcionSala
             // 
             this.textBoxDescripcionSala.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDescripcionSala.Location = new System.Drawing.Point(103, 167);
+            this.textBoxDescripcionSala.Location = new System.Drawing.Point(103, 234);
             this.textBoxDescripcionSala.Multiline = true;
             this.textBoxDescripcionSala.Name = "textBoxDescripcionSala";
             this.tableLayoutPanel3.SetRowSpan(this.textBoxDescripcionSala, 2);
-            this.textBoxDescripcionSala.Size = new System.Drawing.Size(292, 158);
+            this.textBoxDescripcionSala.Size = new System.Drawing.Size(292, 92);
             this.textBoxDescripcionSala.TabIndex = 5;
             // 
             // tableLayoutPanel4
@@ -194,11 +182,11 @@
             this.tableLayoutPanel4.Controls.Add(this.labelMetrosCuadrados, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.numericUpDownMetrosCuadrados, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(103, 85);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(103, 80);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(292, 76);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(292, 71);
             this.tableLayoutPanel4.TabIndex = 6;
             // 
             // labelMetrosCuadrados
@@ -207,7 +195,7 @@
             this.labelMetrosCuadrados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelMetrosCuadrados.Location = new System.Drawing.Point(265, 0);
             this.labelMetrosCuadrados.Name = "labelMetrosCuadrados";
-            this.labelMetrosCuadrados.Size = new System.Drawing.Size(24, 76);
+            this.labelMetrosCuadrados.Size = new System.Drawing.Size(24, 71);
             this.labelMetrosCuadrados.TabIndex = 0;
             this.labelMetrosCuadrados.Text = "m2";
             this.labelMetrosCuadrados.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -221,11 +209,52 @@
             this.numericUpDownMetrosCuadrados.Size = new System.Drawing.Size(262, 20);
             this.numericUpDownMetrosCuadrados.TabIndex = 1;
             // 
+            // labelDescripcionSala
+            // 
+            this.labelDescripcionSala.AutoSize = true;
+            this.labelDescripcionSala.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelDescripcionSala.Location = new System.Drawing.Point(3, 231);
+            this.labelDescripcionSala.Name = "labelDescripcionSala";
+            this.labelDescripcionSala.Size = new System.Drawing.Size(94, 77);
+            this.labelDescripcionSala.TabIndex = 2;
+            this.labelDescripcionSala.Text = "Descripción";
+            // 
+            // comboBoxDepartamento
+            // 
+            this.comboBoxDepartamento.Cursor = System.Windows.Forms.Cursors.Default;
+            this.comboBoxDepartamento.Enabled = false;
+            this.comboBoxDepartamento.FormattingEnabled = true;
+            this.comboBoxDepartamento.Location = new System.Drawing.Point(103, 157);
+            this.comboBoxDepartamento.Name = "comboBoxDepartamento";
+            this.comboBoxDepartamento.Size = new System.Drawing.Size(292, 21);
+            this.comboBoxDepartamento.TabIndex = 7;
+            this.comboBoxDepartamento.Text = "Default";
+            this.comboBoxDepartamento.SelectedIndexChanged += new System.EventHandler(this.comboBoxDepartamento_SelectedIndexChanged);
+            // 
+            // labelAreaSala
+            // 
+            this.labelAreaSala.AutoSize = true;
+            this.labelAreaSala.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelAreaSala.Location = new System.Drawing.Point(3, 77);
+            this.labelAreaSala.Name = "labelAreaSala";
+            this.labelAreaSala.Size = new System.Drawing.Size(94, 77);
+            this.labelAreaSala.TabIndex = 1;
+            this.labelAreaSala.Text = "Área";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 154);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Departamento";
+            // 
             // VistaCrearSala
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 411);
+            this.ClientSize = new System.Drawing.Size(430, 412);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
@@ -263,5 +292,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label labelMetrosCuadrados;
         private System.Windows.Forms.NumericUpDown numericUpDownMetrosCuadrados;
+        private System.Windows.Forms.ComboBox comboBoxDepartamento;
+        private System.Windows.Forms.Label label1;
     }
 }

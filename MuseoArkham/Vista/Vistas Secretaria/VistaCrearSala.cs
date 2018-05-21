@@ -14,6 +14,7 @@ namespace MuseoArkham.Vista
     public partial class VistaCrearSala : Form
     {
         private ControladorCrearSala controlador;
+
         public VistaCrearSala()
         {
             this.controlador = new ControladorCrearSala(this);
@@ -24,6 +25,43 @@ namespace MuseoArkham.Vista
 
         private void VistaCrearSala_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void buttonCrearSala_Click(object sender, EventArgs e)
+        {
+            string nombre = textBoxNombreSala.Text;
+            int area = Int32.Parse(numericUpDownMetrosCuadrados.Value.ToString());
+            string descripcion = textBoxDescripcionSala.Text;
+            int departamento = 1;
+            string estado;
+            if (departamento == 1)
+            {
+                estado = "Sin asignar";
+            }
+            else
+            {
+                estado = "En uso";
+            }
+            
+            this.controlador.crearSala(departamento,nombre, area, descripcion,estado);
+            this.Close();
+        }
+
+        private void comboBoxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+           
+            Console.WriteLine("entra?");
+            this.controlador.cargarDepartamentos(comboBoxDepartamento);
+            Console.WriteLine("sale?");
+
+
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
 
         }
     }
