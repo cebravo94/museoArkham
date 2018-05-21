@@ -48,10 +48,7 @@ namespace MuseoArkham.Vista
             vau.ShowDialog();
         }
 
-        private void botonEliminarDepto_Click(object sender, EventArgs e)
-        {
-            
-        }
+    
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -69,8 +66,13 @@ namespace MuseoArkham.Vista
             int index = this.dataGridViewDepartamento.CurrentCell.RowIndex;
             DataGridViewRow data = this.dataGridViewDepartamento.Rows[index];
             string id = data.Cells[0].Value.ToString();
+            
+            
             VistaAsignarSala vas = new VistaAsignarSala(id);
             vas.ShowDialog(this);
+            
+            
+            
         }
 
         private void buttonAsignarAdministrador_Click(object sender, EventArgs e)
@@ -78,8 +80,26 @@ namespace MuseoArkham.Vista
             int index = this.dataGridViewDepartamento.CurrentCell.RowIndex;
             DataGridViewRow data = this.dataGridViewDepartamento.Rows[index];
             string id = data.Cells[0].Value.ToString();
-            VistaAsignarAdministrador vad = new VistaAsignarAdministrador(id);
-            vad.ShowDialog(this);
+            string admin = data.Cells[2].Value.ToString();
+            if (admin.Equals("default"))
+            {
+                VistaAsignarAdministrador vad = new VistaAsignarAdministrador(id);
+                vad.ShowDialog(this);
+            }
+            else
+            {
+                MessageBox.Show("Departamento ya tiene administrador, eliga otro", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
+
+        private void buttonEliminarDepartamento_Click(object sender, EventArgs e)
+        {
+            int index = this.dataGridViewDepartamento.CurrentCell.RowIndex;
+            DataGridViewRow data = this.dataGridViewDepartamento.Rows[index];
+            string id = data.Cells[0].Value.ToString();
+            this.controlador.botonEliminar(id);
+            this.refrescarTabla(0);
         }
     }
 }

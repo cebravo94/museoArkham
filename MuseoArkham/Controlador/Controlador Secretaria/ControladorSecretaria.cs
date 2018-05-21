@@ -27,36 +27,29 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
          * <param name="depto"> El departamento seleccionado para eliminar.</param>
          * 
          */
-        public void botonEliminar(Departamento depto)
+        public void botonEliminar(string depto)
         {
+            string cambiarAdmin = "UPDATE departamento SET departamento.id_usuario = 1 WHERE departamento.id_dpto = +'"+ depto + "'";
+            Console.WriteLine(cambiarAdmin);
+            this.RealizarConsultaNoQuery(cambiarAdmin);
+            this.CerrarConexion();
 
+            string cambiarEstado = "UPDATE sala SET sala.estado = 'Disponible' WHERE sala.id_dpto ='"+depto+"'";
+            this.RealizarConsultaNoQuery(cambiarEstado);
+            this.CerrarConexion();
+
+            string cambiarDepto = "UPDATE sala SET sala.id_dpto = 1 WHERE sala.id_dpto = '" + depto + "'";
+            this.RealizarConsultaNoQuery(cambiarDepto);
+            this.CerrarConexion();
+
+            string eliminarDepto = "DELETE FROM departamento WHERE departamento.id_dpto ='" + depto + "'";
+            this.RealizarConsultaNoQuery(eliminarDepto);
+            this.CerrarConexion();
+
+            this.ventana.refrescarTabla(0);
         }
 
-        /**
-         * <summary>
-         * Metodo para agregar administrador al departamento
-         * </summary>
-         * 
-         * <param name="depto"> El departamento seleccionado para agregarle administrador.</param>
-         * 
-         */
-        public void botonAsignarAdministrador(Departamento depto)
-        {
-
-        }
-
-        /**
-         * <summary>
-         * Metoddo que agrega salas a los departamentos
-         * </summary>
-         * 
-         * <param name="depto"> Departamento para asignarle salas.</param>
-         * 
-         */
-        public void botonAsignarSala(Departamento depto)
-        {
-
-        }
+       
         /**
          * <summary>
          * Deshabilita al usuario seleccionado del museo

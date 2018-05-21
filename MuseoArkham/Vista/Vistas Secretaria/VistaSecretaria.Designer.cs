@@ -238,6 +238,7 @@
             this.buttonEliminarDepartamento.TabIndex = 1;
             this.buttonEliminarDepartamento.Text = "Eliminar departamento";
             this.buttonEliminarDepartamento.UseVisualStyleBackColor = true;
+            this.buttonEliminarDepartamento.Click += new System.EventHandler(this.buttonEliminarDepartamento_Click);
             // 
             // buttonCrearDepartamento
             // 
