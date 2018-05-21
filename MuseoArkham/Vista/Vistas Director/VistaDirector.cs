@@ -32,29 +32,39 @@ namespace MuseoArkham.Vista
 
         private void GenerarReporte(object sender, EventArgs e)
         {
-            switch (comboBoxReporte.Text) {
-                case "General de inventario":
-                    this.controlador.ReporteInventario(this.tablaDirector);
-                    break;
-                case "Departamento":
-                    Console.WriteLine("aaa");
-                    this.controlador.ReporteDepartamento(comboBoxFiltro.Text,this.tablaDirector);
-                    break;
-                case "Colección":
-                    this.controlador.ReporteColeccion(comboBoxFiltro.Text, this.tablaDirector);
-                    break;
-                case "Autor":
-                    this.controlador.ReporteAutor(comboBoxFiltro.Text, this.tablaDirector);
-                    break;
-                case "Estilo artistico":
-                    this.controlador.ReporteEstilo(comboBoxFiltro.Text, this.tablaDirector);
-                    break;
-                case "Marca":
-                    this.controlador.ReporteMarca(comboBoxFiltro.Text, this.tablaDirector);
-                    break;
-                case "Año de origen de objeto":
-                    this.controlador.ReporteAnno(comboBoxFiltro.Text, this.tablaDirector);
-                    break;
+            if (comboBoxReporte.Text == "Seleccionar tipo reporte" || comboBoxFiltro.Text == "Seleccionar dato")
+            {
+                MessageBox.Show("Llene los campos solicitados para generar el reporte.", "Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+
+            else
+            {
+                switch (comboBoxReporte.Text)
+                {
+                    case "General de inventario":
+                        this.controlador.ReporteInventario(this.tablaDirector);
+                        break;
+                    case "Departamento":
+                        Console.WriteLine("aaa");
+                        this.controlador.ReporteDepartamento(comboBoxFiltro.Text, this.tablaDirector);
+                        break;
+                    case "Colección":
+                        this.controlador.ReporteColeccion(comboBoxFiltro.Text, this.tablaDirector);
+                        break;
+                    case "Autor":
+                        this.controlador.ReporteAutor(comboBoxFiltro.Text, this.tablaDirector);
+                        break;
+                    case "Estilo artistico":
+                        this.controlador.ReporteEstilo(comboBoxFiltro.Text, this.tablaDirector);
+                        break;
+                    case "Marca":
+                        this.controlador.ReporteMarca(comboBoxFiltro.Text, this.tablaDirector);
+                        break;
+                    case "Año de origen de objeto":
+                        this.controlador.ReporteAnno(comboBoxFiltro.Text, this.tablaDirector);
+                        break;
+                }
             }
 
         }
@@ -64,6 +74,7 @@ namespace MuseoArkham.Vista
             if (comboBoxReporte.Text == "General de inventario")
             {
                 this.comboBoxFiltro.Enabled = false;
+                this.comboBoxFiltro.Text = " ";
 
             }
 
@@ -79,7 +90,15 @@ namespace MuseoArkham.Vista
 
         private void BotonPDF_Click(object sender, EventArgs e)
         {
-
+            if (this.controlador.ObtenrConsultaActual() == "nada")
+            {
+                MessageBox.Show("Genere un reporte para exportarlo a PDF.", "Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                this.controlador.ExportarPdf(this.tablaDirector);
+            }
         }
     }
 }
