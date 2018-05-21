@@ -108,10 +108,6 @@ namespace MuseoArkham.Vista
             this.controlador.botonDeshabilitarUsuario();
             
         }
-
-        public void refrescarTabla(int index)
-        {
-            this.controlador.CargarDatos(index);
-        }
+        
     }
 }

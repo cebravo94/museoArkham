@@ -86,16 +86,6 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             }
         }
 
-        /**
-        * <summary>
-        *  Realiza los metodos necesarios para cargar los datos de departamentos
-        * </summary>
-        */
-        public void cargarDepartamentos()
-        {
-            
-        }
-
         public void botonDeshabilitarUsuario()
         {
             if(DeshabilitarUsuario() == true)
@@ -149,27 +139,6 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             }
             this.CerrarConexion();
             return false;
-        }
-
-        /**
-* <summary>
-*  Carga los datos dependiendo de la pestaña que nos encontremos
-* </summary>
-*/
-        public void CargarDatos(int index)
-        {
-            switch (index)
-            {
-                case 0:
-                    this.cargarDepartamentos();
-                    break;
-                case 1:
-                    this.cargarSalas();
-                    break;
-                case 2:
-                    this.cargarUsuarios();
-                    break;
-            }
         }
 
         /**
