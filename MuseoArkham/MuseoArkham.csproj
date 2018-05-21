@@ -62,6 +62,7 @@
     <Compile Include="Controlador\ControladorDirector\ControladorDirector.cs" />
     <Compile Include="Controlador\Controlador\Controlador.cs" />
     <Compile Include="Controlador\Controlador LogIn\ControladorLogIn.cs" />
+    <Compile Include="Controlador\Controlador Vistas Compartidas\ControladorVistaItem.cs" />
     <Compile Include="Modelo\Conector_BD.cs" />
     <Compile Include="Vista\Vistas Secretaria\VistaCrearDepartamento.cs">
       <SubType>Form</SubType>
@@ -141,6 +142,12 @@
     <Compile Include="Vista\Vistas Secretaria\VistaSecretaria.Designer.cs">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\VistasCompartidas\VistaItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistasCompartidas\VistaItem.Designer.cs">
+      <DependentUpon>VistaItem.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Vista\Vistas Bodeguero\VistaIncorporarObjeto.resx">
       <DependentUpon>VistaIncorporarObjeto.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +189,9 @@
     </Compile>
     <EmbeddedResource Include="Vista\Vistas Secretaria\VistaSecretaria.resx">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\VistasCompartidas\VistaItem.resx">
+      <DependentUpon>VistaItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
