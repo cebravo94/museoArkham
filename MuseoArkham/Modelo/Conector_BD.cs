@@ -37,7 +37,7 @@ namespace MuseoArkham.Modelo
          * consulta.
          * 
          */
-        public MySqlDataReader RealizarConsulta(String consulta) {
+        public MySqlDataReader RealizarConsulta(string consulta) {
             MySqlCommand command = Con.CreateCommand();
             command.CommandText = consulta;
             try {
@@ -50,6 +50,19 @@ namespace MuseoArkham.Modelo
                 Con.Close();
             }
             return null;
+        }
+
+        public void RealizarConsultaNoQuery(string consulta) {
+            MySqlCommand command = Con.CreateCommand();
+            command.CommandText = consulta;
+            try {
+                Con.Open();
+                command.ExecuteNonQuery();
+                Con.Close();
+            } catch (Exception e){
+                Console.WriteLine(e.Message);
+                Con.Close();
+            }
         }
 
         //Cierra la conexión con la base de datos.

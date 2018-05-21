@@ -38,6 +38,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewSolicitudesTraslado = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonVerSolicitud = new System.Windows.Forms.Button();
             this.buttonFiltrarSolicitudes = new System.Windows.Forms.Button();
             this.buttonCancelarSolicitud = new System.Windows.Forms.Button();
             this.buttonCrearSolicitud = new System.Windows.Forms.Button();
@@ -46,7 +47,11 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewObjetos = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonFiltrarObjetos = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridViewRegistros = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -69,6 +74,9 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).BeginInit();
             this.groupBox5.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistros)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -117,6 +125,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(3, 16);
             this.tabControl1.Name = "tabControl1";
@@ -168,16 +177,20 @@
             // 
             // dataGridViewSolicitudesTraslado
             // 
+            this.dataGridViewSolicitudesTraslado.AllowUserToAddRows = false;
+            this.dataGridViewSolicitudesTraslado.AllowUserToDeleteRows = false;
             this.dataGridViewSolicitudesTraslado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSolicitudesTraslado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSolicitudesTraslado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSolicitudesTraslado.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewSolicitudesTraslado.Name = "dataGridViewSolicitudesTraslado";
+            this.dataGridViewSolicitudesTraslado.ReadOnly = true;
             this.dataGridViewSolicitudesTraslado.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewSolicitudesTraslado.TabIndex = 0;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.buttonVerSolicitud);
             this.groupBox3.Controls.Add(this.buttonFiltrarSolicitudes);
             this.groupBox3.Controls.Add(this.buttonCancelarSolicitud);
             this.groupBox3.Controls.Add(this.buttonCrearSolicitud);
@@ -190,6 +203,18 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // buttonVerSolicitud
+            // 
+            this.buttonVerSolicitud.BackColor = System.Drawing.Color.Transparent;
+            this.buttonVerSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonVerSolicitud.Location = new System.Drawing.Point(5, 108);
+            this.buttonVerSolicitud.Name = "buttonVerSolicitud";
+            this.buttonVerSolicitud.Size = new System.Drawing.Size(123, 30);
+            this.buttonVerSolicitud.TabIndex = 3;
+            this.buttonVerSolicitud.Text = "Ver Solicitud";
+            this.buttonVerSolicitud.UseVisualStyleBackColor = false;
+            this.buttonVerSolicitud.Click += new System.EventHandler(this.buttonVerSolicitud_Click);
             // 
             // buttonFiltrarSolicitudes
             // 
@@ -212,6 +237,7 @@
             this.buttonCancelarSolicitud.TabIndex = 1;
             this.buttonCancelarSolicitud.Text = "Cancelar solicitud";
             this.buttonCancelarSolicitud.UseVisualStyleBackColor = false;
+            this.buttonCancelarSolicitud.Click += new System.EventHandler(this.buttonCancelarSolicitud_Click);
             // 
             // buttonCrearSolicitud
             // 
@@ -267,16 +293,20 @@
             // 
             // dataGridViewObjetos
             // 
+            this.dataGridViewObjetos.AllowUserToAddRows = false;
+            this.dataGridViewObjetos.AllowUserToDeleteRows = false;
             this.dataGridViewObjetos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewObjetos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewObjetos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewObjetos.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewObjetos.Name = "dataGridViewObjetos";
+            this.dataGridViewObjetos.ReadOnly = true;
             this.dataGridViewObjetos.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewObjetos.TabIndex = 0;
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.button1);
             this.groupBox5.Controls.Add(this.buttonFiltrarObjetos);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
@@ -287,6 +317,17 @@
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Location = new System.Drawing.Point(5, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 30);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Ver detalle";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // buttonFiltrarObjetos
             // 
             this.buttonFiltrarObjetos.Dock = System.Windows.Forms.DockStyle.Top;
@@ -296,6 +337,38 @@
             this.buttonFiltrarObjetos.TabIndex = 0;
             this.buttonFiltrarObjetos.Text = "Filtrar";
             this.buttonFiltrarObjetos.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.panel1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(818, 279);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Registros";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridViewRegistros);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(812, 273);
+            this.panel1.TabIndex = 0;
+            // 
+            // dataGridViewRegistros
+            // 
+            this.dataGridViewRegistros.AllowUserToAddRows = false;
+            this.dataGridViewRegistros.AllowUserToDeleteRows = false;
+            this.dataGridViewRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewRegistros.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewRegistros.Name = "dataGridViewRegistros";
+            this.dataGridViewRegistros.ReadOnly = true;
+            this.dataGridViewRegistros.Size = new System.Drawing.Size(812, 273);
+            this.dataGridViewRegistros.TabIndex = 0;
             // 
             // VistaAdministrador
             // 
@@ -332,6 +405,9 @@
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).EndInit();
             this.groupBox5.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistros)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -345,7 +421,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridViewSolicitudesTraslado;
         private System.Windows.Forms.Button buttonFiltrarSolicitudes;
         private System.Windows.Forms.Button buttonCancelarSolicitud;
         private System.Windows.Forms.Button buttonCrearSolicitud;
@@ -356,5 +431,11 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.DataGridView dataGridViewObjetos;
         public System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.DataGridView dataGridViewSolicitudesTraslado;
+        private System.Windows.Forms.Button buttonVerSolicitud;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.DataGridView dataGridViewRegistros;
     }
 }
