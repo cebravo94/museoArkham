@@ -91,6 +91,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -102,9 +103,10 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.splitContainer1.Size = new System.Drawing.Size(838, 441);
-            this.splitContainer1.SplitterDistance = 100;
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(4, 12, 4, 4);
+            this.splitContainer1.Size = new System.Drawing.Size(1117, 543);
+            this.splitContainer1.SplitterDistance = 123;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -112,18 +114,21 @@
             this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
             this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 10);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 12);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(838, 90);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1117, 111);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tabControl1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 10);
+            this.groupBox1.Location = new System.Drawing.Point(4, 12);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(832, 324);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1109, 399);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Secretaria";
@@ -134,19 +139,21 @@
             this.tabControl1.Controls.Add(this.tabPageSalas);
             this.tabControl1.Controls.Add(this.tabPageUsuario);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(3, 16);
+            this.tabControl1.Location = new System.Drawing.Point(4, 19);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(826, 305);
+            this.tabControl1.Size = new System.Drawing.Size(1101, 376);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPageDepartamento
             // 
             this.tabPageDepartamento.Controls.Add(this.splitContainer2);
-            this.tabPageDepartamento.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDepartamento.Location = new System.Drawing.Point(4, 25);
+            this.tabPageDepartamento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageDepartamento.Name = "tabPageDepartamento";
-            this.tabPageDepartamento.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDepartamento.Size = new System.Drawing.Size(818, 279);
+            this.tabPageDepartamento.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageDepartamento.Size = new System.Drawing.Size(1093, 347);
             this.tabPageDepartamento.TabIndex = 0;
             this.tabPageDepartamento.Text = "Departamento";
             this.tabPageDepartamento.UseVisualStyleBackColor = true;
@@ -154,7 +161,8 @@
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Location = new System.Drawing.Point(4, 4);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
@@ -164,8 +172,9 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox3);
-            this.splitContainer2.Size = new System.Drawing.Size(812, 273);
-            this.splitContainer2.SplitterDistance = 675;
+            this.splitContainer2.Size = new System.Drawing.Size(1085, 339);
+            this.splitContainer2.SplitterDistance = 901;
+            this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
             // 
             // groupBox2
@@ -173,10 +182,10 @@
             this.groupBox2.Controls.Add(this.dataGridViewDepartamento);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox2.Size = new System.Drawing.Size(675, 273);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.groupBox2.Size = new System.Drawing.Size(901, 339);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
@@ -185,9 +194,10 @@
             this.dataGridViewDepartamento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDepartamento.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewDepartamento.Location = new System.Drawing.Point(5, 18);
+            this.dataGridViewDepartamento.Location = new System.Drawing.Point(7, 21);
+            this.dataGridViewDepartamento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewDepartamento.Name = "dataGridViewDepartamento";
-            this.dataGridViewDepartamento.Size = new System.Drawing.Size(665, 250);
+            this.dataGridViewDepartamento.Size = new System.Drawing.Size(887, 312);
             this.dataGridViewDepartamento.TabIndex = 0;
             // 
             // groupBox3
@@ -198,19 +208,20 @@
             this.groupBox3.Controls.Add(this.buttonCrearDepartamento);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox3.Size = new System.Drawing.Size(133, 273);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.groupBox3.Size = new System.Drawing.Size(179, 339);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
             // buttonAsignarAdministrador
             // 
             this.buttonAsignarAdministrador.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonAsignarAdministrador.Location = new System.Drawing.Point(5, 108);
+            this.buttonAsignarAdministrador.Location = new System.Drawing.Point(7, 132);
+            this.buttonAsignarAdministrador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAsignarAdministrador.Name = "buttonAsignarAdministrador";
-            this.buttonAsignarAdministrador.Size = new System.Drawing.Size(123, 30);
+            this.buttonAsignarAdministrador.Size = new System.Drawing.Size(165, 37);
             this.buttonAsignarAdministrador.TabIndex = 3;
             this.buttonAsignarAdministrador.Text = "Asignar administrador";
             this.buttonAsignarAdministrador.UseVisualStyleBackColor = true;
@@ -218,9 +229,10 @@
             // buttonAsignarSalas
             // 
             this.buttonAsignarSalas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonAsignarSalas.Location = new System.Drawing.Point(5, 78);
+            this.buttonAsignarSalas.Location = new System.Drawing.Point(7, 95);
+            this.buttonAsignarSalas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAsignarSalas.Name = "buttonAsignarSalas";
-            this.buttonAsignarSalas.Size = new System.Drawing.Size(123, 30);
+            this.buttonAsignarSalas.Size = new System.Drawing.Size(165, 37);
             this.buttonAsignarSalas.TabIndex = 2;
             this.buttonAsignarSalas.Text = "Asignar salas";
             this.buttonAsignarSalas.UseVisualStyleBackColor = true;
@@ -228,9 +240,10 @@
             // buttonEliminarDepartamento
             // 
             this.buttonEliminarDepartamento.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonEliminarDepartamento.Location = new System.Drawing.Point(5, 48);
+            this.buttonEliminarDepartamento.Location = new System.Drawing.Point(7, 58);
+            this.buttonEliminarDepartamento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonEliminarDepartamento.Name = "buttonEliminarDepartamento";
-            this.buttonEliminarDepartamento.Size = new System.Drawing.Size(123, 30);
+            this.buttonEliminarDepartamento.Size = new System.Drawing.Size(165, 37);
             this.buttonEliminarDepartamento.TabIndex = 1;
             this.buttonEliminarDepartamento.Text = "Eliminar departamento";
             this.buttonEliminarDepartamento.UseVisualStyleBackColor = true;
@@ -238,9 +251,10 @@
             // buttonCrearDepartamento
             // 
             this.buttonCrearDepartamento.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonCrearDepartamento.Location = new System.Drawing.Point(5, 18);
+            this.buttonCrearDepartamento.Location = new System.Drawing.Point(7, 21);
+            this.buttonCrearDepartamento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCrearDepartamento.Name = "buttonCrearDepartamento";
-            this.buttonCrearDepartamento.Size = new System.Drawing.Size(123, 30);
+            this.buttonCrearDepartamento.Size = new System.Drawing.Size(165, 37);
             this.buttonCrearDepartamento.TabIndex = 0;
             this.buttonCrearDepartamento.Text = "Crear departamento";
             this.buttonCrearDepartamento.UseVisualStyleBackColor = true;
@@ -249,10 +263,11 @@
             // tabPageSalas
             // 
             this.tabPageSalas.Controls.Add(this.splitContainer3);
-            this.tabPageSalas.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSalas.Location = new System.Drawing.Point(4, 25);
+            this.tabPageSalas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageSalas.Name = "tabPageSalas";
-            this.tabPageSalas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSalas.Size = new System.Drawing.Size(818, 279);
+            this.tabPageSalas.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageSalas.Size = new System.Drawing.Size(1093, 346);
             this.tabPageSalas.TabIndex = 1;
             this.tabPageSalas.Text = "Salas";
             this.tabPageSalas.UseVisualStyleBackColor = true;
@@ -260,7 +275,8 @@
             // splitContainer3
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer3.Location = new System.Drawing.Point(4, 4);
+            this.splitContainer3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer3.Name = "splitContainer3";
             // 
             // splitContainer3.Panel1
@@ -270,8 +286,9 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.groupBox5);
-            this.splitContainer3.Size = new System.Drawing.Size(812, 273);
-            this.splitContainer3.SplitterDistance = 675;
+            this.splitContainer3.Size = new System.Drawing.Size(1085, 338);
+            this.splitContainer3.SplitterDistance = 901;
+            this.splitContainer3.SplitterWidth = 5;
             this.splitContainer3.TabIndex = 0;
             // 
             // groupBox4
@@ -279,10 +296,10 @@
             this.groupBox4.Controls.Add(this.dataGridViewSalas);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox4.Size = new System.Drawing.Size(675, 273);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.groupBox4.Size = new System.Drawing.Size(901, 338);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             // 
@@ -291,9 +308,10 @@
             this.dataGridViewSalas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSalas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewSalas.Location = new System.Drawing.Point(5, 18);
+            this.dataGridViewSalas.Location = new System.Drawing.Point(7, 21);
+            this.dataGridViewSalas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewSalas.Name = "dataGridViewSalas";
-            this.dataGridViewSalas.Size = new System.Drawing.Size(665, 250);
+            this.dataGridViewSalas.Size = new System.Drawing.Size(887, 311);
             this.dataGridViewSalas.TabIndex = 0;
             // 
             // groupBox5
@@ -301,19 +319,20 @@
             this.groupBox5.Controls.Add(this.buttonCrearSala);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox5.Size = new System.Drawing.Size(133, 273);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.groupBox5.Size = new System.Drawing.Size(179, 338);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             // 
             // buttonCrearSala
             // 
             this.buttonCrearSala.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonCrearSala.Location = new System.Drawing.Point(5, 18);
+            this.buttonCrearSala.Location = new System.Drawing.Point(7, 21);
+            this.buttonCrearSala.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCrearSala.Name = "buttonCrearSala";
-            this.buttonCrearSala.Size = new System.Drawing.Size(123, 30);
+            this.buttonCrearSala.Size = new System.Drawing.Size(165, 37);
             this.buttonCrearSala.TabIndex = 0;
             this.buttonCrearSala.Text = "Crear sala";
             this.buttonCrearSala.UseVisualStyleBackColor = true;
@@ -322,10 +341,11 @@
             // tabPageUsuario
             // 
             this.tabPageUsuario.Controls.Add(this.splitContainer4);
-            this.tabPageUsuario.Location = new System.Drawing.Point(4, 22);
+            this.tabPageUsuario.Location = new System.Drawing.Point(4, 25);
+            this.tabPageUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageUsuario.Name = "tabPageUsuario";
-            this.tabPageUsuario.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUsuario.Size = new System.Drawing.Size(818, 279);
+            this.tabPageUsuario.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageUsuario.Size = new System.Drawing.Size(1093, 347);
             this.tabPageUsuario.TabIndex = 2;
             this.tabPageUsuario.Text = "Usuarios";
             this.tabPageUsuario.UseVisualStyleBackColor = true;
@@ -333,7 +353,8 @@
             // splitContainer4
             // 
             this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer4.Location = new System.Drawing.Point(4, 4);
+            this.splitContainer4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer4.Name = "splitContainer4";
             // 
             // splitContainer4.Panel1
@@ -343,8 +364,9 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.groupBox7);
-            this.splitContainer4.Size = new System.Drawing.Size(812, 273);
-            this.splitContainer4.SplitterDistance = 675;
+            this.splitContainer4.Size = new System.Drawing.Size(1085, 339);
+            this.splitContainer4.SplitterDistance = 901;
+            this.splitContainer4.SplitterWidth = 5;
             this.splitContainer4.TabIndex = 0;
             // 
             // groupBox6
@@ -352,10 +374,10 @@
             this.groupBox6.Controls.Add(this.dataGridViewUsuarios);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(0, 0);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox6.Size = new System.Drawing.Size(675, 273);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.groupBox6.Size = new System.Drawing.Size(901, 339);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             // 
@@ -364,9 +386,10 @@
             this.dataGridViewUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewUsuarios.Location = new System.Drawing.Point(5, 18);
+            this.dataGridViewUsuarios.Location = new System.Drawing.Point(7, 21);
+            this.dataGridViewUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
-            this.dataGridViewUsuarios.Size = new System.Drawing.Size(665, 250);
+            this.dataGridViewUsuarios.Size = new System.Drawing.Size(887, 312);
             this.dataGridViewUsuarios.TabIndex = 0;
             // 
             // groupBox7
@@ -375,29 +398,32 @@
             this.groupBox7.Controls.Add(this.buttonAgregarUsuario);
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox7.Location = new System.Drawing.Point(0, 0);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox7.Size = new System.Drawing.Size(133, 273);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.groupBox7.Size = new System.Drawing.Size(179, 339);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             // 
             // buttonDeshabilitarUsuario
             // 
             this.buttonDeshabilitarUsuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonDeshabilitarUsuario.Location = new System.Drawing.Point(5, 48);
+            this.buttonDeshabilitarUsuario.Location = new System.Drawing.Point(7, 58);
+            this.buttonDeshabilitarUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDeshabilitarUsuario.Name = "buttonDeshabilitarUsuario";
-            this.buttonDeshabilitarUsuario.Size = new System.Drawing.Size(123, 30);
+            this.buttonDeshabilitarUsuario.Size = new System.Drawing.Size(165, 37);
             this.buttonDeshabilitarUsuario.TabIndex = 1;
             this.buttonDeshabilitarUsuario.Text = "Deshabilitar usuario";
             this.buttonDeshabilitarUsuario.UseVisualStyleBackColor = true;
+            this.buttonDeshabilitarUsuario.Click += new System.EventHandler(this.buttonDeshabilitarUsuario_Click);
             // 
             // buttonAgregarUsuario
             // 
             this.buttonAgregarUsuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonAgregarUsuario.Location = new System.Drawing.Point(5, 18);
+            this.buttonAgregarUsuario.Location = new System.Drawing.Point(7, 21);
+            this.buttonAgregarUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAgregarUsuario.Name = "buttonAgregarUsuario";
-            this.buttonAgregarUsuario.Size = new System.Drawing.Size(123, 30);
+            this.buttonAgregarUsuario.Size = new System.Drawing.Size(165, 37);
             this.buttonAgregarUsuario.TabIndex = 0;
             this.buttonAgregarUsuario.Text = "Agregar usuario";
             this.buttonAgregarUsuario.UseVisualStyleBackColor = true;
@@ -405,12 +431,13 @@
             // 
             // VistaSecretaria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 441);
+            this.ClientSize = new System.Drawing.Size(1117, 543);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(854, 480);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1133, 580);
             this.Name = "VistaSecretaria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Museo Arkham";
