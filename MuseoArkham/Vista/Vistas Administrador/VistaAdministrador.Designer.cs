@@ -47,8 +47,11 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewObjetos = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.buttonFiltrarObjetos = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.buttonFiltrarObjetos = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridViewRegistros = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -71,6 +74,9 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).BeginInit();
             this.groupBox5.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistros)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -119,6 +125,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(3, 16);
             this.tabControl1.Name = "tabControl1";
@@ -310,16 +317,6 @@
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             // 
-            // buttonFiltrarObjetos
-            // 
-            this.buttonFiltrarObjetos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonFiltrarObjetos.Location = new System.Drawing.Point(5, 18);
-            this.buttonFiltrarObjetos.Name = "buttonFiltrarObjetos";
-            this.buttonFiltrarObjetos.Size = new System.Drawing.Size(123, 30);
-            this.buttonFiltrarObjetos.TabIndex = 0;
-            this.buttonFiltrarObjetos.Text = "Filtrar";
-            this.buttonFiltrarObjetos.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -330,6 +327,48 @@
             this.button1.Text = "Ver detalle";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonFiltrarObjetos
+            // 
+            this.buttonFiltrarObjetos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonFiltrarObjetos.Location = new System.Drawing.Point(5, 18);
+            this.buttonFiltrarObjetos.Name = "buttonFiltrarObjetos";
+            this.buttonFiltrarObjetos.Size = new System.Drawing.Size(123, 30);
+            this.buttonFiltrarObjetos.TabIndex = 0;
+            this.buttonFiltrarObjetos.Text = "Filtrar";
+            this.buttonFiltrarObjetos.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.panel1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(818, 279);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Registros";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridViewRegistros);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(812, 273);
+            this.panel1.TabIndex = 0;
+            // 
+            // dataGridViewRegistros
+            // 
+            this.dataGridViewRegistros.AllowUserToAddRows = false;
+            this.dataGridViewRegistros.AllowUserToDeleteRows = false;
+            this.dataGridViewRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewRegistros.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewRegistros.Name = "dataGridViewRegistros";
+            this.dataGridViewRegistros.ReadOnly = true;
+            this.dataGridViewRegistros.Size = new System.Drawing.Size(812, 273);
+            this.dataGridViewRegistros.TabIndex = 0;
             // 
             // VistaAdministrador
             // 
@@ -366,6 +405,9 @@
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).EndInit();
             this.groupBox5.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistros)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -392,5 +434,8 @@
         public System.Windows.Forms.DataGridView dataGridViewSolicitudesTraslado;
         private System.Windows.Forms.Button buttonVerSolicitud;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.DataGridView dataGridViewRegistros;
     }
 }
