@@ -40,6 +40,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonRechazarSolicitud = new System.Windows.Forms.Button();
             this.buttonAceptarSolicitud = new System.Windows.Forms.Button();
+            this.buttonVerDetalleSolicitudTraslado = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -59,6 +60,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
@@ -109,6 +111,7 @@
             this.tabControlSolicitudes.SelectedIndex = 0;
             this.tabControlSolicitudes.Size = new System.Drawing.Size(826, 305);
             this.tabControlSolicitudes.TabIndex = 0;
+            this.tabControlSolicitudes.SelectedIndexChanged += new System.EventHandler(this.tabControlSolicitudes_SelectedIndexChanged);
             // 
             // tabPageSolicitudesTraslado
             // 
@@ -152,16 +155,21 @@
             // 
             // dataGridViewSolicitudesTraslado
             // 
-            this.dataGridViewSolicitudesTraslado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewSolicitudesTraslado.AllowUserToAddRows = false;
+            this.dataGridViewSolicitudesTraslado.AllowUserToDeleteRows = false;
+            this.dataGridViewSolicitudesTraslado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewSolicitudesTraslado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSolicitudesTraslado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSolicitudesTraslado.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewSolicitudesTraslado.Name = "dataGridViewSolicitudesTraslado";
+            this.dataGridViewSolicitudesTraslado.ReadOnly = true;
             this.dataGridViewSolicitudesTraslado.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewSolicitudesTraslado.TabIndex = 0;
+            this.dataGridViewSolicitudesTraslado.SelectionChanged += new System.EventHandler(this.dataGridViewSolicitudesTraslado_SelectionChanged);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.buttonVerDetalleSolicitudTraslado);
             this.groupBox3.Controls.Add(this.buttonRechazarSolicitud);
             this.groupBox3.Controls.Add(this.buttonAceptarSolicitud);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -182,6 +190,7 @@
             this.buttonRechazarSolicitud.TabIndex = 1;
             this.buttonRechazarSolicitud.Text = "Rechazar solicitud";
             this.buttonRechazarSolicitud.UseVisualStyleBackColor = true;
+            this.buttonRechazarSolicitud.Click += new System.EventHandler(this.buttonRechazarSolicitud_Click);
             // 
             // buttonAceptarSolicitud
             // 
@@ -192,6 +201,17 @@
             this.buttonAceptarSolicitud.TabIndex = 0;
             this.buttonAceptarSolicitud.Text = "Aceptar solicitud";
             this.buttonAceptarSolicitud.UseVisualStyleBackColor = true;
+            this.buttonAceptarSolicitud.Click += new System.EventHandler(this.buttonAceptarSolicitud_Click);
+            // 
+            // buttonVerDetalleSolicitudTraslado
+            // 
+            this.buttonVerDetalleSolicitudTraslado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonVerDetalleSolicitudTraslado.Location = new System.Drawing.Point(5, 78);
+            this.buttonVerDetalleSolicitudTraslado.Name = "buttonVerDetalleSolicitudTraslado";
+            this.buttonVerDetalleSolicitudTraslado.Size = new System.Drawing.Size(123, 30);
+            this.buttonVerDetalleSolicitudTraslado.TabIndex = 2;
+            this.buttonVerDetalleSolicitudTraslado.Text = "Ver detalle";
+            this.buttonVerDetalleSolicitudTraslado.UseVisualStyleBackColor = true;
             // 
             // VistaGerente
             // 
@@ -206,6 +226,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Museo Arkham";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VistaGerente_FormClosing);
+            this.Load += new System.EventHandler(this.VistaGerente_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -233,9 +254,10 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button buttonRechazarSolicitud;
-        private System.Windows.Forms.Button buttonAceptarSolicitud;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.DataGridView dataGridViewSolicitudesTraslado;
+        public System.Windows.Forms.Button buttonRechazarSolicitud;
+        public System.Windows.Forms.Button buttonAceptarSolicitud;
+        private System.Windows.Forms.Button buttonVerDetalleSolicitudTraslado;
     }
 }
