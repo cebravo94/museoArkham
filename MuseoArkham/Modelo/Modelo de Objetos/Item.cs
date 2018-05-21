@@ -40,13 +40,13 @@ namespace MuseoArkham.Modelo
             IdItem = Int32.Parse(reader["id_item"].ToString());
             IdDpto = Int32.Parse(reader["id_dpto"].ToString());
             IdSala = Int32.Parse(reader["id_sala"].ToString());
-            FechaIngreso = DateTime.Parse(reader["id_registro"].ToString());
+            FechaIngreso = DateTime.Parse(reader["fecha_ingreso"].ToString());
             Descripcion = reader["descripcion"].ToString();
             Coleccion = reader["coleccion"].ToString();
             Estado = reader["estado"].ToString();
             Nombre = reader["nombre"].ToString();
             TipoItem = reader["tipo"].ToString();
-            Anno = Int32.Parse(reader["descripcion"].ToString());
+            Anno = Int32.Parse(reader["anno"].ToString());
             Era = reader["era"].ToString();
         }
     }
