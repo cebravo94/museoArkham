@@ -31,14 +31,54 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
         **/
         public void aceptarSolicitud()
         {
-           
-                int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
-                DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
-                int id = int.Parse(data.Cells[0].Value.ToString());
+            
+            int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
+            int id = int.Parse(data.Cells[0].Value.ToString());
+            if (objetosDisponibles(id))
+            {
                 this.RealizarConsultaNoQuery("UPDATE solicitud SET solicitud.estado ='Aceptada' WHERE solicitud.id_solicitud=" + id);
                 this.cargarDatosTabla(0);
+            }
+            
+                
+
             
             
+
+        }
+
+        private bool objetosDisponibles(int id)
+        {
+            int idSolicitud = id;
+            string consulta = "SELECT * FROM itemsolicitado,item WHERE itemsolicitado.id_item = item.id_item AND itemsolicitado.id_solicitud=" + idSolicitud;
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            
+            if(reader == null)
+            {
+                string s = "No hay objetos vinculados a la solicitud";
+                MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.CerrarConexion();
+                return false;
+            }
+            //Realizar un ciclo para recorrer todas las filas de la tabla y ver si el estado es guardado o en bodega
+            while (reader.Read())
+            {
+                Console.WriteLine(reader.GetInt32(0) + ", " + reader.GetString(10));
+                if(!reader.GetString(10).Equals("en bodega"))
+                {
+                    string s = "El objeto solicitado no se encuentra disponible";
+                    MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    reader.Close();
+                    this.CerrarConexion();
+                    return false;
+
+                }
+   
+            }
+            reader.Close();
+            this.CerrarConexion();
+            return true;
         }
 
         internal void cambioDeSeleccion()
@@ -49,14 +89,14 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
                 DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
                 String estado = data.Cells[4].Value.ToString();
                 if (estado.Equals("Aceptada") || estado.Equals("Rechazada")){
-                    this.ventana.buttonAceptarSolicitud.Enabled = false;
-                    this.ventana.buttonRechazarSolicitud.Enabled = false;
+                    this.ventana.botonAceptarSolicitud.Enabled = false;
+                    this.ventana.botonRechazarSolicitud.Enabled = false;
 
                 }
                 else
                 {
-                    this.ventana.buttonAceptarSolicitud.Enabled = true;
-                    this.ventana.buttonRechazarSolicitud.Enabled = true;
+                    this.ventana.botonAceptarSolicitud.Enabled = true;
+                    this.ventana.botonRechazarSolicitud.Enabled = true;
                 }
             }catch (Exception e) { };
         }
@@ -97,7 +137,23 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
                     this.cargarSolicitudes();
                     break;
 
+                case 1:
+                    this.cargarObjetos();
+                    break;
+
             }
+        }
+
+        private void cargarObjetos()
+        {
+            string consulta = "SELECT item.id_item AS ID, item.nombre AS Nombre, sala.nombre AS Ubicación," +
+                    " item.estado AS Estado, item.tipo AS Tipo, item.descripcion AS Descripción" +
+                    " FROM item, departamento, sala" +
+                    " WHERE item.id_dpto = departamento.id_dpto" +
+                    " AND sala.id_sala = item.id_sala";
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            this.PoblarTabla(ventana.dataGridViewObjetos, reader);
+            this.CerrarConexion();
         }
 
         private void cargarSolicitudes()

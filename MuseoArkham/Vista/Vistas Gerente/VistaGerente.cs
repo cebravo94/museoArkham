@@ -26,17 +26,6 @@ namespace MuseoArkham.Vista
             this.controlador.CerrarVentana(this);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Este metodo debe recibir u obtener una solicitud en particular que se haya selecionado para cambiar su estado a "Aceptada".
-            this.controlador.aceptarSolicitud();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //Este metodo debe recibir u obtener una solicitud en particular que se haya seleccionado para cambiar su estado a "Rechazada".
-            this.controlador.rechazarSolicitud();
-        }
 
         private void tabControlSolicitudes_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -48,7 +37,7 @@ namespace MuseoArkham.Vista
 
         }
 
-        private void buttonAceptarSolicitud_Click(object sender, EventArgs e)
+        private void botonAceptarSolicitud_Click(object sender, EventArgs e)
         {
             this.controlador.aceptarSolicitud();
         }
@@ -58,9 +47,14 @@ namespace MuseoArkham.Vista
             this.controlador.cambioDeSeleccion();
         }
 
-        private void buttonRechazarSolicitud_Click(object sender, EventArgs e)
+        private void botonRechazarSolicitud_Click(object sender, EventArgs e)
         {
             this.controlador.rechazarSolicitud();
+        }
+
+        private void botonVerDetalleSolicitudTraslado_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

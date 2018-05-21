@@ -38,9 +38,16 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewSolicitudesTraslado = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.buttonRechazarSolicitud = new System.Windows.Forms.Button();
-            this.buttonAceptarSolicitud = new System.Windows.Forms.Button();
-            this.buttonVerDetalleSolicitudTraslado = new System.Windows.Forms.Button();
+            this.botonVerDetalleSolicitudTraslado = new System.Windows.Forms.Button();
+            this.botonRechazarSolicitud = new System.Windows.Forms.Button();
+            this.botonAceptarSolicitud = new System.Windows.Forms.Button();
+            this.tabPageObjetos = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewObjetos = new System.Windows.Forms.DataGridView();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.botonFiltrarObjetos = new System.Windows.Forms.Button();
+            this.botonVerDetallesObjeto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -55,6 +62,14 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSolicitudesTraslado)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.tabPageObjetos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -105,6 +120,7 @@
             // tabControlSolicitudes
             // 
             this.tabControlSolicitudes.Controls.Add(this.tabPageSolicitudesTraslado);
+            this.tabControlSolicitudes.Controls.Add(this.tabPageObjetos);
             this.tabControlSolicitudes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlSolicitudes.Location = new System.Drawing.Point(3, 16);
             this.tabControlSolicitudes.Name = "tabControlSolicitudes";
@@ -169,9 +185,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.buttonVerDetalleSolicitudTraslado);
-            this.groupBox3.Controls.Add(this.buttonRechazarSolicitud);
-            this.groupBox3.Controls.Add(this.buttonAceptarSolicitud);
+            this.groupBox3.Controls.Add(this.botonVerDetalleSolicitudTraslado);
+            this.groupBox3.Controls.Add(this.botonRechazarSolicitud);
+            this.groupBox3.Controls.Add(this.botonAceptarSolicitud);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
@@ -181,37 +197,123 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
-            // buttonRechazarSolicitud
+            // botonVerDetalleSolicitudTraslado
             // 
-            this.buttonRechazarSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonRechazarSolicitud.Location = new System.Drawing.Point(5, 48);
-            this.buttonRechazarSolicitud.Name = "buttonRechazarSolicitud";
-            this.buttonRechazarSolicitud.Size = new System.Drawing.Size(123, 30);
-            this.buttonRechazarSolicitud.TabIndex = 1;
-            this.buttonRechazarSolicitud.Text = "Rechazar solicitud";
-            this.buttonRechazarSolicitud.UseVisualStyleBackColor = true;
-            this.buttonRechazarSolicitud.Click += new System.EventHandler(this.buttonRechazarSolicitud_Click);
+            this.botonVerDetalleSolicitudTraslado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.botonVerDetalleSolicitudTraslado.Location = new System.Drawing.Point(5, 78);
+            this.botonVerDetalleSolicitudTraslado.Name = "botonVerDetalleSolicitudTraslado";
+            this.botonVerDetalleSolicitudTraslado.Size = new System.Drawing.Size(123, 30);
+            this.botonVerDetalleSolicitudTraslado.TabIndex = 2;
+            this.botonVerDetalleSolicitudTraslado.Text = "Ver detalle";
+            this.botonVerDetalleSolicitudTraslado.UseVisualStyleBackColor = true;
+            this.botonVerDetalleSolicitudTraslado.Click += new System.EventHandler(this.botonVerDetalleSolicitudTraslado_Click);
             // 
-            // buttonAceptarSolicitud
+            // botonRechazarSolicitud
             // 
-            this.buttonAceptarSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonAceptarSolicitud.Location = new System.Drawing.Point(5, 18);
-            this.buttonAceptarSolicitud.Name = "buttonAceptarSolicitud";
-            this.buttonAceptarSolicitud.Size = new System.Drawing.Size(123, 30);
-            this.buttonAceptarSolicitud.TabIndex = 0;
-            this.buttonAceptarSolicitud.Text = "Aceptar solicitud";
-            this.buttonAceptarSolicitud.UseVisualStyleBackColor = true;
-            this.buttonAceptarSolicitud.Click += new System.EventHandler(this.buttonAceptarSolicitud_Click);
+            this.botonRechazarSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
+            this.botonRechazarSolicitud.Location = new System.Drawing.Point(5, 48);
+            this.botonRechazarSolicitud.Name = "botonRechazarSolicitud";
+            this.botonRechazarSolicitud.Size = new System.Drawing.Size(123, 30);
+            this.botonRechazarSolicitud.TabIndex = 1;
+            this.botonRechazarSolicitud.Text = "Rechazar solicitud";
+            this.botonRechazarSolicitud.UseVisualStyleBackColor = true;
+            this.botonRechazarSolicitud.Click += new System.EventHandler(this.botonRechazarSolicitud_Click);
             // 
-            // buttonVerDetalleSolicitudTraslado
+            // botonAceptarSolicitud
             // 
-            this.buttonVerDetalleSolicitudTraslado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonVerDetalleSolicitudTraslado.Location = new System.Drawing.Point(5, 78);
-            this.buttonVerDetalleSolicitudTraslado.Name = "buttonVerDetalleSolicitudTraslado";
-            this.buttonVerDetalleSolicitudTraslado.Size = new System.Drawing.Size(123, 30);
-            this.buttonVerDetalleSolicitudTraslado.TabIndex = 2;
-            this.buttonVerDetalleSolicitudTraslado.Text = "Ver detalle";
-            this.buttonVerDetalleSolicitudTraslado.UseVisualStyleBackColor = true;
+            this.botonAceptarSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
+            this.botonAceptarSolicitud.Location = new System.Drawing.Point(5, 18);
+            this.botonAceptarSolicitud.Name = "botonAceptarSolicitud";
+            this.botonAceptarSolicitud.Size = new System.Drawing.Size(123, 30);
+            this.botonAceptarSolicitud.TabIndex = 0;
+            this.botonAceptarSolicitud.Text = "Aceptar solicitud";
+            this.botonAceptarSolicitud.UseVisualStyleBackColor = true;
+            this.botonAceptarSolicitud.Click += new System.EventHandler(this.botonAceptarSolicitud_Click);
+            // 
+            // tabPageObjetos
+            // 
+            this.tabPageObjetos.Controls.Add(this.splitContainer3);
+            this.tabPageObjetos.Location = new System.Drawing.Point(4, 22);
+            this.tabPageObjetos.Name = "tabPageObjetos";
+            this.tabPageObjetos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageObjetos.Size = new System.Drawing.Size(818, 279);
+            this.tabPageObjetos.TabIndex = 1;
+            this.tabPageObjetos.Text = "Objetos";
+            this.tabPageObjetos.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.groupBox4);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.groupBox5);
+            this.splitContainer3.Size = new System.Drawing.Size(812, 273);
+            this.splitContainer3.SplitterDistance = 675;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dataGridViewObjetos);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(5);
+            this.groupBox4.Size = new System.Drawing.Size(675, 273);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            // 
+            // dataGridViewObjetos
+            // 
+            this.dataGridViewObjetos.AllowUserToAddRows = false;
+            this.dataGridViewObjetos.AllowUserToDeleteRows = false;
+            this.dataGridViewObjetos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewObjetos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewObjetos.Location = new System.Drawing.Point(5, 18);
+            this.dataGridViewObjetos.Name = "dataGridViewObjetos";
+            this.dataGridViewObjetos.ReadOnly = true;
+            this.dataGridViewObjetos.Size = new System.Drawing.Size(665, 250);
+            this.dataGridViewObjetos.TabIndex = 0;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.botonFiltrarObjetos);
+            this.groupBox5.Controls.Add(this.botonVerDetallesObjeto);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(0, 0);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(5);
+            this.groupBox5.Size = new System.Drawing.Size(133, 273);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            // 
+            // botonFiltrarObjetos
+            // 
+            this.botonFiltrarObjetos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.botonFiltrarObjetos.Location = new System.Drawing.Point(5, 48);
+            this.botonFiltrarObjetos.Name = "botonFiltrarObjetos";
+            this.botonFiltrarObjetos.Size = new System.Drawing.Size(123, 30);
+            this.botonFiltrarObjetos.TabIndex = 1;
+            this.botonFiltrarObjetos.Text = "Filtrar";
+            this.botonFiltrarObjetos.UseVisualStyleBackColor = true;
+            // 
+            // botonVerDetallesObjeto
+            // 
+            this.botonVerDetallesObjeto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.botonVerDetallesObjeto.Location = new System.Drawing.Point(5, 18);
+            this.botonVerDetallesObjeto.Name = "botonVerDetallesObjeto";
+            this.botonVerDetallesObjeto.Size = new System.Drawing.Size(123, 30);
+            this.botonVerDetallesObjeto.TabIndex = 0;
+            this.botonVerDetallesObjeto.Text = "Ver detalles";
+            this.botonVerDetallesObjeto.UseVisualStyleBackColor = true;
             // 
             // VistaGerente
             // 
@@ -241,6 +343,14 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSolicitudesTraslado)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.tabPageObjetos.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).EndInit();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -256,8 +366,15 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.DataGridView dataGridViewSolicitudesTraslado;
-        public System.Windows.Forms.Button buttonRechazarSolicitud;
-        public System.Windows.Forms.Button buttonAceptarSolicitud;
-        private System.Windows.Forms.Button buttonVerDetalleSolicitudTraslado;
+        public System.Windows.Forms.Button botonRechazarSolicitud;
+        public System.Windows.Forms.Button botonAceptarSolicitud;
+        private System.Windows.Forms.Button botonVerDetalleSolicitudTraslado;
+        private System.Windows.Forms.TabPage tabPageObjetos;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button botonFiltrarObjetos;
+        private System.Windows.Forms.Button botonVerDetallesObjeto;
+        public System.Windows.Forms.DataGridView dataGridViewObjetos;
     }
 }
