@@ -1,6 +1,6 @@
-﻿namespace MuseoArkham.Vista
+﻿namespace MuseoArkham.Vista.Vistas_Secretaria
 {
-    partial class VistaCrearDepartamento
+    partial class VistaAsignarAdministrador
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaCrearDepartamento));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaAsignarAdministrador));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonCrearDepartamento = new System.Windows.Forms.Button();
-            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonAsignarAdministrador = new System.Windows.Forms.Button();
+            this.buttonCancelarAsignarAdministrador = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelNombreDepartamento = new System.Windows.Forms.Label();
-            this.labelDescripcionDepartamento = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.labelAdministrador = new System.Windows.Forms.Label();
+            this.comboBoxAdministrador = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -55,13 +53,13 @@
             this.groupBox1.Size = new System.Drawing.Size(424, 405);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Crear Departamento";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBox1.Text = "Asignar administrador";
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -81,8 +79,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.buttonCrearDepartamento, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.buttonCancelar, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonAsignarAdministrador, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonCancelarAsignarAdministrador, 4, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 337);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -91,101 +89,75 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(398, 32);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // buttonCrearDepartamento
+            // buttonAsignarAdministrador
             // 
-            this.buttonCrearDepartamento.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonCrearDepartamento.Location = new System.Drawing.Point(240, 3);
-            this.buttonCrearDepartamento.Name = "buttonCrearDepartamento";
-            this.buttonCrearDepartamento.Size = new System.Drawing.Size(73, 26);
-            this.buttonCrearDepartamento.TabIndex = 0;
-            this.buttonCrearDepartamento.Text = "Crear";
-            this.buttonCrearDepartamento.UseVisualStyleBackColor = true;
-            this.buttonCrearDepartamento.Click += new System.EventHandler(this.buttonCrearDepartamento_Click);
+            this.buttonAsignarAdministrador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonAsignarAdministrador.Location = new System.Drawing.Point(240, 3);
+            this.buttonAsignarAdministrador.Name = "buttonAsignarAdministrador";
+            this.buttonAsignarAdministrador.Size = new System.Drawing.Size(73, 26);
+            this.buttonAsignarAdministrador.TabIndex = 0;
+            this.buttonAsignarAdministrador.Text = "Asignar";
+            this.buttonAsignarAdministrador.UseVisualStyleBackColor = true;
+            this.buttonAsignarAdministrador.Click += new System.EventHandler(this.buttonAsignarAdministrador_Click);
             // 
-            // buttonCancelar
+            // buttonCancelarAsignarAdministrador
             // 
-            this.buttonCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonCancelar.Location = new System.Drawing.Point(319, 3);
-            this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(76, 26);
-            this.buttonCancelar.TabIndex = 1;
-            this.buttonCancelar.Text = "Cancelar";
-            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelarAsignarAdministrador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonCancelarAsignarAdministrador.Location = new System.Drawing.Point(319, 3);
+            this.buttonCancelarAsignarAdministrador.Name = "buttonCancelarAsignarAdministrador";
+            this.buttonCancelarAsignarAdministrador.Size = new System.Drawing.Size(76, 26);
+            this.buttonCancelarAsignarAdministrador.TabIndex = 1;
+            this.buttonCancelarAsignarAdministrador.Text = "Cancelar";
+            this.buttonCancelarAsignarAdministrador.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.labelNombreDepartamento, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.labelDescripcionDepartamento, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.textBox2, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.labelAdministrador, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.comboBoxAdministrador, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(398, 328);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // labelNombreDepartamento
+            // labelAdministrador
             // 
-            this.labelNombreDepartamento.AutoSize = true;
-            this.labelNombreDepartamento.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelNombreDepartamento.Location = new System.Drawing.Point(3, 0);
-            this.labelNombreDepartamento.Name = "labelNombreDepartamento";
-            this.labelNombreDepartamento.Size = new System.Drawing.Size(94, 109);
-            this.labelNombreDepartamento.TabIndex = 0;
-            this.labelNombreDepartamento.Text = "Nombre";
+            this.labelAdministrador.AutoSize = true;
+            this.labelAdministrador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelAdministrador.Location = new System.Drawing.Point(3, 0);
+            this.labelAdministrador.Name = "labelAdministrador";
+            this.labelAdministrador.Size = new System.Drawing.Size(94, 164);
+            this.labelAdministrador.TabIndex = 0;
+            this.labelAdministrador.Text = "Administrador";
             // 
-            // labelDescripcionDepartamento
+            // comboBoxAdministrador
             // 
-            this.labelDescripcionDepartamento.AutoSize = true;
-            this.labelDescripcionDepartamento.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDescripcionDepartamento.Location = new System.Drawing.Point(3, 109);
-            this.labelDescripcionDepartamento.Name = "labelDescripcionDepartamento";
-            this.labelDescripcionDepartamento.Size = new System.Drawing.Size(94, 109);
-            this.labelDescripcionDepartamento.TabIndex = 1;
-            this.labelDescripcionDepartamento.Text = "Descripción (opcional)";
+            this.comboBoxAdministrador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxAdministrador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAdministrador.FormattingEnabled = true;
+            this.comboBoxAdministrador.Location = new System.Drawing.Point(103, 3);
+            this.comboBoxAdministrador.Name = "comboBoxAdministrador";
+            this.comboBoxAdministrador.Size = new System.Drawing.Size(292, 21);
+            this.comboBoxAdministrador.TabIndex = 1;
             // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(103, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(292, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(103, 112);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.tableLayoutPanel3.SetRowSpan(this.textBox2, 2);
-            this.textBox2.Size = new System.Drawing.Size(292, 213);
-            this.textBox2.TabIndex = 3;
-            // 
-            // VistaCrearDepartamento
+            // VistaAsignarAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(430, 411);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(446, 450);
-            this.Name = "VistaCrearDepartamento";
+            this.Name = "VistaAsignarAdministrador";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Museo Arkham";
-            this.Load += new System.EventHandler(this.VistaCrearDepartamento_Load);
+            this.Text = "VistaAsignarAdministrador";
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -200,12 +172,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button buttonCrearDepartamento;
-        private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Button buttonAsignarAdministrador;
+        private System.Windows.Forms.Button buttonCancelarAsignarAdministrador;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label labelNombreDepartamento;
-        private System.Windows.Forms.Label labelDescripcionDepartamento;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label labelAdministrador;
+        private System.Windows.Forms.ComboBox comboBoxAdministrador;
     }
 }

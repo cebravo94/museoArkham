@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MuseoArkham.Vista;
 using MuseoArkham.Controlador.Controlador_Secretaria;
+using MuseoArkham.Vista.Vistas_Secretaria;
 
 namespace MuseoArkham.Vista
 {
@@ -18,7 +19,9 @@ namespace MuseoArkham.Vista
         public VistaSecretaria()
         {
             this.controlador = new ControladorSecretaria(this);
+            
             InitializeComponent();
+            this.controlador.CargarDatos(0);
         }
 
 
@@ -45,9 +48,58 @@ namespace MuseoArkham.Vista
             vau.ShowDialog();
         }
 
-        private void botonEliminarDepto_Click(object sender, EventArgs e)
+    
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.controlador.CargarDatos((sender as TabControl).SelectedIndex);
+        }
+
+        public void refrescarTabla(int index)
+        {
+            this.controlador.CargarDatos(index);
+        }
+
+        private void buttonAsignarSalas_Click(object sender, EventArgs e)
         {
             
+            int index = this.dataGridViewDepartamento.CurrentCell.RowIndex;
+            DataGridViewRow data = this.dataGridViewDepartamento.Rows[index];
+            string id = data.Cells[0].Value.ToString();
+            
+            
+            VistaAsignarSala vas = new VistaAsignarSala(id);
+            vas.ShowDialog(this);
+            
+            
+            
+        }
+
+        private void buttonAsignarAdministrador_Click(object sender, EventArgs e)
+        {
+            int index = this.dataGridViewDepartamento.CurrentCell.RowIndex;
+            DataGridViewRow data = this.dataGridViewDepartamento.Rows[index];
+            string id = data.Cells[0].Value.ToString();
+            string admin = data.Cells[2].Value.ToString();
+            if (admin.Equals("default"))
+            {
+                VistaAsignarAdministrador vad = new VistaAsignarAdministrador(id);
+                vad.ShowDialog(this);
+            }
+            else
+            {
+                MessageBox.Show("Departamento ya tiene administrador, eliga otro", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
+
+        private void buttonEliminarDepartamento_Click(object sender, EventArgs e)
+        {
+            int index = this.dataGridViewDepartamento.CurrentCell.RowIndex;
+            DataGridViewRow data = this.dataGridViewDepartamento.Rows[index];
+            string id = data.Cells[0].Value.ToString();
+            this.controlador.botonEliminar(id);
+            this.refrescarTabla(0);
         }
     }
 }

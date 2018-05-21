@@ -139,6 +139,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(826, 305);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPageDepartamento
             // 
@@ -182,6 +183,7 @@
             // 
             // dataGridViewDepartamento
             // 
+            this.dataGridViewDepartamento.AllowUserToAddRows = false;
             this.dataGridViewDepartamento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDepartamento.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -214,6 +216,7 @@
             this.buttonAsignarAdministrador.TabIndex = 3;
             this.buttonAsignarAdministrador.Text = "Asignar administrador";
             this.buttonAsignarAdministrador.UseVisualStyleBackColor = true;
+            this.buttonAsignarAdministrador.Click += new System.EventHandler(this.buttonAsignarAdministrador_Click);
             // 
             // buttonAsignarSalas
             // 
@@ -224,6 +227,7 @@
             this.buttonAsignarSalas.TabIndex = 2;
             this.buttonAsignarSalas.Text = "Asignar salas";
             this.buttonAsignarSalas.UseVisualStyleBackColor = true;
+            this.buttonAsignarSalas.Click += new System.EventHandler(this.buttonAsignarSalas_Click);
             // 
             // buttonEliminarDepartamento
             // 
@@ -234,6 +238,7 @@
             this.buttonEliminarDepartamento.TabIndex = 1;
             this.buttonEliminarDepartamento.Text = "Eliminar departamento";
             this.buttonEliminarDepartamento.UseVisualStyleBackColor = true;
+            this.buttonEliminarDepartamento.Click += new System.EventHandler(this.buttonEliminarDepartamento_Click);
             // 
             // buttonCrearDepartamento
             // 
@@ -288,6 +293,7 @@
             // 
             // dataGridViewSalas
             // 
+            this.dataGridViewSalas.AllowUserToAddRows = false;
             this.dataGridViewSalas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSalas.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -361,6 +367,7 @@
             // 
             // dataGridViewUsuarios
             // 
+            this.dataGridViewUsuarios.AllowUserToAddRows = false;
             this.dataGridViewUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;

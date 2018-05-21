@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MuseoArkham.Modelo;
+using MySql.Data.MySqlClient;
 
 namespace MuseoArkham.Controlador.Controlador_Secretaria
 {
@@ -29,7 +31,16 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         **/
         public void crearDepartamento(string nombre, string descripcion)
         {
+            string valores = "VALUES (1,'" + nombre + "','" + descripcion + "')";
+            string consulta = "INSERT INTO departamento (id_usuario,nombre,descripcion) " + valores;
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            this.CerrarConexion();
+            this.refrescarTablaPadre();
+        }
 
+        public void refrescarTablaPadre()
+        {
+            ((VistaSecretaria)(this.ventana.Owner)).refrescarTabla(0);
         }
     }
 }
