@@ -30,13 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaDirector));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tablaDirector = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.buttonGenerarReporte = new System.Windows.Forms.Button();
+            this.botonPDF = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxFiltro = new System.Windows.Forms.ComboBox();
             this.comboBoxReporte = new System.Windows.Forms.ComboBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -46,6 +49,8 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDirector)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +73,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(838, 441);
             this.splitContainer1.SplitterDistance = 100;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
+            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 10);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(838, 90);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -99,6 +114,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tablaDirector);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(5);
@@ -108,11 +124,25 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
+            // tablaDirector
+            // 
+            this.tablaDirector.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tablaDirector.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaDirector.Location = new System.Drawing.Point(8, 18);
+            this.tablaDirector.Name = "tablaDirector";
+            this.tablaDirector.Size = new System.Drawing.Size(659, 279);
+            this.tablaDirector.TabIndex = 0;
+            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.buttonGenerarReporte);
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.botonPDF);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.comboBoxFiltro);
             this.groupBox3.Controls.Add(this.comboBoxReporte);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox3.Name = "groupBox3";
@@ -121,34 +151,59 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
-            // buttonGenerarReporte
+            // botonPDF
             // 
-            this.buttonGenerarReporte.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonGenerarReporte.Location = new System.Drawing.Point(5, 39);
-            this.buttonGenerarReporte.Name = "buttonGenerarReporte";
-            this.buttonGenerarReporte.Size = new System.Drawing.Size(137, 30);
-            this.buttonGenerarReporte.TabIndex = 1;
-            this.buttonGenerarReporte.Text = "Generar reporte";
-            this.buttonGenerarReporte.UseVisualStyleBackColor = true;
+            this.botonPDF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.botonPDF.Location = new System.Drawing.Point(8, 107);
+            this.botonPDF.Name = "botonPDF";
+            this.botonPDF.Size = new System.Drawing.Size(131, 29);
+            this.botonPDF.TabIndex = 4;
+            this.botonPDF.Text = "Exportar a PDF";
+            this.botonPDF.UseVisualStyleBackColor = true;
+            this.botonPDF.Click += new System.EventHandler(this.BotonPDF_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(5, 72);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 29);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Generar reporte";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.GenerarReporte);
+            // 
+            // comboBoxFiltro
+            // 
+            this.comboBoxFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxFiltro.Enabled = false;
+            this.comboBoxFiltro.FormattingEnabled = true;
+            this.comboBoxFiltro.Location = new System.Drawing.Point(5, 45);
+            this.comboBoxFiltro.Name = "comboBoxFiltro";
+            this.comboBoxFiltro.Size = new System.Drawing.Size(137, 21);
+            this.comboBoxFiltro.TabIndex = 2;
             // 
             // comboBoxReporte
             // 
             this.comboBoxReporte.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboBoxReporte.FormattingEnabled = true;
+            this.comboBoxReporte.Items.AddRange(new object[] {
+            "General de inventario",
+            "Departamento",
+            "Colección",
+            "Autor",
+            "Marca",
+            "Estilo artistico",
+            "Año de origen de objeto"});
             this.comboBoxReporte.Location = new System.Drawing.Point(5, 18);
             this.comboBoxReporte.Name = "comboBoxReporte";
             this.comboBoxReporte.Size = new System.Drawing.Size(137, 21);
             this.comboBoxReporte.TabIndex = 0;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
-            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 10);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(838, 90);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.comboBoxReporte.Text = "Seleccionar tipo reporte";
+            this.comboBoxReporte.SelectedIndexChanged += new System.EventHandler(this.comboBoxReporte_SelectedIndexChanged);
             // 
             // VistaDirector
             // 
@@ -160,7 +215,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Museo Arkham";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VistaDirector_FormClosing);
-            this.Load += new System.EventHandler(this.VistaDirector_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -170,6 +224,8 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDirector)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -182,8 +238,11 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button buttonGenerarReporte;
         private System.Windows.Forms.ComboBox comboBoxReporte;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxFiltro;
+        private System.Windows.Forms.DataGridView tablaDirector;
+        private System.Windows.Forms.Button botonPDF;
     }
 }
