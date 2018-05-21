@@ -10,14 +10,13 @@ using System.Windows.Forms;
 
 namespace MuseoArkham.Controlador
 {
-    class Controlador
-    {
+    class Controlador {
         private Conector_BD conector;
 
         public Controlador() {
             this.conector = Conector_BD.Instance;
         }
-        
+
         /**
          * <summary>
          * Este metodo recibe un String con la consulta en lenguaje SQL y
