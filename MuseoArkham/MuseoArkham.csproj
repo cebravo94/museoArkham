@@ -56,6 +56,7 @@
     <Compile Include="Controlador\Controlador Bodeguero\ControladorBodeguero.cs" />
     <Compile Include="Controlador\Controlador Gerente\ControladorGerente.cs" />
     <Compile Include="Controlador\Controlador Secretaria\ControladorAgregarUsuario.cs" />
+    <Compile Include="Controlador\Controlador Secretaria\ControladorAsignarSala.cs" />
     <Compile Include="Controlador\Controlador Secretaria\ControladorCrearDepartamento.cs" />
     <Compile Include="Controlador\Controlador Secretaria\ControladorCrearSala.cs" />
     <Compile Include="Controlador\Controlador Secretaria\ControladorSecretaria.cs" />

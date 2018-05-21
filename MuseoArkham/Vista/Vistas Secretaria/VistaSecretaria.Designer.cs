@@ -216,6 +216,7 @@
             this.buttonAsignarAdministrador.TabIndex = 3;
             this.buttonAsignarAdministrador.Text = "Asignar administrador";
             this.buttonAsignarAdministrador.UseVisualStyleBackColor = true;
+            this.buttonAsignarAdministrador.Click += new System.EventHandler(this.buttonAsignarAdministrador_Click);
             // 
             // buttonAsignarSalas
             // 
@@ -226,6 +227,7 @@
             this.buttonAsignarSalas.TabIndex = 2;
             this.buttonAsignarSalas.Text = "Asignar salas";
             this.buttonAsignarSalas.UseVisualStyleBackColor = true;
+            this.buttonAsignarSalas.Click += new System.EventHandler(this.buttonAsignarSalas_Click);
             // 
             // buttonEliminarDepartamento
             // 

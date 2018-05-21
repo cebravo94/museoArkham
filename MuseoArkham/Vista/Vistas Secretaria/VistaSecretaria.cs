@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MuseoArkham.Vista;
 using MuseoArkham.Controlador.Controlador_Secretaria;
+using MuseoArkham.Vista.Vistas_Secretaria;
 
 namespace MuseoArkham.Vista
 {
@@ -60,6 +61,22 @@ namespace MuseoArkham.Vista
         public void refrescarTabla(int index)
         {
             this.controlador.CargarDatos(index);
+        }
+
+        private void buttonAsignarSalas_Click(object sender, EventArgs e)
+        {
+            
+            int index = this.dataGridViewDepartamento.CurrentCell.RowIndex;
+            DataGridViewRow data = this.dataGridViewDepartamento.Rows[index];
+            string id = data.Cells[0].Value.ToString();
+            VistaAsignarSala vas = new VistaAsignarSala(id);
+            vas.ShowDialog(this);
+        }
+
+        private void buttonAsignarAdministrador_Click(object sender, EventArgs e)
+        {
+            VistaAsignarAdministrador vad = new VistaAsignarAdministrador();
+            vad.ShowDialog(this);
         }
     }
 }

@@ -108,6 +108,7 @@
             this.buttonAsignarSala.TabIndex = 1;
             this.buttonAsignarSala.Text = "Asignar";
             this.buttonAsignarSala.UseVisualStyleBackColor = true;
+            this.buttonAsignarSala.Click += new System.EventHandler(this.buttonAsignarSala_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -155,6 +156,7 @@
             this.MinimumSize = new System.Drawing.Size(446, 450);
             this.Name = "VistaAsignarSala";
             this.Padding = new System.Windows.Forms.Padding(3);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VistaAsignarSala";
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
