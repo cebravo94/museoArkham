@@ -10,14 +10,13 @@ using System.Windows.Forms;
 
 namespace MuseoArkham.Controlador
 {
-    class Controlador
-    {
+    class Controlador {
         private Conector_BD conector;
 
         public Controlador() {
             this.conector = Conector_BD.Instance;
         }
-        
+
         /**
          * <summary>
          * Este metodo recibe un String con la consulta en lenguaje SQL y
@@ -31,7 +30,11 @@ namespace MuseoArkham.Controlador
         protected MySqlDataReader RealizarConsulta(string consulta) {
             return this.conector.RealizarConsulta(consulta);
         }
-        
+
+        protected void RealizarConsultaNoQuery(string consulta) {
+            this.conector.RealizarConsultaNoQuery(consulta);
+        }
+
         /**
          * <summary>
          * Este metodo recibe una ventana, oculta el padre y la muestra en pantalla

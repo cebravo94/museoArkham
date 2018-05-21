@@ -52,6 +52,20 @@ namespace MuseoArkham.Modelo
             return null;
         }
 
+        public void RealizarConsultaNoQuery(string consulta) {
+            MySqlCommand command = Con.CreateCommand();
+            command.CommandText = consulta;
+            try {
+                Con.Open();
+                command.ExecuteNonQuery();
+                Con.Close();
+            }
+            catch (Exception e) {
+                Console.WriteLine(e.Message);
+                Con.Close();
+            }
+        }
+
         //Cierra la conexión con la base de datos.
         public static void CerrarConexion() {
             Con.Close();
