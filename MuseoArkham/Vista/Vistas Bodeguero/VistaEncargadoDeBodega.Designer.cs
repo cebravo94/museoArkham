@@ -146,6 +146,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(826, 305);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPageObjetos
             // 
@@ -196,6 +197,7 @@
             this.dataGridViewObjetos.Name = "dataGridViewObjetos";
             this.dataGridViewObjetos.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewObjetos.TabIndex = 0;
+            this.dataGridViewObjetos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewObjetos_CellContentClick);
             // 
             // groupBox3
             // 
@@ -215,7 +217,7 @@
             // buttonFiltrarObjetos
             // 
             this.buttonFiltrarObjetos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonFiltrarObjetos.Location = new System.Drawing.Point(5, 108);
+            this.buttonFiltrarObjetos.Location = new System.Drawing.Point(5, 114);
             this.buttonFiltrarObjetos.Name = "buttonFiltrarObjetos";
             this.buttonFiltrarObjetos.Size = new System.Drawing.Size(123, 30);
             this.buttonFiltrarObjetos.TabIndex = 3;
@@ -227,10 +229,11 @@
             this.buttonEnviarRestauracion.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonEnviarRestauracion.Location = new System.Drawing.Point(5, 78);
             this.buttonEnviarRestauracion.Name = "buttonEnviarRestauracion";
-            this.buttonEnviarRestauracion.Size = new System.Drawing.Size(123, 30);
+            this.buttonEnviarRestauracion.Size = new System.Drawing.Size(123, 36);
             this.buttonEnviarRestauracion.TabIndex = 2;
-            this.buttonEnviarRestauracion.Text = "Enviar a Restauración";
+            this.buttonEnviarRestauracion.Text = "Enviar/Traer a Restauración";
             this.buttonEnviarRestauracion.UseVisualStyleBackColor = true;
+            this.buttonEnviarRestauracion.Click += new System.EventHandler(this.buttonEnviarRestauracion_Click);
             // 
             // buttonDesincorporarObjeto
             // 

@@ -215,6 +215,7 @@
             this.buttonIncorporarDocumento.TabIndex = 0;
             this.buttonIncorporarDocumento.Text = "Incorporar";
             this.buttonIncorporarDocumento.UseVisualStyleBackColor = true;
+            this.buttonIncorporarDocumento.Click += new System.EventHandler(this.buttonIncorporarDocumento_Click);
             // 
             // button1Cancelar
             // 
@@ -225,6 +226,7 @@
             this.button1Cancelar.TabIndex = 1;
             this.button1Cancelar.Text = "Cancelar";
             this.button1Cancelar.UseVisualStyleBackColor = true;
+            this.button1Cancelar.Click += new System.EventHandler(this.button1Cancelar_Click);
             // 
             // tableLayoutPanel9
             // 
@@ -357,16 +359,32 @@
             // comboBoxEraDocumento
             // 
             this.comboBoxEraDocumento.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxEraDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEraDocumento.FormattingEnabled = true;
+            this.comboBoxEraDocumento.Items.AddRange(new object[] {
+            "A.C.",
+            "D.C."});
             this.comboBoxEraDocumento.Location = new System.Drawing.Point(73, 114);
             this.comboBoxEraDocumento.Name = "comboBoxEraDocumento";
             this.comboBoxEraDocumento.Size = new System.Drawing.Size(308, 21);
             this.comboBoxEraDocumento.TabIndex = 10;
+            this.comboBoxEraDocumento.SelectedIndexChanged += new System.EventHandler(this.comboBoxEraDocumento_SelectedIndexChanged);
             // 
             // comboBoxTipoDocumento
             // 
             this.comboBoxTipoDocumento.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipoDocumento.FormattingEnabled = true;
+            this.comboBoxTipoDocumento.Items.AddRange(new object[] {
+            "Fotografia",
+            "Acta",
+            "Certificado",
+            "Codice",
+            "Declaracion",
+            "Testamento",
+            "Composicion Musical",
+            "Carta",
+            "Periodico"});
             this.comboBoxTipoDocumento.Location = new System.Drawing.Point(73, 151);
             this.comboBoxTipoDocumento.Name = "comboBoxTipoDocumento";
             this.comboBoxTipoDocumento.Size = new System.Drawing.Size(308, 21);
@@ -443,6 +461,7 @@
             this.buttonIncorporarObra.TabIndex = 0;
             this.buttonIncorporarObra.Text = "Incorporar";
             this.buttonIncorporarObra.UseVisualStyleBackColor = true;
+            this.buttonIncorporarObra.Click += new System.EventHandler(this.buttonIncorporarObra_Click);
             // 
             // button2Cancelar
             // 
@@ -453,6 +472,7 @@
             this.button2Cancelar.TabIndex = 1;
             this.button2Cancelar.Text = "Cancelar";
             this.button2Cancelar.UseVisualStyleBackColor = true;
+            this.button2Cancelar.Click += new System.EventHandler(this.button2Cancelar_Click);
             // 
             // tableLayoutPanel10
             // 
@@ -611,7 +631,11 @@
             // comboBoxEraObra
             // 
             this.comboBoxEraObra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxEraObra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEraObra.FormattingEnabled = true;
+            this.comboBoxEraObra.Items.AddRange(new object[] {
+            "A.C.",
+            "D.C."});
             this.comboBoxEraObra.Location = new System.Drawing.Point(73, 93);
             this.comboBoxEraObra.Name = "comboBoxEraObra";
             this.comboBoxEraObra.Size = new System.Drawing.Size(308, 21);
@@ -620,7 +644,12 @@
             // comboBoxTipoObra
             // 
             this.comboBoxTipoObra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxTipoObra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipoObra.FormattingEnabled = true;
+            this.comboBoxTipoObra.Items.AddRange(new object[] {
+            "Pintura",
+            "Escultura",
+            "Arquitectura"});
             this.comboBoxTipoObra.Location = new System.Drawing.Point(73, 123);
             this.comboBoxTipoObra.Name = "comboBoxTipoObra";
             this.comboBoxTipoObra.Size = new System.Drawing.Size(308, 21);
@@ -713,6 +742,7 @@
             this.buttonIncorporarPieza.TabIndex = 0;
             this.buttonIncorporarPieza.Text = "Incorporar";
             this.buttonIncorporarPieza.UseVisualStyleBackColor = true;
+            this.buttonIncorporarPieza.Click += new System.EventHandler(this.buttonIncorporarPieza_Click);
             // 
             // button3Cancelar
             // 
@@ -723,6 +753,7 @@
             this.button3Cancelar.TabIndex = 1;
             this.button3Cancelar.Text = "Cancelar";
             this.button3Cancelar.UseVisualStyleBackColor = true;
+            this.button3Cancelar.Click += new System.EventHandler(this.button3Cancelar_Click);
             // 
             // tableLayoutPanel11
             // 
@@ -856,7 +887,11 @@
             // comboBoxEraPieza
             // 
             this.comboBoxEraPieza.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxEraPieza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEraPieza.FormattingEnabled = true;
+            this.comboBoxEraPieza.Items.AddRange(new object[] {
+            "A.C.",
+            "D.C."});
             this.comboBoxEraPieza.Location = new System.Drawing.Point(73, 114);
             this.comboBoxEraPieza.Name = "comboBoxEraPieza";
             this.comboBoxEraPieza.Size = new System.Drawing.Size(308, 21);
@@ -865,7 +900,18 @@
             // comboBoxTipoPieza
             // 
             this.comboBoxTipoPieza.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxTipoPieza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipoPieza.FormattingEnabled = true;
+            this.comboBoxTipoPieza.Items.AddRange(new object[] {
+            "Libro",
+            "Arma",
+            "Ropa",
+            "Herramienta",
+            "Armadura",
+            "Maquina",
+            "Motor",
+            "Instrumento",
+            "Otros"});
             this.comboBoxTipoPieza.Location = new System.Drawing.Point(73, 151);
             this.comboBoxTipoPieza.Name = "comboBoxTipoPieza";
             this.comboBoxTipoPieza.Size = new System.Drawing.Size(308, 21);
@@ -895,7 +941,7 @@
             this.tabPageVehiculo.Location = new System.Drawing.Point(4, 22);
             this.tabPageVehiculo.Name = "tabPageVehiculo";
             this.tabPageVehiculo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageVehiculo.Size = new System.Drawing.Size(410, 360);
+            this.tabPageVehiculo.Size = new System.Drawing.Size(396, 346);
             this.tabPageVehiculo.TabIndex = 3;
             this.tabPageVehiculo.Text = "Vehículo";
             this.tabPageVehiculo.UseVisualStyleBackColor = true;
@@ -913,7 +959,7 @@
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(404, 354);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(390, 340);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -927,32 +973,34 @@
             this.tableLayoutPanel8.Controls.Add(this.buttonIncorporarVehiculo, 3, 0);
             this.tableLayoutPanel8.Controls.Add(this.button4Cancelar, 4, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 321);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 309);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(398, 30);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(384, 28);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // buttonIncorporarVehiculo
             // 
             this.buttonIncorporarVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonIncorporarVehiculo.Location = new System.Drawing.Point(240, 3);
+            this.buttonIncorporarVehiculo.Location = new System.Drawing.Point(231, 3);
             this.buttonIncorporarVehiculo.Name = "buttonIncorporarVehiculo";
-            this.buttonIncorporarVehiculo.Size = new System.Drawing.Size(73, 24);
+            this.buttonIncorporarVehiculo.Size = new System.Drawing.Size(70, 22);
             this.buttonIncorporarVehiculo.TabIndex = 0;
             this.buttonIncorporarVehiculo.Text = "Incorporar";
             this.buttonIncorporarVehiculo.UseVisualStyleBackColor = true;
+            this.buttonIncorporarVehiculo.Click += new System.EventHandler(this.buttonIncorporarVehiculo_Click);
             // 
             // button4Cancelar
             // 
             this.button4Cancelar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4Cancelar.Location = new System.Drawing.Point(319, 3);
+            this.button4Cancelar.Location = new System.Drawing.Point(307, 3);
             this.button4Cancelar.Name = "button4Cancelar";
-            this.button4Cancelar.Size = new System.Drawing.Size(76, 24);
+            this.button4Cancelar.Size = new System.Drawing.Size(74, 22);
             this.button4Cancelar.TabIndex = 1;
             this.button4Cancelar.Text = "Cancelar";
             this.button4Cancelar.UseVisualStyleBackColor = true;
+            this.button4Cancelar.Click += new System.EventHandler(this.button4Cancelar_Click);
             // 
             // tableLayoutPanel12
             // 
@@ -985,7 +1033,7 @@
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(398, 312);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(384, 300);
             this.tableLayoutPanel12.TabIndex = 1;
             // 
             // labelNombreVehiculo
@@ -994,7 +1042,7 @@
             this.labelNombreVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelNombreVehiculo.Location = new System.Drawing.Point(3, 0);
             this.labelNombreVehiculo.Name = "labelNombreVehiculo";
-            this.labelNombreVehiculo.Size = new System.Drawing.Size(64, 39);
+            this.labelNombreVehiculo.Size = new System.Drawing.Size(64, 37);
             this.labelNombreVehiculo.TabIndex = 0;
             this.labelNombreVehiculo.Text = "Nombre";
             // 
@@ -1002,9 +1050,9 @@
             // 
             this.labelColeccionVehiculo.AutoSize = true;
             this.labelColeccionVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelColeccionVehiculo.Location = new System.Drawing.Point(3, 39);
+            this.labelColeccionVehiculo.Location = new System.Drawing.Point(3, 37);
             this.labelColeccionVehiculo.Name = "labelColeccionVehiculo";
-            this.labelColeccionVehiculo.Size = new System.Drawing.Size(64, 39);
+            this.labelColeccionVehiculo.Size = new System.Drawing.Size(64, 37);
             this.labelColeccionVehiculo.TabIndex = 1;
             this.labelColeccionVehiculo.Text = "Colección";
             // 
@@ -1012,9 +1060,9 @@
             // 
             this.labelAnnoVehiculo.AutoSize = true;
             this.labelAnnoVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelAnnoVehiculo.Location = new System.Drawing.Point(3, 78);
+            this.labelAnnoVehiculo.Location = new System.Drawing.Point(3, 74);
             this.labelAnnoVehiculo.Name = "labelAnnoVehiculo";
-            this.labelAnnoVehiculo.Size = new System.Drawing.Size(64, 39);
+            this.labelAnnoVehiculo.Size = new System.Drawing.Size(64, 37);
             this.labelAnnoVehiculo.TabIndex = 2;
             this.labelAnnoVehiculo.Text = "Año";
             // 
@@ -1022,9 +1070,9 @@
             // 
             this.labelEraVehiculo.AutoSize = true;
             this.labelEraVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelEraVehiculo.Location = new System.Drawing.Point(3, 117);
+            this.labelEraVehiculo.Location = new System.Drawing.Point(3, 111);
             this.labelEraVehiculo.Name = "labelEraVehiculo";
-            this.labelEraVehiculo.Size = new System.Drawing.Size(64, 39);
+            this.labelEraVehiculo.Size = new System.Drawing.Size(64, 37);
             this.labelEraVehiculo.TabIndex = 3;
             this.labelEraVehiculo.Text = "Era";
             // 
@@ -1032,9 +1080,9 @@
             // 
             this.labelMarcaVehiculo.AutoSize = true;
             this.labelMarcaVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelMarcaVehiculo.Location = new System.Drawing.Point(3, 156);
+            this.labelMarcaVehiculo.Location = new System.Drawing.Point(3, 148);
             this.labelMarcaVehiculo.Name = "labelMarcaVehiculo";
-            this.labelMarcaVehiculo.Size = new System.Drawing.Size(64, 39);
+            this.labelMarcaVehiculo.Size = new System.Drawing.Size(64, 37);
             this.labelMarcaVehiculo.TabIndex = 4;
             this.labelMarcaVehiculo.Text = "Marca";
             // 
@@ -1042,9 +1090,9 @@
             // 
             this.labelModeloVehiculo.AutoSize = true;
             this.labelModeloVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelModeloVehiculo.Location = new System.Drawing.Point(3, 195);
+            this.labelModeloVehiculo.Location = new System.Drawing.Point(3, 185);
             this.labelModeloVehiculo.Name = "labelModeloVehiculo";
-            this.labelModeloVehiculo.Size = new System.Drawing.Size(64, 39);
+            this.labelModeloVehiculo.Size = new System.Drawing.Size(64, 37);
             this.labelModeloVehiculo.TabIndex = 5;
             this.labelModeloVehiculo.Text = "Modelo";
             // 
@@ -1052,9 +1100,9 @@
             // 
             this.labelDescripcionVehiculo.AutoSize = true;
             this.labelDescripcionVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDescripcionVehiculo.Location = new System.Drawing.Point(3, 234);
+            this.labelDescripcionVehiculo.Location = new System.Drawing.Point(3, 222);
             this.labelDescripcionVehiculo.Name = "labelDescripcionVehiculo";
-            this.labelDescripcionVehiculo.Size = new System.Drawing.Size(64, 39);
+            this.labelDescripcionVehiculo.Size = new System.Drawing.Size(64, 37);
             this.labelDescripcionVehiculo.TabIndex = 6;
             this.labelDescripcionVehiculo.Text = "Descripción";
             // 
@@ -1063,58 +1111,62 @@
             this.textBoxNombreVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxNombreVehiculo.Location = new System.Drawing.Point(73, 3);
             this.textBoxNombreVehiculo.Name = "textBoxNombreVehiculo";
-            this.textBoxNombreVehiculo.Size = new System.Drawing.Size(322, 20);
+            this.textBoxNombreVehiculo.Size = new System.Drawing.Size(308, 20);
             this.textBoxNombreVehiculo.TabIndex = 7;
             // 
             // textBoxColeccionVehiculo
             // 
             this.textBoxColeccionVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxColeccionVehiculo.Location = new System.Drawing.Point(73, 42);
+            this.textBoxColeccionVehiculo.Location = new System.Drawing.Point(73, 40);
             this.textBoxColeccionVehiculo.Name = "textBoxColeccionVehiculo";
-            this.textBoxColeccionVehiculo.Size = new System.Drawing.Size(322, 20);
+            this.textBoxColeccionVehiculo.Size = new System.Drawing.Size(308, 20);
             this.textBoxColeccionVehiculo.TabIndex = 8;
             // 
             // textBoxAnnoVehiculo
             // 
             this.textBoxAnnoVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxAnnoVehiculo.Location = new System.Drawing.Point(73, 81);
+            this.textBoxAnnoVehiculo.Location = new System.Drawing.Point(73, 77);
             this.textBoxAnnoVehiculo.Name = "textBoxAnnoVehiculo";
-            this.textBoxAnnoVehiculo.Size = new System.Drawing.Size(322, 20);
+            this.textBoxAnnoVehiculo.Size = new System.Drawing.Size(308, 20);
             this.textBoxAnnoVehiculo.TabIndex = 9;
             // 
             // comboBoxEraVehiculo
             // 
             this.comboBoxEraVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxEraVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEraVehiculo.FormattingEnabled = true;
-            this.comboBoxEraVehiculo.Location = new System.Drawing.Point(73, 120);
+            this.comboBoxEraVehiculo.Items.AddRange(new object[] {
+            "A.C.",
+            "D.C."});
+            this.comboBoxEraVehiculo.Location = new System.Drawing.Point(73, 114);
             this.comboBoxEraVehiculo.Name = "comboBoxEraVehiculo";
-            this.comboBoxEraVehiculo.Size = new System.Drawing.Size(322, 21);
+            this.comboBoxEraVehiculo.Size = new System.Drawing.Size(308, 21);
             this.comboBoxEraVehiculo.TabIndex = 10;
             // 
             // textBoxMarcaVehiculo
             // 
             this.textBoxMarcaVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxMarcaVehiculo.Location = new System.Drawing.Point(73, 159);
+            this.textBoxMarcaVehiculo.Location = new System.Drawing.Point(73, 151);
             this.textBoxMarcaVehiculo.Name = "textBoxMarcaVehiculo";
-            this.textBoxMarcaVehiculo.Size = new System.Drawing.Size(322, 20);
+            this.textBoxMarcaVehiculo.Size = new System.Drawing.Size(308, 20);
             this.textBoxMarcaVehiculo.TabIndex = 11;
             // 
             // textBoxModeloVehiculo
             // 
             this.textBoxModeloVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxModeloVehiculo.Location = new System.Drawing.Point(73, 198);
+            this.textBoxModeloVehiculo.Location = new System.Drawing.Point(73, 188);
             this.textBoxModeloVehiculo.Name = "textBoxModeloVehiculo";
-            this.textBoxModeloVehiculo.Size = new System.Drawing.Size(322, 20);
+            this.textBoxModeloVehiculo.Size = new System.Drawing.Size(308, 20);
             this.textBoxModeloVehiculo.TabIndex = 12;
             // 
             // textBoxDescripcionVehiculo
             // 
             this.textBoxDescripcionVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDescripcionVehiculo.Location = new System.Drawing.Point(73, 237);
+            this.textBoxDescripcionVehiculo.Location = new System.Drawing.Point(73, 225);
             this.textBoxDescripcionVehiculo.Multiline = true;
             this.textBoxDescripcionVehiculo.Name = "textBoxDescripcionVehiculo";
             this.tableLayoutPanel12.SetRowSpan(this.textBoxDescripcionVehiculo, 2);
-            this.textBoxDescripcionVehiculo.Size = new System.Drawing.Size(322, 72);
+            this.textBoxDescripcionVehiculo.Size = new System.Drawing.Size(308, 72);
             this.textBoxDescripcionVehiculo.TabIndex = 13;
             // 
             // VistaIncorporarObjeto
@@ -1189,13 +1241,6 @@
         private System.Windows.Forms.Label labelTipoDocumento;
         private System.Windows.Forms.Label labelAutorDocumento;
         private System.Windows.Forms.Label labelDescripcionDocumento;
-        private System.Windows.Forms.TextBox textBoxNombreDocumento;
-        private System.Windows.Forms.TextBox textBoxColeccionDocumento;
-        private System.Windows.Forms.TextBox textBoxAnnoDocumento;
-        private System.Windows.Forms.ComboBox comboBoxEraDocumento;
-        private System.Windows.Forms.ComboBox comboBoxTipoDocumento;
-        private System.Windows.Forms.TextBox textBoxAutorDocumento;
-        private System.Windows.Forms.TextBox textBoxDescripcionDocumento;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Label labelNombreObra;
         private System.Windows.Forms.Label labelColeccionObra;
@@ -1206,15 +1251,6 @@
         private System.Windows.Forms.Label labelMaterialObra;
         private System.Windows.Forms.Label labelEstiloObra;
         private System.Windows.Forms.Label labelDescripcionObra;
-        private System.Windows.Forms.TextBox textBoxNombreObra;
-        private System.Windows.Forms.TextBox textBoxColeccionObra;
-        private System.Windows.Forms.TextBox textBoxAnnoObra;
-        private System.Windows.Forms.ComboBox comboBoxEraObra;
-        private System.Windows.Forms.ComboBox comboBoxTipoObra;
-        private System.Windows.Forms.TextBox textBoxAutorObra;
-        private System.Windows.Forms.TextBox textBoxMaterialObra;
-        private System.Windows.Forms.TextBox textBoxEstiloObra;
-        private System.Windows.Forms.TextBox textBoxDescripcionObra;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Label labelNombrePieza;
         private System.Windows.Forms.Label labelColeccionPieza;
@@ -1223,13 +1259,6 @@
         private System.Windows.Forms.Label labelTipoPieza;
         private System.Windows.Forms.Label labelPeriodoPieza;
         private System.Windows.Forms.Label labelDescripcionPieza;
-        private System.Windows.Forms.TextBox textBoxNombrePieza;
-        private System.Windows.Forms.TextBox textBoxColeccionPieza;
-        private System.Windows.Forms.TextBox textBoxAnnoPieza;
-        private System.Windows.Forms.ComboBox comboBoxEraPieza;
-        private System.Windows.Forms.ComboBox comboBoxTipoPieza;
-        private System.Windows.Forms.TextBox textBoxPeriodoPieza;
-        private System.Windows.Forms.TextBox textBoxDescripcionPieza;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.Label labelNombreVehiculo;
         private System.Windows.Forms.Label labelColeccionVehiculo;
@@ -1238,12 +1267,35 @@
         private System.Windows.Forms.Label labelMarcaVehiculo;
         private System.Windows.Forms.Label labelModeloVehiculo;
         private System.Windows.Forms.Label labelDescripcionVehiculo;
-        private System.Windows.Forms.TextBox textBoxNombreVehiculo;
-        private System.Windows.Forms.TextBox textBoxColeccionVehiculo;
-        private System.Windows.Forms.TextBox textBoxAnnoVehiculo;
-        private System.Windows.Forms.ComboBox comboBoxEraVehiculo;
-        private System.Windows.Forms.TextBox textBoxMarcaVehiculo;
-        private System.Windows.Forms.TextBox textBoxModeloVehiculo;
-        private System.Windows.Forms.TextBox textBoxDescripcionVehiculo;
+        public System.Windows.Forms.TextBox textBoxNombreDocumento;
+        public System.Windows.Forms.TextBox textBoxColeccionDocumento;
+        public System.Windows.Forms.TextBox textBoxAnnoDocumento;
+        public System.Windows.Forms.ComboBox comboBoxEraDocumento;
+        public System.Windows.Forms.ComboBox comboBoxTipoDocumento;
+        public System.Windows.Forms.TextBox textBoxAutorDocumento;
+        public System.Windows.Forms.TextBox textBoxDescripcionDocumento;
+        public System.Windows.Forms.TextBox textBoxNombreObra;
+        public System.Windows.Forms.TextBox textBoxColeccionObra;
+        public System.Windows.Forms.TextBox textBoxAnnoObra;
+        public System.Windows.Forms.ComboBox comboBoxEraObra;
+        public System.Windows.Forms.ComboBox comboBoxTipoObra;
+        public System.Windows.Forms.TextBox textBoxAutorObra;
+        public System.Windows.Forms.TextBox textBoxMaterialObra;
+        public System.Windows.Forms.TextBox textBoxEstiloObra;
+        public System.Windows.Forms.TextBox textBoxDescripcionObra;
+        public System.Windows.Forms.TextBox textBoxNombrePieza;
+        public System.Windows.Forms.TextBox textBoxColeccionPieza;
+        public System.Windows.Forms.TextBox textBoxAnnoPieza;
+        public System.Windows.Forms.ComboBox comboBoxEraPieza;
+        public System.Windows.Forms.ComboBox comboBoxTipoPieza;
+        public System.Windows.Forms.TextBox textBoxPeriodoPieza;
+        public System.Windows.Forms.TextBox textBoxDescripcionPieza;
+        public System.Windows.Forms.TextBox textBoxNombreVehiculo;
+        public System.Windows.Forms.TextBox textBoxColeccionVehiculo;
+        public System.Windows.Forms.TextBox textBoxAnnoVehiculo;
+        public System.Windows.Forms.ComboBox comboBoxEraVehiculo;
+        public System.Windows.Forms.TextBox textBoxMarcaVehiculo;
+        public System.Windows.Forms.TextBox textBoxModeloVehiculo;
+        public System.Windows.Forms.TextBox textBoxDescripcionVehiculo;
     }
 }
