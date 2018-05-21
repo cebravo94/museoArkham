@@ -18,6 +18,7 @@ namespace MuseoArkham.Vista
         private ControladorSecretaria controlador;
         public VistaSecretaria()
         {
+            InitializeComponent();
             this.controlador = new ControladorSecretaria(this);
             
             InitializeComponent();
@@ -100,6 +101,17 @@ namespace MuseoArkham.Vista
             string id = data.Cells[0].Value.ToString();
             this.controlador.botonEliminar(id);
             this.refrescarTabla(0);
+        }
+
+        private void buttonDeshabilitarUsuario_Click(object sender, EventArgs e)
+        {
+            this.controlador.botonDeshabilitarUsuario();
+            
+        }
+
+        public void refrescarTabla(int index)
+        {
+            this.controlador.CargarDatos(index);
         }
     }
 }
