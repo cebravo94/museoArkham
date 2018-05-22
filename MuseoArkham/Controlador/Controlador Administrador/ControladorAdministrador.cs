@@ -142,6 +142,7 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
                     " FROM item, departamento, sala" +
                     " WHERE item.id_dpto = departamento.id_dpto" +
                     " AND sala.id_sala = item.id_sala" +
+                    " AND NOT item.estado = 'Deshabilitado'" +
                     " AND departamento.id_dpto = " + departamento.Id;
                 MySqlDataReader reader = this.RealizarConsulta(consulta);
                 this.PoblarTabla(ventana.dataGridViewObjetos, reader);
