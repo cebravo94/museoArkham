@@ -165,10 +165,16 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
 
         public void botonDeshabilitarUsuario()
         {
-            if(DeshabilitarUsuario() == true)
+            int condicion = DeshabilitarUsuario();
+            if (condicion == 0)
             {
                 string s = "Usuario deshabilitado con exito.";
                 MessageBox.Show(s, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if(condicion == 1)
+            {
+                string s = "Error en deshabilitar usuario. El usuario es administrador de un departamento.";
+                MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -177,22 +183,42 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             }
         }
 
-        private Boolean DeshabilitarUsuario()
+        private int DeshabilitarUsuario()
         {
             int index = this.ventana.dataGridViewUsuarios.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewUsuarios.Rows[index];
             String idUsuario = data.Cells[0].Value.ToString();
             if(this.ValidacionUsuario(idUsuario) == true)
             {
-                string consulta = "UPDATE usuario SET usuario.tipo = 'Deshabilitado' WHERE usuario.id_usuario = " + idUsuario + ";";
-                this.RealizarConsultaNoQuery(consulta);
-                this.ventana.refrescarTabla(2);
-                return true;
+                if(this.VerificacionAdministrador(idUsuario) == true)
+                {
+                    string consulta = "UPDATE usuario SET usuario.tipo = 'Deshabilitado' WHERE usuario.id_usuario = " + idUsuario + ";";
+                    this.RealizarConsultaNoQuery(consulta);
+                    this.ventana.refrescarTabla(2);
+                    return 0;
+                }
+                else
+                {
+                    return 1;
+                }
             }
             else
             {
+                return 2;
+            }
+        }
+
+        private bool VerificacionAdministrador(String idUsuario)
+        {
+            string consulta = "select departamento.id_dpto from departamento where departamento.id_usuario = " + idUsuario;
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            if (reader != null)
+            {   
+                this.CerrarConexion();
                 return false;
             }
+            this.CerrarConexion();
+            return true;
         }
 
         private Boolean ValidacionUsuario(string idUsuario)

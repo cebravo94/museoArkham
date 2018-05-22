@@ -32,8 +32,15 @@ namespace MuseoArkham.Vista
 
         private void buttonCrearUsuario_Click(object sender, EventArgs e)
         {
-            this.controlador.botonAceptar(this.textBoxNombreUsuario.Text, this.textBoxRunUsuario.Text, this.textBoxCorreoElectronicoUsuario.Text,
-            this.comboBoxTipoUsuario.SelectedItem.ToString(), this.textBoxContraseñaUsuario.Text);
+            try 
+            {
+                this.controlador.validarCampos(this.textBoxNombreUsuario.Text, this.textBoxRunUsuario.Text, this.textBoxCorreoElectronicoUsuario.Text,
+                this.comboBoxTipoUsuario.SelectedItem.ToString(), this.textBoxContraseñaUsuario.Text);
+            }
+            catch(Exception exception)
+            {
+                this.controlador.error();
+            }
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)

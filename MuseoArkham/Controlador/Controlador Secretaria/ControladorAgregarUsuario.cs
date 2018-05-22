@@ -31,19 +31,11 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
          */
         public void botonAceptar(String nombre,String rut, String correo, String tipoUsuario, String contrasenna)
         {
-            if(validarCampos(nombre, rut, correo, tipoUsuario, contrasenna) == true)
-            {
-                if (insertarUsuario(nombre, rut, correo, tipoUsuario, contrasenna) == true)
-                {
-                    string s = "Usuario creado con exito.";
-                    MessageBox.Show(s, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Form.ActiveForm.Close();
-                }
-                else
-                {
-                    string s = "Error en crear usuario.";
-                    MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+           if (insertarUsuario(nombre, rut, correo, tipoUsuario, contrasenna) == true)
+           {
+                string s = "Usuario creado con exito.";
+                MessageBox.Show(s, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Form.ActiveForm.Close();
             }
             else
             {
@@ -52,17 +44,27 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             }
             Form owner = this.ventana.Owner;
             VistaSecretaria vs = (VistaSecretaria)owner;
-            vs.refrescarTabla(1);
+            vs.refrescarTabla(2);
         }
 
-        private bool validarCampos(string nombre, string rut, string correo, string tipoUsuario, string contrasenna)
+        public void error()
+        {
+            string s = "Todos los campos deben de tener un valor.";
+            MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void validarCampos(string nombre, string rut, string correo, string tipoUsuario, string contrasenna)
         {
             if(nombre.Length > 0 && rut.Length > 0 && correo.Length > 0 && tipoUsuario.Length > 0 && contrasenna.Length > 0)
             {
-                return true;
+                botonAceptar(nombre, rut, correo, tipoUsuario, contrasenna);
             }
-            Console.WriteLine(tipoUsuario.Length);
-            return false;
+            else
+            {
+                string s = "Todos los campos deben de tener un valor.";
+                MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private Boolean insertarUsuario(String nombre, String rut, String correo, String tipoUsuario, String contrasenna)
