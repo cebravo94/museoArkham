@@ -87,5 +87,12 @@ namespace MuseoArkham.Vista
         { 
             this.controlador.botonEliminar(dataGridViewDepartamento);
         }
+
+        private void buttonDeshabilitarUsuario_Click(object sender, EventArgs e)
+        {
+            this.controlador.botonDeshabilitarUsuario();
+            
+        }
+
     }
 }

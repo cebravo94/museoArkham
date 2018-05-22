@@ -17,6 +17,9 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
 
         public ControladorSecretaria(VistaSecretaria ventana) {
             this.ventana = ventana;
+            this.cargarDepartamentos();
+            this.cargarSalas();
+            this.cargarUsuarios();
         }
 
         /**
@@ -101,6 +104,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
          */
         public void botonDeshabilitarUsuario(Usuario usuario)
         {
+            
         }
 
         /**
@@ -161,5 +165,60 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             this.PoblarTabla(ventana.dataGridViewUsuarios, reader);
             this.CerrarConexion();
         }
+
+        public void botonDeshabilitarUsuario()
+        {
+            if(DeshabilitarUsuario() == true)
+            {
+                string s = "Usuario deshabilitado con exito.";
+                MessageBox.Show(s, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                string s = "Error en deshabilitar usuario. Los usuarios que poseen el cargo de Director o Secretaria no pueden ser deshabilitados.";
+                MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private Boolean DeshabilitarUsuario()
+        {
+            int index = this.ventana.dataGridViewUsuarios.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewUsuarios.Rows[index];
+            String idUsuario = data.Cells[0].Value.ToString();
+            if(this.ValidacionUsuario(idUsuario) == true)
+            {
+                string consulta = "UPDATE usuario SET usuario.tipo = 'Deshabilitado' WHERE usuario.id_usuario = " + idUsuario + ";";
+                this.RealizarConsultaNoQuery(consulta);
+                this.ventana.refrescarTabla(2);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private Boolean ValidacionUsuario(string idUsuario)
+        {
+            string consulta = "select usuario.tipo from usuario where usuario.id_usuario = " + idUsuario;
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            if (reader != null)
+            {
+                reader.Read();
+                String tipoUsuario;
+                tipoUsuario = reader.GetValue(0).ToString();
+                Console.WriteLine(tipoUsuario);
+                if (tipoUsuario.Equals("Director") || tipoUsuario.Equals("Secretaria"))
+                {
+                    this.CerrarConexion();
+                    return false;
+                }
+                this.CerrarConexion();
+                return true;
+            }
+            this.CerrarConexion();
+            return false;
+        }
+  
     }
 }
