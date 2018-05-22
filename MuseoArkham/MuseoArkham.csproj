@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Controlador\Controlador Administrador\ControladorAdministrador.cs" />
     <Compile Include="Controlador\Controlador Administrador\ControladorCrearSolicitud.cs" />
+    <Compile Include="Controlador\Controlador Vistas Compartidas\ControladorVerSolicitud.cs" />
     <Compile Include="Controlador\Controlador Bodeguero\ControladorBodeguero.cs" />
     <Compile Include="Controlador\Controlador Gerente\ControladorGerente.cs" />
     <Compile Include="Controlador\Controlador Secretaria\ControladorAgregarUsuario.cs" />
@@ -62,7 +63,14 @@
     <Compile Include="Controlador\ControladorDirector\ControladorDirector.cs" />
     <Compile Include="Controlador\Controlador\Controlador.cs" />
     <Compile Include="Controlador\Controlador LogIn\ControladorLogIn.cs" />
+    <Compile Include="Controlador\Controlador Vistas Compartidas\ControladorVistaItem.cs" />
     <Compile Include="Modelo\Conector_BD.cs" />
+    <Compile Include="Vista\VistasCompartidas\VistaVerSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistasCompartidas\VistaVerSolicitud.Designer.cs">
+      <DependentUpon>VistaVerSolicitud.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Vistas Secretaria\VistaCrearDepartamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +149,15 @@
     <Compile Include="Vista\Vistas Secretaria\VistaSecretaria.Designer.cs">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vista\VistasCompartidas\VistaVerSolicitud.resx">
+      <DependentUpon>VistaVerSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Vista\VistasCompartidas\VistaVerItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistasCompartidas\VistaVerItem.Designer.cs">
+      <DependentUpon>VistaVerItem.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Vista\Vistas Bodeguero\VistaIncorporarObjeto.resx">
       <DependentUpon>VistaIncorporarObjeto.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +199,9 @@
     </Compile>
     <EmbeddedResource Include="Vista\Vistas Secretaria\VistaSecretaria.resx">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\VistasCompartidas\VistaVerItem.resx">
+      <DependentUpon>VistaVerItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

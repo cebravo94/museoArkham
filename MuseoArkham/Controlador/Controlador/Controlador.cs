@@ -31,6 +31,10 @@ namespace MuseoArkham.Controlador
         protected MySqlDataReader RealizarConsulta(string consulta) {
             return this.conector.RealizarConsulta(consulta);
         }
+
+        protected void RealizarConsultaNoQuery(string consulta) {
+            this.conector.RealizarConsultaNoQuery(consulta);
+        }
         
         /**
          * <summary>
@@ -70,6 +74,7 @@ namespace MuseoArkham.Controlador
                 dataTable.Load(reader);
                 tabla.DataSource = true;
                 tabla.DataSource = dataTable;
+                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
                 tabla.Refresh();
             }
         }
