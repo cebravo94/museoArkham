@@ -6,15 +6,25 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using MuseoArkham.Vista;
 using System.Windows.Forms;
+using MuseoArkham.Modelo;
+using System.Diagnostics;
+using MuseoArkham.Vista.Vistas_Administrador;
+using MuseoArkham.Vista.VistasItem;
+using System.Collections;
 
 namespace MuseoArkham.Controlador.Controlador_Bodeguero
 {
     class ControladorBodeguero : Controlador
     {
         private VistaEncargadoDeBodega ventana;
+        private Usuario usuario;
+        public Departamento departamento { get; }
 
-        public ControladorBodeguero(VistaEncargadoDeBodega ventana) {
+        public ControladorBodeguero(VistaEncargadoDeBodega ventana, Usuario usuario) {
             this.ventana = ventana;
+            this.usuario = usuario;
+            this.departamento = this.cargarDepartamento();
+            
         }
 
         /**
@@ -25,7 +35,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          * En la pestaña "Objetos"
          * </sumary>
         **/
-        public void agregarObjeto()
+        public void IncorporarObjeto()
         {
 
         }
@@ -37,9 +47,15 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          * En la pestaña "Objetos"
          * </sumary>
         **/
-        public void desincorporarObjeto()
+        public void DesincorporarObjeto()
         {
-
+            int index = this.ventana.dataGridViewObjetos.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewObjetos.Rows[index];
+            int id_item = Int32.Parse(data.Cells[0].Value.ToString());
+            Console.WriteLine(id_item);
+            MySqlDataReader reader = this.RealizarConsulta("UPDATE museo.item SET estado = 'deshabilitado' where id_item ="+id_item);
+            this.CerrarConexion();
+            //Console.WriteLine(index);
         }
 
         /**
@@ -50,10 +66,26 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          * En la pestaña "Objetos"
          * </sumary>
         **/
-        public void enviarARestauracion()
+        public void EnviarARestauracion()
         {
-
+            int index = this.ventana.dataGridViewObjetos.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewObjetos.Rows[index];
+            String estado = data.Cells[7].Value.ToString();
+            int id_item = Int32.Parse(data.Cells[0].Value.ToString());
+            if (estado == "en restauracion")
+            {
+                MySqlDataReader reader = this.RealizarConsulta("UPDATE museo.item SET estado = 'En Bodega' where id_item =" + id_item);
+                this.CerrarConexion();
+                
+            }
+            else
+            {
+                MySqlDataReader reader = this.RealizarConsulta("UPDATE museo.item SET estado = 'En Restauracion' where id_item =" + id_item);
+                this.CerrarConexion();
+            }
+                
         }
+
 
         /**
          * <sumary>
@@ -62,21 +94,95 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          *En la pestaña "Objetos" 
          * </sumary>
         **/
-        public void consultaSobreObjetos()
+        public void ConsultaSobreObjetos()
         {
 
         }
 
+        public void VerDetallesObjetos()
+        {
+            if (this.ventana.dataGridViewObjetos.RowCount > 0)
+            {
+                int index = this.obtenerIdItem();
+                VistaItem vista = new VistaItem(index);
+                vista.ShowDialog(this.ventana);
+            }
+        }
+        //Trabajando.............................
+        private String FormatearFecha(DateTime fecha)
+        {
+            String dia = fecha.Day.ToString();
+            String mes = fecha.Month.ToString();
+            String anno = fecha.Year.ToString();
+            String fechaFormateada = anno + "-" + mes + "-" + dia;
+
+            return fechaFormateada;
+        }
+
+        private void ConsultaActualizarEstadoSolicitud(int id_Solicitud)
+        {
+            MySqlDataReader reader = this.RealizarConsulta("UPDATE museo.solicitud SET estado ='Completada' WHERE solicitud.id_solicitud= " + id_Solicitud);
+            this.CerrarConexion();
+        }
+
+        private void ConsultaActualizarUbicacionItem(int id_item)
+        {
+            MySqlDataReader reader = this.RealizarConsulta("UPDATE museo.item SET id_dpto=2 WHERE id_item=" + id_item);
+            this.CerrarConexion();
+            MySqlDataReader reader2 = this.RealizarConsulta("UPDATE museo.item SET id_sala=1 WHERE id_item=" + id_item);
+            this.CerrarConexion();
+        }
+        private void ConsultaInsertarRegistro(String consulta)
+        {
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            this.CerrarConexion();
+        }
         /**
          * <sumary>
-         * Este metodo se encarga de recibir una solicitud de traslado aceptada y una vez que el encargado de bodega la completa
+         * Este metodo se encarga de recibir una solicitud de traslado pendiente y una vez que el encargado de bodega la completa
          * de forma presencial el metodo le debe permitir registrar la solicutd en el sistema quedando en la base de datos del
          * museo.
          * En la pestaña "Solicitudes"
         **/
-        public void registrarSolicitud()
+        public void RegistrarSolicitud()
         {
+            ArrayList consultas = new ArrayList();
+            ArrayList idItems = new ArrayList();
+            int index = this.ventana.dataGridViewObjetos.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
+            int id_Solicitud = Int32.Parse(data.Cells[0].Value.ToString());
+            int id_Departamento = Int32.Parse(data.Cells[1].Value.ToString());
+            int id_Administrador = Int32.Parse(data.Cells[2].Value.ToString());
+            int id_SalaOrigen = Int32.Parse(data.Cells[3].Value.ToString());
+            int id_SalaDestino = Int32.Parse(data.Cells[4].Value.ToString());
+            DateTime fechaIngreso = DateTime.Today;
 
+            MySqlDataReader reader = this.RealizarConsulta("SELECT itemsolicitado.id_item FROM museo.itemsolicitado WHERE id_solicitud = " + id_Solicitud);
+            if (reader != null)
+            {
+                while (reader.Read())
+                {
+                    int id_item = reader.GetInt32(0);
+                    idItems.Add(id_item);
+                    Registro registro = new Registro(0,id_Departamento,id_item,id_Administrador,4,id_SalaOrigen,id_SalaDestino,fechaIngreso);
+                    String consulta = "INSERT INTO registro (id_dpto,id_item,id_admin,id_gerente,id_sala_origen,id_sala_destino,fecha_ingreso) " +
+                        "VALUES (" + registro.IdDpto + "," + registro.IdItem + "," + registro.IdAdmin + "," + registro.IdGerente +
+                        "," + registro.IdSalaOrigen + "," + registro.IdSalaDestino + ",'" + this.FormatearFecha(registro.FechaIngreso)+"'); ";
+                    consultas.Add(consulta);
+                }
+            }
+            this.CerrarConexion();
+            foreach (String consulta in consultas)
+            {
+                
+                this.ConsultaInsertarRegistro(consulta);
+            }
+            foreach (int id in idItems)
+            {
+                this.ConsultaActualizarUbicacionItem(id);
+            }
+            this.ConsultaActualizarEstadoSolicitud(id_Solicitud);
+            
         }
 
         /**
@@ -85,9 +191,14 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          * detalles de la solictud seleccionada.
          * En la pestaña "Solicitudes"
         **/
-        public void verDetallesSolicitudes()
+        public void VerDetallesSolicitudes()
         {
-
+            if (this.ventana.dataGridViewSolicitudesTraslado.RowCount > 0)
+            {
+                int index = this.obtenerIdSolicitud();
+                VistaVerSolicitud vista = new VistaVerSolicitud(index);
+                vista.ShowDialog(this.ventana);
+            }
         }
 
         /**
@@ -96,7 +207,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          * emitidas y aceptadas que son las que el visualiza. (Deberia deplegar las opciones de consulta de solicitudes)
          * En la pestaña "Solicitudes"
         **/
-        public void consultaSolicitudes()
+        public void ConsultaSolicitudes()
         {
 
         }
@@ -107,9 +218,91 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
          * detalles del registro seleccionado.
          * En la pestaña "Registros"
         **/
-        public void verDetallesRegistros()
+        public void VerDetallesRegistros()
         {
 
+        }
+
+        private int obtenerIdSolicitud()
+        {
+            int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
+            int idSolicitud = Int32.Parse(data.Cells[0].Value.ToString());
+            return idSolicitud;
+        }
+
+        private int obtenerIdItem()
+        {
+            int index = this.ventana.dataGridViewObjetos.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewObjetos.Rows[index];
+            int idItem = Int32.Parse(data.Cells[0].Value.ToString());
+            return idItem;
+        }
+
+        private Departamento cargarDepartamento()
+        {
+            MySqlDataReader reader = this.RealizarConsulta("select * from departamento where id_usuario=" + this.usuario.Id);
+            reader.Read();
+            if (reader != null)
+            {
+                Departamento departamento = new Departamento(reader);
+                this.CerrarConexion();
+                return departamento;
+            }
+            return null;
+        }
+
+        public void CargarDatosTabla(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    this.CargarItems();
+                    break;
+                case 1:
+                    this.CargarSolicitudes();
+                    break;
+                case 2:
+                    this.CargarRegistros();
+                    break;
+            }
+        }
+
+        private void CargarItems()
+        {
+            MySqlDataReader reader = this.RealizarConsulta("select * from departamento where id_usuario=" + this.usuario.Id);
+            reader.Read();
+            if (reader != null)
+            {
+                Departamento departamento = new Departamento(reader);
+                this.CerrarConexion();
+                Debug.WriteLine(departamento.Nombre);
+                Debug.WriteLine(departamento.Id);
+                String consulta = "select id_item,item.id_dpto,id_sala,item.nombre,fecha_ingreso,item.descripcion,coleccion,estado,anno,tipo,era" +
+                                  " from museo.item, museo.departamento" +
+                                  " where item.id_dpto=departamento.id_dpto" +
+                                  " and departamento.id_dpto=" + departamento.Id+
+                                  " and item.estado != 'Deshabilitado';";
+                Debug.WriteLine(consulta);
+                reader = this.RealizarConsulta(consulta);
+                this.PoblarTabla(ventana.dataGridViewObjetos, reader);
+            }
+            this.CerrarConexion();
+        }
+
+        private void CargarSolicitudes()
+        {
+            MySqlDataReader reader = this.RealizarConsulta("SELECT * FROM museo.solicitud where estado ='Aceptada' and " +
+                "id_sala_destino=1;");
+            this.PoblarTabla(ventana.dataGridViewSolicitudesTraslado, reader);
+            this.CerrarConexion();
+        }
+
+        private void CargarRegistros()
+        {
+            MySqlDataReader reader = this.RealizarConsulta("SELECT * FROM museo.registro");
+            this.PoblarTabla(ventana.dataGridViewRegistros, reader);
+            this.CerrarConexion();
         }
     }
 }

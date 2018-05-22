@@ -34,7 +34,7 @@ namespace MuseoArkham.Controlador
                         nuevaVentana = new VistaSecretaria();
                         break;
                     case "Bodega":
-                        nuevaVentana = new VistaEncargadoDeBodega();
+                        nuevaVentana = new VistaEncargadoDeBodega(personal);
                         break;
                     case "Director":
                         nuevaVentana = new VistaDirector();

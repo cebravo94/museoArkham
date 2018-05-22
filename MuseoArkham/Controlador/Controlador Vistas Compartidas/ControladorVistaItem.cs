@@ -46,7 +46,7 @@ namespace MuseoArkham.Controlador
             ventana.textBox2.Text = reader["nombre"].ToString();
             this.CerrarConexion();
             this.ventana.textBox3.Text = item.Nombre.ToString();
-            this.ventana.textBox4.Text = item.FechaIngreso.ToString();
+            this.ventana.textBox4.Text = item.FechaIngreso.ToString("d");//La d es para solo mostrar la fecha sin la hora.
             this.ventana.textBox5.Text = item.Coleccion.ToString();
             this.ventana.textBox6.Text = item.Estado.ToString();
             this.ventana.textBox7.Text = item.Anno.ToString();

@@ -39,6 +39,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewObjetos = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonVerDetallesObjetos = new System.Windows.Forms.Button();
             this.buttonFiltrarObjetos = new System.Windows.Forms.Button();
             this.buttonEnviarRestauracion = new System.Windows.Forms.Button();
             this.buttonDesincorporarObjeto = new System.Windows.Forms.Button();
@@ -146,6 +147,8 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(826, 305);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPageObjetos
             // 
@@ -189,16 +192,21 @@
             // 
             // dataGridViewObjetos
             // 
+            this.dataGridViewObjetos.AllowUserToAddRows = false;
+            this.dataGridViewObjetos.AllowUserToDeleteRows = false;
             this.dataGridViewObjetos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewObjetos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewObjetos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewObjetos.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewObjetos.Name = "dataGridViewObjetos";
+            this.dataGridViewObjetos.ReadOnly = true;
             this.dataGridViewObjetos.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewObjetos.TabIndex = 0;
+            this.dataGridViewObjetos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewObjetos_CellContentClick);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.buttonVerDetallesObjetos);
             this.groupBox3.Controls.Add(this.buttonFiltrarObjetos);
             this.groupBox3.Controls.Add(this.buttonEnviarRestauracion);
             this.groupBox3.Controls.Add(this.buttonDesincorporarObjeto);
@@ -212,25 +220,37 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
+            // buttonVerDetallesObjetos
+            // 
+            this.buttonVerDetallesObjetos.Location = new System.Drawing.Point(5, 144);
+            this.buttonVerDetallesObjetos.Name = "buttonVerDetallesObjetos";
+            this.buttonVerDetallesObjetos.Size = new System.Drawing.Size(123, 30);
+            this.buttonVerDetallesObjetos.TabIndex = 4;
+            this.buttonVerDetallesObjetos.Text = "Ver Detalles";
+            this.buttonVerDetallesObjetos.UseVisualStyleBackColor = true;
+            this.buttonVerDetallesObjetos.Click += new System.EventHandler(this.buttonVerDetallesObjetos_Click);
+            // 
             // buttonFiltrarObjetos
             // 
             this.buttonFiltrarObjetos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonFiltrarObjetos.Location = new System.Drawing.Point(5, 108);
+            this.buttonFiltrarObjetos.Location = new System.Drawing.Point(5, 114);
             this.buttonFiltrarObjetos.Name = "buttonFiltrarObjetos";
             this.buttonFiltrarObjetos.Size = new System.Drawing.Size(123, 30);
             this.buttonFiltrarObjetos.TabIndex = 3;
             this.buttonFiltrarObjetos.Text = "Filtrar";
             this.buttonFiltrarObjetos.UseVisualStyleBackColor = true;
+            this.buttonFiltrarObjetos.Click += new System.EventHandler(this.buttonFiltrarObjetos_Click);
             // 
             // buttonEnviarRestauracion
             // 
             this.buttonEnviarRestauracion.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonEnviarRestauracion.Location = new System.Drawing.Point(5, 78);
             this.buttonEnviarRestauracion.Name = "buttonEnviarRestauracion";
-            this.buttonEnviarRestauracion.Size = new System.Drawing.Size(123, 30);
+            this.buttonEnviarRestauracion.Size = new System.Drawing.Size(123, 36);
             this.buttonEnviarRestauracion.TabIndex = 2;
-            this.buttonEnviarRestauracion.Text = "Enviar a Restauración";
+            this.buttonEnviarRestauracion.Text = "Enviar/Traer a Restauración";
             this.buttonEnviarRestauracion.UseVisualStyleBackColor = true;
+            this.buttonEnviarRestauracion.Click += new System.EventHandler(this.buttonEnviarRestauracion_Click);
             // 
             // buttonDesincorporarObjeto
             // 
@@ -297,11 +317,14 @@
             // 
             // dataGridViewSolicitudesTraslado
             // 
+            this.dataGridViewSolicitudesTraslado.AllowUserToAddRows = false;
+            this.dataGridViewSolicitudesTraslado.AllowUserToDeleteRows = false;
             this.dataGridViewSolicitudesTraslado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSolicitudesTraslado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSolicitudesTraslado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSolicitudesTraslado.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewSolicitudesTraslado.Name = "dataGridViewSolicitudesTraslado";
+            this.dataGridViewSolicitudesTraslado.ReadOnly = true;
             this.dataGridViewSolicitudesTraslado.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewSolicitudesTraslado.TabIndex = 0;
             // 
@@ -338,6 +361,7 @@
             this.buttonVerDetalles.TabIndex = 1;
             this.buttonVerDetalles.Text = "Ver detalles";
             this.buttonVerDetalles.UseVisualStyleBackColor = true;
+            this.buttonVerDetalles.Click += new System.EventHandler(this.buttonVerDetalles_Click);
             // 
             // buttonRegistrar
             // 
@@ -348,6 +372,7 @@
             this.buttonRegistrar.TabIndex = 0;
             this.buttonRegistrar.Text = "Registrar";
             this.buttonRegistrar.UseVisualStyleBackColor = true;
+            this.buttonRegistrar.Click += new System.EventHandler(this.buttonRegistrar_Click);
             // 
             // tabPageRegistros
             // 
@@ -392,13 +417,17 @@
             // 
             // dataGridViewRegistros
             // 
+            this.dataGridViewRegistros.AllowUserToAddRows = false;
+            this.dataGridViewRegistros.AllowUserToDeleteRows = false;
             this.dataGridViewRegistros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewRegistros.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewRegistros.Name = "dataGridViewRegistros";
+            this.dataGridViewRegistros.ReadOnly = true;
             this.dataGridViewRegistros.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewRegistros.TabIndex = 0;
+            this.dataGridViewRegistros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRegistros_CellContentClick);
             // 
             // groupBox7
             // 
@@ -474,7 +503,6 @@
         private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageObjetos;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -487,7 +515,6 @@
         private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.DataGridView dataGridViewSolicitudesTraslado;
         private System.Windows.Forms.Button buttonFiltrarObjetos;
         private System.Windows.Forms.Button buttonEnviarRestauracion;
         private System.Windows.Forms.Button buttonDesincorporarObjeto;
@@ -499,5 +526,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.DataGridView dataGridViewObjetos;
         public System.Windows.Forms.DataGridView dataGridViewRegistros;
+        public System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.DataGridView dataGridViewSolicitudesTraslado;
+        private System.Windows.Forms.Button buttonVerDetallesObjetos;
     }
 }
