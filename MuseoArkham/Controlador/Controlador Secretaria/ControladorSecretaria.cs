@@ -27,29 +27,70 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
          * <param name="depto"> El departamento seleccionado para eliminar.</param>
          * 
          */
-        public void botonEliminar(string depto)
+        public void botonEliminar(DataGridView data)
         {
-            string cambiarAdmin = "UPDATE departamento SET departamento.id_usuario = 1 WHERE departamento.id_dpto = +'"+ depto + "'";
-            Console.WriteLine(cambiarAdmin);
-            this.RealizarConsultaNoQuery(cambiarAdmin);
-            this.CerrarConexion();
 
-            string cambiarEstado = "UPDATE sala SET sala.estado = 'Disponible' WHERE sala.id_dpto ='"+depto+"'";
-            this.RealizarConsultaNoQuery(cambiarEstado);
-            this.CerrarConexion();
+            string depto = this.obtenerDepto(data);
 
-            string cambiarDepto = "UPDATE sala SET sala.id_dpto = 1 WHERE sala.id_dpto = '" + depto + "'";
-            this.RealizarConsultaNoQuery(cambiarDepto);
-            this.CerrarConexion();
-
-            string eliminarDepto = "DELETE FROM departamento WHERE departamento.id_dpto ='" + depto + "'";
-            this.RealizarConsultaNoQuery(eliminarDepto);
-            this.CerrarConexion();
-
+            this.cambiarAdmin(depto);
+            this.cambiarEstado(depto);
+            this.cambiarDepto(depto);
+            this.eliminarDepto(depto);
             this.ventana.refrescarTabla(0);
         }
 
-       
+       private string obtenerDepto(DataGridView dataGrid)
+        {
+            int index = dataGrid.CurrentCell.RowIndex;
+            DataGridViewRow data = dataGrid.Rows[index];
+            string depto = data.Cells[0].Value.ToString();
+
+            return depto;
+        }
+
+        public Boolean validarVentana(DataGridView dataGrid)
+        {
+            int index = dataGrid.CurrentCell.RowIndex;
+            DataGridViewRow data = dataGrid.Rows[index];
+            string id = data.Cells[0].Value.ToString();
+            string admin = data.Cells[2].Value.ToString();
+            if (admin.Equals("default"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private void cambiarAdmin(string depto)
+        {
+            string cambiarAdmin = "UPDATE departamento SET departamento.id_usuario = 1 WHERE departamento.id_dpto = +'" + depto + "'";
+            this.RealizarConsultaNoQuery(cambiarAdmin);
+            this.CerrarConexion();
+        }
+        private void cambiarEstado(string depto)
+        {
+            string cambiarEstado = "UPDATE sala SET sala.estado = 'Disponible' WHERE sala.id_dpto ='" + depto + "'";
+            this.RealizarConsultaNoQuery(cambiarEstado);
+            this.CerrarConexion();
+        }
+
+        private void cambiarDepto(string depto)
+        {
+            string cambiarDepto = "UPDATE sala SET sala.id_dpto = 1 WHERE sala.id_dpto = '" + depto + "'";
+            this.RealizarConsultaNoQuery(cambiarDepto);
+            this.CerrarConexion();
+        }
+
+        private void eliminarDepto(string depto)
+        {
+            string eliminarDepto = "DELETE FROM departamento WHERE departamento.id_dpto ='" + depto + "'";
+            this.RealizarConsultaNoQuery(eliminarDepto);
+            this.CerrarConexion();
+        }
+
+
         /**
          * <summary>
          * Deshabilita al usuario seleccionado del museo

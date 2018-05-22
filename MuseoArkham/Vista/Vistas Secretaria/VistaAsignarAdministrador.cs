@@ -14,11 +14,11 @@ namespace MuseoArkham.Vista.Vistas_Secretaria
     public partial class VistaAsignarAdministrador : Form
     {
         private ControladorAsignarAdministrador controlador;
-        string id;
-        public VistaAsignarAdministrador(string id)
+        DataGridView dataGrid;
+        public VistaAsignarAdministrador(DataGridView data)
         {
             this.controlador = new ControladorAsignarAdministrador(this);
-            this.id = id;
+            this.dataGrid = data;
             InitializeComponent();
             this.controlador.RellenarComboBox(comboBoxAdministrador);
         }
@@ -26,7 +26,8 @@ namespace MuseoArkham.Vista.Vistas_Secretaria
         private void buttonAsignarAdministrador_Click(object sender, EventArgs e)
         {
             string nombreAdmin = comboBoxAdministrador.GetItemText(comboBoxAdministrador.SelectedItem);
-            this.controlador.AsignarAdministrador(id,nombreAdmin);
+            
+            this.controlador.AsignarAdministrador(this.dataGrid,nombreAdmin);
             this.Close();
         }
     }

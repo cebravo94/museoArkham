@@ -62,28 +62,18 @@ namespace MuseoArkham.Vista
 
         private void buttonAsignarSalas_Click(object sender, EventArgs e)
         {
-            
-            int index = this.dataGridViewDepartamento.CurrentCell.RowIndex;
-            DataGridViewRow data = this.dataGridViewDepartamento.Rows[index];
-            string id = data.Cells[0].Value.ToString();
-            
-            
-            VistaAsignarSala vas = new VistaAsignarSala(id);
+   
+            VistaAsignarSala vas = new VistaAsignarSala(dataGridViewDepartamento);
             vas.ShowDialog(this);
-            
-            
-            
+ 
         }
 
         private void buttonAsignarAdministrador_Click(object sender, EventArgs e)
         {
-            int index = this.dataGridViewDepartamento.CurrentCell.RowIndex;
-            DataGridViewRow data = this.dataGridViewDepartamento.Rows[index];
-            string id = data.Cells[0].Value.ToString();
-            string admin = data.Cells[2].Value.ToString();
-            if (admin.Equals("default"))
+            
+            if (this.controlador.validarVentana(dataGridViewDepartamento))
             {
-                VistaAsignarAdministrador vad = new VistaAsignarAdministrador(id);
+                VistaAsignarAdministrador vad = new VistaAsignarAdministrador(dataGridViewDepartamento);
                 vad.ShowDialog(this);
             }
             else
@@ -94,12 +84,8 @@ namespace MuseoArkham.Vista
         }
 
         private void buttonEliminarDepartamento_Click(object sender, EventArgs e)
-        {
-            int index = this.dataGridViewDepartamento.CurrentCell.RowIndex;
-            DataGridViewRow data = this.dataGridViewDepartamento.Rows[index];
-            string id = data.Cells[0].Value.ToString();
-            this.controlador.botonEliminar(id);
-            this.refrescarTabla(0);
+        { 
+            this.controlador.botonEliminar(dataGridViewDepartamento);
         }
     }
 }

@@ -44,16 +44,24 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             this.CerrarConexion();
         }
 
-        public void AsignarAdministrador(string idDepto, string nombreAdmin)
+        public void AsignarAdministrador(DataGridView dataGrid, string nombreAdmin)
         {
             string valor = this.obtenerAdministrador(nombreAdmin);
-
-            string consulta = "UPDATE departamento SET departamento.id_usuario ="+valor+" WHERE departamento.id_dpto = " +idDepto;
+            string id = obtenerIdDepto(dataGrid);
+            string consulta = "UPDATE departamento SET departamento.id_usuario =" + valor + " WHERE departamento.id_dpto = " + id;
             this.RealizarConsultaNoQuery(consulta);
             this.CerrarConexion();
             this.refrescarTablaPadre();
         }
 
+        private string obtenerIdDepto(DataGridView dataGrid)
+        {
+            int index = dataGrid.CurrentCell.RowIndex;
+            DataGridViewRow data = dataGrid.Rows[index];
+            string id = data.Cells[0].Value.ToString();
+
+            return id;
+        }
         private string obtenerAdministrador(string admin)
         {
             string consulta = "SELECT usuario.id_usuario FROM usuario WHERE usuario.nombre = '" + admin + "'";
