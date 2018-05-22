@@ -32,8 +32,33 @@ namespace MuseoArkham.Controlador.ControladorDirector
          * <param name="comboTipoReporte"> Recibe desde la ventana el tipo de reporte que se hará</param>
          * <param name="comboFiltro"> Recibe desde la ventana el tipo de reporte que se hará</param>
          */
-        public void botonGenerar(String comboTipoReporte, String comboFiltro)
+        public void BotonGenerar(String reporte, String filtro, DataGridView tabla)
         {
+            switch (reporte)
+            {
+                case "General de inventario":
+                    this.ReporteInventario(tabla);
+                    break;
+                case "Departamento":
+                    Console.WriteLine("aaa");
+                    this.ReporteDepartamento(filtro,tabla);
+                    break;
+                case "Colección":
+                    this.ReporteColeccion(filtro, tabla);
+                    break;
+                case "Autor":
+                    this.ReporteAutor(filtro, tabla);
+                    break;
+                case "Estilo artistico":
+                    this.ReporteEstilo(filtro, tabla);
+                    break;
+                case "Marca":
+                    this.ReporteMarca(filtro, tabla);
+                    break;
+                case "Año de origen de objeto":
+                    this.ReporteAnno(filtro, tabla);
+                    break;
+            }
 
         }
         
