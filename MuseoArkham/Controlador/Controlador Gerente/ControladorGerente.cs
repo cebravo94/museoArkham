@@ -31,20 +31,27 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
         **/
         public void aceptarSolicitud()
         {
-            
+
             int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
             int id = int.Parse(data.Cells[0].Value.ToString());
             if (objetosDisponibles(id))
             {
+
+
+                string consulta = "SELECT * FROM itemsolicitado,item WHERE itemsolicitado.id_item = item.id_item AND itemsolicitado.id_solicitud=" + id;
+                MySqlDataReader reader = this.RealizarConsulta(consulta);
+                while (reader.Read())
+                {
+                    int idItem = int.Parse(reader.GetString(0));
+                    this.RealizarConsultaNoQuery("UPDATE item SET item.estado ='En Solicitud' WHERE item.id_objeto=" + idItem);
+
+                }
+                reader.Close();
                 this.RealizarConsultaNoQuery("UPDATE solicitud SET solicitud.estado ='Aceptada' WHERE solicitud.id_solicitud=" + id);
+                this.CerrarConexion();
                 this.cargarDatosTabla(0);
             }
-            
-                
-
-            
-            
 
         }
 
@@ -53,8 +60,8 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             int idSolicitud = id;
             string consulta = "SELECT * FROM itemsolicitado,item WHERE itemsolicitado.id_item = item.id_item AND itemsolicitado.id_solicitud=" + idSolicitud;
             MySqlDataReader reader = this.RealizarConsulta(consulta);
-            
-            if(reader == null)
+
+            if (reader == null)
             {
                 string s = "No hay objetos vinculados a la solicitud";
                 MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -64,8 +71,8 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             //Realizar un ciclo para recorrer todas las filas de la tabla y ver si el estado es guardado o en bodega
             while (reader.Read())
             {
-                Console.WriteLine(reader.GetInt32(0) + ", " + reader.GetString(10));
-                if(!reader.GetString(10).Equals("en bodega"))
+
+                if (!reader.GetString(10).Equals("En Bodega"))
                 {
                     string s = "El objeto solicitado no se encuentra disponible";
                     MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -74,7 +81,7 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
                     return false;
 
                 }
-   
+
             }
             reader.Close();
             this.CerrarConexion();
