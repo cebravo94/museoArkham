@@ -62,6 +62,8 @@
     <Compile Include="Controlador\Controlador Bodeguero\ControladorIncorporarObjeto.cs" />
     <Compile Include="Controlador\Controlador Gerente\ControladorGerente.cs" />
     <Compile Include="Controlador\Controlador Secretaria\ControladorAgregarUsuario.cs" />
+    <Compile Include="Controlador\Controlador Secretaria\ControladorAsignarAdministrador.cs" />
+    <Compile Include="Controlador\Controlador Secretaria\ControladorAsignarSala.cs" />
     <Compile Include="Controlador\Controlador Secretaria\ControladorCrearDepartamento.cs" />
     <Compile Include="Controlador\Controlador Secretaria\ControladorCrearSala.cs" />
     <Compile Include="Controlador\Controlador Secretaria\ControladorSecretaria.cs" />
@@ -70,6 +72,18 @@
     <Compile Include="Controlador\Controlador LogIn\ControladorLogIn.cs" />
     <Compile Include="Controlador\Controlador Vistas Compartidas\ControladorVistaItem.cs" />
     <Compile Include="Modelo\Conector_BD.cs" />
+    <Compile Include="Vista\Vistas Secretaria\VistaAsignarAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Vistas Secretaria\VistaAsignarAdministrador.Designer.cs">
+      <DependentUpon>VistaAsignarAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Vistas Secretaria\VistaAsignarSala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Vistas Secretaria\VistaAsignarSala.Designer.cs">
+      <DependentUpon>VistaAsignarSala.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\VistasCompartidas\VistaVerSolicitud.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +182,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Vistas Administrador\VistaCrearSolicitud.resx">
       <DependentUpon>VistaCrearSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Vistas Secretaria\VistaAsignarAdministrador.resx">
+      <DependentUpon>VistaAsignarAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Vistas Secretaria\VistaAsignarSala.resx">
+      <DependentUpon>VistaAsignarSala.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Vistas Secretaria\VistaCrearDepartamento.resx">
       <DependentUpon>VistaCrearDepartamento.cs</DependentUpon>

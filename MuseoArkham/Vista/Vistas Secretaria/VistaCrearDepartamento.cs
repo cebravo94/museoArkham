@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace MuseoArkham.Vista
 {
     public partial class VistaCrearDepartamento : Form
@@ -29,6 +30,15 @@ namespace MuseoArkham.Vista
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonCrearDepartamento_Click(object sender, EventArgs e)
+        {
+            string nombre = textBox1.Text;
+            string descripcion = textBox2.Text;
+            this.controlador.crearDepartamento(nombre, descripcion);
+            this.Close();
+            
         }
     }
 }

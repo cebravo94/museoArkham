@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MuseoArkham.Vista;
 using MuseoArkham.Controlador.Controlador_Secretaria;
+using MuseoArkham.Vista.Vistas_Secretaria;
 
 namespace MuseoArkham.Vista
 {
@@ -18,7 +19,9 @@ namespace MuseoArkham.Vista
         public VistaSecretaria()
         {
             this.controlador = new ControladorSecretaria(this);
+            
             InitializeComponent();
+            this.controlador.CargarDatos(0);
         }
 
 
@@ -45,9 +48,44 @@ namespace MuseoArkham.Vista
             vau.ShowDialog();
         }
 
-        private void botonEliminarDepto_Click(object sender, EventArgs e)
+    
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.controlador.CargarDatos((sender as TabControl).SelectedIndex);
+        }
+
+        public void refrescarTabla(int index)
+        {
+            this.controlador.CargarDatos(index);
+        }
+
+        private void buttonAsignarSalas_Click(object sender, EventArgs e)
+        {
+   
+            VistaAsignarSala vas = new VistaAsignarSala(dataGridViewDepartamento);
+            vas.ShowDialog(this);
+ 
+        }
+
+        private void buttonAsignarAdministrador_Click(object sender, EventArgs e)
         {
             
+            if (this.controlador.validarVentana(dataGridViewDepartamento))
+            {
+                VistaAsignarAdministrador vad = new VistaAsignarAdministrador(dataGridViewDepartamento);
+                vad.ShowDialog(this);
+            }
+            else
+            {
+                MessageBox.Show("Departamento ya tiene administrador, eliga otro", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
+
+        private void buttonEliminarDepartamento_Click(object sender, EventArgs e)
+        { 
+            this.controlador.botonEliminar(dataGridViewDepartamento);
         }
     }
 }
