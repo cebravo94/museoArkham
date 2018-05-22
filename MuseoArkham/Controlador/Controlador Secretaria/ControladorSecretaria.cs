@@ -78,11 +78,10 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             {
                 string s = "Usuario deshabilitado con exito.";
                 MessageBox.Show(s, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Form.ActiveForm.Close();
             }
             else
             {
-                string s = "Error en deshabilitar usuario. Los usuarios de tipo Director y Secretaria no pueden ser deshabilitados.";
+                string s = "Error en deshabilitar usuario. Los usuarios que poseen el cargo de Director o Secretaria no pueden ser deshabilitados.";
                 MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -126,66 +125,6 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             this.CerrarConexion();
             return false;
         }
-
-        /**
-* <summary>
-*  Carga los datos dependiendo de la pestaña que nos encontremos
-* </summary>
-*/
-        public void CargarDatos(int index)
-        {
-            switch (index)
-            {
-                case 0:
-                    this.cargarDepartamentos();
-                    break;
-                case 1:
-                    this.cargarSalas();
-                    break;
-                case 2:
-                    this.cargarUsuarios();
-                    break;
-            }
-        }
-
-        /**
-        * <summary>
-        *  Realiza los metodos necesarios para cargar los datos de departamentos
-        * </summary>
-        */
-        public void cargarDepartamentos()
-        {
-            string consulta = "SELECT  departamento.id_dpto AS ID,departamento.nombre AS Departamento, usuario.nombre AS Administrador" +
-                               " FROM departamento,usuario" +
-                               " WHERE departamento.id_usuario = usuario.id_usuario";
-            MySqlDataReader reader = this.RealizarConsulta(consulta);
-            this.PoblarTabla(ventana.dataGridViewDepartamento, reader);
-            this.CerrarConexion();
-
-        }
-
-        public void cargarSalas()
-        {
-            string consulta = "SELECT sala.id_sala AS ID,departamento.nombre AS Departamento," +
-                                " sala.nombre AS Nombre, sala.estado AS Estado," +
-                                " sala.descripcion as Descripcion" +
-                                " FROM departamento ,sala " +
-                                " WHERE  departamento.id_dpto = sala.id_dpto";
-            MySqlDataReader reader = this.RealizarConsulta(consulta);
-            this.PoblarTabla(ventana.dataGridViewSalas, reader);
-            this.CerrarConexion();
-        }
-
-        public void cargarUsuarios()
-        {
-            string consulta = "SELECT usuario.id_usuario AS ID,usuario.nombre AS Nombre," +
-                               " usuario.rut as Rut, usuario.correo as Correo, usuario.tipo as Cargo" +
-                               " FROM usuario";
-            MySqlDataReader reader = this.RealizarConsulta(consulta);
-            this.PoblarTabla(ventana.dataGridViewUsuarios, reader);
-            this.CerrarConexion();
-        }
-
-        
+  
     }
 }
