@@ -314,6 +314,7 @@
             this.botonVerDetallesObjeto.TabIndex = 0;
             this.botonVerDetallesObjeto.Text = "Ver detalles";
             this.botonVerDetallesObjeto.UseVisualStyleBackColor = true;
+            this.botonVerDetallesObjeto.Click += new System.EventHandler(this.botonVerDetallesObjeto_Click);
             // 
             // VistaGerente
             // 

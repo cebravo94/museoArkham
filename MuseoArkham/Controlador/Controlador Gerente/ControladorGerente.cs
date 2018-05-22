@@ -8,6 +8,8 @@ using MuseoArkham.Vista;
 using System.Windows.Forms;
 using MuseoArkham.Modelo;
 using System.Data;
+using MuseoArkham.Vista.Vistas_Administrador;
+using MuseoArkham.Vista.VistasItem;
 
 namespace MuseoArkham.Controlador.Controlador_Gerente
 {
@@ -54,7 +56,6 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
                 foreach (DataRow row in tabla.Rows)
                 {
                     
-                    Console.WriteLine("dato: " + row[0].ToString());
                     int idItem = int.Parse(row[0].ToString());
                     this.RealizarConsultaNoQuery("UPDATE item SET item.estado ='En Solicitud' WHERE item.id_item=" + idItem);
                    
@@ -63,6 +64,42 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
                 this.cargarDatosTabla(0);
             }
 
+        }
+
+        internal void verDetalleObjeto()
+        {
+            if (this.ventana.dataGridViewObjetos.RowCount > 0)
+            {
+                int index = this.obtenerIdItem();
+                VistaItem vista = new VistaItem(index);
+                vista.ShowDialog(this.ventana);
+            }
+        }
+
+        private int obtenerIdItem()
+        {
+            int index = this.ventana.dataGridViewObjetos.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewObjetos.Rows[index];
+            int idItem = Int32.Parse(data.Cells[0].Value.ToString());
+            return idItem;
+        }
+
+        internal void verDetalleSolicitud()
+        {
+            if (this.ventana.dataGridViewSolicitudesTraslado.RowCount > 0)
+            {
+                int index = this.obtenerIdSolicitud();
+                VistaVerSolicitud vista = new VistaVerSolicitud(index);
+                vista.ShowDialog(this.ventana);
+            }
+        }
+
+        private int obtenerIdSolicitud()
+        {
+            int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
+            int idSolicitud = Int32.Parse(data.Cells[0].Value.ToString());
+            return idSolicitud;
         }
 
         private bool objetosDisponibles(int id, DataTable tabla)

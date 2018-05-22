@@ -29,5 +29,10 @@ namespace MuseoArkham.Vista.Vistas_Administrador
         private void cargarDatos(int indexSolicitud) {
             this.controlador.cargarSolicitud(indexSolicitud);
         }
+
+        private void VistaVerSolicitud_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
