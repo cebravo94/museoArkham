@@ -302,6 +302,7 @@
             this.Name = "VistaVerSolicitud";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ver Solicitud";
+            this.Load += new System.EventHandler(this.VistaVerSolicitud_Load);
             this.groupBoxVerSolicitud.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
