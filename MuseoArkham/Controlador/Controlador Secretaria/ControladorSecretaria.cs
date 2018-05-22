@@ -17,9 +17,6 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
 
         public ControladorSecretaria(VistaSecretaria ventana) {
             this.ventana = ventana;
-            this.cargarDepartamentos();
-            this.cargarSalas();
-            this.cargarUsuarios();
         }
 
         /**

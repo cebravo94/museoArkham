@@ -19,7 +19,6 @@ namespace MuseoArkham.Vista
         public VistaSecretaria()
         {
             this.controlador = new ControladorSecretaria(this);
-            
             InitializeComponent();
             this.controlador.CargarDatos(0);
         }
@@ -45,7 +44,7 @@ namespace MuseoArkham.Vista
         private void buttonAgregarUsuario_Click(object sender, EventArgs e)
         {
             VistaAgregarUsuario vau = new VistaAgregarUsuario();
-            vau.ShowDialog();
+            vau.ShowDialog(this);
         }
 
     
@@ -88,11 +87,8 @@ namespace MuseoArkham.Vista
             this.controlador.botonEliminar(dataGridViewDepartamento);
         }
 
-        private void buttonDeshabilitarUsuario_Click(object sender, EventArgs e)
-        {
+        private void buttonDeshabilitarUsuario_Click_1(object sender, EventArgs e) {
             this.controlador.botonDeshabilitarUsuario();
-            
         }
-
     }
 }

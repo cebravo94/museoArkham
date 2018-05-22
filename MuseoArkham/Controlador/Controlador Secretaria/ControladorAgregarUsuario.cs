@@ -50,6 +50,9 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
                 string s = "Error en crear usuario.";
                 MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Form owner = this.ventana.Owner;
+            VistaSecretaria vs = (VistaSecretaria)owner;
+            vs.refrescarTabla(1);
         }
 
         private bool validarCampos(string nombre, string rut, string correo, string tipoUsuario, string contrasenna)

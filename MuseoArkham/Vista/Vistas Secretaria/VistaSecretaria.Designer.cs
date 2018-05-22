@@ -398,6 +398,7 @@
             this.buttonDeshabilitarUsuario.TabIndex = 1;
             this.buttonDeshabilitarUsuario.Text = "Deshabilitar usuario";
             this.buttonDeshabilitarUsuario.UseVisualStyleBackColor = true;
+            this.buttonDeshabilitarUsuario.Click += new System.EventHandler(this.buttonDeshabilitarUsuario_Click_1);
             // 
             // buttonAgregarUsuario
             // 
