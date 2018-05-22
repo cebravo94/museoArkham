@@ -26,7 +26,6 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             this.departamento = departamento;
         }
         
-
         private DateTime obtenerFechaDeIngreso()
         {
             DateTime fecha = DateTime.Today;
@@ -43,7 +42,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             String autor = ventana.textBoxAutorDocumento.Text;
             String descripcion = ventana.textBoxDescripcionDocumento.Text;
             DateTime fechaIngreso = DateTime.Today;
-            documentoNuevo = new Documento(0,2,1,fechaIngreso,descripcion,coleccionDocumento,"guardado",nombreDocumento,"Documento",anno,era,tipo,autor);
+            documentoNuevo = new Documento(0,2,1,fechaIngreso,descripcion,coleccionDocumento, "En Bodega", nombreDocumento,"documento",anno,era,tipo,autor);
 
             //Consulta sql para insertar
             this.InsertarDocumentoBD(documentoNuevo);
@@ -62,7 +61,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             String descripcion = ventana.textBoxDescripcionObra.Text;
             DateTime fechaIngreso = DateTime.Today;
 
-            obraNueva = new Obra(0, 2, 1, fechaIngreso, descripcion, coleccionObra, "guardado", nombreObra, "Obra", anno, era, material, estilo, tipo, autor);
+            obraNueva = new Obra(0, 2, 1, fechaIngreso, descripcion, coleccionObra, "En Bodega", nombreObra, "obra", anno, era, material, estilo, tipo, autor);
 
             //Consulta sql para insertar
             this.InsertarObraBD(obraNueva);
@@ -79,7 +78,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             String descripcion = ventana.textBoxDescripcionPieza.Text;
             DateTime fechaIngreso = DateTime.Today;
 
-            piezaNueva = new Pieza(0,2,1,fechaIngreso,descripcion,coleccionPieza, "guardado",nombrePieza,"Pieza",anno,era,periodo,tipo);
+            piezaNueva = new Pieza(0,2,1,fechaIngreso,descripcion,coleccionPieza, "En Bodega", nombrePieza,"pieza",anno,era,periodo,tipo);
 
             //Consulta sql para insertar
             this.InsertarPiezaBD(piezaNueva);
@@ -93,10 +92,10 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             String era = ventana.comboBoxEraVehiculo.SelectedItem.ToString();
             String marca = ventana.textBoxMarcaVehiculo.Text;
             String modelo = ventana.textBoxModeloVehiculo.Text;
-            String descripcion = ventana.textBoxDescripcionPieza.Text;
+            String descripcion = ventana.textBoxDescripcionVehiculo.Text;
             DateTime fechaIngreso = DateTime.Today;
 
-            vehiculoNuevo = new Vehiculo(0,2,1,fechaIngreso,descripcion,coleccionVehiculo, "guardado",nombreVehiculo,"Vehiculo",anno,era,marca,modelo);
+            vehiculoNuevo = new Vehiculo(0,2,1,fechaIngreso,descripcion,coleccionVehiculo, "En Bodega",nombreVehiculo,"vehiculo",anno,era,marca,modelo);
 
             //Consulta sql para insertar
             this.InsertarVehiculoBD(vehiculoNuevo);
@@ -171,7 +170,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             this.CerrarConexion();
 
 
-            String consulta3 = "INSERT INTO documento (id_item,tipo,autor) VALUES (" + mayor + ",'" + obra.Material + "','" + obra.Estilo + "','"+
+            String consulta3 = "INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (" + mayor + ",'" + obra.Material + "','" + obra.Estilo + "','"+
                 obra.TipoObra+"','" + obra.Autor+"');";
             reader = this.RealizarConsulta(consulta3);
             this.CerrarConexion();
@@ -204,7 +203,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             this.CerrarConexion();
 
 
-            String consulta3 = "INSERT INTO documento (id_item,tipo,autor) VALUES (" + mayor + ",'" + pieza.Periodo + "','" + pieza.TipoPieza + "');";
+            String consulta3 = "INSERT INTO pieza (id_item,periodo,tipo) VALUES (" + mayor + ",'" + pieza.Periodo + "','" + pieza.TipoPieza + "');";
             reader = this.RealizarConsulta(consulta3);
             this.CerrarConexion();
         }
@@ -236,7 +235,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             this.CerrarConexion();
 
 
-            String consulta3 = "INSERT INTO documento (id_item,tipo,autor) VALUES (" + mayor + ",'" + vehiculo.Marca + "','" + vehiculo.Modelo + "');";
+            String consulta3 = "INSERT INTO vehiculo (id_item,marca,modelo) VALUES (" + mayor + ",'" + vehiculo.Marca + "','" + vehiculo.Modelo + "');";
             reader = this.RealizarConsulta(consulta3);
             this.CerrarConexion();
         }

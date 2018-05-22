@@ -31,20 +31,20 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelSalaOrigen = new System.Windows.Forms.Label();
             this.labelComentario = new System.Windows.Forms.Label();
+            this.textBoxComentarios = new System.Windows.Forms.TextBox();
             this.labelSalaDestino = new System.Windows.Forms.Label();
             this.textBoxSalaOrigen = new System.Windows.Forms.TextBox();
             this.textBoxSalaDestino = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxAdministrador = new System.Windows.Forms.TextBox();
+            this.textBoxEstado = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSalir = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewItems = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxComentarios = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxAdministrador = new System.Windows.Forms.TextBox();
-            this.textBoxEstado = new System.Windows.Forms.TextBox();
             this.groupBoxVerSolicitud.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -133,6 +133,18 @@
             this.labelComentario.TabIndex = 8;
             this.labelComentario.Text = "Comentarios";
             // 
+            // textBoxComentarios
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.textBoxComentarios, 3);
+            this.textBoxComentarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxComentarios.Location = new System.Drawing.Point(79, 49);
+            this.textBoxComentarios.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.textBoxComentarios.Multiline = true;
+            this.textBoxComentarios.Name = "textBoxComentarios";
+            this.textBoxComentarios.ReadOnly = true;
+            this.textBoxComentarios.Size = new System.Drawing.Size(340, 35);
+            this.textBoxComentarios.TabIndex = 11;
+            // 
             // labelSalaDestino
             // 
             this.labelSalaDestino.AutoSize = true;
@@ -161,6 +173,44 @@
             this.textBoxSalaDestino.ReadOnly = true;
             this.textBoxSalaDestino.Size = new System.Drawing.Size(129, 20);
             this.textBoxSalaDestino.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 3);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Administrador";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(214, 3);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Estado";
+            // 
+            // textBoxAdministrador
+            // 
+            this.textBoxAdministrador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxAdministrador.Location = new System.Drawing.Point(79, 3);
+            this.textBoxAdministrador.Name = "textBoxAdministrador";
+            this.textBoxAdministrador.ReadOnly = true;
+            this.textBoxAdministrador.Size = new System.Drawing.Size(129, 20);
+            this.textBoxAdministrador.TabIndex = 16;
+            // 
+            // textBoxEstado
+            // 
+            this.textBoxEstado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxEstado.Location = new System.Drawing.Point(290, 3);
+            this.textBoxEstado.Name = "textBoxEstado";
+            this.textBoxEstado.ReadOnly = true;
+            this.textBoxEstado.Size = new System.Drawing.Size(129, 20);
+            this.textBoxEstado.TabIndex = 17;
             // 
             // tableLayoutPanel4
             // 
@@ -239,56 +289,6 @@
             this.label1.Size = new System.Drawing.Size(416, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "Objetos";
-            // 
-            // textBoxComentarios
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.textBoxComentarios, 3);
-            this.textBoxComentarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxComentarios.Location = new System.Drawing.Point(79, 49);
-            this.textBoxComentarios.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.textBoxComentarios.Multiline = true;
-            this.textBoxComentarios.Name = "textBoxComentarios";
-            this.textBoxComentarios.ReadOnly = true;
-            this.textBoxComentarios.Size = new System.Drawing.Size(340, 35);
-            this.textBoxComentarios.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 3);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Administrador";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(214, 3);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Estado";
-            // 
-            // textBoxAdministrador
-            // 
-            this.textBoxAdministrador.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxAdministrador.Location = new System.Drawing.Point(79, 3);
-            this.textBoxAdministrador.Name = "textBoxAdministrador";
-            this.textBoxAdministrador.ReadOnly = true;
-            this.textBoxAdministrador.Size = new System.Drawing.Size(129, 20);
-            this.textBoxAdministrador.TabIndex = 16;
-            // 
-            // textBoxEstado
-            // 
-            this.textBoxEstado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxEstado.Location = new System.Drawing.Point(290, 3);
-            this.textBoxEstado.Name = "textBoxEstado";
-            this.textBoxEstado.ReadOnly = true;
-            this.textBoxEstado.Size = new System.Drawing.Size(129, 20);
-            this.textBoxEstado.TabIndex = 17;
             // 
             // VistaVerSolicitud
             // 

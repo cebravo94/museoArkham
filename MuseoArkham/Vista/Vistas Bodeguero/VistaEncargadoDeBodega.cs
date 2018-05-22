@@ -20,7 +20,6 @@ namespace MuseoArkham.Vista
             InitializeComponent();
             this.controlador = new ControladorBodeguero(this, usuario);
             this.controlador.CargarDatosTabla(0);
-            
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -72,53 +71,7 @@ namespace MuseoArkham.Vista
         {
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.controlador.EnviarARestauracion();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            this.controlador.VerDetallesRegistros();
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            this.controlador.RegistrarSolicitud();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.controlador.VerDetallesSolicitudes();
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            this.controlador.ConsultaSolicitudes();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-            
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.controlador.ConsultaSobreObjetos();
-        }
-
+        
         private void VistaEncargadoDeBodega_FormClosing(object sender, FormClosingEventArgs e) {
             this.controlador.CerrarVentana(this);
         }
@@ -160,6 +113,37 @@ namespace MuseoArkham.Vista
         {
             this.controlador.EnviarARestauracion();
             this.controlador.CargarDatosTabla(0);
+        }
+
+        private void buttonRegistrar_Click(object sender, EventArgs e)
+        {
+            this.controlador.RegistrarSolicitud();
+            this.controlador.CargarDatosTabla(1);
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewRegistros_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttonVerDetalles_Click(object sender, EventArgs e)
+        {
+            this.controlador.VerDetallesSolicitudes();
+        }
+
+        private void buttonVerDetallesObjetos_Click(object sender, EventArgs e)
+        {
+            this.controlador.VerDetallesObjetos();
+        }
+
+        private void buttonFiltrarObjetos_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
