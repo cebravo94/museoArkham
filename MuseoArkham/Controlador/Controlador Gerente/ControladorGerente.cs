@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using MuseoArkham.Vista;
 using System.Windows.Forms;
 using MuseoArkham.Modelo;
+using System.Data;
 
 namespace MuseoArkham.Controlador.Controlador_Gerente
 {
@@ -31,62 +32,54 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
         **/
         public void aceptarSolicitud()
         {
-
             int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
             int id = int.Parse(data.Cells[0].Value.ToString());
-            if (objetosDisponibles(id))
+            string consulta = "SELECT * FROM itemsolicitado,item WHERE itemsolicitado.id_item = item.id_item AND itemsolicitado.id_solicitud=" + id;
+            MySqlDataReader reader1 = this.RealizarConsulta(consulta);
+            if (reader1 == null)
+            {
+                string s = "No hay objetos vinculados a la solicitud";
+                MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.CerrarConexion();
+                return;
+            }
+            DataTable tabla = new DataTable();
+            tabla.Load(reader1);
+            reader1.Close();
+            this.CerrarConexion();
+            if (objetosDisponibles(id, tabla))
             {
 
-
-                string consulta = "SELECT * FROM itemsolicitado,item WHERE itemsolicitado.id_item = item.id_item AND itemsolicitado.id_solicitud=" + id;
-                MySqlDataReader reader = this.RealizarConsulta(consulta);
-                while (reader.Read())
+                foreach (DataRow row in tabla.Rows)
                 {
-                    int idItem = int.Parse(reader.GetString(0));
-                    this.RealizarConsultaNoQuery("UPDATE item SET item.estado ='En Solicitud' WHERE item.id_objeto=" + idItem);
-
+                    
+                    Console.WriteLine("dato: " + row[0].ToString());
+                    int idItem = int.Parse(row[0].ToString());
+                    this.RealizarConsultaNoQuery("UPDATE item SET item.estado ='En Solicitud' WHERE item.id_item=" + idItem);
+                   
                 }
-                reader.Close();
                 this.RealizarConsultaNoQuery("UPDATE solicitud SET solicitud.estado ='Aceptada' WHERE solicitud.id_solicitud=" + id);
-                this.CerrarConexion();
                 this.cargarDatosTabla(0);
             }
 
         }
 
-        private bool objetosDisponibles(int id)
+        private bool objetosDisponibles(int id, DataTable tabla)
         {
-            int idSolicitud = id;
-            string consulta = "SELECT * FROM itemsolicitado,item WHERE itemsolicitado.id_item = item.id_item AND itemsolicitado.id_solicitud=" + idSolicitud;
-            MySqlDataReader reader = this.RealizarConsulta(consulta);
-
-            if (reader == null)
+            //Console.WriteLine("Estoy en comprobar objetos");
+            foreach(DataRow row in tabla.Rows)
             {
-                string s = "No hay objetos vinculados a la solicitud";
-                MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.CerrarConexion();
-                return false;
-            }
-            //Realizar un ciclo para recorrer todas las filas de la tabla y ver si el estado es guardado o en bodega
-            while (reader.Read())
-            {
-
-                if (!reader.GetString(10).Equals("En Bodega"))
-                {
+                Console.WriteLine("hols" + row[9].ToString());
+                if (row[9].ToString().Equals("En Solicitud")){
                     string s = "El objeto solicitado no se encuentra disponible";
                     MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    reader.Close();
-                    this.CerrarConexion();
                     return false;
-
                 }
-
             }
-            reader.Close();
-            this.CerrarConexion();
             return true;
         }
+
 
         internal void cambioDeSeleccion()
         {
