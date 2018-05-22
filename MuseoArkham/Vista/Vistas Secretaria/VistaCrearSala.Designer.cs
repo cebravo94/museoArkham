@@ -222,13 +222,13 @@
             // comboBoxDepartamento
             // 
             this.comboBoxDepartamento.Cursor = System.Windows.Forms.Cursors.Default;
+            this.comboBoxDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDepartamento.Enabled = false;
             this.comboBoxDepartamento.FormattingEnabled = true;
             this.comboBoxDepartamento.Location = new System.Drawing.Point(103, 157);
             this.comboBoxDepartamento.Name = "comboBoxDepartamento";
             this.comboBoxDepartamento.Size = new System.Drawing.Size(292, 21);
             this.comboBoxDepartamento.TabIndex = 7;
-            this.comboBoxDepartamento.Text = "Default";
             this.comboBoxDepartamento.SelectedIndexChanged += new System.EventHandler(this.comboBoxDepartamento_SelectedIndexChanged);
             // 
             // labelAreaSala
