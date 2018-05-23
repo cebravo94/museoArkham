@@ -14,30 +14,31 @@ namespace MuseoArkham.Vista
     public partial class VistaAgregarUsuario : Form
     {
         ControladorAgregarUsuario controlador;
-        public VistaAgregarUsuario()
-        {         
+        public VistaAgregarUsuario() {
             this.controlador = new ControladorAgregarUsuario(this);
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
+        private void label5_Click(object sender, EventArgs e) {
 
         }
 
-        private void VistaAgregarUsuario_Load(object sender, EventArgs e)
-        {
+        private void VistaAgregarUsuario_Load(object sender, EventArgs e) {
 
         }
 
-        private void buttonCrearUsuario_Click(object sender, EventArgs e)
-        {
-            this.controlador.botonAceptar(this.textBoxNombreUsuario.Text, this.textBoxRunUsuario.Text, this.textBoxCorreoElectronicoUsuario.Text,
-            this.comboBoxTipoUsuario.SelectedItem.ToString(), this.textBoxContraseñaUsuario.Text);
+        private void buttonCrearUsuario_Click(object sender, EventArgs e) {
+            try {
+                this.controlador.validarCampos(this.textBoxNombreUsuario.Text, this.textBoxRunUsuario.Text, this.textBoxCorreoElectronicoUsuario.Text,
+                this.comboBoxTipoUsuario.SelectedItem.ToString(), this.textBoxContraseñaUsuario.Text);
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.StackTrace);
+                this.controlador.error();
+            }
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
-        {
+        private void buttonCancelar_Click(object sender, EventArgs e) {
             this.Dispose();
         }
     }

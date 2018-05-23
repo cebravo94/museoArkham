@@ -57,6 +57,8 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -126,12 +128,15 @@
             // 
             // tablaDirector
             // 
+            this.tablaDirector.AllowUserToAddRows = false;
+            this.tablaDirector.AllowUserToDeleteRows = false;
             this.tablaDirector.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tablaDirector.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaDirector.Location = new System.Drawing.Point(8, 18);
             this.tablaDirector.Name = "tablaDirector";
+            this.tablaDirector.ReadOnly = true;
             this.tablaDirector.Size = new System.Drawing.Size(659, 279);
             this.tablaDirector.TabIndex = 0;
             // 

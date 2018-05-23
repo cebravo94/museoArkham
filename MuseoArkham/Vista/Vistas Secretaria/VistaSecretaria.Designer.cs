@@ -90,6 +90,8 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -184,11 +186,13 @@
             // dataGridViewDepartamento
             // 
             this.dataGridViewDepartamento.AllowUserToAddRows = false;
+            this.dataGridViewDepartamento.AllowUserToDeleteRows = false;
             this.dataGridViewDepartamento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDepartamento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewDepartamento.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewDepartamento.Name = "dataGridViewDepartamento";
+            this.dataGridViewDepartamento.ReadOnly = true;
             this.dataGridViewDepartamento.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewDepartamento.TabIndex = 0;
             // 
@@ -294,11 +298,13 @@
             // dataGridViewSalas
             // 
             this.dataGridViewSalas.AllowUserToAddRows = false;
+            this.dataGridViewSalas.AllowUserToDeleteRows = false;
             this.dataGridViewSalas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSalas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSalas.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewSalas.Name = "dataGridViewSalas";
+            this.dataGridViewSalas.ReadOnly = true;
             this.dataGridViewSalas.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewSalas.TabIndex = 0;
             // 
@@ -368,11 +374,13 @@
             // dataGridViewUsuarios
             // 
             this.dataGridViewUsuarios.AllowUserToAddRows = false;
+            this.dataGridViewUsuarios.AllowUserToDeleteRows = false;
             this.dataGridViewUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewUsuarios.Location = new System.Drawing.Point(5, 18);
             this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
+            this.dataGridViewUsuarios.ReadOnly = true;
             this.dataGridViewUsuarios.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewUsuarios.TabIndex = 0;
             // 

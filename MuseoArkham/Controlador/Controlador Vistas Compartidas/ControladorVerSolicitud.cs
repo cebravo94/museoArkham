@@ -14,7 +14,7 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
     {
         private VistaVerSolicitud ventana;
 
-        public ControladorVerSolicitud (VistaVerSolicitud ventana) {
+        public ControladorVerSolicitud(VistaVerSolicitud ventana) {
             this.ventana = ventana;
         }
 
