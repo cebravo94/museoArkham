@@ -29,206 +29,225 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaDirector));
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.botonCancelar = new System.Windows.Forms.Button();
-            this.botonGenerar = new System.Windows.Forms.Button();
-            this.comboOrigen = new System.Windows.Forms.ComboBox();
-            this.combestilo = new System.Windows.Forms.ComboBox();
-            this.comboMarca = new System.Windows.Forms.ComboBox();
-            this.combautor = new System.Windows.Forms.ComboBox();
-            this.combColeccion = new System.Windows.Forms.ComboBox();
-            this.comboDepartamento = new System.Windows.Forms.ComboBox();
-            this.comboReporte = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.tablaDirector = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.botonPDF = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxFiltro = new System.Windows.Forms.ComboBox();
+            this.comboBoxReporte = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDirector)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel2
+            // splitContainer1
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.panel2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(1, 2);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.41344F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.58656F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(799, 455);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.IsSplitterFixed = true;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // panel2
+            // splitContainer1.Panel1
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(793, 86);
-            this.panel2.TabIndex = 0;
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Black;
+            this.splitContainer1.Panel1.Controls.Add(this.flowLayoutPanel1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.splitContainer1.Size = new System.Drawing.Size(838, 441);
+            this.splitContainer1.SplitterDistance = 100;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
+            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 10);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(838, 90);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.splitContainer2);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 10);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(832, 324);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Director";
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 16);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox2);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.groupBox3);
+            this.splitContainer2.Size = new System.Drawing.Size(826, 305);
+            this.splitContainer2.SplitterDistance = 675;
+            this.splitContainer2.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.botonCancelar);
-            this.groupBox2.Controls.Add(this.botonGenerar);
-            this.groupBox2.Controls.Add(this.comboOrigen);
-            this.groupBox2.Controls.Add(this.combestilo);
-            this.groupBox2.Controls.Add(this.comboMarca);
-            this.groupBox2.Controls.Add(this.combautor);
-            this.groupBox2.Controls.Add(this.combColeccion);
-            this.groupBox2.Controls.Add(this.comboDepartamento);
-            this.groupBox2.Controls.Add(this.comboReporte);
-            this.groupBox2.Location = new System.Drawing.Point(3, 95);
+            this.groupBox2.Controls.Add(this.tablaDirector);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(793, 357);
-            this.groupBox2.TabIndex = 1;
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(5);
+            this.groupBox2.Size = new System.Drawing.Size(675, 305);
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Director";
             // 
-            // botonCancelar
+            // tablaDirector
             // 
-            this.botonCancelar.Location = new System.Drawing.Point(321, 288);
-            this.botonCancelar.Name = "botonCancelar";
-            this.botonCancelar.Size = new System.Drawing.Size(137, 40);
-            this.botonCancelar.TabIndex = 8;
-            this.botonCancelar.Text = "Cancelar";
-            this.botonCancelar.UseVisualStyleBackColor = true;
-            this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
+            this.tablaDirector.AllowUserToAddRows = false;
+            this.tablaDirector.AllowUserToDeleteRows = false;
+            this.tablaDirector.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tablaDirector.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaDirector.Location = new System.Drawing.Point(8, 18);
+            this.tablaDirector.Name = "tablaDirector";
+            this.tablaDirector.ReadOnly = true;
+            this.tablaDirector.Size = new System.Drawing.Size(659, 279);
+            this.tablaDirector.TabIndex = 0;
             // 
-            // botonGenerar
+            // groupBox3
             // 
-            this.botonGenerar.Location = new System.Drawing.Point(321, 229);
-            this.botonGenerar.Name = "botonGenerar";
-            this.botonGenerar.Size = new System.Drawing.Size(137, 40);
-            this.botonGenerar.TabIndex = 7;
-            this.botonGenerar.Text = "Generar";
-            this.botonGenerar.UseVisualStyleBackColor = true;
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.botonPDF);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.comboBoxFiltro);
+            this.groupBox3.Controls.Add(this.comboBoxReporte);
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(5);
+            this.groupBox3.Size = new System.Drawing.Size(147, 305);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
             // 
-            // comboOrigen
+            // botonPDF
             // 
-            this.comboOrigen.FormattingEnabled = true;
-            this.comboOrigen.Location = new System.Drawing.Point(282, 122);
-            this.comboOrigen.Name = "comboOrigen";
-            this.comboOrigen.Size = new System.Drawing.Size(218, 21);
-            this.comboOrigen.TabIndex = 6;
-            this.comboOrigen.Text = "Seleccionar año de origen";
-            this.comboOrigen.Visible = false;
+            this.botonPDF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.botonPDF.Location = new System.Drawing.Point(8, 107);
+            this.botonPDF.Name = "botonPDF";
+            this.botonPDF.Size = new System.Drawing.Size(131, 29);
+            this.botonPDF.TabIndex = 4;
+            this.botonPDF.Text = "Exportar a PDF";
+            this.botonPDF.UseVisualStyleBackColor = true;
+            this.botonPDF.Click += new System.EventHandler(this.BotonPDF_Click);
             // 
-            // combestilo
+            // button1
             // 
-            this.combestilo.FormattingEnabled = true;
-            this.combestilo.Location = new System.Drawing.Point(283, 122);
-            this.combestilo.Name = "combestilo";
-            this.combestilo.Size = new System.Drawing.Size(218, 21);
-            this.combestilo.TabIndex = 5;
-            this.combestilo.Text = "Seleccionar estilo artistico";
-            this.combestilo.Visible = false;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(5, 72);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 29);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Generar reporte";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.GenerarReporte);
             // 
-            // comboMarca
+            // comboBoxFiltro
             // 
-            this.comboMarca.FormattingEnabled = true;
-            this.comboMarca.Location = new System.Drawing.Point(282, 122);
-            this.comboMarca.Name = "comboMarca";
-            this.comboMarca.Size = new System.Drawing.Size(218, 21);
-            this.comboMarca.TabIndex = 4;
-            this.comboMarca.Text = "Seleccionar Marca";
-            this.comboMarca.Visible = false;
+            this.comboBoxFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxFiltro.Enabled = false;
+            this.comboBoxFiltro.FormattingEnabled = true;
+            this.comboBoxFiltro.Location = new System.Drawing.Point(5, 45);
+            this.comboBoxFiltro.Name = "comboBoxFiltro";
+            this.comboBoxFiltro.Size = new System.Drawing.Size(137, 21);
+            this.comboBoxFiltro.TabIndex = 2;
             // 
-            // combautor
+            // comboBoxReporte
             // 
-            this.combautor.FormattingEnabled = true;
-            this.combautor.Location = new System.Drawing.Point(282, 122);
-            this.combautor.Name = "combautor";
-            this.combautor.Size = new System.Drawing.Size(218, 21);
-            this.combautor.TabIndex = 3;
-            this.combautor.Text = "Seleccionar autor";
-            this.combautor.Visible = false;
-            // 
-            // combColeccion
-            // 
-            this.combColeccion.FormattingEnabled = true;
-            this.combColeccion.Location = new System.Drawing.Point(282, 122);
-            this.combColeccion.Name = "combColeccion";
-            this.combColeccion.Size = new System.Drawing.Size(218, 21);
-            this.combColeccion.TabIndex = 2;
-            this.combColeccion.Text = "Seleccionar coleccion";
-            this.combColeccion.Visible = false;
-            // 
-            // comboDepartamento
-            // 
-            this.comboDepartamento.FormattingEnabled = true;
-            this.comboDepartamento.Location = new System.Drawing.Point(282, 122);
-            this.comboDepartamento.Name = "comboDepartamento";
-            this.comboDepartamento.Size = new System.Drawing.Size(218, 21);
-            this.comboDepartamento.TabIndex = 1;
-            this.comboDepartamento.Text = "Seleccionar Departamento";
-            this.comboDepartamento.Visible = false;
-            // 
-            // comboReporte
-            // 
-            this.comboReporte.FormattingEnabled = true;
-            this.comboReporte.Items.AddRange(new object[] {
-            "Reporte general de inventario",
-            "Reporte detallado de un departamento",
-            "Reporte detallado de una colección",
-            "Reporte por autor",
-            "Reporte por marca",
-            "Reporte por estilo artistico",
-            "Reporte por año de origen de objeto"});
-            this.comboReporte.Location = new System.Drawing.Point(282, 66);
-            this.comboReporte.Name = "comboReporte";
-            this.comboReporte.Size = new System.Drawing.Size(219, 21);
-            this.comboReporte.TabIndex = 0;
-            this.comboReporte.Text = "Seleccionar tipo de reporte";
-            this.comboReporte.SelectedIndexChanged += new System.EventHandler(this.comboReporte_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(314, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 39);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "ARKHAM";
+            this.comboBoxReporte.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBoxReporte.FormattingEnabled = true;
+            this.comboBoxReporte.Items.AddRange(new object[] {
+            "General de inventario",
+            "Departamento",
+            "Colección",
+            "Autor",
+            "Marca",
+            "Estilo artistico",
+            "Año de origen de objeto"});
+            this.comboBoxReporte.Location = new System.Drawing.Point(5, 18);
+            this.comboBoxReporte.Name = "comboBoxReporte";
+            this.comboBoxReporte.Size = new System.Drawing.Size(137, 21);
+            this.comboBoxReporte.TabIndex = 0;
+            this.comboBoxReporte.Text = "Seleccionar tipo reporte";
+            this.comboBoxReporte.SelectedIndexChanged += new System.EventHandler(this.comboBoxReporte_SelectedIndexChanged);
             // 
             // VistaDirector
             // 
-            this.ClientSize = new System.Drawing.Size(800, 457);
-            this.Controls.Add(this.tableLayoutPanel2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.ClientSize = new System.Drawing.Size(838, 441);
+            this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(854, 480);
             this.Name = "VistaDirector";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Museo Arkham";
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VistaDirector_FormClosing);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDirector)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboOrigen;
-        private System.Windows.Forms.ComboBox combestilo;
-        private System.Windows.Forms.ComboBox comboMarca;
-        private System.Windows.Forms.ComboBox combautor;
-        private System.Windows.Forms.ComboBox combColeccion;
-        private System.Windows.Forms.ComboBox comboDepartamento;
-        private System.Windows.Forms.ComboBox comboReporte;
-        private System.Windows.Forms.Button botonGenerar;
-        private System.Windows.Forms.Button botonCancelar;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox comboBoxReporte;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxFiltro;
+        private System.Windows.Forms.DataGridView tablaDirector;
+        private System.Windows.Forms.Button botonPDF;
     }
 }

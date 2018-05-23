@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MuseoArkham.Modelo
 {
-    public abstract class Item
+    public class Item
     {
         public int IdItem { get; }
         public int IdDpto { get; }
@@ -16,10 +17,11 @@ namespace MuseoArkham.Modelo
         public String Coleccion { get; set; }
         public String Estado { get; set; }
         public String Nombre { get; set; }
+        public String  TipoItem { get; set; }
         public int Anno { get; }
-        public Boolean Era { get; } //Antes de Cristo = True - Despues de Cristo = False
+        public String Era { get; } //Antes de Cristo = True - Despues de Cristo = False
 
-        protected Item(int idItem, int idDpto, int idSala, DateTime fechaIngreso, string descripcion, string coleccion, string estado, string nombre, int anno, bool era)
+        public Item(int idItem, int idDpto, int idSala, DateTime fechaIngreso, string descripcion, string coleccion, string estado, string nombre, string tipoItem, int anno, String era)
         {
             IdItem = idItem;
             IdDpto = idDpto;
@@ -29,8 +31,23 @@ namespace MuseoArkham.Modelo
             Coleccion = coleccion;
             Estado = estado;
             Nombre = nombre;
+            TipoItem = tipoItem;
             Anno = anno;
             Era = era;
+        }
+
+        public Item(MySqlDataReader reader) {
+            IdItem = Int32.Parse(reader["id_item"].ToString());
+            IdDpto = Int32.Parse(reader["id_dpto"].ToString());
+            IdSala = Int32.Parse(reader["id_sala"].ToString());
+            FechaIngreso = DateTime.Parse(reader["fecha_ingreso"].ToString());
+            Descripcion = reader["descripcion"].ToString();
+            Coleccion = reader["coleccion"].ToString();
+            Estado = reader["estado"].ToString();
+            Nombre = reader["nombre"].ToString();
+            TipoItem = reader["tipo"].ToString();
+            Anno = Int32.Parse(reader["anno"].ToString());
+            Era = reader["era"].ToString();
         }
     }
 }

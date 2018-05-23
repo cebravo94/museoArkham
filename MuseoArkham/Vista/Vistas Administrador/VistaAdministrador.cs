@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MuseoArkham.Controlador.Controlador_Administrador;
+using MuseoArkham.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,35 +14,57 @@ namespace MuseoArkham.Vista
 {
     public partial class VistaAdministrador : Form
     {
-        public VistaAdministrador()
+        private ControladorAdministrador controlador;
+        public VistaAdministrador(Usuario usuario)
         {
+            this.controlador = new ControladorAdministrador(this, usuario);
             InitializeComponent();
+            this.controlador.cargarDatosTabla(0);
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+
+        private void VistaAdministrador_FormClosing(object sender, FormClosingEventArgs e) {
+            this.controlador.CerrarVentana(this);
+        }
+
+        private void VistaAdministrador_Load(object sender, EventArgs e)
+        {
+                   }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void buttonCrearSolicitud_Click(object sender, EventArgs e)
         {
-
+            Form ventanaCrearSolicitud = new VistaCrearSolicitud(this.controlador.departamento);
+            ventanaCrearSolicitud.ShowDialog(this);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form ventanaCrearSolicitud = new VistaCrearSolicitud();
-            ventanaCrearSolicitud.ShowDialog();
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e) {
+            this.controlador.cargarDatosTabla((sender as TabControl).SelectedIndex);
         }
 
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
+        public void refrescarTabla(int index) {
+            this.controlador.cargarDatosTabla(index);
+        }
 
+        private void buttonCancelarSolicitud_Click(object sender, EventArgs e) {
+            this.controlador.botonCancelarSolicitud();
+        }
+
+        private void buttonVerSolicitud_Click(object sender, EventArgs e) {
+            this.controlador.botonVerSolicitud();
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            this.controlador.botonVerDetalle();
         }
     }
 }

@@ -33,12 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.10.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bdd\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,9 +55,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controlador\Controlador.cs" />
-    <Compile Include="Controlador\ControladorLogIn.cs" />
+    <Compile Include="Controlador\Controlador Administrador\ControladorAdministrador.cs" />
+    <Compile Include="Controlador\Controlador Administrador\ControladorCrearSolicitud.cs" />
+    <Compile Include="Controlador\Controlador Vistas Compartidas\ControladorVerSolicitud.cs" />
+    <Compile Include="Controlador\Controlador Bodeguero\ControladorBodeguero.cs" />
+    <Compile Include="Controlador\Controlador Bodeguero\ControladorIncorporarObjeto.cs" />
+    <Compile Include="Controlador\Controlador Gerente\ControladorGerente.cs" />
+    <Compile Include="Controlador\Controlador Secretaria\ControladorAgregarUsuario.cs" />
+    <Compile Include="Controlador\Controlador Secretaria\ControladorAsignarAdministrador.cs" />
+    <Compile Include="Controlador\Controlador Secretaria\ControladorAsignarSala.cs" />
+    <Compile Include="Controlador\Controlador Secretaria\ControladorCrearDepartamento.cs" />
+    <Compile Include="Controlador\Controlador Secretaria\ControladorCrearSala.cs" />
+    <Compile Include="Controlador\Controlador Secretaria\ControladorSecretaria.cs" />
+    <Compile Include="Controlador\ControladorDirector\ControladorDirector.cs" />
+    <Compile Include="Controlador\Controlador\Controlador.cs" />
+    <Compile Include="Controlador\Controlador LogIn\ControladorLogIn.cs" />
+    <Compile Include="Controlador\Controlador Vistas Compartidas\ControladorVistaItem.cs" />
     <Compile Include="Modelo\Conector_BD.cs" />
+    <Compile Include="Vista\Vistas Secretaria\VistaAsignarAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Vistas Secretaria\VistaAsignarAdministrador.Designer.cs">
+      <DependentUpon>VistaAsignarAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Vistas Secretaria\VistaAsignarSala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Vistas Secretaria\VistaAsignarSala.Designer.cs">
+      <DependentUpon>VistaAsignarSala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\VistasCompartidas\VistaVerSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistasCompartidas\VistaVerSolicitud.Designer.cs">
+      <DependentUpon>VistaVerSolicitud.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Vistas Secretaria\VistaCrearDepartamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,11 +168,26 @@
     <Compile Include="Vista\Vistas Secretaria\VistaSecretaria.Designer.cs">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vista\VistasCompartidas\VistaVerSolicitud.resx">
+      <DependentUpon>VistaVerSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Vista\VistasCompartidas\VistaVerItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistasCompartidas\VistaVerItem.Designer.cs">
+      <DependentUpon>VistaVerItem.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Vista\Vistas Bodeguero\VistaIncorporarObjeto.resx">
       <DependentUpon>VistaIncorporarObjeto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Vistas Administrador\VistaCrearSolicitud.resx">
       <DependentUpon>VistaCrearSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Vistas Secretaria\VistaAsignarAdministrador.resx">
+      <DependentUpon>VistaAsignarAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Vistas Secretaria\VistaAsignarSala.resx">
+      <DependentUpon>VistaAsignarSala.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Vistas Secretaria\VistaCrearDepartamento.resx">
       <DependentUpon>VistaCrearDepartamento.cs</DependentUpon>
@@ -172,6 +224,9 @@
     </Compile>
     <EmbeddedResource Include="Vista\Vistas Secretaria\VistaSecretaria.resx">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\VistasCompartidas\VistaVerItem.resx">
+      <DependentUpon>VistaVerItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -15,12 +15,12 @@ namespace MuseoArkham
     {
         private ControladorLogIn controlador;
         public VistaLogIn() {
-            this.controlador = new ControladorLogIn();
+            this.controlador = new ControladorLogIn(this);
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            controlador.botonAceptar(this.textBoxIdentificador.Text, this.textBoxContrasenna.Text);
+            controlador.botonAceptar();
         }
     }
 }

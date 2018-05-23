@@ -30,165 +30,253 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaAgregarUsuario));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.botonCancelar = new System.Windows.Forms.Button();
-            this.botonAceptar = new System.Windows.Forms.Button();
-            this.textBoxRut = new System.Windows.Forms.TextBox();
-            this.textBoxCorreo = new System.Windows.Forms.TextBox();
-            this.textBoxContrasenha = new System.Windows.Forms.TextBox();
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonCrearUsuario = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelNombreUsuario = new System.Windows.Forms.Label();
+            this.labelRunUsuario = new System.Windows.Forms.Label();
+            this.labelCorreoElectronicoUsuario = new System.Windows.Forms.Label();
+            this.labelTipoUsuario = new System.Windows.Forms.Label();
+            this.labelContraseñaUsuario = new System.Windows.Forms.Label();
+            this.textBoxNombreUsuario = new System.Windows.Forms.TextBox();
+            this.textBoxRunUsuario = new System.Windows.Forms.TextBox();
+            this.textBoxCorreoElectronicoUsuario = new System.Windows.Forms.TextBox();
+            this.textBoxContraseñaUsuario = new System.Windows.Forms.TextBox();
+            this.comboBoxTipoUsuario = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.botonCancelar);
-            this.groupBox1.Controls.Add(this.botonAceptar);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBoxRut);
-            this.groupBox1.Controls.Add(this.textBoxCorreo);
-            this.groupBox1.Controls.Add(this.textBoxContrasenha);
-            this.groupBox1.Controls.Add(this.textBoxNombre);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(310, 387);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.groupBox1.Size = new System.Drawing.Size(565, 498);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Crear Usuario";
             // 
-            // botonCancelar
+            // tableLayoutPanel1
             // 
-            this.botonCancelar.Location = new System.Drawing.Point(229, 349);
-            this.botonCancelar.Name = "botonCancelar";
-            this.botonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.botonCancelar.TabIndex = 11;
-            this.botonCancelar.Text = "Cancelar";
-            this.botonCancelar.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 27);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(539, 459);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // botonAceptar
+            // tableLayoutPanel2
             // 
-            this.botonAceptar.Location = new System.Drawing.Point(143, 349);
-            this.botonAceptar.Name = "botonAceptar";
-            this.botonAceptar.Size = new System.Drawing.Size(75, 23);
-            this.botonAceptar.TabIndex = 10;
-            this.botonAceptar.Text = "Aceptar";
-            this.botonAceptar.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.buttonCrearUsuario, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonCancelar, 4, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 417);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(531, 38);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // textBoxRut
+            // buttonCrearUsuario
             // 
-            this.textBoxRut.Location = new System.Drawing.Point(143, 146);
-            this.textBoxRut.Name = "textBoxRut";
-            this.textBoxRut.Size = new System.Drawing.Size(161, 20);
-            this.textBoxRut.TabIndex = 7;
+            this.buttonCrearUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonCrearUsuario.Location = new System.Drawing.Point(322, 4);
+            this.buttonCrearUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCrearUsuario.Name = "buttonCrearUsuario";
+            this.buttonCrearUsuario.Size = new System.Drawing.Size(98, 30);
+            this.buttonCrearUsuario.TabIndex = 0;
+            this.buttonCrearUsuario.Text = "Crear";
+            this.buttonCrearUsuario.UseVisualStyleBackColor = true;
+            this.buttonCrearUsuario.Click += new System.EventHandler(this.buttonCrearUsuario_Click);
             // 
-            // textBoxCorreo
+            // buttonCancelar
             // 
-            this.textBoxCorreo.Location = new System.Drawing.Point(143, 179);
-            this.textBoxCorreo.Name = "textBoxCorreo";
-            this.textBoxCorreo.Size = new System.Drawing.Size(161, 20);
-            this.textBoxCorreo.TabIndex = 6;
+            this.buttonCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonCancelar.Location = new System.Drawing.Point(428, 4);
+            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(99, 30);
+            this.buttonCancelar.TabIndex = 1;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
-            // textBoxContrasenha
+            // tableLayoutPanel3
             // 
-            this.textBoxContrasenha.Location = new System.Drawing.Point(143, 252);
-            this.textBoxContrasenha.Name = "textBoxContrasenha";
-            this.textBoxContrasenha.Size = new System.Drawing.Size(161, 20);
-            this.textBoxContrasenha.TabIndex = 5;
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.labelNombreUsuario, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.labelRunUsuario, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.labelCorreoElectronicoUsuario, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.labelTipoUsuario, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.labelContraseñaUsuario, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxNombreUsuario, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxRunUsuario, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxCorreoElectronicoUsuario, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxContraseñaUsuario, 1, 4);
+            this.tableLayoutPanel3.Controls.Add(this.comboBoxTipoUsuario, 1, 3);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 5;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(531, 405);
+            this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // textBoxNombre
+            // labelNombreUsuario
             // 
-            this.textBoxNombre.Location = new System.Drawing.Point(143, 115);
-            this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(161, 20);
-            this.textBoxNombre.TabIndex = 4;
+            this.labelNombreUsuario.AutoSize = true;
+            this.labelNombreUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelNombreUsuario.Location = new System.Drawing.Point(4, 0);
+            this.labelNombreUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNombreUsuario.Name = "labelNombreUsuario";
+            this.labelNombreUsuario.Size = new System.Drawing.Size(125, 81);
+            this.labelNombreUsuario.TabIndex = 0;
+            this.labelNombreUsuario.Text = "Nombre";
             // 
-            // label4
+            // labelRunUsuario
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(37, 256);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 16);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Contraseña :";
+            this.labelRunUsuario.AutoSize = true;
+            this.labelRunUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelRunUsuario.Location = new System.Drawing.Point(4, 81);
+            this.labelRunUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelRunUsuario.Name = "labelRunUsuario";
+            this.labelRunUsuario.Size = new System.Drawing.Size(125, 81);
+            this.labelRunUsuario.TabIndex = 1;
+            this.labelRunUsuario.Text = "R.U.N";
             // 
-            // label3
+            // labelCorreoElectronicoUsuario
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(37, 181);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Correo :";
+            this.labelCorreoElectronicoUsuario.AutoSize = true;
+            this.labelCorreoElectronicoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelCorreoElectronicoUsuario.Location = new System.Drawing.Point(4, 162);
+            this.labelCorreoElectronicoUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCorreoElectronicoUsuario.Name = "labelCorreoElectronicoUsuario";
+            this.labelCorreoElectronicoUsuario.Size = new System.Drawing.Size(125, 81);
+            this.labelCorreoElectronicoUsuario.TabIndex = 2;
+            this.labelCorreoElectronicoUsuario.Text = "Correo electrónico";
             // 
-            // label2
+            // labelTipoUsuario
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 148);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Rut :";
+            this.labelTipoUsuario.AutoSize = true;
+            this.labelTipoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelTipoUsuario.Location = new System.Drawing.Point(4, 243);
+            this.labelTipoUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTipoUsuario.Name = "labelTipoUsuario";
+            this.labelTipoUsuario.Size = new System.Drawing.Size(125, 81);
+            this.labelTipoUsuario.TabIndex = 3;
+            this.labelTipoUsuario.Text = "Tipo usuario";
             // 
-            // label1
+            // labelContraseñaUsuario
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(37, 117);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre :";
+            this.labelContraseñaUsuario.AutoSize = true;
+            this.labelContraseñaUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelContraseñaUsuario.Location = new System.Drawing.Point(4, 324);
+            this.labelContraseñaUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelContraseñaUsuario.Name = "labelContraseñaUsuario";
+            this.labelContraseñaUsuario.Size = new System.Drawing.Size(125, 81);
+            this.labelContraseñaUsuario.TabIndex = 4;
+            this.labelContraseñaUsuario.Text = "Contraseña";
             // 
-            // label5
+            // textBoxNombreUsuario
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(37, 218);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 16);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Tipo Usuario :";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.textBoxNombreUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxNombreUsuario.Location = new System.Drawing.Point(137, 4);
+            this.textBoxNombreUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNombreUsuario.Name = "textBoxNombreUsuario";
+            this.textBoxNombreUsuario.Size = new System.Drawing.Size(390, 22);
+            this.textBoxNombreUsuario.TabIndex = 5;
             // 
-            // comboBox1
+            // textBoxRunUsuario
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Administrador Departamento",
-            "Gerente Exhibiciones",
-            "Bodeguero"});
-            this.comboBox1.Location = new System.Drawing.Point(143, 213);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(161, 21);
-            this.comboBox1.TabIndex = 12;
+            this.textBoxRunUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxRunUsuario.Location = new System.Drawing.Point(137, 85);
+            this.textBoxRunUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxRunUsuario.Name = "textBoxRunUsuario";
+            this.textBoxRunUsuario.Size = new System.Drawing.Size(390, 22);
+            this.textBoxRunUsuario.TabIndex = 6;
+            // 
+            // textBoxCorreoElectronicoUsuario
+            // 
+            this.textBoxCorreoElectronicoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxCorreoElectronicoUsuario.Location = new System.Drawing.Point(137, 166);
+            this.textBoxCorreoElectronicoUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxCorreoElectronicoUsuario.Name = "textBoxCorreoElectronicoUsuario";
+            this.textBoxCorreoElectronicoUsuario.Size = new System.Drawing.Size(390, 22);
+            this.textBoxCorreoElectronicoUsuario.TabIndex = 7;
+            // 
+            // textBoxContraseñaUsuario
+            // 
+            this.textBoxContraseñaUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxContraseñaUsuario.Location = new System.Drawing.Point(137, 328);
+            this.textBoxContraseñaUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxContraseñaUsuario.Name = "textBoxContraseñaUsuario";
+            this.textBoxContraseñaUsuario.Size = new System.Drawing.Size(390, 22);
+            this.textBoxContraseñaUsuario.TabIndex = 9;
+            // 
+            // comboBoxTipoUsuario
+            // 
+            this.comboBoxTipoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTipoUsuario.FormattingEnabled = true;
+            this.comboBoxTipoUsuario.Items.AddRange(new object[] {
+            "Administrador",
+            "Bodega",
+            "Gerente"});
+            this.comboBoxTipoUsuario.Location = new System.Drawing.Point(137, 247);
+            this.comboBoxTipoUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxTipoUsuario.Name = "comboBoxTipoUsuario";
+            this.comboBoxTipoUsuario.Size = new System.Drawing.Size(390, 24);
+            this.comboBoxTipoUsuario.TabIndex = 10;
             // 
             // VistaAgregarUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 411);
+            this.ClientSize = new System.Drawing.Size(573, 506);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(589, 543);
             this.Name = "VistaAgregarUsuario";
+            this.Padding = new System.Windows.Forms.Padding(4);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Museo Arkham";
+            this.Load += new System.EventHandler(this.VistaAgregarUsuario_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -196,17 +284,20 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxRut;
-        private System.Windows.Forms.TextBox textBoxCorreo;
-        private System.Windows.Forms.TextBox textBoxContrasenha;
-        private System.Windows.Forms.Button botonCancelar;
-        private System.Windows.Forms.Button botonAceptar;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button buttonCrearUsuario;
+        private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label labelNombreUsuario;
+        private System.Windows.Forms.Label labelRunUsuario;
+        private System.Windows.Forms.Label labelCorreoElectronicoUsuario;
+        private System.Windows.Forms.Label labelTipoUsuario;
+        private System.Windows.Forms.Label labelContraseñaUsuario;
+        private System.Windows.Forms.TextBox textBoxNombreUsuario;
+        private System.Windows.Forms.TextBox textBoxRunUsuario;
+        private System.Windows.Forms.TextBox textBoxCorreoElectronicoUsuario;
+        private System.Windows.Forms.TextBox textBoxContraseñaUsuario;
+        private System.Windows.Forms.ComboBox comboBoxTipoUsuario;
     }
 }
