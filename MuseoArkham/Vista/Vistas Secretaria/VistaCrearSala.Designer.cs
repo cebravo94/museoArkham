@@ -42,9 +42,7 @@
             this.labelMetrosCuadrados = new System.Windows.Forms.Label();
             this.numericUpDownMetrosCuadrados = new System.Windows.Forms.NumericUpDown();
             this.labelDescripcionSala = new System.Windows.Forms.Label();
-            this.comboBoxDepartamento = new System.Windows.Forms.ComboBox();
             this.labelAreaSala = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -130,9 +128,7 @@
             this.tableLayoutPanel3.Controls.Add(this.textBoxDescripcionSala, 1, 3);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.labelDescripcionSala, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.comboBoxDepartamento, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.labelAreaSala, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label1, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -219,18 +215,6 @@
             this.labelDescripcionSala.TabIndex = 2;
             this.labelDescripcionSala.Text = "Descripción";
             // 
-            // comboBoxDepartamento
-            // 
-            this.comboBoxDepartamento.Cursor = System.Windows.Forms.Cursors.Default;
-            this.comboBoxDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDepartamento.Enabled = false;
-            this.comboBoxDepartamento.FormattingEnabled = true;
-            this.comboBoxDepartamento.Location = new System.Drawing.Point(103, 157);
-            this.comboBoxDepartamento.Name = "comboBoxDepartamento";
-            this.comboBoxDepartamento.Size = new System.Drawing.Size(292, 21);
-            this.comboBoxDepartamento.TabIndex = 7;
-            this.comboBoxDepartamento.SelectedIndexChanged += new System.EventHandler(this.comboBoxDepartamento_SelectedIndexChanged);
-            // 
             // labelAreaSala
             // 
             this.labelAreaSala.AutoSize = true;
@@ -240,15 +224,6 @@
             this.labelAreaSala.Size = new System.Drawing.Size(94, 77);
             this.labelAreaSala.TabIndex = 1;
             this.labelAreaSala.Text = "Área";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 154);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Departamento";
             // 
             // VistaCrearSala
             // 
@@ -292,7 +267,5 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label labelMetrosCuadrados;
         private System.Windows.Forms.NumericUpDown numericUpDownMetrosCuadrados;
-        private System.Windows.Forms.ComboBox comboBoxDepartamento;
-        private System.Windows.Forms.Label label1;
     }
 }
