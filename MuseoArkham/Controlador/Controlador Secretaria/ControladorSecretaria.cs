@@ -31,12 +31,19 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         {
 
             string depto = this.obtenerDepto(data);
-
-            this.cambiarAdmin(depto);
-            this.cambiarEstado(depto);
-            this.cambiarDepto(depto);
-            this.eliminarDepto(depto);
-            this.ventana.refrescarTabla(0);
+            if (this.validarSalas(depto))
+            {
+                this.cambiarAdmin(depto);
+                this.cambiarEstado(depto);
+                this.cambiarDepto(depto);
+                this.eliminarDepto(depto);
+                this.ventana.refrescarTabla(0);
+            }
+            else
+            {
+                MessageBox.Show("Departamento aún tiene asociado items,solicite a un administrador moverlos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
        private string obtenerDepto(DataGridView dataGrid)
@@ -89,7 +96,25 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             this.RealizarConsultaNoQuery(eliminarDepto);
             this.CerrarConexion();
         }
-
+        private Boolean validarSalas(string depto)
+        {
+            Boolean validar = false;
+            string consulta = "SELECT COUNT(*) AS valor FROM item,sala" +
+                                " WHERE item.id_dpto = '"+depto+"' AND sala.id_dpto = '"+depto +"'";
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            reader.Read();
+            int cantidad = Int32.Parse(reader["valor"].ToString());
+            this.CerrarConexion();
+            if(cantidad > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            
+        }
 
         /**
          * <summary>
@@ -134,7 +159,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         {
             string consulta = "SELECT  departamento.id_dpto AS ID,departamento.nombre AS Departamento, usuario.nombre AS Administrador" + 
                                " FROM departamento,usuario" +
-                               " WHERE departamento.id_usuario = usuario.id_usuario";
+                               " WHERE departamento.id_usuario = usuario.id_usuario AND departamento.nombre != 'default'";
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             this.PoblarTabla(ventana.dataGridViewDepartamento, reader);
             this.CerrarConexion();
@@ -157,7 +182,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         {
             string consulta = "SELECT usuario.id_usuario AS ID,usuario.nombre AS Nombre," +
                                " usuario.rut as Rut, usuario.correo as Correo, usuario.tipo as Cargo" +
-                               " FROM usuario";
+                               " FROM usuario WHERE usuario.nombre != 'default'";
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             this.PoblarTabla(ventana.dataGridViewUsuarios, reader);
             this.CerrarConexion();
