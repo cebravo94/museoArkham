@@ -141,7 +141,7 @@ namespace MuseoArkham.Controlador.ControladorDirector
         public void ReporteDepartamento(string text,DataGridView tabla)
         {
             MySqlDataReader read;
-            String consulta = "SELECT t2.nombre , t2.descripcion,t1.nombre as nombreItem , t4.nombre as nombreUsuario , t3.nombre as nombreSala FROM item as t1, departamento as t2, sala as t3 , usuario as t4 WHERE t2.nombre = '" + text + "' AND t2.id_dpto = t1.id_dpto AND t3.id_dpto = t2.id_dpto AND t4.id_usuario = t2.id_usuario";
+            String consulta = "SELECT t2.nombre as Nombre, t2.descripcion  as Descripcion,t1.nombre as NombreItem , t4.nombre as NombreUsuario , t3.nombre as NombreSala FROM item as t1, departamento as t2, sala as t3 , usuario as t4 WHERE t2.nombre = '" + text + "' AND t2.id_dpto = t1.id_dpto AND t3.id_dpto = t2.id_dpto AND t4.id_usuario = t2.id_usuario";
             this.consultaActual = "Reporte general de departamento";
             read = this.RealizarConsulta(consulta);
             Console.WriteLine(consulta);
@@ -155,7 +155,7 @@ namespace MuseoArkham.Controlador.ControladorDirector
         public void ReporteInventario(DataGridView tabla) {
             MySqlDataReader read;
             this.consultaActual = "Reporte general de inventario";
-            read = this.RealizarConsulta("select * from item");
+            read = this.RealizarConsulta("select nombre as Nombre, fecha_ingreso as FechaIngreso, descripcion as Descripcion, coleccion as Coleccion, estado as Estado, tipo as Tipo, anno as Año, era as Era from item");
             if (read != null){
                 this.PoblarTabla(tabla, read);
             }
@@ -167,7 +167,7 @@ namespace MuseoArkham.Controlador.ControladorDirector
             Console.WriteLine("entro a crear el reporte de coleccion");
             MySqlDataReader read;
 
-            String consulta = "SELECT t2.nombre AS nombreDpto ,t3.nombre as nombreSala,t1.* FROM item as t1, departamento as t2, sala as t3 WHERE t1.coleccion = '" + text + "' AND t2.id_dpto = t1.id_dpto AND t3.id_dpto = t2.id_dpto";
+            String consulta = "SELECT t2.nombre AS NombreDepartamento ,t3.nombre as NombreSala,t1.nombre as Nombre, t1.fecha_ingreso as FechaIngreso,  t1.coleccion as Coleccion, t1.estado as Estado, t1.tipo as Tipo, t1.anno as Año, t1.era as Era from item as t1, departamento as t2, sala as t3 WHERE t1.coleccion = '" + text + "' AND t2.id_dpto = t1.id_dpto AND t3.id_dpto = t2.id_dpto";
             this.consultaActual = "Reporte a partir de una coleccion";
             Console.WriteLine("consulta: " + consulta);
             read = this.RealizarConsulta(consulta);
@@ -183,7 +183,7 @@ namespace MuseoArkham.Controlador.ControladorDirector
         {
             MySqlDataReader read;
           
-            String consulta = "SELECT t2.nombre AS nombreDpto ,t3.nombre as nombreSala,t1.* FROM item as t1, departamento as t2, sala as t3 WHERE t1.anno =" + text + " AND t2.id_dpto = t1.id_dpto AND t3.id_dpto = t2.id_dpto";
+            String consulta = "SELECT t2.nombre AS NombreDepartamento ,t3.nombre as NombreSala,t1.nombre as Nombre, t1.fecha_ingreso as FechaIngreso,  t1.coleccion as Coleccion, t1.estado as Estado, t1.tipo as Tipo, t1.anno as Año, t1.era as Era FROM item as t1, departamento as t2, sala as t3 WHERE t1.anno =" + text + " AND t2.id_dpto = t1.id_dpto AND t3.id_dpto = t2.id_dpto";
             this.consultaActual = "Reporte apartir de año de origen de un objeto";
             Console.WriteLine("consulta: " + consulta);
             read = this.RealizarConsulta(consulta);
@@ -198,7 +198,7 @@ namespace MuseoArkham.Controlador.ControladorDirector
         {
             MySqlDataReader read;
 
-            String consulta = "SELECT t2.nombre AS nombreDpto ,t3.nombre as nombreSala,t1.* FROM item as t1, departamento as t2, vehiculo as t4 ,sala as t3 WHERE t4.marca = '" + text + "' AND t2.id_dpto = t1.id_dpto  AND t4.id_item = t1.id_item and t1.id_sala = t3.id_sala";
+            String consulta = "SELECT t4.modelo as Modelo, t2.nombre AS NombreDepartamento ,t3.nombre as NombreSala,t1.nombre as Nombre, t1.fecha_ingreso as FechaIngreso,  t1.coleccion as Coleccion, t1.estado as Estado, t1.tipo as Tipo, t1.anno as Año, t1.era as Era FROM item as t1, departamento as t2, vehiculo as t4 ,sala as t3 WHERE t4.marca = '" + text + "' AND t2.id_dpto = t1.id_dpto  AND t4.id_item = t1.id_item and t1.id_sala = t3.id_sala";
             this.consultaActual = "Reporte a partir de una marca";
             Console.WriteLine("consulta: " + consulta);
             read = this.RealizarConsulta(consulta);
@@ -213,7 +213,7 @@ namespace MuseoArkham.Controlador.ControladorDirector
         {
             MySqlDataReader read;
 
-            String consulta = "SELECT t3.estilo , t1.* FROM item as t1,departamento as t2,obra as t3 WHERE t3.id_item = t1.id_item and t3.estilo = '"+ text +"' and t1.id_dpto = t2.id_dpto";
+            String consulta = "SELECT t3.estilo as Estilo ,t1.nombre as Nombre, t1.fecha_ingreso as FechaIngreso,  t1.coleccion as Coleccion, t1.estado as Estado, t1.tipo as Tipo, t1.anno as Año, t1.era as Era FROM item as t1,departamento as t2,obra as t3 WHERE t3.id_item = t1.id_item and t3.estilo = '" + text +"' and t1.id_dpto = t2.id_dpto";
             this.consultaActual = "Reporte a partir de un estilo artistico";
             Console.WriteLine("consulta: " + consulta);
             read = this.RealizarConsulta(consulta);
@@ -228,7 +228,7 @@ namespace MuseoArkham.Controlador.ControladorDirector
         {
             MySqlDataReader read;
 
-            String consulta = "SELECT t3.autor , t1.* FROM item as t1,departamento as t2,obra as t3 WHERE t3.id_item = t1.id_item and t3.autor = '" + text + "' and t1.id_dpto = t2.id_dpto";
+            String consulta = "SELECT t3.autor as Autor,t1.nombre as Nombre, t1.fecha_ingreso as FechaIngreso,  t1.coleccion as Coleccion, t1.estado as Estado, t1.tipo as Tipo, t1.anno as Año, t1.era as Era FROM item as t1,departamento as t2,obra as t3 WHERE t3.id_item = t1.id_item and t3.autor = '" + text + "' and t1.id_dpto = t2.id_dpto";
             this.consultaActual = "Reporte a partir de un autor";
             Console.WriteLine("consulta: " + consulta);
             read = this.RealizarConsulta(consulta);
