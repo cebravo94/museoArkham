@@ -37,7 +37,7 @@ namespace MuseoArkham.Vista
             string estado;
             if (departamento == 1)
             {
-                estado = "Sin asignar";
+                estado = "Disponible";
             }
             else
             {
@@ -48,15 +48,7 @@ namespace MuseoArkham.Vista
             this.Close();
         }
 
-        private void comboBoxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-           
-            Console.WriteLine("entra?");
-            this.controlador.cargarDepartamentos(comboBoxDepartamento);
-            Console.WriteLine("sale?");
-
-
+       
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
