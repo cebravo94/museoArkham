@@ -18,6 +18,31 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             this.ventana = ventana;
         }
 
+
+
+        public void validarArea(int area)
+        {
+            if (area < 5)
+            {
+                MessageBox.Show("El area de la sala debe ser mayor o igual a 5", "Alerta",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
+        }
+
+        public void validarNomber(string nombre)
+        {
+            if (nombre.Length == 0)
+            {
+                MessageBox.Show("El nombre de la sala es obligatorio", "Alerta",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
+        }
+
+
         public void ValidarSala(string nombre, string areaString, string descripcion)
         {
             if (VerificarSala(nombre) == true)
@@ -71,8 +96,9 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         **/
         public void crearSala(int departamento,string nombre, int area, string descripcion, string estado)
         {
-            
-            if (nombre.Length>0) {
+            validarNomber(nombre);
+            validarArea(area);
+            if (nombre.Length>0 && area >4) {
 
                 string valores = "VALUES ( '" +departamento + "'  ,      '" + nombre + "'  ,    '" + descripcion + "' ,'" + area + "', 'Disponible' )";
                 string consulta = "INSERT INTO sala (id_dpto,nombre,descripcion,area,estado) " + valores;
@@ -82,13 +108,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
                 this.ventana.Close();
 
             }
-            else
-            {
-                MessageBox.Show("El nombre de la sala es obligatorio", "Alerta",
-                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                
-                
-            }
+         
             
         }
 
