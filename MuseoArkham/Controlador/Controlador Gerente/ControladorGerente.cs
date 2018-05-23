@@ -32,15 +32,13 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
          * que realizo dicha solicitud debe poder visualizar que su solicitud fue aceptada.
          * </sumary>
         **/
-        public void aceptarSolicitud()
-        {
+        public void aceptarSolicitud() {
             int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
             int id = int.Parse(data.Cells[0].Value.ToString());
             string consulta = "SELECT * FROM itemsolicitado,item WHERE itemsolicitado.id_item = item.id_item AND itemsolicitado.id_solicitud=" + id;
             MySqlDataReader reader1 = this.RealizarConsulta(consulta);
-            if (reader1 == null)
-            {
+            if (reader1 == null) {
                 string s = "No hay objetos vinculados a la solicitud";
                 MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.CerrarConexion();
@@ -50,15 +48,13 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             tabla.Load(reader1);
             reader1.Close();
             this.CerrarConexion();
-            if (objetosDisponibles(id, tabla))
-            {
+            if (objetosDisponibles(id, tabla)) {
 
-                foreach (DataRow row in tabla.Rows)
-                {
-                    
+                foreach (DataRow row in tabla.Rows) {
+
                     int idItem = int.Parse(row[0].ToString());
                     this.RealizarConsultaNoQuery("UPDATE item SET item.estado ='En Solicitud' WHERE item.id_item=" + idItem);
-                   
+
                 }
                 this.RealizarConsultaNoQuery("UPDATE solicitud SET solicitud.estado ='Aceptada' WHERE solicitud.id_solicitud=" + id);
                 this.cargarDatosTabla(0);
@@ -66,49 +62,41 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
 
         }
 
-        internal void verDetalleObjeto()
-        {
-            if (this.ventana.dataGridViewObjetos.RowCount > 0)
-            {
+        internal void verDetalleObjeto() {
+            if (this.ventana.dataGridViewObjetos.RowCount > 0) {
                 int index = this.obtenerIdItem();
                 VistaItem vista = new VistaItem(index);
                 vista.ShowDialog(this.ventana);
             }
         }
 
-        private int obtenerIdItem()
-        {
+        private int obtenerIdItem() {
             int index = this.ventana.dataGridViewObjetos.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewObjetos.Rows[index];
             int idItem = Int32.Parse(data.Cells[0].Value.ToString());
             return idItem;
         }
 
-        internal void verDetalleSolicitud()
-        {
-            if (this.ventana.dataGridViewSolicitudesTraslado.RowCount > 0)
-            {
+        internal void verDetalleSolicitud() {
+            if (this.ventana.dataGridViewSolicitudesTraslado.RowCount > 0) {
                 int index = this.obtenerIdSolicitud();
                 VistaVerSolicitud vista = new VistaVerSolicitud(index);
                 vista.ShowDialog(this.ventana);
             }
         }
 
-        private int obtenerIdSolicitud()
-        {
+        private int obtenerIdSolicitud() {
             int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
             int idSolicitud = Int32.Parse(data.Cells[0].Value.ToString());
             return idSolicitud;
         }
 
-        private bool objetosDisponibles(int id, DataTable tabla)
-        {
+        private bool objetosDisponibles(int id, DataTable tabla) {
             //Console.WriteLine("Estoy en comprobar objetos");
-            foreach(DataRow row in tabla.Rows)
-            {
-                
-                if (row[9].ToString().Equals("En Solicitud")){
+            foreach (DataRow row in tabla.Rows) {
+
+                if (row[9].ToString().Equals("En Solicitud")) {
                     string s = "El objeto solicitado no se encuentra disponible";
                     MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
@@ -118,24 +106,25 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
         }
 
 
-        internal void cambioDeSeleccion()
-        {
-            try
-            {
+        internal void cambioDeSeleccion() {
+            try {
                 int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
                 DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
                 String estado = data.Cells[4].Value.ToString();
-                if (estado.Equals("Aceptada") || estado.Equals("Rechazada")){
+                if (estado.Equals("Aceptada") || estado.Equals("Rechazada")) {
                     this.ventana.botonAceptarSolicitud.Enabled = false;
                     this.ventana.botonRechazarSolicitud.Enabled = false;
 
                 }
-                else
-                {
+                else {
                     this.ventana.botonAceptarSolicitud.Enabled = true;
                     this.ventana.botonRechazarSolicitud.Enabled = true;
                 }
-            }catch (Exception e) { };
+            }
+            catch (Exception ex) {
+
+                Console.WriteLine(ex.StackTrace);
+            };
         }
 
         /**
@@ -144,8 +133,7 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
          * a "Rechazada" y el administrador que realizo dicha solicitud debe poder visualizar que su solicitud fue rechazada.
          * </sumary>
         **/
-        public void rechazarSolicitud()
-        {
+        public void rechazarSolicitud() {
             int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
             int id = int.Parse(data.Cells[0].Value.ToString());
@@ -153,12 +141,10 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             this.cargarDatosTabla(0);
         }
 
-        private Departamento cargarDepartamento()
-        {
+        private Departamento cargarDepartamento() {
             MySqlDataReader reader = this.RealizarConsulta("select * from departamento where id_usuario=" + this.usuario.Id);
             reader.Read();
-            if (reader != null)
-            {
+            if (reader != null) {
                 Departamento departamento = new Departamento(reader);
                 this.CerrarConexion();
                 return departamento;
@@ -166,10 +152,8 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             return null;
         }
 
-        internal void cargarDatosTabla(int index)
-        {
-            switch (index)
-            {
+        internal void cargarDatosTabla(int index) {
+            switch (index) {
                 case 0:
                     this.cargarSolicitudes();
                     break;
@@ -181,8 +165,7 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             }
         }
 
-        private void cargarObjetos()
-        {
+        private void cargarObjetos() {
             string consulta = "SELECT item.id_item AS ID, item.nombre AS Nombre, sala.nombre AS Ubicación," +
                     " item.estado AS Estado, item.tipo AS Tipo, item.descripcion AS Descripción" +
                     " FROM item, departamento, sala" +
@@ -195,8 +178,7 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             this.CerrarConexion();
         }
 
-        private void cargarSolicitudes()
-        {
+        private void cargarSolicitudes() {
 
             string consulta = "SELECT solicitud.id_solicitud AS ID, usuario.nombre AS Nombre, sala.nombre as 'Sala origen'," +
                     " N.salaDestino as 'Sala destino', solicitud.estado AS Estado," +
@@ -210,7 +192,7 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             this.PoblarTabla(ventana.dataGridViewSolicitudesTraslado, reader);
             this.CerrarConexion();
-            
+
         }
     }
 }

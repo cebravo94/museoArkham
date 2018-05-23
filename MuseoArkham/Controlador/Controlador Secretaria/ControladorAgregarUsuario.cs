@@ -13,8 +13,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
     {
         private VistaAgregarUsuario ventana;
 
-        public ControladorAgregarUsuario(VistaAgregarUsuario ventana)
-        {
+        public ControladorAgregarUsuario(VistaAgregarUsuario ventana) {
             this.ventana = ventana;
         }
 
@@ -29,16 +28,13 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
          * <param name="tipoUsuario"> Tipo de usuario que será.</param>
          * <param name="contrasenna"> Contraseña asignada al usuario.</param>
          */
-        public void botonAceptar(String nombre,String rut, String correo, String tipoUsuario, String contrasenna)
-        {
-           if (insertarUsuario(nombre, rut, correo, tipoUsuario, contrasenna) == true)
-           {
+        public void botonAceptar(String nombre, String rut, String correo, String tipoUsuario, String contrasenna) {
+            if (insertarUsuario(nombre, rut, correo, tipoUsuario, contrasenna) == true) {
                 string s = "Usuario creado con exito.";
                 MessageBox.Show(s, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Form.ActiveForm.Close();
             }
-            else
-            {
+            else {
                 string s = "Error en crear usuario.";
                 MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -47,30 +43,24 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             vs.refrescarTabla(2);
         }
 
-        public void error()
-        {
+        public void error() {
             string s = "Todos los campos deben de tener un valor.";
             MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public void validarCampos(string nombre, string rut, string correo, string tipoUsuario, string contrasenna)
-        {
-            if(nombre.Length > 0 && rut.Length > 0 && correo.Length > 0 && tipoUsuario.Length > 0 && contrasenna.Length > 0)
-            {
+        public void validarCampos(string nombre, string rut, string correo, string tipoUsuario, string contrasenna) {
+            if (nombre.Length > 0 && rut.Length > 0 && correo.Length > 0 && tipoUsuario.Length > 0 && contrasenna.Length > 0) {
                 botonAceptar(nombre, rut, correo, tipoUsuario, contrasenna);
             }
-            else
-            {
+            else {
                 string s = "Todos los campos deben de tener un valor.";
                 MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
 
-        private Boolean insertarUsuario(String nombre, String rut, String correo, String tipoUsuario, String contrasenna)
-        {
-            try
-            {
+        private Boolean insertarUsuario(String nombre, String rut, String correo, String tipoUsuario, String contrasenna) {
+            try {
                 string consulta = "INSERT INTO usuario (contrasenna,nombre,rut,correo,fecha_ingreso,tipo) " +
                     "VALUES ('" + contrasenna + "','" + nombre + "','" + rut + "','" + correo + "','" + DateTime.Today.ToString("yyyy/MM/dd") + "','" + tipoUsuario + "');";
                 Console.WriteLine(consulta);
@@ -78,8 +68,10 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
                 this.CerrarConexion();
                 return true;
             }
-            catch(Exception e)
-            {
+            catch (Exception ex) {
+
+
+                Console.WriteLine(ex.StackTrace);
                 return false;
             }
         }

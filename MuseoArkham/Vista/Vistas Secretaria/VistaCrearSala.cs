@@ -15,44 +15,35 @@ namespace MuseoArkham.Vista
     {
         private ControladorCrearSala controlador;
 
-        public VistaCrearSala()
-        {
+        public VistaCrearSala() {
             this.controlador = new ControladorCrearSala(this);
             InitializeComponent();
         }
 
-        
 
-        private void VistaCrearSala_Load(object sender, EventArgs e)
-        {
+
+        private void VistaCrearSala_Load(object sender, EventArgs e) {
 
         }
 
-        private void buttonCrearSala_Click(object sender, EventArgs e)
-        {
+        private void buttonCrearSala_Click(object sender, EventArgs e) {
             string nombre = textBoxNombreSala.Text;
             int area = Int32.Parse(numericUpDownMetrosCuadrados.Value.ToString());
             string descripcion = textBoxDescripcionSala.Text;
             int departamento = 1;
             string estado;
-            if (departamento == 1)
-            {
+            if (departamento == 1) {
                 estado = "Disponible";
             }
-            else
-            {
+            else {
                 estado = "En uso";
             }
-            
-            this.controlador.crearSala(departamento,nombre, area, descripcion,estado);
+
+            this.controlador.crearSala(departamento, nombre, area, descripcion, estado);
             this.Close();
         }
 
-       
-        }
-
-        private void buttonCancelar_Click(object sender, EventArgs e)
-        {
+        private void buttonCancelar_Click(object sender, EventArgs e) {
             this.Close();
 
         }

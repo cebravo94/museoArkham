@@ -27,27 +27,23 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
          * <param name="depto"> El departamento seleccionado para eliminar.</param>
          * 
          */
-        public void botonEliminar(DataGridView data)
-        {
+        public void botonEliminar(DataGridView data) {
 
             string depto = this.obtenerDepto(data);
-            if (this.validarSalas(depto))
-            {
+            if (this.validarSalas(depto)) {
                 this.cambiarAdmin(depto);
                 this.cambiarEstado(depto);
                 this.cambiarDepto(depto);
                 this.eliminarDepto(depto);
                 this.ventana.refrescarTabla(0);
             }
-            else
-            {
+            else {
                 MessageBox.Show("Departamento aún tiene asociado items,solicite a un administrador moverlos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
-       private string obtenerDepto(DataGridView dataGrid)
-        {
+        private string obtenerDepto(DataGridView dataGrid) {
             int index = dataGrid.CurrentCell.RowIndex;
             DataGridViewRow data = dataGrid.Rows[index];
             string depto = data.Cells[0].Value.ToString();
@@ -55,65 +51,54 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             return depto;
         }
 
-        public Boolean validarVentana(DataGridView dataGrid)
-        {
+        public Boolean validarVentana(DataGridView dataGrid) {
             int index = dataGrid.CurrentCell.RowIndex;
             DataGridViewRow data = dataGrid.Rows[index];
             string id = data.Cells[0].Value.ToString();
             string admin = data.Cells[2].Value.ToString();
-            if (admin.Equals("default"))
-            {
+            if (admin.Equals("default")) {
                 return true;
             }
-            else
-            {
+            else {
                 return false;
             }
         }
-        private void cambiarAdmin(string depto)
-        {
+        private void cambiarAdmin(string depto) {
             string cambiarAdmin = "UPDATE departamento SET departamento.id_usuario = 1 WHERE departamento.id_dpto = +'" + depto + "'";
             this.RealizarConsultaNoQuery(cambiarAdmin);
             this.CerrarConexion();
         }
-        private void cambiarEstado(string depto)
-        {
+        private void cambiarEstado(string depto) {
             string cambiarEstado = "UPDATE sala SET sala.estado = 'Disponible' WHERE sala.id_dpto ='" + depto + "'";
             this.RealizarConsultaNoQuery(cambiarEstado);
             this.CerrarConexion();
         }
 
-        private void cambiarDepto(string depto)
-        {
+        private void cambiarDepto(string depto) {
             string cambiarDepto = "UPDATE sala SET sala.id_dpto = 1 WHERE sala.id_dpto = '" + depto + "'";
             this.RealizarConsultaNoQuery(cambiarDepto);
             this.CerrarConexion();
         }
 
-        private void eliminarDepto(string depto)
-        {
+        private void eliminarDepto(string depto) {
             string eliminarDepto = "DELETE FROM departamento WHERE departamento.id_dpto ='" + depto + "'";
             this.RealizarConsultaNoQuery(eliminarDepto);
             this.CerrarConexion();
         }
-        private Boolean validarSalas(string depto)
-        {
-            Boolean validar = false;
+        private Boolean validarSalas(string depto) {
             string consulta = "SELECT COUNT(*) AS valor FROM item,sala" +
-                                " WHERE item.id_dpto = '"+depto+"' AND sala.id_dpto = '"+depto +"'";
+                                " WHERE item.id_dpto = '" + depto + "' AND sala.id_dpto = '" + depto + "'";
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             reader.Read();
             int cantidad = Int32.Parse(reader["valor"].ToString());
             this.CerrarConexion();
-            if(cantidad > 0)
-            {
+            if (cantidad > 0) {
                 return false;
             }
-            else
-            {
+            else {
                 return true;
             }
-            
+
         }
 
         /**
@@ -124,9 +109,8 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
          * <param name="usuario"> Usuario que se deshabilitara.</param>
          * 
          */
-        public void botonDeshabilitarUsuario(Usuario usuario)
-        {
-            
+        public void botonDeshabilitarUsuario(Usuario usuario) {
+
         }
 
         /**
@@ -134,10 +118,8 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
          *  Carga los datos dependiendo de la pestaña que nos encontremos
          * </summary>
          */
-        public void CargarDatos(int index)
-        {
-            switch (index)
-            {
+        public void CargarDatos(int index) {
+            switch (index) {
                 case 0:
                     this.cargarDepartamentos();
                     break;
@@ -155,19 +137,17 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         *  Realiza los metodos necesarios para cargar los datos de departamentos
         * </summary>
         */
-        public void cargarDepartamentos()
-        {
-            string consulta = "SELECT  departamento.id_dpto AS ID,departamento.nombre AS Departamento, usuario.nombre AS Administrador" + 
+        public void cargarDepartamentos() {
+            string consulta = "SELECT  departamento.id_dpto AS ID,departamento.nombre AS Departamento, usuario.nombre AS Administrador" +
                                " FROM departamento,usuario" +
                                " WHERE departamento.id_usuario = usuario.id_usuario AND departamento.nombre != 'default'";
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             this.PoblarTabla(ventana.dataGridViewDepartamento, reader);
             this.CerrarConexion();
-                 
+
         }
 
-        public void cargarSalas()
-        {
+        public void cargarSalas() {
             string consulta = "SELECT sala.id_sala AS ID,departamento.nombre AS Departamento," +
                                 " sala.nombre AS Nombre, sala.estado AS Estado," +
                                 " sala.descripcion as Descripcion" +
@@ -178,8 +158,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             this.CerrarConexion();
         }
 
-        public void cargarUsuarios()
-        {
+        public void cargarUsuarios() {
             string consulta = "SELECT usuario.id_usuario AS ID,usuario.nombre AS Nombre," +
                                " usuario.rut as Rut, usuario.correo as Correo, usuario.tipo as Cargo" +
                                " FROM usuario WHERE usuario.nombre != 'default'";
@@ -188,57 +167,46 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             this.CerrarConexion();
         }
 
-        public void botonDeshabilitarUsuario()
-        {
+        public void botonDeshabilitarUsuario() {
             int condicion = DeshabilitarUsuario();
-            if (condicion == 0)
-            {
+            if (condicion == 0) {
                 string s = "Usuario deshabilitado con exito.";
                 MessageBox.Show(s, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if(condicion == 1)
-            {
+            else if (condicion == 1) {
                 string s = "Error en deshabilitar usuario. El usuario es administrador de un departamento.";
                 MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
+            else {
                 string s = "Error en deshabilitar usuario. Los usuarios que poseen el cargo de Director o Secretaria no pueden ser deshabilitados.";
                 MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private int DeshabilitarUsuario()
-        {
+        private int DeshabilitarUsuario() {
             int index = this.ventana.dataGridViewUsuarios.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewUsuarios.Rows[index];
             String idUsuario = data.Cells[0].Value.ToString();
-            if(this.ValidacionUsuario(idUsuario) == true)
-            {
-                if(this.VerificacionAdministrador(idUsuario) == true)
-                {
+            if (this.ValidacionUsuario(idUsuario) == true) {
+                if (this.VerificacionAdministrador(idUsuario) == true) {
                     string consulta = "UPDATE usuario SET usuario.tipo = 'Deshabilitado' WHERE usuario.id_usuario = " + idUsuario + ";";
                     this.RealizarConsultaNoQuery(consulta);
                     this.ventana.refrescarTabla(2);
                     return 0;
                 }
-                else
-                {
+                else {
                     return 1;
                 }
             }
-            else
-            {
+            else {
                 return 2;
             }
         }
 
-        private bool VerificacionAdministrador(String idUsuario)
-        {
+        private bool VerificacionAdministrador(String idUsuario) {
             string consulta = "select departamento.id_dpto from departamento where departamento.id_usuario = " + idUsuario;
             MySqlDataReader reader = this.RealizarConsulta(consulta);
-            if (reader != null)
-            {   
+            if (reader != null) {
                 this.CerrarConexion();
                 return false;
             }
@@ -246,18 +214,15 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             return true;
         }
 
-        private Boolean ValidacionUsuario(string idUsuario)
-        {
+        private Boolean ValidacionUsuario(string idUsuario) {
             string consulta = "select usuario.tipo from usuario where usuario.id_usuario = " + idUsuario;
             MySqlDataReader reader = this.RealizarConsulta(consulta);
-            if (reader != null)
-            {
+            if (reader != null) {
                 reader.Read();
                 String tipoUsuario;
                 tipoUsuario = reader.GetValue(0).ToString();
                 Console.WriteLine(tipoUsuario);
-                if (tipoUsuario.Equals("Director") || tipoUsuario.Equals("Secretaria"))
-                {
+                if (tipoUsuario.Equals("Director") || tipoUsuario.Equals("Secretaria")) {
                     this.CerrarConexion();
                     return false;
                 }
@@ -267,6 +232,6 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             this.CerrarConexion();
             return false;
         }
-  
+
     }
 }
