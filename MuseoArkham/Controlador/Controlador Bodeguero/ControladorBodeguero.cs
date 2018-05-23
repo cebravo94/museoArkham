@@ -55,7 +55,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             int id_item = Int32.Parse(data.Cells[0].Value.ToString());
             String estado = data.Cells[6].Value.ToString();
             //Console.WriteLine(id_item);
-            if (estado!="En Restauracion")
+            if (estado != "En Restauracion")
             {
                 MySqlDataReader reader = this.RealizarConsulta("UPDATE museo.item SET estado = 'Deshabilitado' where id_item =" + id_item);
                 this.CerrarConexion();
@@ -65,9 +65,9 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
                 MessageBox.Show(this.ventana, "No se puede desincorporar el objeto si esta en Restauracion", "Accion Invalida",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
             //Console.WriteLine(index);
-            
+
         }
 
         /**
@@ -88,12 +88,15 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             {
                 MySqlDataReader reader = this.RealizarConsulta("UPDATE museo.item SET estado = 'En Bodega' where id_item =" + id_item);
                 this.CerrarConexion();
-
+                MessageBox.Show(this.ventana, "Objeto incorporado con exito", "Información",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 MySqlDataReader reader = this.RealizarConsulta("UPDATE museo.item SET estado = 'En Restauracion' where id_item =" + id_item);
                 this.CerrarConexion();
+                MessageBox.Show(this.ventana, "Objeto enviado a Restauracion con exito", "Información",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -120,7 +123,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
                 vista.ShowDialog(this.ventana);
             }
         }
-        
+
         private String FormatearFecha(DateTime fecha)
         {
             String dia = fecha.Day.ToString();
@@ -331,7 +334,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
                                   " where item.id_dpto=departamento.id_dpto" +
                                   " and departamento.id_dpto=" + departamento.Id +
                                   " and item.estado != 'Deshabilitado';";
-                
+
                 reader = this.RealizarConsulta(consulta);
                 this.PoblarTabla(ventana.dataGridViewObjetos, reader);
             }

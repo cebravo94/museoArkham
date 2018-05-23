@@ -22,6 +22,7 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
         {
             this.ventana = ventana;
             this.departamento = departamento;
+            this.cargarObjetosSala("Bodega");
         }
 
         /**
@@ -146,8 +147,9 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
                     " item.tipo AS Tipo, item.descripcion AS Descripción" +
                     " FROM item, sala" +
                     " WHERE sala.id_sala = item.id_sala" +
-                    " AND sala.nombre = '"+nombreSala+"'"+
-                    " AND sala.id_dpto = "+this.departamento.Id;
+                    " AND sala.nombre = '" + nombreSala + "'" +
+                    " AND item.estado!='Deshabilitado'" +
+                    " AND item.estado!='En Restauracion';";
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             if (reader != null) {
                 this.PoblarTabla(this.ventana.dataGridViewObjetosEnBodega, reader);
