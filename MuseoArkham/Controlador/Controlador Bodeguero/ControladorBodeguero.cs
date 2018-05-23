@@ -177,7 +177,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             ArrayList consultas = new ArrayList();
             ArrayList idItems1 = new ArrayList();
             ArrayList idItems2 = new ArrayList();
-            int index = this.ventana.dataGridViewObjetos.CurrentCell.RowIndex;
+            int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
             int id_Solicitud = Int32.Parse(data.Cells[0].Value.ToString());
             int id_Departamento = Int32.Parse(data.Cells[1].Value.ToString());
