@@ -222,6 +222,7 @@
             // 
             // buttonVerDetallesObjetos
             // 
+            this.buttonVerDetallesObjetos.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonVerDetallesObjetos.Location = new System.Drawing.Point(5, 144);
             this.buttonVerDetallesObjetos.Name = "buttonVerDetallesObjetos";
             this.buttonVerDetallesObjetos.Size = new System.Drawing.Size(123, 30);
