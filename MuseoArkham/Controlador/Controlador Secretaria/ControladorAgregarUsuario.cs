@@ -48,9 +48,35 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public void validarCampos(string nombre, string rut, string correo, string tipoUsuario, string contrasenna) {
-            if (nombre.Length > 0 && rut.Length > 0 && correo.Length > 0 && tipoUsuario.Length > 0 && contrasenna.Length > 0) {
-                botonAceptar(nombre, rut, correo, tipoUsuario, contrasenna);
+        public void validarCampos(string nombre, string rut, string correo, string tipoUsuario, string contrasenna)
+        {
+            if(nombre.Length > 0 && rut.Length > 0 && correo.Length > 0 && tipoUsuario.Length > 0 && contrasenna.Length > 0)
+            {
+                Boolean rutVerificacion = verificarRutUsuario(rut);
+                Boolean correoVerificacion = verificarCorreoUsuario(correo);
+                if (rutVerificacion == true && correoVerificacion == true)
+                {
+                    botonAceptar(nombre, rut, correo, tipoUsuario, contrasenna);
+                }
+                else if(rutVerificacion == false && correoVerificacion == true)
+                {
+                    string s = "Ya existe un usuario con el rut que se ha ingresado. El rut debe de " +
+                        "ser unico.";
+                    MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if(rutVerificacion == true && correoVerificacion == false)
+                {
+                    string s = "Ya existe un usuario con el correo que se ha ingresado. El correo debe de " +
+                        "ser unico.";
+                    MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    string s = "Ya existe un usuario con el rut y el correo electronico" +
+                        " que se ha ingresado. El rut y el correo electronico deben de " +
+                        "ser unicos.";
+                    MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else {
                 string s = "Todos los campos deben de tener un valor.";
@@ -59,8 +85,36 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
 
         }
 
-        private Boolean insertarUsuario(String nombre, String rut, String correo, String tipoUsuario, String contrasenna) {
-            try {
+        private bool verificarCorreoUsuario(string correo)
+        {
+            string consulta = "select * from usuario where usuario.correo = " + correo;
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            if (reader != null)
+            {
+                this.CerrarConexion();
+                return false;
+            }
+            this.CerrarConexion();
+            return true;
+        }
+
+        private Boolean verificarRutUsuario(string rut)
+        {
+            string consulta = "select * from usuario where usuario.rut = " + rut;
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            if (reader != null)
+            {
+                this.CerrarConexion();
+                return false;
+            }
+            this.CerrarConexion();
+            return true;
+        }
+
+        private Boolean insertarUsuario(String nombre, String rut, String correo, String tipoUsuario, String contrasenna)
+        {
+            try
+            {
                 string consulta = "INSERT INTO usuario (contrasenna,nombre,rut,correo,fecha_ingreso,tipo) " +
                     "VALUES ('" + contrasenna + "','" + nombre + "','" + rut + "','" + correo + "','" + DateTime.Today.ToString("yyyy/MM/dd") + "','" + tipoUsuario + "');";
                 Console.WriteLine(consulta);
