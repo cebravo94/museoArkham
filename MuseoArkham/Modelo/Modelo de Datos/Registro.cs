@@ -41,7 +41,7 @@ namespace MuseoArkham.Modelo
             IdGerente = Int32.Parse(reader["id_gerente"].ToString());
             IdSalaOrigen = Int32.Parse(reader["id_sala_origen"].ToString());
             IdSalaDestino = Int32.Parse(reader["id_sala_destino"].ToString());
-            FechaIngreso = DateTime.Parse(reader["id_fecha_ingreso"].ToString());
+            FechaIngreso = DateTime.Parse(reader["fecha_ingreso"].ToString());
         }
 
         public void AgregarItem(Item item)

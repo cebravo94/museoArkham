@@ -150,7 +150,6 @@
             this.tabControl1.Size = new System.Drawing.Size(826, 305);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPageObjetos
             // 
@@ -204,7 +203,7 @@
             this.dataGridViewObjetos.ReadOnly = true;
             this.dataGridViewObjetos.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewObjetos.TabIndex = 0;
-            this.dataGridViewObjetos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewObjetos_CellContentClick);
+           
             // 
             // groupBox3
             // 
@@ -231,7 +230,6 @@
             this.buttonVerDetallesObjetos.TabIndex = 4;
             this.buttonVerDetallesObjetos.Text = "Ver Detalles";
             this.buttonVerDetallesObjetos.UseVisualStyleBackColor = true;
-            this.buttonVerDetallesObjetos.Click += new System.EventHandler(this.buttonVerDetallesObjetos_Click);
             // 
             // buttonFiltrarObjetos
             // 
@@ -242,7 +240,6 @@
             this.buttonFiltrarObjetos.TabIndex = 3;
             this.buttonFiltrarObjetos.Text = "Filtrar";
             this.buttonFiltrarObjetos.UseVisualStyleBackColor = true;
-            this.buttonFiltrarObjetos.Click += new System.EventHandler(this.buttonFiltrarObjetos_Click);
             // 
             // buttonEnviarRestauracion
             // 
@@ -316,7 +313,6 @@
             this.groupBox4.Size = new System.Drawing.Size(675, 273);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter_1);
             // 
             // dataGridViewSolicitudesTraslado
             // 
@@ -416,7 +412,6 @@
             this.groupBox6.Size = new System.Drawing.Size(675, 273);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Enter += new System.EventHandler(this.groupBox6_Enter);
             // 
             // dataGridViewRegistros
             // 
@@ -430,7 +425,6 @@
             this.dataGridViewRegistros.ReadOnly = true;
             this.dataGridViewRegistros.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewRegistros.TabIndex = 0;
-            this.dataGridViewRegistros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRegistros_CellContentClick);
             // 
             // groupBox7
             // 
@@ -453,6 +447,7 @@
             this.buttonVerDetallesRegistro.TabIndex = 0;
             this.buttonVerDetallesRegistro.Text = "Ver detalles";
             this.buttonVerDetallesRegistro.UseVisualStyleBackColor = true;
+            this.buttonVerDetallesRegistro.Click += new System.EventHandler(this.buttonVerDetallesRegistro_Click);
             // 
             // VistaEncargadoDeBodega
             // 
@@ -466,7 +461,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Museo Arkham";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VistaEncargadoDeBodega_FormClosing);
-            this.Load += new System.EventHandler(this.VistaEncargadoDeBodega_Load);
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
