@@ -11,6 +11,7 @@ using System.Diagnostics;
 using MuseoArkham.Vista.Vistas_Administrador;
 using MuseoArkham.Vista.VistasItem;
 using System.Collections;
+using MuseoArkham.Vista.VistasCompartidas;
 
 namespace MuseoArkham.Controlador.Controlador_Bodeguero
 {
@@ -44,8 +45,13 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             //Console.WriteLine(id_item);
             if (estado != "En Restauracion")
             {
-                MySqlDataReader reader = this.RealizarConsulta("UPDATE museo.item SET estado = 'Deshabilitado' where id_item =" + id_item);
-                this.CerrarConexion();
+                DialogResult result = MessageBox.Show(this.ventana, "¿Esta seguro que desea desincorporar el objeto?", "Advertencia",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    MySqlDataReader reader = this.RealizarConsulta("UPDATE museo.item SET estado = 'Deshabilitado' where id_item =" + id_item);
+                    this.CerrarConexion();
+                }
             }
             else
             {
@@ -260,7 +266,12 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
         **/
         public void VerDetallesRegistros()
         {
-
+            if (this.ventana.dataGridViewRegistros.RowCount > 0)
+            {
+                int index = this.ObtenerIdRegistro();
+                VistaVerRegistro vista = new VistaVerRegistro(index);
+                vista.ShowDialog(this.ventana);
+            }
         }
 
         private int obtenerIdSolicitud()
@@ -277,6 +288,14 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             DataGridViewRow data = this.ventana.dataGridViewObjetos.Rows[index];
             int idItem = Int32.Parse(data.Cells[0].Value.ToString());
             return idItem;
+        }
+
+        private int ObtenerIdRegistro()
+        {
+            int index = this.ventana.dataGridViewRegistros.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewRegistros.Rows[index];
+            int idRegistro = Int32.Parse(data.Cells[0].Value.ToString());
+            return idRegistro;
         }
 
         private Departamento cargarDepartamento()
@@ -360,7 +379,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
 
         private void CargarRegistros()
         {
-            MySqlDataReader reader = this.RealizarConsulta("SELECT registro.id_registro AS Registro, item.nombre AS Item, departamento.nombre AS NombreDpto, C2.Administrador, usuario.nombre AS Gerente, sala.nombre AS SalaOrigen, C1.SalaDestino " +
+            MySqlDataReader reader = this.RealizarConsulta("SELECT registro.id_registro AS Registro, item.nombre AS Item, departamento.nombre AS NombreDpto, sala.nombre AS SalaOrigen, C1.SalaDestino " +
                 "FROM museo.registro, museo.item, museo.usuario, museo.sala, museo.departamento, " +
                 "(SELECT sala.nombre AS SalaDestino, sala.id_sala AS IDSala " +
                 "FROM museo.registro, museo.sala " +
