@@ -38,8 +38,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewSolicitudesTraslado = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.buttonVerSolicitud = new System.Windows.Forms.Button();
-            this.buttonFiltrarSolicitudes = new System.Windows.Forms.Button();
             this.buttonCancelarSolicitud = new System.Windows.Forms.Button();
             this.buttonCrearSolicitud = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -47,8 +50,11 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewObjetos = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.buttonFiltrarObjetos = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewRegistros = new System.Windows.Forms.DataGridView();
@@ -66,6 +72,7 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSolicitudesTraslado)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -74,6 +81,7 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).BeginInit();
             this.groupBox5.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistros)).BeginInit();
@@ -191,8 +199,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.buttonVerSolicitud);
-            this.groupBox3.Controls.Add(this.buttonFiltrarSolicitudes);
             this.groupBox3.Controls.Add(this.buttonCancelarSolicitud);
             this.groupBox3.Controls.Add(this.buttonCrearSolicitud);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -205,28 +213,63 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.button3);
+            this.groupBox6.Controls.Add(this.button2);
+            this.groupBox6.Controls.Add(this.comboBox1);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox6.Location = new System.Drawing.Point(5, 108);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(123, 160);
+            this.groupBox6.TabIndex = 4;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Filtro";
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.Location = new System.Drawing.Point(3, 60);
+            this.button3.Name = "button3";
+            this.button3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.button3.Size = new System.Drawing.Size(117, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Quitar filtro";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.Location = new System.Drawing.Point(3, 37);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(117, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Aplicar filtro";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(3, 16);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(117, 21);
+            this.comboBox1.TabIndex = 0;
+            // 
             // buttonVerSolicitud
             // 
             this.buttonVerSolicitud.BackColor = System.Drawing.Color.Transparent;
             this.buttonVerSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonVerSolicitud.Location = new System.Drawing.Point(5, 108);
+            this.buttonVerSolicitud.Location = new System.Drawing.Point(5, 78);
             this.buttonVerSolicitud.Name = "buttonVerSolicitud";
             this.buttonVerSolicitud.Size = new System.Drawing.Size(123, 30);
             this.buttonVerSolicitud.TabIndex = 3;
-            this.buttonVerSolicitud.Text = "Ver Solicitud";
+            this.buttonVerSolicitud.Text = "Ver solicitud";
             this.buttonVerSolicitud.UseVisualStyleBackColor = false;
             this.buttonVerSolicitud.Click += new System.EventHandler(this.buttonVerSolicitud_Click);
-            // 
-            // buttonFiltrarSolicitudes
-            // 
-            this.buttonFiltrarSolicitudes.BackColor = System.Drawing.Color.Transparent;
-            this.buttonFiltrarSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonFiltrarSolicitudes.Location = new System.Drawing.Point(5, 78);
-            this.buttonFiltrarSolicitudes.Name = "buttonFiltrarSolicitudes";
-            this.buttonFiltrarSolicitudes.Size = new System.Drawing.Size(123, 30);
-            this.buttonFiltrarSolicitudes.TabIndex = 2;
-            this.buttonFiltrarSolicitudes.Text = "Filtrar";
-            this.buttonFiltrarSolicitudes.UseVisualStyleBackColor = false;
             // 
             // buttonCancelarSolicitud
             // 
@@ -307,8 +350,8 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.groupBox7);
             this.groupBox5.Controls.Add(this.button1);
-            this.groupBox5.Controls.Add(this.buttonFiltrarObjetos);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(5);
@@ -318,26 +361,62 @@
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.button4);
+            this.groupBox7.Controls.Add(this.button5);
+            this.groupBox7.Controls.Add(this.comboBox2);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox7.Location = new System.Drawing.Point(5, 48);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(123, 220);
+            this.groupBox7.TabIndex = 5;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Filtro";
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.Location = new System.Drawing.Point(3, 60);
+            this.button4.Name = "button4";
+            this.button4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.button4.Size = new System.Drawing.Size(117, 23);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Quitar filtro";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button5.Location = new System.Drawing.Point(3, 37);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(117, 23);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Aplicar filtro";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(3, 16);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(117, 21);
+            this.comboBox2.TabIndex = 0;
+            // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(5, 48);
+            this.button1.Location = new System.Drawing.Point(5, 18);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 30);
             this.button1.TabIndex = 1;
             this.button1.Text = "Ver detalle";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // buttonFiltrarObjetos
-            // 
-            this.buttonFiltrarObjetos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonFiltrarObjetos.Location = new System.Drawing.Point(5, 18);
-            this.buttonFiltrarObjetos.Name = "buttonFiltrarObjetos";
-            this.buttonFiltrarObjetos.Size = new System.Drawing.Size(123, 30);
-            this.buttonFiltrarObjetos.TabIndex = 0;
-            this.buttonFiltrarObjetos.Text = "Filtrar";
-            this.buttonFiltrarObjetos.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
@@ -398,6 +477,7 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSolicitudesTraslado)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
@@ -406,6 +486,7 @@
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).EndInit();
             this.groupBox5.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistros)).EndInit();
@@ -422,13 +503,11 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button buttonFiltrarSolicitudes;
         private System.Windows.Forms.Button buttonCancelarSolicitud;
         private System.Windows.Forms.Button buttonCrearSolicitud;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button buttonFiltrarObjetos;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.DataGridView dataGridViewObjetos;
         public System.Windows.Forms.TabControl tabControl1;
@@ -438,5 +517,13 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.DataGridView dataGridViewRegistros;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.ComboBox comboBox2;
     }
 }
