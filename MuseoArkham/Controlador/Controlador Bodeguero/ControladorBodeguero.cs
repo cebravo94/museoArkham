@@ -29,19 +29,6 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
         }
 
         /**
-         * 
-         * <sumary>
-         * Este metodo se encarga de recibir un objeto creado por el encargado de bodega y lo agrega al inventario de la bodega
-         * del museo.
-         * En la pestaña "Objetos"
-         * </sumary>
-        **/
-        public void IncorporarObjeto()
-        {
-
-        }
-
-        /**
          * <sumary>
          * Este metodo se encarga de obtener un objeto en particular y una vez obtenido debe desincorporar el objeto del inventario
          * de la bodega del museo. (Este objeto no se elimina de la base de datos).
@@ -180,10 +167,11 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
             int id_Solicitud = Int32.Parse(data.Cells[0].Value.ToString());
-            int id_Departamento = Int32.Parse(data.Cells[1].Value.ToString());
-            int id_Administrador = Int32.Parse(data.Cells[2].Value.ToString());
-            int id_SalaOrigen = Int32.Parse(data.Cells[3].Value.ToString());
-            int id_SalaDestino = Int32.Parse(data.Cells[4].Value.ToString());
+            String consulta0 = "SELECT * FROM museo.solicitud WHERE solicitud.id_solicitud="+id_Solicitud+";";
+            MySqlDataReader reader0 = this.RealizarConsulta(consulta0);
+            reader0.Read();
+            Solicitud solicitud = new Solicitud(reader0);
+            this.CerrarConexion();
             DateTime fechaIngreso = DateTime.Today;
 
             MySqlDataReader reader = this.RealizarConsulta("SELECT itemsolicitado.id_item FROM museo.itemsolicitado WHERE id_solicitud = " + id_Solicitud);
@@ -192,7 +180,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
                 while (reader.Read())
                 {
                     int id_item = reader.GetInt32(0);
-                    if (id_SalaDestino == 1)
+                    if (solicitud.IdSalaDestino == 1)
                     {
                         idItems1.Add(id_item);
                     }
@@ -200,7 +188,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
                     {
                         idItems2.Add(id_item);
                     }
-                    Registro registro = new Registro(0, id_Departamento, id_item, id_Administrador, 4, id_SalaOrigen, id_SalaDestino, fechaIngreso);
+                    Registro registro = new Registro(0, solicitud.IdDpto, id_item, solicitud.IdAdministrador, 4, solicitud.IdSalaOrigen, solicitud.IdSalaDestino, fechaIngreso);
                     String consulta = "INSERT INTO registro (id_dpto,id_item,id_admin,id_gerente,id_sala_origen,id_sala_destino,fecha_ingreso) " +
                         "VALUES (" + registro.IdDpto + "," + registro.IdItem + "," + registro.IdAdmin + "," + registro.IdGerente +
                         "," + registro.IdSalaOrigen + "," + registro.IdSalaDestino + ",'" + this.FormatearFecha(registro.FechaIngreso) + "'); ";
@@ -219,7 +207,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             }
             foreach (int id in idItems2)
             {
-                this.ConsultaActualizarUbicacionItemAExhibicion(id, id_Departamento, id_SalaDestino);
+                this.ConsultaActualizarUbicacionItemAExhibicion(id, solicitud.IdDpto, solicitud.IdSalaDestino);
             }
             this.ConsultaActualizarEstadoSolicitud(id_Solicitud);
 
@@ -328,8 +316,8 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             {
                 Departamento departamento = new Departamento(reader);
                 this.CerrarConexion();
-                String consulta = "select id_item AS ID,item.id_dpto,item.nombre AS Nombre,fecha_ingreso," +
-                                  " item.descripcion,coleccion,estado,anno" +
+                String consulta = "select id_item AS ID,item.nombre AS Nombre, fecha_ingreso AS Fecha_Ingreso," +
+                                  " item.descripcion AS Descripción,coleccion AS Colección,estado AS Estado,anno AS Año" +
                                   " from museo.item, museo.departamento" +
                                   " where item.id_dpto=departamento.id_dpto" +
                                   " and departamento.id_dpto=" + departamento.Id +
@@ -355,15 +343,36 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
 
         private void CargarSolicitudes()
         {
-            MySqlDataReader reader = this.RealizarConsulta("SELECT * FROM museo.solicitud where estado ='Aceptada' and " +
-                "(id_sala_destino=1 or id_sala_origen=1);");
+            string consulta = "SELECT solicitud.id_solicitud AS ID, usuario.nombre, sala.nombre as Origen," +
+                    " N.salaDestino as Destino, solicitud.estado AS Estado," +
+                    " solicitud.comentario as Comentario FROM usuario, solicitud, sala ," +
+                        " (SELECT sala.nombre AS salaDestino, solicitud.id_solicitud AS iD" +
+                        " FROM sala, solicitud" +
+                        " WHERE solicitud.id_sala_destino = sala.id_sala) AS N " +
+                    " WHERE solicitud.id_sala_origen = sala.id_sala" +
+                    " AND solicitud.id_administrador = usuario.id_usuario" +
+                    " AND N.iD = solicitud.id_solicitud" +
+                    " AND solicitud.estado ='Aceptada' AND (solicitud.id_sala_destino=1 or solicitud.id_sala_origen=1);";
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
             this.PoblarTabla(ventana.dataGridViewSolicitudesTraslado, reader);
             this.CerrarConexion();
         }
 
         private void CargarRegistros()
         {
-            MySqlDataReader reader = this.RealizarConsulta("SELECT * FROM museo.registro");
+            MySqlDataReader reader = this.RealizarConsulta("SELECT registro.id_registro AS Registro, item.nombre AS Item, departamento.nombre AS NombreDpto, C2.Administrador, usuario.nombre AS Gerente, sala.nombre AS SalaOrigen, C1.SalaDestino " +
+                "FROM museo.registro, museo.item, museo.usuario, museo.sala, museo.departamento, " +
+                "(SELECT sala.nombre AS SalaDestino, sala.id_sala AS IDSala " +
+                "FROM museo.registro, museo.sala " +
+                "WHERE registro.id_sala_destino = sala.id_sala " +
+                "GROUP BY SalaDestino) AS C1, " +
+                "(SELECT usuario.nombre AS Administrador, usuario.id_usuario AS IDAdmin " +
+                "FROM museo.registro, museo.usuario " +
+                "WHERE registro.id_admin = usuario.id_usuario " +
+                "GROUP BY Administrador) AS C2 " +
+                "WHERE registro.id_dpto = departamento.id_dpto AND registro.id_sala_origen = sala.id_sala AND " +
+                "item.id_item = registro.id_item AND registro.id_gerente = usuario.id_usuario AND " +
+                "C1.IDSala = registro.id_sala_destino AND C2.IDAdmin = registro.id_admin;");
             this.PoblarTabla(ventana.dataGridViewRegistros, reader);
             this.CerrarConexion();
         }
