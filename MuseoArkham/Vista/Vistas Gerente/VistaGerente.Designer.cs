@@ -48,6 +48,11 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.botonFiltrarObjetos = new System.Windows.Forms.Button();
             this.botonVerDetallesObjeto = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxFiltrarEstado = new System.Windows.Forms.ComboBox();
+            this.comboBoxTipo = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -285,6 +290,11 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.botonFiltrarObjetos);
+            this.groupBox5.Controls.Add(this.comboBoxTipo);
+            this.groupBox5.Controls.Add(this.label3);
+            this.groupBox5.Controls.Add(this.comboBoxFiltrarEstado);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.label1);
             this.groupBox5.Controls.Add(this.botonVerDetallesObjeto);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
@@ -298,12 +308,13 @@
             // botonFiltrarObjetos
             // 
             this.botonFiltrarObjetos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.botonFiltrarObjetos.Location = new System.Drawing.Point(5, 48);
+            this.botonFiltrarObjetos.Location = new System.Drawing.Point(5, 153);
             this.botonFiltrarObjetos.Name = "botonFiltrarObjetos";
             this.botonFiltrarObjetos.Size = new System.Drawing.Size(123, 30);
             this.botonFiltrarObjetos.TabIndex = 1;
             this.botonFiltrarObjetos.Text = "Filtrar";
             this.botonFiltrarObjetos.UseVisualStyleBackColor = true;
+            this.botonFiltrarObjetos.Click += new System.EventHandler(this.botonFiltrarObjetos_Click);
             // 
             // botonVerDetallesObjeto
             // 
@@ -315,6 +326,72 @@
             this.botonVerDetallesObjeto.Text = "Ver detalles";
             this.botonVerDetallesObjeto.UseVisualStyleBackColor = true;
             this.botonVerDetallesObjeto.Click += new System.EventHandler(this.botonVerDetallesObjeto_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Location = new System.Drawing.Point(5, 48);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
+            this.label1.Size = new System.Drawing.Size(34, 28);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Filtros";
+            // 
+            // comboBoxFiltrarEstado
+            // 
+            this.comboBoxFiltrarEstado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBoxFiltrarEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFiltrarEstado.FormattingEnabled = true;
+            this.comboBoxFiltrarEstado.Items.AddRange(new object[] {
+            "Todos",
+            "En Exhibición",
+            "En Solicitud",
+            "En Restauración"});
+            this.comboBoxFiltrarEstado.Location = new System.Drawing.Point(5, 92);
+            this.comboBoxFiltrarEstado.Name = "comboBoxFiltrarEstado";
+            this.comboBoxFiltrarEstado.Size = new System.Drawing.Size(123, 21);
+            this.comboBoxFiltrarEstado.TabIndex = 3;
+            this.comboBoxFiltrarEstado.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltrarEstado_SelectedIndexChanged);
+            // 
+            // comboBoxTipo
+            // 
+            this.comboBoxTipo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBoxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTipo.FormattingEnabled = true;
+            this.comboBoxTipo.Items.AddRange(new object[] {
+            "Todos",
+            "Documento",
+            "Vehículo",
+            "Pieza",
+            "Obra"});
+            this.comboBoxTipo.Location = new System.Drawing.Point(5, 132);
+            this.comboBoxTipo.Name = "comboBoxTipo";
+            this.comboBoxTipo.Size = new System.Drawing.Size(123, 21);
+            this.comboBoxTipo.TabIndex = 4;
+            this.comboBoxTipo.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipo_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Location = new System.Drawing.Point(5, 76);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.label2.Size = new System.Drawing.Size(40, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Estado";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Location = new System.Drawing.Point(5, 113);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.label3.Size = new System.Drawing.Size(28, 19);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Tipo";
             // 
             // VistaGerente
             // 
@@ -352,6 +429,7 @@
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).EndInit();
             this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -377,5 +455,10 @@
         private System.Windows.Forms.Button botonFiltrarObjetos;
         private System.Windows.Forms.Button botonVerDetallesObjeto;
         public System.Windows.Forms.DataGridView dataGridViewObjetos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.ComboBox comboBoxFiltrarEstado;
+        public System.Windows.Forms.ComboBox comboBoxTipo;
     }
 }

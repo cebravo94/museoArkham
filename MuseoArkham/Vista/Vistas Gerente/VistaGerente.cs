@@ -20,6 +20,7 @@ namespace MuseoArkham.Vista
             this.controlador = new ControladorGerente(this, usuario);  
             InitializeComponent();
             this.controlador.cargarDatosTabla(0);
+            this.comboBoxFiltrarEstado.SelectedIndex = 0;
         }
 
         private void VistaGerente_FormClosing(object sender, FormClosingEventArgs e) {
@@ -61,5 +62,21 @@ namespace MuseoArkham.Vista
         {
             this.controlador.verDetalleObjeto();
         }
+
+        private void comboBoxFiltrarEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void botonFiltrarObjetos_Click(object sender, EventArgs e)
+        {
+            this.controlador.cargarDatosTabla(1);
+        }
+
+        private void comboBoxTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }
