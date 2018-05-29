@@ -36,7 +36,8 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
             int id = int.Parse(data.Cells[0].Value.ToString());
-            string consulta = "SELECT * FROM itemsolicitado,item WHERE itemsolicitado.id_item = item.id_item AND itemsolicitado.id_solicitud=" + id;
+
+            string consulta = "SELECT * FROM itemsolicitado,item, solicitud WHERE itemsolicitado.id_item = item.id_item AND solicitud.id_solicitud = itemsolicitado.id_solicitud AND itemsolicitado.id_solicitud=" + id;
             MySqlDataReader reader1 = this.RealizarConsulta(consulta);
             if (reader1 == null) {
                 string s = "No hay objetos vinculados a la solicitud";
@@ -101,6 +102,14 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
                     MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
+                Console.WriteLine(row[16]);
+                Console.WriteLine(row[4]);
+                if (!row[16].ToString().Equals(row[4].ToString()))
+                {
+                    string s = "El objeto solicitado ya no se encuentra disponible";
+                    MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
             return true;
         }
@@ -111,7 +120,7 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
                 int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
                 DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
                 String estado = data.Cells[4].Value.ToString();
-                if (estado.Equals("Aceptada") || estado.Equals("Rechazada")) {
+                if (estado.Equals("Aceptada") || estado.Equals("Rechazada")||estado.Equals("Despachada")) {
                     this.ventana.botonAceptarSolicitud.Enabled = false;
                     this.ventana.botonRechazarSolicitud.Enabled = false;
 
