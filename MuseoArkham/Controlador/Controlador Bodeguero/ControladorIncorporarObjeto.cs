@@ -72,8 +72,10 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             String autor = ventana.textBoxAutorDocumento.Text;
             String descripcion = ventana.textBoxDescripcionDocumento.Text;
             DateTime fechaIngreso = DateTime.Today;
-            if (anno != -1 && anno<=DateTime.Today.Year && era != null && tipo != null && !string.IsNullOrEmpty(nombreDocumento) 
-                && !string.IsNullOrEmpty(coleccionDocumento) && !string.IsNullOrEmpty(autor) && !string.IsNullOrWhiteSpace(nombreDocumento)
+            if (anno != -1 && (anno <= DateTime.Today.Year || ((anno > DateTime.Today.Year) && (era == "A.C."))) 
+                && era != null && tipo != null && !string.IsNullOrEmpty(nombreDocumento) 
+                && !string.IsNullOrEmpty(coleccionDocumento) && !string.IsNullOrEmpty(autor) 
+                && !string.IsNullOrWhiteSpace(nombreDocumento)
                 && !string.IsNullOrWhiteSpace(coleccionDocumento) && !string.IsNullOrWhiteSpace(autor))
             {
                 documentoNuevo = new Documento(0, 2, 1, fechaIngreso, descripcion, coleccionDocumento, "En Bodega", nombreDocumento, "documento", anno, era, tipo, autor);
@@ -82,7 +84,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             }
             else
             {
-                if (anno > DateTime.Today.Year)
+                if ((anno > DateTime.Today.Year) && (era == "D.C."))
                 {
                     MessageBox.Show(this.ventana, "El objeto no puede tener un AÑO mayor al actual", "Accion Invalida",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -137,9 +139,10 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             String estilo = ventana.textBoxEstiloObra.Text;
             String descripcion = ventana.textBoxDescripcionObra.Text;
             DateTime fechaIngreso = DateTime.Today;
-            if (anno != -1 && anno <= DateTime.Today.Year && era != null && tipo != null && !string.IsNullOrEmpty(nombreObra) 
-                && !string.IsNullOrEmpty(coleccionObra) && !string.IsNullOrEmpty(autor) && !string.IsNullOrEmpty(material) &&
-                !string.IsNullOrEmpty(estilo) && !string.IsNullOrWhiteSpace(nombreObra) && !string.IsNullOrWhiteSpace(coleccionObra)
+            if (anno != -1 && (anno <= DateTime.Today.Year || ((anno > DateTime.Today.Year) && (era == "A.C."))) 
+                && era != null && tipo != null && !string.IsNullOrEmpty(nombreObra) && !string.IsNullOrEmpty(coleccionObra) 
+                && !string.IsNullOrEmpty(autor) && !string.IsNullOrEmpty(material) && !string.IsNullOrEmpty(estilo) 
+                && !string.IsNullOrWhiteSpace(nombreObra) && !string.IsNullOrWhiteSpace(coleccionObra) 
                 && !string.IsNullOrWhiteSpace(autor) && !string.IsNullOrWhiteSpace(material) && !string.IsNullOrWhiteSpace(estilo))
             {
                 obraNueva = new Obra(0, 2, 1, fechaIngreso, descripcion, coleccionObra, "En Bodega", nombreObra, "obra", anno, era, material, estilo, tipo, autor);
@@ -148,9 +151,9 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             }
             else
             {
-                if (anno > DateTime.Today.Year)
+                if ((anno > DateTime.Today.Year) && (era=="D.C."))
                 {
-                    MessageBox.Show(this.ventana, "El objeto no puede tener un AÑO mayor al actual", "Accion Invalida",
+                    MessageBox.Show(this.ventana, "El objeto no puede tener un AÑO mayor actual si la era es D.C.", "Accion Invalida",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
@@ -201,7 +204,8 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             String descripcion = ventana.textBoxDescripcionPieza.Text;
             DateTime fechaIngreso = DateTime.Today;
 
-            if (anno != -1 && anno <= DateTime.Today.Year && era != null && tipo != null && !string.IsNullOrEmpty(nombrePieza)
+            if (anno != -1 && (anno <= DateTime.Today.Year || ((anno > DateTime.Today.Year) && (era == "A.C."))) 
+                && era != null && tipo != null && !string.IsNullOrEmpty(nombrePieza)
                 && !string.IsNullOrEmpty(coleccionPieza) && !string.IsNullOrEmpty(periodo) && !string.IsNullOrWhiteSpace(nombrePieza)
                 && !string.IsNullOrWhiteSpace(coleccionPieza) && !string.IsNullOrWhiteSpace(periodo))
             {
@@ -211,7 +215,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             }
             else
             {
-                if (anno > DateTime.Today.Year)
+                if ((anno > DateTime.Today.Year) && (era == "D.C."))
                 {
                     MessageBox.Show(this.ventana, "El objeto no puede tener un AÑO mayor al actual", "Accion Invalida",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -253,7 +257,8 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             String modelo = ventana.textBoxModeloVehiculo.Text;
             String descripcion = ventana.textBoxDescripcionVehiculo.Text;
             DateTime fechaIngreso = DateTime.Today;
-            if (anno != -1 && anno <= DateTime.Today.Year && era != null && !string.IsNullOrEmpty(nombreVehiculo)
+            if (anno != -1 && (anno <= DateTime.Today.Year || ((anno > DateTime.Today.Year) && (era == "A.C."))) 
+                && era != null && !string.IsNullOrEmpty(nombreVehiculo)
                 && !string.IsNullOrEmpty(coleccionVehiculo) && !string.IsNullOrEmpty(marca) && !string.IsNullOrEmpty(modelo)
                 && !string.IsNullOrWhiteSpace(nombreVehiculo) && !string.IsNullOrWhiteSpace(coleccionVehiculo)
                 && !string.IsNullOrWhiteSpace(marca) && !string.IsNullOrWhiteSpace(modelo))
@@ -264,7 +269,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             }
             else
             {
-                if (anno > DateTime.Today.Year)
+                if ((anno > DateTime.Today.Year) && (era=="D.C."))
                 {
                     MessageBox.Show(this.ventana, "El objeto no puede tener un AÑO mayor al actual", "Accion Invalida",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
