@@ -30,16 +30,28 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         public void botonEliminar(DataGridView data) {
 
             string depto = this.obtenerDepto(data);
-            if (this.validarSalas(depto)) {
+            if (this.ValidarBodega(depto))
+            {
+
+                this.mostrarMensaje("No se puede eliminar la bodega");
+
+            }
+            else if (this.validarSalas(depto) ) {
                 this.cambiarAdmin(depto);
                 this.cambiarEstado(depto);
                 this.cambiarDepto(depto);
                 this.eliminarDepto(depto);
                 this.ventana.refrescarTabla(0);
+            }else {
+
+                this.mostrarMensaje("Departamento aún tiene asociados items");
             }
-            else {
-                MessageBox.Show("Departamento aún tiene asociado items,solicite a un administrador moverlos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+        }
+
+        private void mostrarMensaje(string mensaje)
+        {
+            MessageBox.Show(mensaje , "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -81,7 +93,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         }
 
         private void eliminarDepto(string depto) {
-            string eliminarDepto = "DELETE FROM departamento WHERE departamento.id_dpto ='" + depto + "'";
+            string eliminarDepto = "UPDATE departamento SET departamento.estado = 'Inactivo' WHERE departamento.id_dpto ='" + depto + "'";
             this.RealizarConsultaNoQuery(eliminarDepto);
             this.CerrarConexion();
         }
@@ -99,6 +111,24 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
                 return true;
             }
 
+        }
+
+        private Boolean ValidarBodega(string depto)
+        {
+            string consulta ="SELECT nombre AS nombre FROM departamento" +
+                            " WHERE departamento.id_dpto = '" + depto + "'";
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            reader.Read();
+            string nombre = reader["nombre"].ToString();
+            this.CerrarConexion();
+            if (nombre.Equals("Bodega"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /**
@@ -140,7 +170,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         public void cargarDepartamentos() {
             string consulta = "SELECT  departamento.id_dpto AS ID,departamento.nombre AS Departamento, usuario.nombre AS Administrador" +
                                " FROM departamento,usuario" +
-                               " WHERE departamento.id_usuario = usuario.id_usuario AND departamento.nombre != 'default'";
+                               " WHERE departamento.id_usuario = usuario.id_usuario AND departamento.nombre != 'default' AND departamento.estado = 'Activo'";
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             this.PoblarTabla(ventana.dataGridViewDepartamento, reader);
             this.CerrarConexion();
