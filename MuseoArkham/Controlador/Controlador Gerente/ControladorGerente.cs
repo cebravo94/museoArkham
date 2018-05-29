@@ -185,50 +185,6 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
                    " AND sala.id_sala = item.id_sala" +
                    " AND NOT item.estado = 'Deshabilitado'";
             
-            String condicion;
-            if (this.ventana.comboBoxFiltrarEstado.Text.Equals("En Exhibición"))
-            {
-                condicion = "'En Exhibicion'";
-                consulta = consulta + " AND item.estado=" + condicion;
-            }
-            else if(this.ventana.comboBoxFiltrarEstado.Text.Equals("En Solicitud"))
-            {
-                condicion = "'En Solicitud'";
-                consulta = consulta + " AND item.estado=" + condicion;
-
-            }
-            else if(this.ventana.comboBoxFiltrarEstado.Text.Equals("En Restauración"))
-            {
-                condicion = "'En Restauracion'";
-                consulta = consulta+ " AND item.estado=" + condicion;
-            }
-
-            if (this.ventana.comboBoxTipo.Text.Equals("Documento"))
-            {
-                condicion = "'documento'";
-                consulta = consulta + " AND item.tipo=" + condicion;
-            }
-            else if (this.ventana.comboBoxTipo.Text.Equals("Vehículo"))
-            {
-                condicion = "'vehiculo'";
-                consulta = consulta + " AND item.tipo=" + condicion;
-            }
-            else if (this.ventana.comboBoxTipo.Text.Equals("Pieza"))
-            {
-                condicion = "'pieza'";
-                consulta = consulta + " AND item.tipo=" + condicion;
-            }
-            else if (this.ventana.comboBoxTipo.Text.Equals("Obra"))
-            {
-                condicion = "'obra'";
-                consulta = consulta + " AND item.tipo=" + condicion;
-            }
-            
-            Console.WriteLine("CONSULTA "+ consulta);
-            
-           
-
-
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             this.PoblarTabla(ventana.dataGridViewObjetos, reader);
             this.CerrarConexion();

@@ -20,7 +20,6 @@ namespace MuseoArkham.Vista
             InitializeComponent();
             this.controlador = new ControladorGerente(this, usuario);  
             this.controlador.cargarDatosTabla(0);
-            this.comboBoxFiltrarEstado.SelectedIndex = 0;
         }
 
         private void VistaGerente_FormClosing(object sender, FormClosingEventArgs e) {
