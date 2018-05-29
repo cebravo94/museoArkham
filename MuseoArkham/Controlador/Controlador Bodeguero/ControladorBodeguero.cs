@@ -296,13 +296,14 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             if (reader != null) {
                 Departamento departamento = new Departamento(reader);
                 this.CerrarConexion();
-                String consulta = "select id_item AS ID,item.nombre AS Nombre, fecha_ingreso AS Fecha_Ingreso," +
-                                  " item.descripcion AS Descripción,coleccion AS Colección,estado AS Estado,anno AS Año" +
+                String consulta = "select id_item AS ID,item.nombre AS Nombre, departamento.nombre AS NombreDpto," +
+                                  " fecha_ingreso AS Fecha_Ingreso, item.tipo AS Tipo," +
+                                  " coleccion AS Colección,item.estado AS Estado, anno AS Año, item.descripcion AS Descripción" +
                                   " from museo.item, museo.departamento" +
                                   " where item.id_dpto=departamento.id_dpto" +
                                   " and departamento.id_dpto=" + departamento.Id +
                                   " and item.estado != 'Deshabilitado';";
-
+                Console.WriteLine(consulta);
                 reader = this.RealizarConsulta(consulta);
                 this.PoblarTabla(ventana.dataGridViewObjetos, reader);
             }

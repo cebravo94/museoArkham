@@ -22,6 +22,7 @@ CREATE TABLE departamento(
   id_usuario INT NOT NULL,
   nombre VARCHAR(100) NOT NULL,
   descripcion VARCHAR(500),
+  estado VARCHAR(100) NOT NULL,
   FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE RESTRICT
 );
 

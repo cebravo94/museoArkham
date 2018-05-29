@@ -38,6 +38,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewSolicitudesTraslado = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.buttonCancelarFiltroSolicitudes = new System.Windows.Forms.Button();
+            this.buttonAplicarFiltroSolicitudes = new System.Windows.Forms.Button();
+            this.comboBoxSolicitudes = new System.Windows.Forms.ComboBox();
             this.botonVerDetalleSolicitudTraslado = new System.Windows.Forms.Button();
             this.botonRechazarSolicitud = new System.Windows.Forms.Button();
             this.botonAceptarSolicitud = new System.Windows.Forms.Button();
@@ -51,10 +55,6 @@
             this.buttonAplicarFiltroObjetos = new System.Windows.Forms.Button();
             this.comboBoxObjetos = new System.Windows.Forms.ComboBox();
             this.botonVerDetallesObjeto = new System.Windows.Forms.Button();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.buttonCancelarFiltroSolicitudes = new System.Windows.Forms.Button();
-            this.buttonAplicarFiltroSolicitudes = new System.Windows.Forms.Button();
-            this.comboBoxSolicitudes = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -69,6 +69,7 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSolicitudesTraslado)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.tabPageObjetos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -78,7 +79,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -207,6 +207,53 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.buttonCancelarFiltroSolicitudes);
+            this.groupBox7.Controls.Add(this.buttonAplicarFiltroSolicitudes);
+            this.groupBox7.Controls.Add(this.comboBoxSolicitudes);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox7.Location = new System.Drawing.Point(5, 108);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(123, 160);
+            this.groupBox7.TabIndex = 6;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Filtro";
+            // 
+            // buttonCancelarFiltroSolicitudes
+            // 
+            this.buttonCancelarFiltroSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonCancelarFiltroSolicitudes.Enabled = false;
+            this.buttonCancelarFiltroSolicitudes.Location = new System.Drawing.Point(3, 60);
+            this.buttonCancelarFiltroSolicitudes.Name = "buttonCancelarFiltroSolicitudes";
+            this.buttonCancelarFiltroSolicitudes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.buttonCancelarFiltroSolicitudes.Size = new System.Drawing.Size(117, 23);
+            this.buttonCancelarFiltroSolicitudes.TabIndex = 2;
+            this.buttonCancelarFiltroSolicitudes.Text = "Quitar filtro";
+            this.buttonCancelarFiltroSolicitudes.UseVisualStyleBackColor = true;
+            this.buttonCancelarFiltroSolicitudes.Click += new System.EventHandler(this.buttonCancelarFiltroSolicitudes_Click);
+            // 
+            // buttonAplicarFiltroSolicitudes
+            // 
+            this.buttonAplicarFiltroSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonAplicarFiltroSolicitudes.Location = new System.Drawing.Point(3, 37);
+            this.buttonAplicarFiltroSolicitudes.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.buttonAplicarFiltroSolicitudes.Name = "buttonAplicarFiltroSolicitudes";
+            this.buttonAplicarFiltroSolicitudes.Size = new System.Drawing.Size(117, 23);
+            this.buttonAplicarFiltroSolicitudes.TabIndex = 1;
+            this.buttonAplicarFiltroSolicitudes.Text = "Aplicar filtro";
+            this.buttonAplicarFiltroSolicitudes.UseVisualStyleBackColor = true;
+            this.buttonAplicarFiltroSolicitudes.Click += new System.EventHandler(this.buttonAplicarFiltroSolicitudes_Click);
+            // 
+            // comboBoxSolicitudes
+            // 
+            this.comboBoxSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBoxSolicitudes.FormattingEnabled = true;
+            this.comboBoxSolicitudes.Location = new System.Drawing.Point(3, 16);
+            this.comboBoxSolicitudes.Name = "comboBoxSolicitudes";
+            this.comboBoxSolicitudes.Size = new System.Drawing.Size(117, 21);
+            this.comboBoxSolicitudes.TabIndex = 0;
+            // 
             // botonVerDetalleSolicitudTraslado
             // 
             this.botonVerDetalleSolicitudTraslado.Dock = System.Windows.Forms.DockStyle.Top;
@@ -321,6 +368,7 @@
             // buttonQuitarFiltroObjetos
             // 
             this.buttonQuitarFiltroObjetos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonQuitarFiltroObjetos.Enabled = false;
             this.buttonQuitarFiltroObjetos.Location = new System.Drawing.Point(3, 60);
             this.buttonQuitarFiltroObjetos.Name = "buttonQuitarFiltroObjetos";
             this.buttonQuitarFiltroObjetos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -362,52 +410,6 @@
             this.botonVerDetallesObjeto.UseVisualStyleBackColor = true;
             this.botonVerDetallesObjeto.Click += new System.EventHandler(this.botonVerDetallesObjeto_Click);
             // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.buttonCancelarFiltroSolicitudes);
-            this.groupBox7.Controls.Add(this.buttonAplicarFiltroSolicitudes);
-            this.groupBox7.Controls.Add(this.comboBoxSolicitudes);
-            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox7.Location = new System.Drawing.Point(5, 108);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(123, 160);
-            this.groupBox7.TabIndex = 6;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Filtro";
-            // 
-            // buttonCancelarFiltroSolicitudes
-            // 
-            this.buttonCancelarFiltroSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonCancelarFiltroSolicitudes.Location = new System.Drawing.Point(3, 60);
-            this.buttonCancelarFiltroSolicitudes.Name = "buttonCancelarFiltroSolicitudes";
-            this.buttonCancelarFiltroSolicitudes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.buttonCancelarFiltroSolicitudes.Size = new System.Drawing.Size(117, 23);
-            this.buttonCancelarFiltroSolicitudes.TabIndex = 2;
-            this.buttonCancelarFiltroSolicitudes.Text = "Quitar filtro";
-            this.buttonCancelarFiltroSolicitudes.UseVisualStyleBackColor = true;
-            this.buttonCancelarFiltroSolicitudes.Click += new System.EventHandler(this.buttonCancelarFiltroSolicitudes_Click);
-            // 
-            // buttonAplicarFiltroSolicitudes
-            // 
-            this.buttonAplicarFiltroSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonAplicarFiltroSolicitudes.Location = new System.Drawing.Point(3, 37);
-            this.buttonAplicarFiltroSolicitudes.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.buttonAplicarFiltroSolicitudes.Name = "buttonAplicarFiltroSolicitudes";
-            this.buttonAplicarFiltroSolicitudes.Size = new System.Drawing.Size(117, 23);
-            this.buttonAplicarFiltroSolicitudes.TabIndex = 1;
-            this.buttonAplicarFiltroSolicitudes.Text = "Aplicar filtro";
-            this.buttonAplicarFiltroSolicitudes.UseVisualStyleBackColor = true;
-            this.buttonAplicarFiltroSolicitudes.Click += new System.EventHandler(this.buttonAplicarFiltroSolicitudes_Click);
-            // 
-            // comboBoxSolicitudes
-            // 
-            this.comboBoxSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBoxSolicitudes.FormattingEnabled = true;
-            this.comboBoxSolicitudes.Location = new System.Drawing.Point(3, 16);
-            this.comboBoxSolicitudes.Name = "comboBoxSolicitudes";
-            this.comboBoxSolicitudes.Size = new System.Drawing.Size(117, 21);
-            this.comboBoxSolicitudes.TabIndex = 0;
-            // 
             // VistaGerente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,6 +438,7 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSolicitudesTraslado)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
             this.tabPageObjetos.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
@@ -445,7 +448,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

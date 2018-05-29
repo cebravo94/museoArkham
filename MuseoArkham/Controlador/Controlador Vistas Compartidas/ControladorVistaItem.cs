@@ -57,16 +57,16 @@ namespace MuseoArkham.Controlador
 
         private void cargarTextBoxesDetalle() {
             switch (item.TipoItem) {
-                case "documento":
+                case "Documento":
                     this.cargarDocumento();
                     break;
-                case "vehiculo":
+                case "Vehiculo":
                     this.cargarVehiculo();
                     break;
-                case "pieza":
+                case "Pieza":
                     this.cargarPieza();
                     break;
-                case "obra":
+                case "Obra":
                     this.cargarObra();
                     break;
             }
