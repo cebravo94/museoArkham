@@ -22,6 +22,8 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
         public ControladorGerente(VistaGerente ventana, Usuario usuario) {
             this.ventana = ventana;
             this.usuario = usuario;
+            this.llenarComboBoxSolicitudes(this.ventana.comboBoxSolicitudes);
+            this.llenarComboBoxObjetos(this.ventana.comboBoxObjetos);
             //this.departamento = this.cargarDepartamento();
         }
 
@@ -193,6 +195,94 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             this.PoblarTabla(ventana.dataGridViewSolicitudesTraslado, reader);
             this.CerrarConexion();
 
+        }
+
+        public void aplicarFiltroSolicitudes() {
+            string opcion;
+            DataGridView data = this.ventana.dataGridViewSolicitudesTraslado;
+            switch (this.ventana.comboBoxSolicitudes.Text.ToString()) {
+                case "Pendiente":
+                    opcion = "Pendiente";
+                    break;
+                case "Aceptada":
+                    opcion = "Aceptada";
+                    break;
+                case "Rechazada":
+                    opcion = "Rechazada";
+                    break;
+                case "Despachada":
+                    opcion = "Despachada";
+                    break;
+                default:
+                    return;
+            }
+            data.MultiSelect = true;
+            foreach (DataGridViewRow item in data.Rows) {
+                if (item.Cells[4].Value.ToString() != opcion)
+                    data.Rows[item.Index].Selected = true; ;
+            }
+            foreach (DataGridViewRow row in data.SelectedRows) {
+                data.Rows.Remove(row);
+            }
+            data.MultiSelect = false;
+            data.Update();
+            this.ventana.dataGridViewSolicitudesTraslado.Refresh();
+            this.ventana.comboBoxSolicitudes.Enabled = false;
+            this.ventana.buttonAplicarFiltroSolicitudes.Enabled = false;
+            this.ventana.buttonCancelarFiltroSolicitudes.Enabled = true;
+
+        }
+
+        public void aplicarFiltroObjetos() {
+            string opcion;
+            DataGridView data = this.ventana.dataGridViewObjetos;
+            switch (this.ventana.comboBoxObjetos.Text.ToString()) {
+                case "Documento":
+                    opcion = "Documento";
+                    break;
+                case "Vehiculo":
+                    opcion = "Vehiculo";
+                    break;
+                case "Obra":
+                    opcion = "Obra";
+                    break;
+                case "Pieza":
+                    opcion = "Pieza";
+                    break;
+                default:
+                    return;
+            }
+            data.MultiSelect = true;
+            foreach (DataGridViewRow item in data.Rows) {
+                if (item.Cells[4].Value.ToString() != opcion)
+                    data.Rows[item.Index].Selected = true; ;
+            }
+            foreach (DataGridViewRow row in data.SelectedRows) {
+                data.Rows.Remove(row);
+            }
+            data.MultiSelect = false;
+            data.Update();
+            this.ventana.dataGridViewObjetos.Refresh();
+            this.ventana.comboBoxObjetos.Enabled = false;
+            this.ventana.buttonAplicarFiltroObjetos.Enabled = false;
+            this.ventana.buttonQuitarFiltroObjetos.Enabled = true;
+
+        }
+
+        private void llenarComboBoxSolicitudes(ComboBox combo) {
+            combo.Items.Add("Pendiente");
+            combo.Items.Add("Aceptada");
+            combo.Items.Add("Rechazada");
+            combo.Items.Add("Despachada");
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void llenarComboBoxObjetos(ComboBox combo) {
+            combo.Items.Add("Documento");
+            combo.Items.Add("Vehiculo");
+            combo.Items.Add("Pieza");
+            combo.Items.Add("Obra");
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
     }
 }

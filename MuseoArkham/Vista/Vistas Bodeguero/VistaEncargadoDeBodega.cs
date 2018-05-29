@@ -70,5 +70,16 @@ namespace MuseoArkham.Vista
         {
             this.controlador.VerDetallesRegistros();
         }
+
+        private void button2_Click(object sender, EventArgs e) {
+            this.controlador.aplicarFiltroObjetos();
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            this.controlador.CargarDatosTabla(0);
+            this.buttonAplicarFiltroObjetos.Enabled = true;
+            this.buttonCancelarFiltroObjetos.Enabled = false;
+            this.comboBoxObjetos.Enabled = true;
+        }
     }
 }
