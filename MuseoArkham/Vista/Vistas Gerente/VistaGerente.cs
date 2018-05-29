@@ -78,5 +78,11 @@ namespace MuseoArkham.Vista
             
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.comboBoxFiltrarEstado.SelectedIndex = 0;
+            this.comboBoxTipo.SelectedIndex = 0;
+            this.controlador.cargarDatosTabla(1);
+        }
     }
 }

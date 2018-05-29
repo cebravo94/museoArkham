@@ -53,6 +53,7 @@
             this.comboBoxTipo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -289,6 +290,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.button1);
             this.groupBox5.Controls.Add(this.botonFiltrarObjetos);
             this.groupBox5.Controls.Add(this.comboBoxTipo);
             this.groupBox5.Controls.Add(this.label3);
@@ -393,6 +395,17 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Tipo";
             // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Location = new System.Drawing.Point(5, 183);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 30);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Cancelar Filtros";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // VistaGerente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -460,5 +473,6 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.ComboBox comboBoxFiltrarEstado;
         public System.Windows.Forms.ComboBox comboBoxTipo;
+        private System.Windows.Forms.Button button1;
     }
 }
