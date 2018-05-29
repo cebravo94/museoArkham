@@ -234,6 +234,29 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
                     " WHERE solicitud.id_sala_origen = sala.id_sala" +
                     " AND solicitud.id_administrador = usuario.id_usuario" +
                     " AND N.iD = solicitud.id_solicitud";
+
+            String condicion;
+            switch (this.ventana.comboBoxEstadoSolicitud.Text.ToString())
+            {
+                case "Pendiente":
+                    condicion = "'Pendiente'";
+                    consulta = consulta + " AND solicitud.estado="+ condicion;
+                    break;
+                case "Aceptada":
+                    condicion = "'Aceptada'";
+                    consulta = consulta + " AND solicitud.estado=" + condicion;
+                    break;
+                case "Rechazada":
+                    condicion = "'Rechazada'";
+                    consulta = consulta + " AND solicitud.estado=" + condicion;
+                    break;
+                case "Despachada":
+                    condicion = "'Despachada'";
+                    consulta = consulta + " AND solicitud.estado=" + condicion;
+                    break;
+                default:
+                    break;
+            }
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             this.PoblarTabla(ventana.dataGridViewSolicitudesTraslado, reader);
             this.CerrarConexion();

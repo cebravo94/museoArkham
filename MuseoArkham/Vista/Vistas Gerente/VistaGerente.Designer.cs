@@ -46,14 +46,17 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewObjetos = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.buttonCancelarFiltrarObjetos = new System.Windows.Forms.Button();
             this.botonFiltrarObjetos = new System.Windows.Forms.Button();
-            this.botonVerDetallesObjeto = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxFiltrarEstado = new System.Windows.Forms.ComboBox();
             this.comboBoxTipo = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxFiltrarEstado = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.botonVerDetallesObjeto = new System.Windows.Forms.Button();
+            this.comboBoxEstadoSolicitud = new System.Windows.Forms.ComboBox();
+            this.buttonFiltrarSolicitudes = new System.Windows.Forms.Button();
+            this.buttonCancelarFiltrarSolicitud = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -191,6 +194,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.buttonCancelarFiltrarSolicitud);
+            this.groupBox3.Controls.Add(this.buttonFiltrarSolicitudes);
+            this.groupBox3.Controls.Add(this.comboBoxEstadoSolicitud);
             this.groupBox3.Controls.Add(this.botonVerDetalleSolicitudTraslado);
             this.groupBox3.Controls.Add(this.botonRechazarSolicitud);
             this.groupBox3.Controls.Add(this.botonAceptarSolicitud);
@@ -290,7 +296,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.buttonCancelarFiltrarObjetos);
             this.groupBox5.Controls.Add(this.botonFiltrarObjetos);
             this.groupBox5.Controls.Add(this.comboBoxTipo);
             this.groupBox5.Controls.Add(this.label3);
@@ -307,6 +313,17 @@
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             // 
+            // buttonCancelarFiltrarObjetos
+            // 
+            this.buttonCancelarFiltrarObjetos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonCancelarFiltrarObjetos.Location = new System.Drawing.Point(5, 183);
+            this.buttonCancelarFiltrarObjetos.Name = "buttonCancelarFiltrarObjetos";
+            this.buttonCancelarFiltrarObjetos.Size = new System.Drawing.Size(123, 30);
+            this.buttonCancelarFiltrarObjetos.TabIndex = 7;
+            this.buttonCancelarFiltrarObjetos.Text = "Cancelar Filtros";
+            this.buttonCancelarFiltrarObjetos.UseVisualStyleBackColor = true;
+            this.buttonCancelarFiltrarObjetos.Click += new System.EventHandler(this.buttonCancelarFiltrarObjetos_Click);
+            // 
             // botonFiltrarObjetos
             // 
             this.botonFiltrarObjetos.Dock = System.Windows.Forms.DockStyle.Top;
@@ -317,44 +334,6 @@
             this.botonFiltrarObjetos.Text = "Filtrar";
             this.botonFiltrarObjetos.UseVisualStyleBackColor = true;
             this.botonFiltrarObjetos.Click += new System.EventHandler(this.botonFiltrarObjetos_Click);
-            // 
-            // botonVerDetallesObjeto
-            // 
-            this.botonVerDetallesObjeto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.botonVerDetallesObjeto.Location = new System.Drawing.Point(5, 18);
-            this.botonVerDetallesObjeto.Name = "botonVerDetallesObjeto";
-            this.botonVerDetallesObjeto.Size = new System.Drawing.Size(123, 30);
-            this.botonVerDetallesObjeto.TabIndex = 0;
-            this.botonVerDetallesObjeto.Text = "Ver detalles";
-            this.botonVerDetallesObjeto.UseVisualStyleBackColor = true;
-            this.botonVerDetallesObjeto.Click += new System.EventHandler(this.botonVerDetallesObjeto_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(5, 48);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
-            this.label1.Size = new System.Drawing.Size(34, 28);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Filtros";
-            // 
-            // comboBoxFiltrarEstado
-            // 
-            this.comboBoxFiltrarEstado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBoxFiltrarEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFiltrarEstado.FormattingEnabled = true;
-            this.comboBoxFiltrarEstado.Items.AddRange(new object[] {
-            "Todos",
-            "En Exhibición",
-            "En Solicitud",
-            "En Restauración"});
-            this.comboBoxFiltrarEstado.Location = new System.Drawing.Point(5, 92);
-            this.comboBoxFiltrarEstado.Name = "comboBoxFiltrarEstado";
-            this.comboBoxFiltrarEstado.Size = new System.Drawing.Size(123, 21);
-            this.comboBoxFiltrarEstado.TabIndex = 3;
-            this.comboBoxFiltrarEstado.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltrarEstado_SelectedIndexChanged);
             // 
             // comboBoxTipo
             // 
@@ -373,17 +352,6 @@
             this.comboBoxTipo.TabIndex = 4;
             this.comboBoxTipo.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipo_SelectedIndexChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Location = new System.Drawing.Point(5, 76);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.label2.Size = new System.Drawing.Size(40, 16);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Estado";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -395,16 +363,91 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Tipo";
             // 
-            // button1
+            // comboBoxFiltrarEstado
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(5, 183);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 30);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Cancelar Filtros";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.comboBoxFiltrarEstado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBoxFiltrarEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFiltrarEstado.FormattingEnabled = true;
+            this.comboBoxFiltrarEstado.Items.AddRange(new object[] {
+            "Todos",
+            "En Exhibición",
+            "En Solicitud",
+            "En Restauración"});
+            this.comboBoxFiltrarEstado.Location = new System.Drawing.Point(5, 92);
+            this.comboBoxFiltrarEstado.Name = "comboBoxFiltrarEstado";
+            this.comboBoxFiltrarEstado.Size = new System.Drawing.Size(123, 21);
+            this.comboBoxFiltrarEstado.TabIndex = 3;
+            this.comboBoxFiltrarEstado.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltrarEstado_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Location = new System.Drawing.Point(5, 76);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.label2.Size = new System.Drawing.Size(40, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Estado";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Location = new System.Drawing.Point(5, 48);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
+            this.label1.Size = new System.Drawing.Size(34, 28);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Filtros";
+            // 
+            // botonVerDetallesObjeto
+            // 
+            this.botonVerDetallesObjeto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.botonVerDetallesObjeto.Location = new System.Drawing.Point(5, 18);
+            this.botonVerDetallesObjeto.Name = "botonVerDetallesObjeto";
+            this.botonVerDetallesObjeto.Size = new System.Drawing.Size(123, 30);
+            this.botonVerDetallesObjeto.TabIndex = 0;
+            this.botonVerDetallesObjeto.Text = "Ver detalles";
+            this.botonVerDetallesObjeto.UseVisualStyleBackColor = true;
+            this.botonVerDetallesObjeto.Click += new System.EventHandler(this.botonVerDetallesObjeto_Click);
+            // 
+            // comboBoxEstadoSolicitud
+            // 
+            this.comboBoxEstadoSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBoxEstadoSolicitud.FormattingEnabled = true;
+            this.comboBoxEstadoSolicitud.Items.AddRange(new object[] {
+            "Todos",
+            "Pendiente",
+            "Aceptada",
+            "Rechazada",
+            "Despachada"});
+            this.comboBoxEstadoSolicitud.Location = new System.Drawing.Point(5, 108);
+            this.comboBoxEstadoSolicitud.Name = "comboBoxEstadoSolicitud";
+            this.comboBoxEstadoSolicitud.Size = new System.Drawing.Size(123, 21);
+            this.comboBoxEstadoSolicitud.TabIndex = 3;
+            // 
+            // buttonFiltrarSolicitudes
+            // 
+            this.buttonFiltrarSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonFiltrarSolicitudes.Location = new System.Drawing.Point(5, 129);
+            this.buttonFiltrarSolicitudes.Name = "buttonFiltrarSolicitudes";
+            this.buttonFiltrarSolicitudes.Size = new System.Drawing.Size(123, 30);
+            this.buttonFiltrarSolicitudes.TabIndex = 4;
+            this.buttonFiltrarSolicitudes.Text = "Filtrar";
+            this.buttonFiltrarSolicitudes.UseVisualStyleBackColor = true;
+            this.buttonFiltrarSolicitudes.Click += new System.EventHandler(this.buttonFiltrarSolicitudes_Click);
+            // 
+            // buttonCancelarFiltrarSolicitud
+            // 
+            this.buttonCancelarFiltrarSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonCancelarFiltrarSolicitud.Location = new System.Drawing.Point(5, 159);
+            this.buttonCancelarFiltrarSolicitud.Name = "buttonCancelarFiltrarSolicitud";
+            this.buttonCancelarFiltrarSolicitud.Size = new System.Drawing.Size(123, 30);
+            this.buttonCancelarFiltrarSolicitud.TabIndex = 5;
+            this.buttonCancelarFiltrarSolicitud.Text = "Cancelar filtro";
+            this.buttonCancelarFiltrarSolicitud.UseVisualStyleBackColor = true;
+            this.buttonCancelarFiltrarSolicitud.Click += new System.EventHandler(this.buttonCancelarFiltrarSolicitud_Click);
             // 
             // VistaGerente
             // 
@@ -473,6 +516,9 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.ComboBox comboBoxFiltrarEstado;
         public System.Windows.Forms.ComboBox comboBoxTipo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonCancelarFiltrarObjetos;
+        private System.Windows.Forms.Button buttonCancelarFiltrarSolicitud;
+        private System.Windows.Forms.Button buttonFiltrarSolicitudes;
+        public System.Windows.Forms.ComboBox comboBoxEstadoSolicitud;
     }
 }
