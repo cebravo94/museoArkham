@@ -38,7 +38,8 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
             int id = int.Parse(data.Cells[0].Value.ToString());
-            string consulta = "SELECT * FROM itemsolicitado,item WHERE itemsolicitado.id_item = item.id_item AND itemsolicitado.id_solicitud=" + id;
+
+            string consulta = "SELECT * FROM itemsolicitado,item, solicitud WHERE itemsolicitado.id_item = item.id_item AND solicitud.id_solicitud = itemsolicitado.id_solicitud AND itemsolicitado.id_solicitud=" + id;
             MySqlDataReader reader1 = this.RealizarConsulta(consulta);
             if (reader1 == null) {
                 string s = "No hay objetos vinculados a la solicitud";
@@ -103,6 +104,14 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
                     MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
+                Console.WriteLine(row[16]);
+                Console.WriteLine(row[4]);
+                if (!row[16].ToString().Equals(row[4].ToString()))
+                {
+                    string s = "El objeto solicitado ya no se encuentra disponible";
+                    MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
             return true;
         }
@@ -113,7 +122,7 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
                 int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
                 DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
                 String estado = data.Cells[4].Value.ToString();
-                if (estado.Equals("Aceptada") || estado.Equals("Rechazada")) {
+                if (estado.Equals("Aceptada") || estado.Equals("Rechazada")||estado.Equals("Despachada")) {
                     this.ventana.botonAceptarSolicitud.Enabled = false;
                     this.ventana.botonRechazarSolicitud.Enabled = false;
 
@@ -168,12 +177,57 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
         }
 
         private void cargarObjetos() {
-            string consulta = "SELECT item.id_item AS ID, item.nombre AS Nombre, sala.nombre AS Ubicación," +
-                    " item.estado AS Estado, item.tipo AS Tipo, item.descripcion AS Descripción" +
-                    " FROM item, departamento, sala" +
-                    " WHERE item.id_dpto = departamento.id_dpto" +
-                    " AND sala.id_sala = item.id_sala" +
-                    " AND NOT item.estado = 'Deshabilitado'";
+
+            String consulta = "SELECT item.id_item AS ID, item.nombre AS Nombre, sala.nombre AS Ubicación," +
+                   " item.estado AS Estado, item.tipo AS Tipo, item.descripcion AS Descripción" +
+                   " FROM item, departamento, sala" +
+                   " WHERE item.id_dpto = departamento.id_dpto" +
+                   " AND sala.id_sala = item.id_sala" +
+                   " AND NOT item.estado = 'Deshabilitado'";
+            
+            String condicion;
+            if (this.ventana.comboBoxFiltrarEstado.Text.Equals("En Exhibición"))
+            {
+                condicion = "'En Exhibicion'";
+                consulta = consulta + " AND item.estado=" + condicion;
+            }
+            else if(this.ventana.comboBoxFiltrarEstado.Text.Equals("En Solicitud"))
+            {
+                condicion = "'En Solicitud'";
+                consulta = consulta + " AND item.estado=" + condicion;
+
+            }
+            else if(this.ventana.comboBoxFiltrarEstado.Text.Equals("En Restauración"))
+            {
+                condicion = "'En Restauracion'";
+                consulta = consulta+ " AND item.estado=" + condicion;
+            }
+
+            if (this.ventana.comboBoxTipo.Text.Equals("Documento"))
+            {
+                condicion = "'documento'";
+                consulta = consulta + " AND item.tipo=" + condicion;
+            }
+            else if (this.ventana.comboBoxTipo.Text.Equals("Vehículo"))
+            {
+                condicion = "'vehiculo'";
+                consulta = consulta + " AND item.tipo=" + condicion;
+            }
+            else if (this.ventana.comboBoxTipo.Text.Equals("Pieza"))
+            {
+                condicion = "'pieza'";
+                consulta = consulta + " AND item.tipo=" + condicion;
+            }
+            else if (this.ventana.comboBoxTipo.Text.Equals("Obra"))
+            {
+                condicion = "'obra'";
+                consulta = consulta + " AND item.tipo=" + condicion;
+            }
+            
+            Console.WriteLine("CONSULTA "+ consulta);
+            
+           
+
 
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             this.PoblarTabla(ventana.dataGridViewObjetos, reader);
