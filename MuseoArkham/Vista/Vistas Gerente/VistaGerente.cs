@@ -17,8 +17,8 @@ namespace MuseoArkham.Vista
         private ControladorGerente controlador;
         public VistaGerente(Usuario usuario)
         {
-            this.controlador = new ControladorGerente(this, usuario);  
             InitializeComponent();
+            this.controlador = new ControladorGerente(this, usuario);  
             this.controlador.cargarDatosTabla(0);
         }
 
@@ -63,11 +63,25 @@ namespace MuseoArkham.Vista
         }
 
         private void button2_Click(object sender, EventArgs e) {
-
+            this.controlador.aplicarFiltroObjetos();
         }
 
         private void button3_Click(object sender, EventArgs e) {
+            this.controlador.cargarDatosTabla(1);
+            this.buttonAplicarFiltroObjetos.Enabled = true;
+            this.buttonQuitarFiltroObjetos.Enabled = false;
+            this.comboBoxObjetos.Enabled = true;
+        }
 
+        private void buttonAplicarFiltroSolicitudes_Click(object sender, EventArgs e) {
+            this.controlador.aplicarFiltroSolicitudes();
+        }
+
+        private void buttonCancelarFiltroSolicitudes_Click(object sender, EventArgs e) {
+            this.controlador.cargarDatosTabla(0);
+            this.buttonAplicarFiltroSolicitudes.Enabled = true;
+            this.buttonCancelarFiltroSolicitudes.Enabled = false;
+            this.comboBoxSolicitudes.Enabled = true;
         }
     }
 }
