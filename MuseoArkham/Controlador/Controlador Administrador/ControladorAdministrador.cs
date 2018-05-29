@@ -11,6 +11,7 @@ using MuseoArkham.Modelo;
 using System.Diagnostics;
 using MuseoArkham.Vista.Vistas_Administrador;
 using MuseoArkham.Vista.VistasItem;
+using MuseoArkham.Vista.VistasCompartidas;
 
 namespace MuseoArkham.Controlador.Controlador_Administrador
 {
@@ -162,6 +163,24 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
             if (this.ventana.dataGridViewObjetos.RowCount > 0) {
                 int index = this.obtenerIdItem();
                 VistaItem vista = new VistaItem(index);
+                vista.ShowDialog(this.ventana);
+            }
+        }
+
+        private int ObtenerIdRegistro()
+        {
+            int index = this.ventana.dataGridViewRegistros.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewRegistros.Rows[index];
+            int idRegistro = Int32.Parse(data.Cells[0].Value.ToString());
+            return idRegistro;
+        }
+
+        public void VerDetallesRegistros()
+        {
+            if (this.ventana.dataGridViewRegistros.RowCount > 0)
+            {
+                int index = this.ObtenerIdRegistro();
+                VistaVerRegistro vista = new VistaVerRegistro(index);
                 vista.ShowDialog(this.ventana);
             }
         }
