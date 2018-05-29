@@ -203,7 +203,6 @@
             this.dataGridViewObjetos.ReadOnly = true;
             this.dataGridViewObjetos.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewObjetos.TabIndex = 0;
-           
             // 
             // groupBox3
             // 
@@ -230,6 +229,7 @@
             this.buttonVerDetallesObjetos.TabIndex = 4;
             this.buttonVerDetallesObjetos.Text = "Ver Detalles";
             this.buttonVerDetallesObjetos.UseVisualStyleBackColor = true;
+            this.buttonVerDetallesObjetos.Click += new System.EventHandler(this.buttonVerDetallesObjetos_Click_1);
             // 
             // buttonFiltrarObjetos
             // 

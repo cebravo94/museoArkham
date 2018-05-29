@@ -41,7 +41,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             int index = this.ventana.dataGridViewObjetos.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewObjetos.Rows[index];
             int id_item = Int32.Parse(data.Cells[0].Value.ToString());
-            String estado = data.Cells[6].Value.ToString();
+            String estado = data.Cells[5].Value.ToString();
             //Console.WriteLine(id_item);
             if (estado != "En Restauracion")
             {
@@ -75,7 +75,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
         {
             int index = this.ventana.dataGridViewObjetos.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewObjetos.Rows[index];
-            String estado = data.Cells[6].Value.ToString();
+            String estado = data.Cells[5].Value.ToString();
             int id_item = Int32.Parse(data.Cells[0].Value.ToString());
             if (estado == "En Restauracion")
             {
@@ -204,7 +204,6 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             this.CerrarConexion();
             foreach (String consulta in consultas)
             {
-
                 this.ConsultaInsertarRegistro(consulta);
             }
             foreach (int id in idItems1)

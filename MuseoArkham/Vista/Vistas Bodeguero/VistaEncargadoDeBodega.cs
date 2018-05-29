@@ -60,8 +60,8 @@ namespace MuseoArkham.Vista
         {
             this.controlador.VerDetallesSolicitudes();
         }
-
-        private void buttonVerDetallesObjetos_Click(object sender, EventArgs e)
+        
+        private void buttonVerDetallesObjetos_Click_1(object sender, EventArgs e)
         {
             this.controlador.VerDetallesObjetos();
         }
