@@ -124,6 +124,13 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
          */
         public void botonCancelarSolicitud() {
             if (this.ventana.dataGridViewSolicitudesTraslado.RowCount>0) {
+                int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
+                DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
+                string estado = data.Cells[4].Value.ToString();
+                if (estado!="Pendiente") {
+                    MessageBox.Show(this.ventana,"Solo se pueden Cancelar solicitudes con estado Pendiente","Error",MessageBoxButtons.OK);
+                    return;
+                }
                 int idSolicitud = this.obtenerIdSolicitud();
                 string consulta1 = "DELETE FROM itemsolicitado WHERE itemsolicitado.id_solicitud = " + idSolicitud;
                 this.RealizarConsultaNoQuery(consulta1);
