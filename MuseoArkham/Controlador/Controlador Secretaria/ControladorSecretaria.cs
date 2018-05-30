@@ -197,7 +197,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         public void cargarUsuarios() {
             string consulta = "SELECT usuario.id_usuario AS ID,usuario.nombre AS Nombre," +
                                " usuario.rut as Rut, usuario.correo as Correo, usuario.tipo as Cargo" +
-                               " FROM usuario WHERE usuario.nombre != 'default'";
+                               " FROM usuario WHERE usuario.nombre != 'default' AND usuario.tipo != 'Deshabilitado'";
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             this.PoblarTabla(ventana.dataGridViewUsuarios, reader);
             this.CerrarConexion();
