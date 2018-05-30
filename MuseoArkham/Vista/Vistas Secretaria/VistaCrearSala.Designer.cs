@@ -156,6 +156,7 @@
             // 
             this.textBoxNombreSala.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxNombreSala.Location = new System.Drawing.Point(103, 3);
+            this.textBoxNombreSala.MaxLength = 100;
             this.textBoxNombreSala.Name = "textBoxNombreSala";
             this.textBoxNombreSala.Size = new System.Drawing.Size(292, 20);
             this.textBoxNombreSala.TabIndex = 3;
@@ -164,6 +165,7 @@
             // 
             this.textBoxDescripcionSala.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxDescripcionSala.Location = new System.Drawing.Point(103, 234);
+            this.textBoxDescripcionSala.MaxLength = 100;
             this.textBoxDescripcionSala.Multiline = true;
             this.textBoxDescripcionSala.Name = "textBoxDescripcionSala";
             this.tableLayoutPanel3.SetRowSpan(this.textBoxDescripcionSala, 2);
