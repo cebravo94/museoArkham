@@ -69,6 +69,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         {
             if (nombre.Length > 0)
             {
+                nombre = nombre.Trim();
                 string consulta = "select departamento.id_dpto from departamento where departamento.nombre = '" + nombre + "'";
 
                 MySqlDataReader reader = this.RealizarConsulta(consulta);
