@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MuseoArkham.Modelo;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace MuseoArkham.Controlador.Controlador_Secretaria
 {
@@ -31,11 +32,54 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         **/
         public void crearDepartamento(string nombre, string descripcion)
         {
-            string valores = "VALUES (1,'" + nombre + "','" + descripcion + "' , 'Activo')";
-            string consulta = "INSERT INTO departamento (id_usuario,nombre,descripcion,estado) " + valores;
-            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            if(VerificarTamanoNombre(nombre) == true)
+            {
+                MessageBox.Show("El nombre del departamento es obligatorio", "Alerta",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (VerificarNombreDepartamentoUnico(nombre) == true)
+                {
+                    string valores = "VALUES (1,'" + nombre + "','" + descripcion + "' , 'Activo')";
+                    string consulta = "INSERT INTO departamento (id_usuario,nombre,descripcion,estado) " + valores;
+                    MySqlDataReader reader = this.RealizarConsulta(consulta);
+                    this.CerrarConexion();
+                    this.refrescarTablaPadre();
+                }
+                else
+                {
+                    MessageBox.Show("Ya existe un departamento con el mismo nombre.\nLos " +
+                        "nombres de departamento deben de ser unicos.", "Alerta",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private bool VerificarTamanoNombre(string nombre)
+        {
+            if (nombre.Length == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool VerificarNombreDepartamentoUnico(string nombre)
+        {
+            if (nombre.Length > 0)
+            {
+                string consulta = "select departamento.id_dpto from departamento where departamento.nombre = '" + nombre + "'";
+
+                MySqlDataReader reader = this.RealizarConsulta(consulta);
+                if (reader != null)
+                {
+                    this.CerrarConexion();
+                    return false;
+                }
+            }
             this.CerrarConexion();
-            this.refrescarTablaPadre();
+            return true;
         }
 
         public void refrescarTablaPadre()
