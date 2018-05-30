@@ -35,34 +35,40 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
          * </sumary>
         **/
         public void aceptarSolicitud() {
-            int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
-            DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
-            int id = int.Parse(data.Cells[0].Value.ToString());
+            if (ventana.dataGridViewSolicitudesTraslado.RowCount > 0)
+            {
 
-            string consulta = "SELECT * FROM itemsolicitado,item, solicitud WHERE itemsolicitado.id_item = item.id_item AND solicitud.id_solicitud = itemsolicitado.id_solicitud AND itemsolicitado.id_solicitud=" + id;
-            MySqlDataReader reader1 = this.RealizarConsulta(consulta);
-            if (reader1 == null) {
-                string s = "No hay objetos vinculados a la solicitud";
-                MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.CerrarConexion();
-                return;
-            }
-            DataTable tabla = new DataTable();
-            tabla.Load(reader1);
-            reader1.Close();
-            this.CerrarConexion();
-            if (objetosDisponibles(id, tabla)) {
+                int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
+                DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
+                int id = int.Parse(data.Cells[0].Value.ToString());
 
-                foreach (DataRow row in tabla.Rows) {
-
-                    int idItem = int.Parse(row[0].ToString());
-                    this.RealizarConsultaNoQuery("UPDATE item SET item.estado ='En Solicitud' WHERE item.id_item=" + idItem);
-
+                string consulta = "SELECT * FROM itemsolicitado,item, solicitud WHERE itemsolicitado.id_item = item.id_item AND solicitud.id_solicitud = itemsolicitado.id_solicitud AND itemsolicitado.id_solicitud=" + id;
+                MySqlDataReader reader1 = this.RealizarConsulta(consulta);
+                if (reader1 == null)
+                {
+                    string s = "No hay objetos vinculados a la solicitud";
+                    MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.CerrarConexion();
+                    return;
                 }
-                this.RealizarConsultaNoQuery("UPDATE solicitud SET solicitud.estado ='Aceptada' WHERE solicitud.id_solicitud=" + id);
-                this.cargarDatosTabla(0);
-            }
+                DataTable tabla = new DataTable();
+                tabla.Load(reader1);
+                reader1.Close();
+                this.CerrarConexion();
+                if (objetosDisponibles(id, tabla))
+                {
 
+                    foreach (DataRow row in tabla.Rows)
+                    {
+
+                        int idItem = int.Parse(row[0].ToString());
+                        this.RealizarConsultaNoQuery("UPDATE item SET item.estado ='En Solicitud' WHERE item.id_item=" + idItem);
+
+                    }
+                    this.RealizarConsultaNoQuery("UPDATE solicitud SET solicitud.estado ='Aceptada' WHERE solicitud.id_solicitud=" + id);
+                    this.cargarDatosTabla(0);
+                }
+            }
         }
 
         internal void verDetalleObjeto() {
@@ -145,11 +151,14 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
          * </sumary>
         **/
         public void rechazarSolicitud() {
-            int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
-            DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
-            int id = int.Parse(data.Cells[0].Value.ToString());
-            this.RealizarConsultaNoQuery("UPDATE solicitud SET solicitud.estado ='Rechazada' WHERE solicitud.id_solicitud=" + id);
-            this.cargarDatosTabla(0);
+            if (ventana.dataGridViewSolicitudesTraslado.RowCount > 0)
+            {
+                int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
+                DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
+                int id = int.Parse(data.Cells[0].Value.ToString());
+                this.RealizarConsultaNoQuery("UPDATE solicitud SET solicitud.estado ='Rechazada' WHERE solicitud.id_solicitud=" + id);
+                this.cargarDatosTabla(0);
+            }
         }
 
         private Departamento cargarDepartamento() {
