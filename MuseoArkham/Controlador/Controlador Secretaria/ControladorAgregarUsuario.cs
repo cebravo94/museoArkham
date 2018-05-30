@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -50,33 +51,45 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
 
         public void validarCampos(string nombre, string rut, string correo, string tipoUsuario, string contrasenna)
         {
-            if(nombre.Length > 0 && rut.Length > 0 && correo.Length > 0 && tipoUsuario.Length > 0 && contrasenna.Length > 0)
+            if (nombre.Length > 0 && rut.Length > 0 && correo.Length > 0 && tipoUsuario.Length > 0 && contrasenna.Length > 0)
             {
-                Boolean rutVerificacion = verificarRutUsuario(rut);
-                Boolean correoVerificacion = verificarCorreoUsuario(correo);
-                if (rutVerificacion == true && correoVerificacion == true)
+                rut = FormatearRut(rut);
+                if (ValidaRut(rut) == true)
                 {
-                    botonAceptar(nombre, rut, correo, tipoUsuario, contrasenna);
-                }
-                else if(rutVerificacion == false && correoVerificacion == true)
-                {
-                    string s = "Ya existe un usuario con el rut que se ha ingresado. El rut debe de " +
-                        "ser unico.";
-                    MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if(rutVerificacion == true && correoVerificacion == false)
-                {
-                    string s = "Ya existe un usuario con el correo que se ha ingresado. El correo debe de " +
-                        "ser unico.";
-                    MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Boolean rutVerificacion = verificarRutUsuario(rut);
+                    Boolean correoVerificacion = verificarCorreoUsuario(correo);
+                    if (rutVerificacion == true && correoVerificacion == true)
+                    {
+                        botonAceptar(nombre, rut, correo, tipoUsuario, contrasenna);
+                    }
+                    else if (rutVerificacion == false && correoVerificacion == true)
+                    {
+                        string s = "Ya existe un usuario con el rut que se ha ingresado. El rut debe de " +
+                            "ser unico.";
+                        MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (rutVerificacion == true && correoVerificacion == false)
+                    {
+                        string s = "Ya existe un usuario con el correo que se ha ingresado. El correo debe de " +
+                            "ser unico.";
+                        MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        string s = "Ya existe un usuario con el rut y el correo electronico" +
+                            " que se ha ingresado. El rut y el correo electronico deben de " +
+                            "ser unicos.";
+                        MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
                 else
                 {
-                    string s = "Ya existe un usuario con el rut y el correo electronico" +
-                        " que se ha ingresado. El rut y el correo electronico deben de " +
-                        "ser unicos.";
+                    string s = "Rut no valido. Verifique que el Rut este escrito correctamente.\n" +
+                        "Formato xxxxxxxx-x.";
                     MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                
             }
             else {
                 string s = "Todos los campos deben de tener un valor.";
@@ -85,9 +98,68 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
 
         }
 
+        private string FormatearRut(string rut)
+        {
+            rut = rut.Replace(".", "").ToUpper();
+            return rut;
+        }
+
+        public bool ValidaRut(string rut)
+        {
+            rut = rut.Replace(".", "").ToUpper();
+            rut = rut.Replace(" ", "").ToUpper();
+            Regex expresion = new Regex("^([0-9]+-[0-9K])$");
+            string dv = rut.Substring(rut.Length - 1, 1);
+            if (!expresion.IsMatch(rut))
+            {
+                return false;
+            }
+            char[] charCorte = { '-' };
+            string[] rutTemp = rut.Split(charCorte);
+            if (dv != Digito(int.Parse(rutTemp[0])))
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+        /// <summary>
+        /// método que calcula el digito verificador a partir
+        /// de la mantisa del rut
+        /// </summary>
+        /// <param name="rut"></param>
+        /// <returns></returns>
+        public static string Digito(int rut)
+        {
+            int suma = 0;
+            int multiplicador = 1;
+            while (rut != 0)
+            {
+                multiplicador++;
+                if (multiplicador == 8)
+                    multiplicador = 2;
+                suma += (rut % 10) * multiplicador;
+                rut = rut / 10;
+            }
+            suma = 11 - (suma % 11);
+            if (suma == 11)
+            {
+                return "0";
+            }
+            else if (suma == 10)
+            {
+                return "K";
+            }
+            else
+            {
+                return suma.ToString();
+            }
+        }
+
         private bool verificarCorreoUsuario(string correo)
         {
-            string consulta = "select * from usuario where usuario.correo = " + correo;
+            string consulta = "select * from usuario where usuario.correo = '" + correo  + "'";
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             if (reader != null)
             {
@@ -100,10 +172,11 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
 
         private Boolean verificarRutUsuario(string rut)
         {
-            string consulta = "select * from usuario where usuario.rut = " + rut;
+            string consulta = "select * from usuario where usuario.rut = '" + rut + "'";
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             if (reader != null)
             {
+                Console.WriteLine("is");
                 this.CerrarConexion();
                 return false;
             }
