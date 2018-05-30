@@ -245,6 +245,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBoxFiltro;
         private System.Windows.Forms.DataGridView tablaDirector;
-        private System.Windows.Forms.Button botonPDF;
+        public System.Windows.Forms.Button botonPDF;
     }
 }
