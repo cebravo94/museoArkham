@@ -90,5 +90,11 @@ namespace MuseoArkham.Vista
         private void buttonDeshabilitarUsuario_Click_1(object sender, EventArgs e) {
             this.controlador.botonDeshabilitarUsuario();
         }
+
+        private void buttonCambiarAdministrador_Click(object sender, EventArgs e)
+        {
+            VistaCambiarAdministrador vca = new VistaCambiarAdministrador(dataGridViewDepartamento);
+            vca.ShowDialog(this);
+        }
     }
 }
