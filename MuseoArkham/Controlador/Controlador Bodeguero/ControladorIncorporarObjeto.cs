@@ -47,6 +47,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             {
                 MessageBox.Show(this.ventana, "No se puede Incorporar el objeto, el AÑO es invalido", "Accion Invalida",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             String era = null;
@@ -111,6 +112,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             {
                 MessageBox.Show(this.ventana, "No se puede Incorporar el objeto, el AÑO es invalido", "Accion Invalida",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             
             String era = null;
@@ -178,6 +180,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             {
                 MessageBox.Show(this.ventana, "No se puede Incorporar el objeto, el AÑO es invalido", "Accion Invalida",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             
             String era = null;
@@ -189,6 +192,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             {
                 MessageBox.Show(this.ventana, "Debe seleccionar una Era", "Accion Invalida",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
 
             String tipo = null;
@@ -242,6 +246,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             {
                 MessageBox.Show(this.ventana, "No se puede Incorporar el objeto, el AÑO es invalido", "Accion Invalida",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             String era = null;
