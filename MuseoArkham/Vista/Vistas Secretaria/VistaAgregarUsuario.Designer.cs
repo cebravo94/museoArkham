@@ -57,7 +57,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(10);
             this.groupBox1.Size = new System.Drawing.Size(424, 405);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -199,6 +199,7 @@
             // 
             this.textBoxNombreUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxNombreUsuario.Location = new System.Drawing.Point(103, 3);
+            this.textBoxNombreUsuario.MaxLength = 100;
             this.textBoxNombreUsuario.Name = "textBoxNombreUsuario";
             this.textBoxNombreUsuario.Size = new System.Drawing.Size(292, 20);
             this.textBoxNombreUsuario.TabIndex = 5;
@@ -207,6 +208,7 @@
             // 
             this.textBoxRunUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxRunUsuario.Location = new System.Drawing.Point(103, 68);
+            this.textBoxRunUsuario.MaxLength = 100;
             this.textBoxRunUsuario.Name = "textBoxRunUsuario";
             this.textBoxRunUsuario.Size = new System.Drawing.Size(292, 20);
             this.textBoxRunUsuario.TabIndex = 6;
@@ -215,6 +217,7 @@
             // 
             this.textBoxCorreoElectronicoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxCorreoElectronicoUsuario.Location = new System.Drawing.Point(103, 133);
+            this.textBoxCorreoElectronicoUsuario.MaxLength = 100;
             this.textBoxCorreoElectronicoUsuario.Name = "textBoxCorreoElectronicoUsuario";
             this.textBoxCorreoElectronicoUsuario.Size = new System.Drawing.Size(292, 20);
             this.textBoxCorreoElectronicoUsuario.TabIndex = 7;
@@ -223,6 +226,7 @@
             // 
             this.textBoxContraseñaUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxContraseñaUsuario.Location = new System.Drawing.Point(103, 263);
+            this.textBoxContraseñaUsuario.MaxLength = 100;
             this.textBoxContraseñaUsuario.Name = "textBoxContraseñaUsuario";
             this.textBoxContraseñaUsuario.Size = new System.Drawing.Size(292, 20);
             this.textBoxContraseñaUsuario.TabIndex = 9;
@@ -250,7 +254,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(446, 449);
             this.Name = "VistaAgregarUsuario";
-            this.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Padding = new System.Windows.Forms.Padding(3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Museo Arkham";
             this.Load += new System.EventHandler(this.VistaAgregarUsuario_Load);
