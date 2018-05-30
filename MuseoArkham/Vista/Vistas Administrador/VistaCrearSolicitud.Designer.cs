@@ -157,6 +157,7 @@
             this.textBoxComentarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxComentarios.Location = new System.Drawing.Point(79, 27);
             this.textBoxComentarios.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.textBoxComentarios.MaxLength = 100;
             this.textBoxComentarios.Multiline = true;
             this.textBoxComentarios.Name = "textBoxComentarios";
             this.textBoxComentarios.Size = new System.Drawing.Size(316, 33);
