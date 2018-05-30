@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS departamento;
 CREATE TABLE departamento(
   id_dpto INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   id_usuario INT NOT NULL,
-  nombre VARCHAR(100) NOT NULL,
+  nombre VARCHAR(100) NOT NULL UNIQUE,
   descripcion VARCHAR(500),
   estado VARCHAR(100) NOT NULL,
   FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE RESTRICT
@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS sala;
 CREATE TABLE sala(
   id_sala INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   id_dpto INT NOT NULL,
-  nombre VARCHAR(100) NOT NULL,
+  nombre VARCHAR(100) NOT NULL UNIQUE,
   descripcion VARCHAR(100),
   area INT NOT NULL,
   estado VARCHAR(100),
@@ -48,9 +48,9 @@ CREATE TABLE item(
   fecha_ingreso DATE NOT NULL,
   descripcion VARCHAR(500),
   coleccion VARCHAR(100),
-  estado VARCHAR(100),
+  estado VARCHAR(100) NOT NULL,
   anno INT NOT NULL,
-  tipo VARCHAR (100),
+  tipo VARCHAR (100) NOT NULL,
   era VARCHAR (100) NOT NULL,
   FOREIGN KEY (id_dpto) REFERENCES departamento(id_dpto) ON DELETE RESTRICT,
   FOREIGN KEY (id_sala) REFERENCES sala(id_sala) ON DELETE RESTRICT

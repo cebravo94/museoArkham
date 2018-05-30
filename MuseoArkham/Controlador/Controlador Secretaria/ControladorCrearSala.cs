@@ -62,7 +62,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             }
             else
             {
-                MessageBox.Show("Ya existe una sala con este nombre. Los nombres de las salas deben" +
+                MessageBox.Show("Ya existe una sala con este nombre. Los nombres de las salas deben " +
                     "de ser unicos.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -71,7 +71,8 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         {
             if (nombre.Length > 0)
             {
-                string consulta = "select sala.id_sala from sala where sala.nombre = " + nombre;
+                string consulta = "select sala.id_sala from sala where sala.nombre = '" + nombre + "'";
+                
                 MySqlDataReader reader = this.RealizarConsulta(consulta);
                 if (reader != null)
                 {

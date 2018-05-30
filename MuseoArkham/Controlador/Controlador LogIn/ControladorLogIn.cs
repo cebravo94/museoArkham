@@ -39,7 +39,15 @@ namespace MuseoArkham.Controlador
                         nuevaVentana = new VistaSecretaria();
                         break;
                     case "Bodega":
-                        nuevaVentana = new VistaEncargadoDeBodega(personal);
+                        if (VerificarUsuarioDepartamento(personal.Id) == true)
+                        {
+                            nuevaVentana = new VistaEncargadoDeBodega(personal);
+                        }
+                        else
+                        {
+                            string error = "El usuario no posee un departamento asignado.";
+                            MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                         break;
                     case "Director":
                         nuevaVentana = new VistaDirector();
@@ -48,7 +56,19 @@ namespace MuseoArkham.Controlador
                         nuevaVentana = new VistaGerente(personal);
                         break;
                     case "Administrador":
-                        nuevaVentana = new VistaAdministrador(personal);
+                        if (VerificarUsuarioDepartamento(personal.Id) == true)
+                        {
+                            nuevaVentana = new VistaAdministrador(personal);
+                        }
+                        else
+                        {
+                            string error = "El usuario no posee un departamento asignado.";
+                            MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        break;
+                    case "Deshabilitado":
+                        string s = "La cuenta del usuario se encuentra deshabilitada.";
+                        MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
                 if (nuevaVentana != null)
@@ -64,6 +84,20 @@ namespace MuseoArkham.Controlador
                 MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private bool VerificarUsuarioDepartamento(int id) 
+        {
+            string consulta = "select * from departamento where departamento.id_usuario = '" + id + "'";
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            if (reader != null)
+            {
+                this.CerrarConexion();
+                return true;
+            }
+            this.CerrarConexion();
+            return false;
+        }
+    
 
         /**
          * <summary>
@@ -110,6 +144,7 @@ namespace MuseoArkham.Controlador
             rut = rut.Replace(".", "").ToUpper();
             const string carcter = "\"";
             rut = carcter + rut + carcter;
+            Console.WriteLine(rut);
             string consulta = "select * from usuario where usuario.rut = " + rut;
 
             MySqlDataReader reader = this.RealizarConsulta(consulta);

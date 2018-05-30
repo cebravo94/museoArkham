@@ -208,7 +208,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
                 MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else {
-                string s = "Error en deshabilitar usuario. Los usuarios que poseen el cargo de Director o Secretaria no pueden ser deshabilitados.";
+                string s = "Error en deshabilitar usuario. Los usuarios que poseen el cargo de Director, Secretaria o Gerente no pueden ser deshabilitados.";
                 MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -252,7 +252,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
                 String tipoUsuario;
                 tipoUsuario = reader.GetValue(0).ToString();
                 Console.WriteLine(tipoUsuario);
-                if (tipoUsuario.Equals("Director") || tipoUsuario.Equals("Secretaria")) {
+                if (tipoUsuario.Equals("Director") || tipoUsuario.Equals("Secretaria") || tipoUsuario.Equals("Gerente")) {
                     this.CerrarConexion();
                     return false;
                 }
