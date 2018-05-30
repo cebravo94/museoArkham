@@ -98,6 +98,7 @@
             this.buttonCancelarAsignarSala.TabIndex = 0;
             this.buttonCancelarAsignarSala.Text = "Cancelar";
             this.buttonCancelarAsignarSala.UseVisualStyleBackColor = true;
+            this.buttonCancelarAsignarSala.Click += new System.EventHandler(this.buttonCancelarAsignarSala_Click);
             // 
             // buttonAsignarSala
             // 
@@ -158,6 +159,7 @@
             this.Padding = new System.Windows.Forms.Padding(3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VistaAsignarSala";
+            this.Load += new System.EventHandler(this.VistaAsignarSala_Load);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

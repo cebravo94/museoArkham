@@ -109,6 +109,7 @@
             this.buttonCancelarAsignarAdministrador.TabIndex = 1;
             this.buttonCancelarAsignarAdministrador.Text = "Cancelar";
             this.buttonCancelarAsignarAdministrador.UseVisualStyleBackColor = true;
+            this.buttonCancelarAsignarAdministrador.Click += new System.EventHandler(this.buttonCancelarAsignarAdministrador_Click);
             // 
             // tableLayoutPanel3
             // 
