@@ -15,10 +15,12 @@ namespace MuseoArkham.Vista.Vistas_Secretaria
     {
         private ControladorAsignarSala controlador;
         DataGridView dataGrid;
-        public VistaAsignarSala(DataGridView data)
+        Boolean validar;
+        public VistaAsignarSala(DataGridView data,Boolean validar)
         {
             this.controlador = new ControladorAsignarSala(this);
             this.dataGrid = data;
+            this.validar = validar;
             InitializeComponent();
 
             this.controlador.RellenarComboBox(comboBoxSala);
@@ -31,7 +33,7 @@ namespace MuseoArkham.Vista.Vistas_Secretaria
             int index = this.dataGrid.CurrentCell.RowIndex;
             DataGridViewRow data = this.dataGrid.Rows[index];
             string id = data.Cells[0].Value.ToString();
-            this.controlador.AsignarSala(id,nombreSala);
+            this.controlador.AsignarSala(id,nombreSala,validar);
             this.Close();
         }
 

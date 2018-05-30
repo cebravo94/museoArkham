@@ -49,6 +49,12 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
 
         }
 
+        public Boolean verificarBodega(DataGridView dataGrid)
+        {
+            string depto = this.obtenerDepto(dataGrid);
+            return this.ValidarBodega(depto);
+        }
+
         private void mostrarMensaje(string mensaje)
         {
             MessageBox.Show(mensaje , "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
