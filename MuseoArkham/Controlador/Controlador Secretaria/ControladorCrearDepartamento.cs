@@ -31,8 +31,8 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         **/
         public void crearDepartamento(string nombre, string descripcion)
         {
-            string valores = "VALUES (1,'" + nombre + "','" + descripcion + "')";
-            string consulta = "INSERT INTO departamento (id_usuario,nombre,descripcion) " + valores;
+            string valores = "VALUES (1,'" + nombre + "','" + descripcion + "' , 'Activo')";
+            string consulta = "INSERT INTO departamento (id_usuario,nombre,descripcion,estado) " + valores;
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             this.CerrarConexion();
             this.refrescarTablaPadre();
