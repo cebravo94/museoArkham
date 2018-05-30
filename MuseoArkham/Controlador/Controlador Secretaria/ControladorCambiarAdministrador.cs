@@ -21,13 +21,15 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             this.ventana = ventana;
         }
 
-        public void RellenarComboBox(ComboBox combo)
+        public void RellenarComboBox(DataGridView dataGrid,ComboBox combo)
         {
+            string tipoUsuario = this.obtenerTipo(dataGrid);
+
             string subconsulta = "SELECT  departamento.id_usuario AS ID" +
                               " FROM departamento,usuario" +
-                              " WHERE departamento.id_usuario = usuario.id_usuario AND usuario.tipo = 'Administrador'";
+                              " WHERE departamento.id_usuario = usuario.id_usuario AND usuario.tipo = '"+tipoUsuario+"'";
             string consulta = "SELECT usuario.nombre FROM usuario " +
-                             " WHERE usuario.tipo = 'Administrador' AND id_usuario NOT IN(" + subconsulta + ")";
+                             " WHERE usuario.tipo = '" + tipoUsuario + "' AND id_usuario NOT IN(" + subconsulta + ")";
             Console.WriteLine(consulta);
             MySqlDataReader reader = this.RealizarConsulta(consulta);
 
@@ -55,6 +57,25 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
             this.refrescarTablaPadre();
         }
 
+        private string obtenerTipo(DataGridView dataGrid)
+        {
+            string id = obtenerIdDepto(dataGrid);
+            string consulta = "SELECT nombre AS nombre FROM departamento WHERE departamento.id_dpto =" + id;
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            reader.Read();
+            string nombre = reader["nombre"].ToString();
+            this.CerrarConexion();
+            if (nombre.Equals("Bodega"))
+            {
+                return "Bodega";
+            }
+            else
+            {
+                return "Administrador";
+            }
+
+            return "";
+        }
         private string obtenerIdDepto(DataGridView dataGrid)
         {
             int index = dataGrid.CurrentCell.RowIndex;

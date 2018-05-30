@@ -22,7 +22,7 @@ namespace MuseoArkham.Vista.Vistas_Secretaria
             this.controlador = new ControladorCambiarAdministrador(this);
             this.dataGrid = dataGrid;
             InitializeComponent();
-            this.controlador.RellenarComboBox(comboBoxAdministrador);
+            this.controlador.RellenarComboBox(dataGrid,comboBoxAdministrador);
         }
 
         private void buttonAsignarAdministrador_Click(object sender, EventArgs e)
