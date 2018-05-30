@@ -81,7 +81,7 @@ namespace MuseoArkham.Controlador.ControladorDirector
                     {
                         String depa = reader["nombre"].ToString();
                         String estado = reader["estado"].ToString();
-                        if (depa != "default" && depa != "Bodega" && estado == "Activo")
+                        if (depa != "default" && estado == "Activo")
                         {
                             combob.Items.Add(depa);
                         }
