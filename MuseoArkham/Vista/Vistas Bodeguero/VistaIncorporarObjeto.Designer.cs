@@ -336,6 +336,7 @@
             // 
             this.textBoxNombreDocumento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxNombreDocumento.Location = new System.Drawing.Point(73, 3);
+            this.textBoxNombreDocumento.MaxLength = 100;
             this.textBoxNombreDocumento.Name = "textBoxNombreDocumento";
             this.textBoxNombreDocumento.Size = new System.Drawing.Size(308, 20);
             this.textBoxNombreDocumento.TabIndex = 7;
@@ -344,6 +345,7 @@
             // 
             this.textBoxColeccionDocumento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxColeccionDocumento.Location = new System.Drawing.Point(73, 40);
+            this.textBoxColeccionDocumento.MaxLength = 100;
             this.textBoxColeccionDocumento.Name = "textBoxColeccionDocumento";
             this.textBoxColeccionDocumento.Size = new System.Drawing.Size(308, 20);
             this.textBoxColeccionDocumento.TabIndex = 8;
@@ -352,6 +354,7 @@
             // 
             this.textBoxAnnoDocumento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxAnnoDocumento.Location = new System.Drawing.Point(73, 77);
+            this.textBoxAnnoDocumento.MaxLength = 100;
             this.textBoxAnnoDocumento.Name = "textBoxAnnoDocumento";
             this.textBoxAnnoDocumento.Size = new System.Drawing.Size(308, 20);
             this.textBoxAnnoDocumento.TabIndex = 9;
@@ -394,6 +397,7 @@
             // 
             this.textBoxAutorDocumento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxAutorDocumento.Location = new System.Drawing.Point(73, 188);
+            this.textBoxAutorDocumento.MaxLength = 100;
             this.textBoxAutorDocumento.Name = "textBoxAutorDocumento";
             this.textBoxAutorDocumento.Size = new System.Drawing.Size(308, 20);
             this.textBoxAutorDocumento.TabIndex = 12;
@@ -402,6 +406,7 @@
             // 
             this.textBoxDescripcionDocumento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxDescripcionDocumento.Location = new System.Drawing.Point(73, 225);
+            this.textBoxDescripcionDocumento.MaxLength = 500;
             this.textBoxDescripcionDocumento.Multiline = true;
             this.textBoxDescripcionDocumento.Name = "textBoxDescripcionDocumento";
             this.tableLayoutPanel9.SetRowSpan(this.textBoxDescripcionDocumento, 2);
@@ -608,6 +613,7 @@
             // 
             this.textBoxNombreObra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxNombreObra.Location = new System.Drawing.Point(73, 3);
+            this.textBoxNombreObra.MaxLength = 100;
             this.textBoxNombreObra.Name = "textBoxNombreObra";
             this.textBoxNombreObra.Size = new System.Drawing.Size(308, 20);
             this.textBoxNombreObra.TabIndex = 9;
@@ -616,6 +622,7 @@
             // 
             this.textBoxColeccionObra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxColeccionObra.Location = new System.Drawing.Point(73, 33);
+            this.textBoxColeccionObra.MaxLength = 100;
             this.textBoxColeccionObra.Name = "textBoxColeccionObra";
             this.textBoxColeccionObra.Size = new System.Drawing.Size(308, 20);
             this.textBoxColeccionObra.TabIndex = 10;
@@ -624,6 +631,7 @@
             // 
             this.textBoxAnnoObra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxAnnoObra.Location = new System.Drawing.Point(73, 63);
+            this.textBoxAnnoObra.MaxLength = 100;
             this.textBoxAnnoObra.Name = "textBoxAnnoObra";
             this.textBoxAnnoObra.Size = new System.Drawing.Size(308, 20);
             this.textBoxAnnoObra.TabIndex = 11;
@@ -659,6 +667,7 @@
             // 
             this.textBoxAutorObra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxAutorObra.Location = new System.Drawing.Point(73, 153);
+            this.textBoxAutorObra.MaxLength = 100;
             this.textBoxAutorObra.Name = "textBoxAutorObra";
             this.textBoxAutorObra.Size = new System.Drawing.Size(308, 20);
             this.textBoxAutorObra.TabIndex = 14;
@@ -667,6 +676,7 @@
             // 
             this.textBoxMaterialObra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxMaterialObra.Location = new System.Drawing.Point(73, 183);
+            this.textBoxMaterialObra.MaxLength = 100;
             this.textBoxMaterialObra.Name = "textBoxMaterialObra";
             this.textBoxMaterialObra.Size = new System.Drawing.Size(308, 20);
             this.textBoxMaterialObra.TabIndex = 15;
@@ -675,6 +685,7 @@
             // 
             this.textBoxEstiloObra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxEstiloObra.Location = new System.Drawing.Point(73, 213);
+            this.textBoxEstiloObra.MaxLength = 100;
             this.textBoxEstiloObra.Name = "textBoxEstiloObra";
             this.textBoxEstiloObra.Size = new System.Drawing.Size(308, 20);
             this.textBoxEstiloObra.TabIndex = 16;
@@ -683,6 +694,7 @@
             // 
             this.textBoxDescripcionObra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxDescripcionObra.Location = new System.Drawing.Point(73, 243);
+            this.textBoxDescripcionObra.MaxLength = 500;
             this.textBoxDescripcionObra.Multiline = true;
             this.textBoxDescripcionObra.Name = "textBoxDescripcionObra";
             this.tableLayoutPanel10.SetRowSpan(this.textBoxDescripcionObra, 2);
@@ -864,6 +876,7 @@
             // 
             this.textBoxNombrePieza.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxNombrePieza.Location = new System.Drawing.Point(73, 3);
+            this.textBoxNombrePieza.MaxLength = 100;
             this.textBoxNombrePieza.Name = "textBoxNombrePieza";
             this.textBoxNombrePieza.Size = new System.Drawing.Size(308, 20);
             this.textBoxNombrePieza.TabIndex = 7;
@@ -872,6 +885,7 @@
             // 
             this.textBoxColeccionPieza.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxColeccionPieza.Location = new System.Drawing.Point(73, 40);
+            this.textBoxColeccionPieza.MaxLength = 100;
             this.textBoxColeccionPieza.Name = "textBoxColeccionPieza";
             this.textBoxColeccionPieza.Size = new System.Drawing.Size(308, 20);
             this.textBoxColeccionPieza.TabIndex = 8;
@@ -880,6 +894,7 @@
             // 
             this.textBoxAnnoPieza.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxAnnoPieza.Location = new System.Drawing.Point(73, 77);
+            this.textBoxAnnoPieza.MaxLength = 100;
             this.textBoxAnnoPieza.Name = "textBoxAnnoPieza";
             this.textBoxAnnoPieza.Size = new System.Drawing.Size(308, 20);
             this.textBoxAnnoPieza.TabIndex = 9;
@@ -921,6 +936,7 @@
             // 
             this.textBoxPeriodoPieza.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxPeriodoPieza.Location = new System.Drawing.Point(73, 188);
+            this.textBoxPeriodoPieza.MaxLength = 100;
             this.textBoxPeriodoPieza.Name = "textBoxPeriodoPieza";
             this.textBoxPeriodoPieza.Size = new System.Drawing.Size(308, 20);
             this.textBoxPeriodoPieza.TabIndex = 12;
@@ -929,6 +945,7 @@
             // 
             this.textBoxDescripcionPieza.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxDescripcionPieza.Location = new System.Drawing.Point(73, 225);
+            this.textBoxDescripcionPieza.MaxLength = 500;
             this.textBoxDescripcionPieza.Multiline = true;
             this.textBoxDescripcionPieza.Name = "textBoxDescripcionPieza";
             this.tableLayoutPanel11.SetRowSpan(this.textBoxDescripcionPieza, 2);
@@ -1110,6 +1127,7 @@
             // 
             this.textBoxNombreVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxNombreVehiculo.Location = new System.Drawing.Point(73, 3);
+            this.textBoxNombreVehiculo.MaxLength = 100;
             this.textBoxNombreVehiculo.Name = "textBoxNombreVehiculo";
             this.textBoxNombreVehiculo.Size = new System.Drawing.Size(308, 20);
             this.textBoxNombreVehiculo.TabIndex = 7;
@@ -1118,6 +1136,7 @@
             // 
             this.textBoxColeccionVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxColeccionVehiculo.Location = new System.Drawing.Point(73, 40);
+            this.textBoxColeccionVehiculo.MaxLength = 100;
             this.textBoxColeccionVehiculo.Name = "textBoxColeccionVehiculo";
             this.textBoxColeccionVehiculo.Size = new System.Drawing.Size(308, 20);
             this.textBoxColeccionVehiculo.TabIndex = 8;
@@ -1126,6 +1145,7 @@
             // 
             this.textBoxAnnoVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxAnnoVehiculo.Location = new System.Drawing.Point(73, 77);
+            this.textBoxAnnoVehiculo.MaxLength = 100;
             this.textBoxAnnoVehiculo.Name = "textBoxAnnoVehiculo";
             this.textBoxAnnoVehiculo.Size = new System.Drawing.Size(308, 20);
             this.textBoxAnnoVehiculo.TabIndex = 9;
@@ -1147,6 +1167,7 @@
             // 
             this.textBoxMarcaVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxMarcaVehiculo.Location = new System.Drawing.Point(73, 151);
+            this.textBoxMarcaVehiculo.MaxLength = 100;
             this.textBoxMarcaVehiculo.Name = "textBoxMarcaVehiculo";
             this.textBoxMarcaVehiculo.Size = new System.Drawing.Size(308, 20);
             this.textBoxMarcaVehiculo.TabIndex = 11;
@@ -1155,6 +1176,7 @@
             // 
             this.textBoxModeloVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxModeloVehiculo.Location = new System.Drawing.Point(73, 188);
+            this.textBoxModeloVehiculo.MaxLength = 100;
             this.textBoxModeloVehiculo.Name = "textBoxModeloVehiculo";
             this.textBoxModeloVehiculo.Size = new System.Drawing.Size(308, 20);
             this.textBoxModeloVehiculo.TabIndex = 12;
@@ -1163,6 +1185,7 @@
             // 
             this.textBoxDescripcionVehiculo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxDescripcionVehiculo.Location = new System.Drawing.Point(73, 225);
+            this.textBoxDescripcionVehiculo.MaxLength = 100;
             this.textBoxDescripcionVehiculo.Multiline = true;
             this.textBoxDescripcionVehiculo.Name = "textBoxDescripcionVehiculo";
             this.tableLayoutPanel12.SetRowSpan(this.textBoxDescripcionVehiculo, 2);
