@@ -156,7 +156,16 @@ namespace MuseoArkham.Controlador.ControladorDirector
             this.consultaActual = "Reporte general de departamento";
             Console.WriteLine(consulta);
             read = this.RealizarConsulta(consulta);
+            if (read == null)
+            {
+                MessageBox.Show(this.ventana, "No es posible generar reporte", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.ventana.botonPDF.Enabled = false;
+                this.CerrarConexion();
+                return;
+            }
             read.Read();
+            this.ventana.botonPDF.Enabled = true;
             this.nombreDpto = read["nombre"].ToString();
             this.descrip = read["descripcion"].ToString();
             this.administrador = read["nombreus"].ToString();
