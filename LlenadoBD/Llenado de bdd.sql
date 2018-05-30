@@ -8,7 +8,7 @@ INSERT INTO usuario (contrasenna,nombre,rut,correo,fecha_ingreso,tipo) VALUES
 (1234,'Juan Letelier','18884898-2','juanletelier@gmail.com',"1997-03-03",'Bodega'), 
 (1234,'Miguel Gonzalez','19696148-8','miguelgonzalez@gmail.com',"1997-03-03",'Director'), 
 (1234,'Rodrigo Cordero','19008841-3','rodrigocordero@gmail.com',"1997-03-03",'Gerente'), 
-(1234,'Jesus Moris','18681956-k','jesusmoris@gmail.com',"1997-03-03",'Administrador'), 
+(1234,'Jesus Moris','18681956-K','jesusmoris@gmail.com',"1997-03-03",'Administrador'), 
 (1234,'Bastian Sepulveda','19563387-8','bastiansepulveda@gmail.com',"1997-03-03",'Administrador'), 
 (1234,'Fabian Oyarce','19473859-5', 'foyarce15@alumnos.utalca.cl',"1997-03-03",'Administrador'), 
 (1234,'Renato Oyarce', '14236401-8','renato_cobre@hotmail.com',"1973-10-07",'Administrador'), 
