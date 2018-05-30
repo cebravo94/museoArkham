@@ -86,7 +86,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
                 else
                 {
                     string s = "Rut no valido. Verifique que el Rut este escrito correctamente.\n" +
-                        "Formato xxxxxxxx-x.";
+                        "Formato xxxxxxxx-x o xx.xxx.xxx-x.";
                     MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
@@ -107,7 +107,6 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
         public bool ValidaRut(string rut)
         {
             rut = rut.Replace(".", "").ToUpper();
-            rut = rut.Replace(" ", "").ToUpper();
             Regex expresion = new Regex("^([0-9]+-[0-9K])$");
             string dv = rut.Substring(rut.Length - 1, 1);
             if (!expresion.IsMatch(rut))
