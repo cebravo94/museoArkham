@@ -73,7 +73,10 @@ namespace MuseoArkham.Controlador.ControladorDirector
                    reader = this.RealizarConsulta("select * from departamento");
                     while (reader.Read()) {
                         String depa = reader["nombre"].ToString();
-                        combob.Items.Add(depa);
+                        if (depa != "default" && depa != "Bodega")
+                        {
+                            combob.Items.Add(depa);
+                        }
                     }
                     this.CerrarConexion();
                     break;
@@ -245,7 +248,7 @@ namespace MuseoArkham.Controlador.ControladorDirector
             saveFileDialog1.InitialDirectory = @"C:";
             saveFileDialog1.Title = "Guardar Reporte";
             saveFileDialog1.DefaultExt = "pdf";
-            saveFileDialog1.Filter = "pdf Files (*.pdf)|*.pdf| All Files (*.*)|*.*";
+            saveFileDialog1.Filter = "pdf Files (*.pdf)|*.pdf";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
             string filename = "";
@@ -312,12 +315,15 @@ namespace MuseoArkham.Controlador.ControladorDirector
         }
         private float[] GetTamañoColumnas(DataGridView dg)
         {
+            
             float[] valor = new float[dg.ColumnCount];
             for (int i = 0; i < dg.ColumnCount; i++)
             {
-                valor[i] = (float)dg.Columns[i].Width;
+                valor[i] = (float)dg.Columns[i].Width +2000;
             }
+            
             return valor;
+            
 
         }
 
