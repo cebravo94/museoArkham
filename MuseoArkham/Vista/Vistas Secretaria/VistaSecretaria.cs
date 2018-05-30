@@ -61,8 +61,8 @@ namespace MuseoArkham.Vista
 
         private void buttonAsignarSalas_Click(object sender, EventArgs e)
         {
-   
-            VistaAsignarSala vas = new VistaAsignarSala(dataGridViewDepartamento);
+            Boolean validar = this.controlador.verificarBodega(dataGridViewDepartamento);
+            VistaAsignarSala vas = new VistaAsignarSala(dataGridViewDepartamento,validar);
             vas.ShowDialog(this);
  
         }
