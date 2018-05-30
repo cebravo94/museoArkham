@@ -9,32 +9,29 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MuseoArkham.Controlador.Controlador_Secretaria;
 
+
 namespace MuseoArkham.Vista.Vistas_Secretaria
 {
-    public partial class VistaAsignarAdministrador : Form
+    public partial class VistaCambiarAdministrador : Form
     {
-        private ControladorAsignarAdministrador controlador;
+        private ControladorCambiarAdministrador controlador;
         DataGridView dataGrid;
-        public VistaAsignarAdministrador(DataGridView data)
+
+        public VistaCambiarAdministrador(DataGridView dataGrid)
         {
-            this.controlador = new ControladorAsignarAdministrador(this);
-            this.dataGrid = data;
+            this.controlador = new ControladorCambiarAdministrador(this);
+            this.dataGrid = dataGrid;
             InitializeComponent();
-            this.controlador.RellenarComboBox(comboBoxAdministrador);
+            this.controlador.RellenarComboBox(dataGrid,comboBoxAdministrador);
             this.comboBoxAdministrador.SelectedIndex = 0;
         }
 
         private void buttonAsignarAdministrador_Click(object sender, EventArgs e)
         {
             string nombreAdmin = comboBoxAdministrador.GetItemText(comboBoxAdministrador.SelectedItem);
-            
-            this.controlador.AsignarAdministrador(this.dataGrid,nombreAdmin);
+
+            this.controlador.CambiarAdministrador(this.dataGrid, nombreAdmin);
             this.Close();
-        }
-
-        private void VistaAsignarAdministrador_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonCancelarAsignarAdministrador_Click(object sender, EventArgs e)

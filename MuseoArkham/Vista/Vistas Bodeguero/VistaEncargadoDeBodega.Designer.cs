@@ -39,8 +39,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewObjetos = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.buttonCancelarFiltroObjetos = new System.Windows.Forms.Button();
+            this.buttonAplicarFiltroObjetos = new System.Windows.Forms.Button();
+            this.comboBoxObjetos = new System.Windows.Forms.ComboBox();
             this.buttonVerDetallesObjetos = new System.Windows.Forms.Button();
-            this.buttonFiltrarObjetos = new System.Windows.Forms.Button();
             this.buttonEnviarRestauracion = new System.Windows.Forms.Button();
             this.buttonDesincorporarObjeto = new System.Windows.Forms.Button();
             this.buttonIncorporarObjeto = new System.Windows.Forms.Button();
@@ -49,7 +52,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewSolicitudesTraslado = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.buttonFiltrarSolicitudesTraslado = new System.Windows.Forms.Button();
             this.buttonVerDetalles = new System.Windows.Forms.Button();
             this.buttonRegistrar = new System.Windows.Forms.Button();
             this.tabPageRegistros = new System.Windows.Forms.TabPage();
@@ -73,6 +75,7 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.tabPageSolicitudesTraslado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -150,7 +153,6 @@
             this.tabControl1.Size = new System.Drawing.Size(826, 305);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPageObjetos
             // 
@@ -204,12 +206,11 @@
             this.dataGridViewObjetos.ReadOnly = true;
             this.dataGridViewObjetos.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewObjetos.TabIndex = 0;
-            this.dataGridViewObjetos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewObjetos_CellContentClick);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.groupBox8);
             this.groupBox3.Controls.Add(this.buttonVerDetallesObjetos);
-            this.groupBox3.Controls.Add(this.buttonFiltrarObjetos);
             this.groupBox3.Controls.Add(this.buttonEnviarRestauracion);
             this.groupBox3.Controls.Add(this.buttonDesincorporarObjeto);
             this.groupBox3.Controls.Add(this.buttonIncorporarObjeto);
@@ -222,27 +223,63 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.buttonCancelarFiltroObjetos);
+            this.groupBox8.Controls.Add(this.buttonAplicarFiltroObjetos);
+            this.groupBox8.Controls.Add(this.comboBoxObjetos);
+            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox8.Location = new System.Drawing.Point(5, 144);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(123, 124);
+            this.groupBox8.TabIndex = 5;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Filtro";
+            // 
+            // buttonCancelarFiltroObjetos
+            // 
+            this.buttonCancelarFiltroObjetos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonCancelarFiltroObjetos.Enabled = false;
+            this.buttonCancelarFiltroObjetos.Location = new System.Drawing.Point(3, 60);
+            this.buttonCancelarFiltroObjetos.Name = "buttonCancelarFiltroObjetos";
+            this.buttonCancelarFiltroObjetos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.buttonCancelarFiltroObjetos.Size = new System.Drawing.Size(117, 23);
+            this.buttonCancelarFiltroObjetos.TabIndex = 2;
+            this.buttonCancelarFiltroObjetos.Text = "Quitar filtro";
+            this.buttonCancelarFiltroObjetos.UseVisualStyleBackColor = true;
+            this.buttonCancelarFiltroObjetos.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // buttonAplicarFiltroObjetos
+            // 
+            this.buttonAplicarFiltroObjetos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonAplicarFiltroObjetos.Location = new System.Drawing.Point(3, 37);
+            this.buttonAplicarFiltroObjetos.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.buttonAplicarFiltroObjetos.Name = "buttonAplicarFiltroObjetos";
+            this.buttonAplicarFiltroObjetos.Size = new System.Drawing.Size(117, 23);
+            this.buttonAplicarFiltroObjetos.TabIndex = 1;
+            this.buttonAplicarFiltroObjetos.Text = "Aplicar filtro";
+            this.buttonAplicarFiltroObjetos.UseVisualStyleBackColor = true;
+            this.buttonAplicarFiltroObjetos.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // comboBoxObjetos
+            // 
+            this.comboBoxObjetos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBoxObjetos.FormattingEnabled = true;
+            this.comboBoxObjetos.Location = new System.Drawing.Point(3, 16);
+            this.comboBoxObjetos.Name = "comboBoxObjetos";
+            this.comboBoxObjetos.Size = new System.Drawing.Size(117, 21);
+            this.comboBoxObjetos.TabIndex = 0;
+            // 
             // buttonVerDetallesObjetos
             // 
             this.buttonVerDetallesObjetos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonVerDetallesObjetos.Location = new System.Drawing.Point(5, 144);
+            this.buttonVerDetallesObjetos.Location = new System.Drawing.Point(5, 114);
             this.buttonVerDetallesObjetos.Name = "buttonVerDetallesObjetos";
             this.buttonVerDetallesObjetos.Size = new System.Drawing.Size(123, 30);
             this.buttonVerDetallesObjetos.TabIndex = 4;
             this.buttonVerDetallesObjetos.Text = "Ver Detalles";
             this.buttonVerDetallesObjetos.UseVisualStyleBackColor = true;
-            this.buttonVerDetallesObjetos.Click += new System.EventHandler(this.buttonVerDetallesObjetos_Click);
-            // 
-            // buttonFiltrarObjetos
-            // 
-            this.buttonFiltrarObjetos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonFiltrarObjetos.Location = new System.Drawing.Point(5, 114);
-            this.buttonFiltrarObjetos.Name = "buttonFiltrarObjetos";
-            this.buttonFiltrarObjetos.Size = new System.Drawing.Size(123, 30);
-            this.buttonFiltrarObjetos.TabIndex = 3;
-            this.buttonFiltrarObjetos.Text = "Filtrar";
-            this.buttonFiltrarObjetos.UseVisualStyleBackColor = true;
-            this.buttonFiltrarObjetos.Click += new System.EventHandler(this.buttonFiltrarObjetos_Click);
+            this.buttonVerDetallesObjetos.Click += new System.EventHandler(this.buttonVerDetallesObjetos_Click_1);
             // 
             // buttonEnviarRestauracion
             // 
@@ -316,7 +353,6 @@
             this.groupBox4.Size = new System.Drawing.Size(675, 273);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter_1);
             // 
             // dataGridViewSolicitudesTraslado
             // 
@@ -333,7 +369,6 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.buttonFiltrarSolicitudesTraslado);
             this.groupBox5.Controls.Add(this.buttonVerDetalles);
             this.groupBox5.Controls.Add(this.buttonRegistrar);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -344,16 +379,6 @@
             this.groupBox5.Size = new System.Drawing.Size(133, 273);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
-            // 
-            // buttonFiltrarSolicitudesTraslado
-            // 
-            this.buttonFiltrarSolicitudesTraslado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonFiltrarSolicitudesTraslado.Location = new System.Drawing.Point(5, 78);
-            this.buttonFiltrarSolicitudesTraslado.Name = "buttonFiltrarSolicitudesTraslado";
-            this.buttonFiltrarSolicitudesTraslado.Size = new System.Drawing.Size(123, 30);
-            this.buttonFiltrarSolicitudesTraslado.TabIndex = 2;
-            this.buttonFiltrarSolicitudesTraslado.Text = "Filtrar";
-            this.buttonFiltrarSolicitudesTraslado.UseVisualStyleBackColor = true;
             // 
             // buttonVerDetalles
             // 
@@ -416,7 +441,6 @@
             this.groupBox6.Size = new System.Drawing.Size(675, 273);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Enter += new System.EventHandler(this.groupBox6_Enter);
             // 
             // dataGridViewRegistros
             // 
@@ -430,7 +454,6 @@
             this.dataGridViewRegistros.ReadOnly = true;
             this.dataGridViewRegistros.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewRegistros.TabIndex = 0;
-            this.dataGridViewRegistros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRegistros_CellContentClick);
             // 
             // groupBox7
             // 
@@ -453,6 +476,7 @@
             this.buttonVerDetallesRegistro.TabIndex = 0;
             this.buttonVerDetallesRegistro.Text = "Ver detalles";
             this.buttonVerDetallesRegistro.UseVisualStyleBackColor = true;
+            this.buttonVerDetallesRegistro.Click += new System.EventHandler(this.buttonVerDetallesRegistro_Click);
             // 
             // VistaEncargadoDeBodega
             // 
@@ -466,7 +490,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Museo Arkham";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VistaEncargadoDeBodega_FormClosing);
-            this.Load += new System.EventHandler(this.VistaEncargadoDeBodega_Load);
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -482,6 +505,7 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjetos)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
             this.tabPageSolicitudesTraslado.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
@@ -518,11 +542,9 @@
         private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button buttonFiltrarObjetos;
         private System.Windows.Forms.Button buttonEnviarRestauracion;
         private System.Windows.Forms.Button buttonDesincorporarObjeto;
         private System.Windows.Forms.Button buttonIncorporarObjeto;
-        private System.Windows.Forms.Button buttonFiltrarSolicitudesTraslado;
         private System.Windows.Forms.Button buttonVerDetalles;
         private System.Windows.Forms.Button buttonRegistrar;
         private System.Windows.Forms.Button buttonVerDetallesRegistro;
@@ -532,5 +554,9 @@
         public System.Windows.Forms.TabControl tabControl1;
         public System.Windows.Forms.DataGridView dataGridViewSolicitudesTraslado;
         private System.Windows.Forms.Button buttonVerDetallesObjetos;
+        private System.Windows.Forms.GroupBox groupBox8;
+        public System.Windows.Forms.ComboBox comboBoxObjetos;
+        public System.Windows.Forms.Button buttonCancelarFiltroObjetos;
+        public System.Windows.Forms.Button buttonAplicarFiltroObjetos;
     }
 }

@@ -22,6 +22,8 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
         public ControladorGerente(VistaGerente ventana, Usuario usuario) {
             this.ventana = ventana;
             this.usuario = usuario;
+            this.llenarComboBoxSolicitudes(this.ventana.comboBoxSolicitudes);
+            this.llenarComboBoxObjetos(this.ventana.comboBoxObjetos);
             //this.departamento = this.cargarDepartamento();
         }
 
@@ -33,33 +35,40 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
          * </sumary>
         **/
         public void aceptarSolicitud() {
-            int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
-            DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
-            int id = int.Parse(data.Cells[0].Value.ToString());
-            string consulta = "SELECT * FROM itemsolicitado,item WHERE itemsolicitado.id_item = item.id_item AND itemsolicitado.id_solicitud=" + id;
-            MySqlDataReader reader1 = this.RealizarConsulta(consulta);
-            if (reader1 == null) {
-                string s = "No hay objetos vinculados a la solicitud";
-                MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.CerrarConexion();
-                return;
-            }
-            DataTable tabla = new DataTable();
-            tabla.Load(reader1);
-            reader1.Close();
-            this.CerrarConexion();
-            if (objetosDisponibles(id, tabla)) {
+            if (ventana.dataGridViewSolicitudesTraslado.RowCount > 0)
+            {
 
-                foreach (DataRow row in tabla.Rows) {
+                int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
+                DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
+                int id = int.Parse(data.Cells[0].Value.ToString());
 
-                    int idItem = int.Parse(row[0].ToString());
-                    this.RealizarConsultaNoQuery("UPDATE item SET item.estado ='En Solicitud' WHERE item.id_item=" + idItem);
-
+                string consulta = "SELECT * FROM itemsolicitado,item, solicitud WHERE itemsolicitado.id_item = item.id_item AND solicitud.id_solicitud = itemsolicitado.id_solicitud AND itemsolicitado.id_solicitud=" + id;
+                MySqlDataReader reader1 = this.RealizarConsulta(consulta);
+                if (reader1 == null)
+                {
+                    string s = "No hay objetos vinculados a la solicitud";
+                    MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.CerrarConexion();
+                    return;
                 }
-                this.RealizarConsultaNoQuery("UPDATE solicitud SET solicitud.estado ='Aceptada' WHERE solicitud.id_solicitud=" + id);
-                this.cargarDatosTabla(0);
-            }
+                DataTable tabla = new DataTable();
+                tabla.Load(reader1);
+                reader1.Close();
+                this.CerrarConexion();
+                if (objetosDisponibles(id, tabla))
+                {
 
+                    foreach (DataRow row in tabla.Rows)
+                    {
+
+                        int idItem = int.Parse(row[0].ToString());
+                        this.RealizarConsultaNoQuery("UPDATE item SET item.estado ='En Solicitud' WHERE item.id_item=" + idItem);
+
+                    }
+                    this.RealizarConsultaNoQuery("UPDATE solicitud SET solicitud.estado ='Aceptada' WHERE solicitud.id_solicitud=" + id);
+                    this.cargarDatosTabla(0);
+                }
+            }
         }
 
         internal void verDetalleObjeto() {
@@ -101,6 +110,14 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
                     MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
+                Console.WriteLine(row[16]);
+                Console.WriteLine(row[4]);
+                if (!row[16].ToString().Equals(row[4].ToString()))
+                {
+                    string s = "El objeto solicitado ya no se encuentra disponible";
+                    MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
             return true;
         }
@@ -111,7 +128,7 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
                 int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
                 DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
                 String estado = data.Cells[4].Value.ToString();
-                if (estado.Equals("Aceptada") || estado.Equals("Rechazada")) {
+                if (estado.Equals("Aceptada") || estado.Equals("Rechazada")||estado.Equals("Despachada")) {
                     this.ventana.botonAceptarSolicitud.Enabled = false;
                     this.ventana.botonRechazarSolicitud.Enabled = false;
 
@@ -134,11 +151,14 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
          * </sumary>
         **/
         public void rechazarSolicitud() {
-            int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
-            DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
-            int id = int.Parse(data.Cells[0].Value.ToString());
-            this.RealizarConsultaNoQuery("UPDATE solicitud SET solicitud.estado ='Rechazada' WHERE solicitud.id_solicitud=" + id);
-            this.cargarDatosTabla(0);
+            if (ventana.dataGridViewSolicitudesTraslado.RowCount > 0)
+            {
+                int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
+                DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
+                int id = int.Parse(data.Cells[0].Value.ToString());
+                this.RealizarConsultaNoQuery("UPDATE solicitud SET solicitud.estado ='Rechazada' WHERE solicitud.id_solicitud=" + id);
+                this.cargarDatosTabla(0);
+            }
         }
 
         private Departamento cargarDepartamento() {
@@ -156,23 +176,37 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             switch (index) {
                 case 0:
                     this.cargarSolicitudes();
+                    this.recargarFiltroSolicitudes();
                     break;
 
                 case 1:
                     this.cargarObjetos();
+                    this.recargarFiltroObjetos();
                     break;
-
             }
         }
 
-        private void cargarObjetos() {
-            string consulta = "SELECT item.id_item AS ID, item.nombre AS Nombre, sala.nombre AS Ubicación," +
-                    " item.estado AS Estado, item.tipo AS Tipo, item.descripcion AS Descripción" +
-                    " FROM item, departamento, sala" +
-                    " WHERE item.id_dpto = departamento.id_dpto" +
-                    " AND sala.id_sala = item.id_sala" +
-                    " AND NOT item.estado = 'Deshabilitado'";
+        public void recargarFiltroObjetos() {
+            ventana.comboBoxObjetos.Enabled = true;
+            ventana.buttonAplicarFiltroObjetos.Enabled = true;
+            ventana.buttonQuitarFiltroObjetos.Enabled = false;
+        }
 
+        public void recargarFiltroSolicitudes() {
+            ventana.comboBoxSolicitudes.Enabled = true;
+            ventana.buttonAplicarFiltroSolicitudes.Enabled = true;
+            ventana.buttonCancelarFiltroSolicitudes.Enabled = false;
+        }
+
+        private void cargarObjetos() {
+
+            String consulta = "SELECT item.id_item AS ID, item.nombre AS Nombre, sala.nombre AS Ubicación," +
+                   " item.estado AS Estado, item.tipo AS Tipo, item.descripcion AS Descripción" +
+                   " FROM item, departamento, sala" +
+                   " WHERE item.id_dpto = departamento.id_dpto" +
+                   " AND sala.id_sala = item.id_sala" +
+                   " AND NOT item.estado = 'Deshabilitado'";
+            
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             this.PoblarTabla(ventana.dataGridViewObjetos, reader);
             this.CerrarConexion();
@@ -193,6 +227,94 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             this.PoblarTabla(ventana.dataGridViewSolicitudesTraslado, reader);
             this.CerrarConexion();
 
+        }
+
+        public void aplicarFiltroSolicitudes() {
+            string opcion;
+            DataGridView data = this.ventana.dataGridViewSolicitudesTraslado;
+            switch (this.ventana.comboBoxSolicitudes.Text.ToString()) {
+                case "Pendiente":
+                    opcion = "Pendiente";
+                    break;
+                case "Aceptada":
+                    opcion = "Aceptada";
+                    break;
+                case "Rechazada":
+                    opcion = "Rechazada";
+                    break;
+                case "Despachada":
+                    opcion = "Despachada";
+                    break;
+                default:
+                    return;
+            }
+            data.MultiSelect = true;
+            foreach (DataGridViewRow item in data.Rows) {
+                if (item.Cells[4].Value.ToString() != opcion)
+                    data.Rows[item.Index].Selected = true; ;
+            }
+            foreach (DataGridViewRow row in data.SelectedRows) {
+                data.Rows.Remove(row);
+            }
+            data.MultiSelect = false;
+            data.Update();
+            this.ventana.dataGridViewSolicitudesTraslado.Refresh();
+            this.ventana.comboBoxSolicitudes.Enabled = false;
+            this.ventana.buttonAplicarFiltroSolicitudes.Enabled = false;
+            this.ventana.buttonCancelarFiltroSolicitudes.Enabled = true;
+
+        }
+
+        public void aplicarFiltroObjetos() {
+            string opcion;
+            DataGridView data = this.ventana.dataGridViewObjetos;
+            switch (this.ventana.comboBoxObjetos.Text.ToString()) {
+                case "Documento":
+                    opcion = "Documento";
+                    break;
+                case "Vehiculo":
+                    opcion = "Vehiculo";
+                    break;
+                case "Obra":
+                    opcion = "Obra";
+                    break;
+                case "Pieza":
+                    opcion = "Pieza";
+                    break;
+                default:
+                    return;
+            }
+            data.MultiSelect = true;
+            foreach (DataGridViewRow item in data.Rows) {
+                if (item.Cells[4].Value.ToString() != opcion)
+                    data.Rows[item.Index].Selected = true; ;
+            }
+            foreach (DataGridViewRow row in data.SelectedRows) {
+                data.Rows.Remove(row);
+            }
+            data.MultiSelect = false;
+            data.Update();
+            this.ventana.dataGridViewObjetos.Refresh();
+            this.ventana.comboBoxObjetos.Enabled = false;
+            this.ventana.buttonAplicarFiltroObjetos.Enabled = false;
+            this.ventana.buttonQuitarFiltroObjetos.Enabled = true;
+
+        }
+
+        private void llenarComboBoxSolicitudes(ComboBox combo) {
+            combo.Items.Add("Pendiente");
+            combo.Items.Add("Aceptada");
+            combo.Items.Add("Rechazada");
+            combo.Items.Add("Despachada");
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void llenarComboBoxObjetos(ComboBox combo) {
+            combo.Items.Add("Documento");
+            combo.Items.Add("Vehiculo");
+            combo.Items.Add("Pieza");
+            combo.Items.Add("Obra");
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
     }
 }

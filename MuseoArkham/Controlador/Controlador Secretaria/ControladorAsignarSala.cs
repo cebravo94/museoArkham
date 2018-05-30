@@ -39,32 +39,49 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
                 string text = dataTable.Rows[i]["nombre"].ToString();
                 combo.Items.Add(text);
             }
+            combo.SelectedItem = 0;
             this.CerrarConexion();
         }
 
-        public void AsignarSala(string id, string nombre)
+        public void AsignarSala(string id, string nombre,Boolean validar)
         {
-            string valor = this.ObtenerSala(nombre);
+            if (validar)
+            {
+                this.mostrarMensaje("No se puede asignar sala a la bodega");
+            }
+            else
+            {
+                string valor = this.ObtenerSala(nombre);
 
-            string consulta = "UPDATE sala SET sala.estado = 'En Uso' WHERE sala.id_sala = '" + valor + "'";
-            this.RealizarConsultaNoQuery(consulta);
+                string consulta = "UPDATE sala SET sala.estado = 'En Uso' WHERE sala.id_sala = '" + valor + "'";
+                this.RealizarConsultaNoQuery(consulta);
 
-            string consulta2 = "UPDATE sala SET sala.id_dpto = '" + id + "' WHERE sala.id_sala = '"+ valor +"'";
-            this.RealizarConsultaNoQuery(consulta2);
+                string consulta2 = "UPDATE sala SET sala.id_dpto = '" + id + "' WHERE sala.id_sala = '" + valor + "'";
+                this.RealizarConsultaNoQuery(consulta2);
 
-            this.refrescarTablaPadre();
+                this.refrescarTablaPadre();
+            }
+
+        }
+
+        private void mostrarMensaje(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
         private string ObtenerSala(string nombre)
         {
-            string consulta = "SELECT sala.id_sala FROM sala WHERE sala.nombre = '" + nombre + "'";
 
+            string consulta = "SELECT sala.id_sala FROM sala WHERE sala.nombre = '" + nombre + "'";
+            Console.WriteLine(nombre);
+            Console.WriteLine(consulta);
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             reader.Read();
             string valor = reader.GetString(0);
             this.CerrarConexion();
             return valor;
+
         }
 
         public void refrescarTablaPadre()

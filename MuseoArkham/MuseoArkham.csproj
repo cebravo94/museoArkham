@@ -57,6 +57,8 @@
   <ItemGroup>
     <Compile Include="Controlador\Controlador Administrador\ControladorAdministrador.cs" />
     <Compile Include="Controlador\Controlador Administrador\ControladorCrearSolicitud.cs" />
+    <Compile Include="Controlador\Controlador Secretaria\ControladorCambiarAdministrador.cs" />
+    <Compile Include="Controlador\Controlador Vistas Compartidas\ControladorVerRegistro.cs" />
     <Compile Include="Controlador\Controlador Vistas Compartidas\ControladorVerSolicitud.cs" />
     <Compile Include="Controlador\Controlador Bodeguero\ControladorBodeguero.cs" />
     <Compile Include="Controlador\Controlador Bodeguero\ControladorIncorporarObjeto.cs" />
@@ -83,6 +85,18 @@
     </Compile>
     <Compile Include="Vista\Vistas Secretaria\VistaAsignarSala.Designer.cs">
       <DependentUpon>VistaAsignarSala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Vistas Secretaria\VistaCambiarAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Vistas Secretaria\VistaCambiarAdministrador.Designer.cs">
+      <DependentUpon>VistaCambiarAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\VistasCompartidas\VistaVerRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\VistasCompartidas\VistaVerRegistro.Designer.cs">
+      <DependentUpon>VistaVerRegistro.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\VistasCompartidas\VistaVerSolicitud.cs">
       <SubType>Form</SubType>
@@ -168,6 +182,12 @@
     <Compile Include="Vista\Vistas Secretaria\VistaSecretaria.Designer.cs">
       <DependentUpon>VistaSecretaria.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vista\Vistas Secretaria\VistaCambiarAdministrador.resx">
+      <DependentUpon>VistaCambiarAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\VistasCompartidas\VistaVerRegistro.resx">
+      <DependentUpon>VistaVerRegistro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\VistasCompartidas\VistaVerSolicitud.resx">
       <DependentUpon>VistaVerSolicitud.cs</DependentUpon>
     </EmbeddedResource>

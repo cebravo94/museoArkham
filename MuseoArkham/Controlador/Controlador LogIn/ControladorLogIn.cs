@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using MuseoArkham.Vista;
 using System.Windows.Forms;
 using MuseoArkham.Modelo;
+using System.Text.RegularExpressions;
 
 namespace MuseoArkham.Controlador
 {
@@ -14,10 +15,11 @@ namespace MuseoArkham.Controlador
     {
         private VistaLogIn ventana;
 
-        public ControladorLogIn(VistaLogIn ventana) {
+        public ControladorLogIn(VistaLogIn ventana)
+        {
             this.ventana = ventana;
         }
-        
+
         /**
          * <summary>
          * Acción que se activa mediante el botón aceptar. Verifica los datos
@@ -25,16 +27,27 @@ namespace MuseoArkham.Controlador
          * Si los datos son erroneos tirará un mensaje de error.
          * </summary>
          */
-        public void botonAceptar() {
-            Usuario personal = this.verificarUsuario(this.ventana.textBoxIdentificador.Text, this.ventana.textBoxContrasenna.Text);
-            if (personal != null) {
+        public void botonAceptar()
+        {
+            Usuario personal = this.verificarUsuarioRut(this.ventana.textBoxIdentificador.Text, this.ventana.textBoxContrasenna.Text);
+            if (personal != null)
+            {
                 Form nuevaVentana = null;
-                switch (personal.Tipo) {
+                switch (personal.Tipo)
+                {
                     case "Secretaria":
                         nuevaVentana = new VistaSecretaria();
                         break;
                     case "Bodega":
-                        nuevaVentana = new VistaEncargadoDeBodega(personal);
+                        if (VerificarUsuarioDepartamento(personal.Id) == true)
+                        {
+                            nuevaVentana = new VistaEncargadoDeBodega(personal);
+                        }
+                        else
+                        {
+                            string error = "El usuario no posee un departamento asignado.";
+                            MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                         break;
                     case "Director":
                         nuevaVentana = new VistaDirector();
@@ -43,20 +56,48 @@ namespace MuseoArkham.Controlador
                         nuevaVentana = new VistaGerente(personal);
                         break;
                     case "Administrador":
-                        nuevaVentana = new VistaAdministrador(personal);
+                        if (VerificarUsuarioDepartamento(personal.Id) == true)
+                        {
+                            nuevaVentana = new VistaAdministrador(personal);
+                        }
+                        else
+                        {
+                            string error = "El usuario no posee un departamento asignado.";
+                            MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        break;
+                    case "Deshabilitado":
+                        string s = "La cuenta del usuario se encuentra deshabilitada.";
+                        MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
-                if (nuevaVentana != null) {
+                if (nuevaVentana != null)
+                {
                     this.ventana.textBoxContrasenna.Text = "";
                     this.ventana.textBoxIdentificador.Text = "";
                     this.AbrirVentana(nuevaVentana, this.ventana);
                 }
             }
-            else {
+            else
+            {
                 string s = "No se ha podido validar el ingreso.\nRevise su usuario y contraseña.";
                 MessageBox.Show(s, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private bool VerificarUsuarioDepartamento(int id) 
+        {
+            string consulta = "select * from departamento where departamento.id_usuario = '" + id + "'";
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+            if (reader != null)
+            {
+                this.CerrarConexion();
+                return true;
+            }
+            this.CerrarConexion();
+            return false;
+        }
+    
 
         /**
          * <summary>
@@ -69,19 +110,117 @@ namespace MuseoArkham.Controlador
          * 
          * <returns>Tipo de usuario</returns>
          */
-        private Usuario verificarUsuario(string usuario, string contrasenna) {
+
+
+        private Usuario verificarUsuario(string usuario, string contrasenna)
+        {
             string consulta = "select * from usuario where usuario.id_usuario = " + usuario;
             MySqlDataReader reader = this.RealizarConsulta(consulta);
-            if (reader != null) {
+            if (reader != null)
+            {
                 reader.Read();
                 Usuario personal;
                 personal = new Usuario(reader);
-                if (personal.Contrasenna.Equals(contrasenna)) {
+                if (personal.Contrasenna.Equals(contrasenna))
+                {
                     this.CerrarConexion();
                     return personal;
                 }
             }
+            this.CerrarConexion();
             return null;
+        }
+
+
+        private Usuario verificarUsuarioRut(string rut, string contrasenna)
+        {
+
+            if (ValidaRut(rut) == false)
+            {
+            
+                return null;
+            }
+
+            rut = rut.Replace(".", "").ToUpper();
+            const string carcter = "\"";
+            rut = carcter + rut + carcter;
+            Console.WriteLine(rut);
+            string consulta = "select * from usuario where usuario.rut = " + rut;
+
+            MySqlDataReader reader = this.RealizarConsulta(consulta);
+
+            if (reader != null)
+            {
+                reader.Read();
+                Usuario personal;
+                personal = new Usuario(reader);
+                if (personal.Contrasenna.Equals(contrasenna))
+                {
+                    this.CerrarConexion();
+                    return personal;
+                }
+            }
+            this.CerrarConexion();
+            return null;
+        }
+
+     
+
+        public bool ValidaRut(string rut)
+        {
+            rut = rut.Replace(" ", "");
+            if (rut.Length == 0) return false;
+            if (rut.StartsWith("0")) return false;
+            rut = rut.Replace(".", "").ToUpper();
+            Regex expresion = new Regex("^([0-9]+-[0-9K])$");
+            string dv = rut.Substring(rut.Length - 1, 1);
+            if (!expresion.IsMatch(rut))
+            {
+                return false;
+            }
+            char[] charCorte = { '-' };
+            string[] rutTemp = rut.Split(charCorte);
+            if (dv != Digito(int.Parse(rutTemp[0])))
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+        /// <summary>
+        /// método que calcula el digito verificador a partir
+        /// de la mantisa del rut
+        /// </summary>
+        /// <param name="rut"></param>
+        /// <returns></returns>
+        public static string Digito(int rut)
+        {
+            int suma = 0;
+            int multiplicador = 1;
+            while (rut != 0)
+            {
+                multiplicador++;
+                if (multiplicador == 8)
+                    multiplicador = 2;
+                suma += (rut % 10) * multiplicador;
+                rut = rut / 10;
+            }
+            suma = 11 - (suma % 11);
+            if (suma == 11)
+            {
+                return "0";
+            }
+            else if (suma == 10)
+            {
+                return "K";
+            }
+            else
+            {
+                return suma.ToString();
+            }
+
+
         }
     }
 }

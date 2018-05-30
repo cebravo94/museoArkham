@@ -151,18 +151,17 @@
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(5);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(5, 5, 5, 20);
             this.groupBox3.Size = new System.Drawing.Size(147, 305);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
             // botonPDF
             // 
-            this.botonPDF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.botonPDF.Location = new System.Drawing.Point(8, 107);
+            this.botonPDF.Dock = System.Windows.Forms.DockStyle.Top;
+            this.botonPDF.Location = new System.Drawing.Point(5, 89);
             this.botonPDF.Name = "botonPDF";
-            this.botonPDF.Size = new System.Drawing.Size(131, 29);
+            this.botonPDF.Size = new System.Drawing.Size(137, 29);
             this.botonPDF.TabIndex = 4;
             this.botonPDF.Text = "Exportar a PDF";
             this.botonPDF.UseVisualStyleBackColor = true;
@@ -170,9 +169,8 @@
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(5, 72);
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Location = new System.Drawing.Point(5, 60);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(137, 29);
             this.button1.TabIndex = 3;
@@ -182,11 +180,10 @@
             // 
             // comboBoxFiltro
             // 
-            this.comboBoxFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxFiltro.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboBoxFiltro.Enabled = false;
             this.comboBoxFiltro.FormattingEnabled = true;
-            this.comboBoxFiltro.Location = new System.Drawing.Point(5, 45);
+            this.comboBoxFiltro.Location = new System.Drawing.Point(5, 39);
             this.comboBoxFiltro.Name = "comboBoxFiltro";
             this.comboBoxFiltro.Size = new System.Drawing.Size(137, 21);
             this.comboBoxFiltro.TabIndex = 2;
@@ -248,6 +245,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBoxFiltro;
         private System.Windows.Forms.DataGridView tablaDirector;
-        private System.Windows.Forms.Button botonPDF;
+        public System.Windows.Forms.Button botonPDF;
     }
 }

@@ -61,8 +61,8 @@ namespace MuseoArkham.Vista
 
         private void buttonAsignarSalas_Click(object sender, EventArgs e)
         {
-   
-            VistaAsignarSala vas = new VistaAsignarSala(dataGridViewDepartamento);
+            Boolean validar = this.controlador.verificarBodega(dataGridViewDepartamento);
+            VistaAsignarSala vas = new VistaAsignarSala(dataGridViewDepartamento,validar);
             vas.ShowDialog(this);
  
         }
@@ -77,7 +77,7 @@ namespace MuseoArkham.Vista
             }
             else
             {
-                MessageBox.Show("Departamento ya tiene administrador, eliga otro", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Departamento ya tiene administrador, elija otro", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
            
         }
@@ -89,6 +89,12 @@ namespace MuseoArkham.Vista
 
         private void buttonDeshabilitarUsuario_Click_1(object sender, EventArgs e) {
             this.controlador.botonDeshabilitarUsuario();
+        }
+
+        private void buttonCambiarAdministrador_Click(object sender, EventArgs e)
+        {
+            VistaCambiarAdministrador vca = new VistaCambiarAdministrador(dataGridViewDepartamento);
+            vca.ShowDialog(this);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MuseoArkham.Vista;
+﻿
+using MuseoArkham.Vista;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using MuseoArkham.Modelo;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
 using System.Data;
+using System.Windows.Forms;
 
 namespace MuseoArkham.Controlador.Controlador_Bodeguero
 {
@@ -36,69 +38,254 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
         {
             String nombreDocumento = ventana.textBoxNombreDocumento.Text;
             String coleccionDocumento = ventana.textBoxColeccionDocumento.Text;
-            int anno = Int32.Parse(ventana.textBoxAnnoDocumento.Text);
-            String era = ventana.comboBoxEraDocumento.SelectedItem.ToString();
-            String tipo = ventana.comboBoxTipoDocumento.SelectedItem.ToString();
+            int anno = -1;
+            try
+            {
+                anno = Int32.Parse(ventana.textBoxAnnoDocumento.Text);
+            }
+            catch
+            {
+                MessageBox.Show(this.ventana, "No se puede Incorporar el objeto, el AÑO es invalido", "Accion Invalida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            String era = null;
+            try
+            {
+                era = ventana.comboBoxEraDocumento.SelectedItem.ToString();
+            }
+            catch
+            {
+                MessageBox.Show(this.ventana, "Debe seleccionar una Era", "Accion Invalida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            String tipo = null;
+            try
+            {
+                tipo = ventana.comboBoxTipoDocumento.SelectedItem.ToString();
+            }
+            catch
+            {
+                MessageBox.Show(this.ventana, "Debe seleccionar un Tipo", "Accion Invalida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             String autor = ventana.textBoxAutorDocumento.Text;
             String descripcion = ventana.textBoxDescripcionDocumento.Text;
             DateTime fechaIngreso = DateTime.Today;
-            documentoNuevo = new Documento(0,2,1,fechaIngreso,descripcion,coleccionDocumento, "En Bodega", nombreDocumento,"documento",anno,era,tipo,autor);
-
-            //Consulta sql para insertar
-            this.InsertarDocumentoBD(documentoNuevo);
+            if (anno != -1 && (anno <= DateTime.Today.Year || ((anno > DateTime.Today.Year) && (era == "A.C."))) 
+                && era != null && tipo != null && !string.IsNullOrEmpty(nombreDocumento) 
+                && !string.IsNullOrEmpty(coleccionDocumento) && !string.IsNullOrEmpty(autor) 
+                && !string.IsNullOrWhiteSpace(nombreDocumento)
+                && !string.IsNullOrWhiteSpace(coleccionDocumento) && !string.IsNullOrWhiteSpace(autor))
+            {
+                documentoNuevo = new Documento(0, 2, 1, fechaIngreso, descripcion, coleccionDocumento, "En Bodega", nombreDocumento, "Documento", anno, era, tipo, autor);
+                //Consulta sql para insertar
+                this.InsertarDocumentoBD(documentoNuevo);
+            }
+            else
+            {
+                if ((anno > DateTime.Today.Year) && (era == "D.C."))
+                {
+                    MessageBox.Show(this.ventana, "El objeto no puede tener un AÑO mayor al actual", "Accion Invalida",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(this.ventana, "Los campos Nombre, Coleccion y Autor son obligatorios", "Accion Invalida",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         public void IncorporarObra()
         {
             String nombreObra = ventana.textBoxNombreObra.Text;
             String coleccionObra = ventana.textBoxColeccionObra.Text;
-            int anno = Int32.Parse(ventana.textBoxAnnoObra.Text);
-            String era = ventana.comboBoxEraObra.SelectedItem.ToString();
-            String tipo = ventana.comboBoxTipoObra.SelectedItem.ToString();
+            int anno = -1;
+            try
+            {
+                anno = Int32.Parse(ventana.textBoxAnnoObra.Text);
+            }
+            catch
+            {
+                MessageBox.Show(this.ventana, "No se puede Incorporar el objeto, el AÑO es invalido", "Accion Invalida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
+            String era = null;
+            try
+            {
+                era = ventana.comboBoxEraObra.SelectedItem.ToString();
+            }
+            catch
+            {
+                MessageBox.Show(this.ventana, "Debe seleccionar una Era", "Accion Invalida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            String tipo = null;
+            try
+            {
+                tipo = ventana.comboBoxTipoObra.SelectedItem.ToString();
+            }
+            catch
+            {
+                MessageBox.Show(this.ventana, "Debe seleccionar un Tipo", "Accion Invalida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             String autor = ventana.textBoxAutorObra.Text;
             String material = ventana.textBoxMaterialObra.Text;
             String estilo = ventana.textBoxEstiloObra.Text;
             String descripcion = ventana.textBoxDescripcionObra.Text;
             DateTime fechaIngreso = DateTime.Today;
-
-            obraNueva = new Obra(0, 2, 1, fechaIngreso, descripcion, coleccionObra, "En Bodega", nombreObra, "obra", anno, era, material, estilo, tipo, autor);
-
-            //Consulta sql para insertar
-            this.InsertarObraBD(obraNueva);
+            if (anno != -1 && (anno <= DateTime.Today.Year || ((anno > DateTime.Today.Year) && (era == "A.C."))) 
+                && era != null && tipo != null && !string.IsNullOrEmpty(nombreObra) && !string.IsNullOrEmpty(coleccionObra) 
+                && !string.IsNullOrEmpty(autor) && !string.IsNullOrEmpty(material) && !string.IsNullOrEmpty(estilo) 
+                && !string.IsNullOrWhiteSpace(nombreObra) && !string.IsNullOrWhiteSpace(coleccionObra) 
+                && !string.IsNullOrWhiteSpace(autor) && !string.IsNullOrWhiteSpace(material) && !string.IsNullOrWhiteSpace(estilo))
+            {
+                obraNueva = new Obra(0, 2, 1, fechaIngreso, descripcion, coleccionObra, "En Bodega", nombreObra, "Obra", anno, era, material, estilo, tipo, autor);
+                //Consulta sql para insertar
+                this.InsertarObraBD(obraNueva);
+            }
+            else
+            {
+                if ((anno > DateTime.Today.Year) && (era=="D.C."))
+                {
+                    MessageBox.Show(this.ventana, "El objeto no puede tener un AÑO mayor actual si la era es D.C.", "Accion Invalida",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(this.ventana, "Los campos Nombre, Coleccion, Autor, Material y Estilo son obligatorios", "Accion Invalida",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         public void IncorporarPieza()
         {
             String nombrePieza = ventana.textBoxNombrePieza.Text;
             String coleccionPieza = ventana.textBoxColeccionPieza.Text;
-            int anno = Int32.Parse(ventana.textBoxAnnoPieza.Text);
-            String era = ventana.comboBoxEraPieza.SelectedItem.ToString();
-            String tipo = ventana.comboBoxTipoPieza.SelectedItem.ToString();
+            int anno = -1;
+            try
+            {
+                anno = Int32.Parse(ventana.textBoxAnnoPieza.Text);
+            }
+            catch
+            {
+                MessageBox.Show(this.ventana, "No se puede Incorporar el objeto, el AÑO es invalido", "Accion Invalida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
+            String era = null;
+            try
+            {
+                era = ventana.comboBoxEraPieza.SelectedItem.ToString();
+            }
+            catch
+            {
+                MessageBox.Show(this.ventana, "Debe seleccionar una Era", "Accion Invalida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+
+            String tipo = null;
+            try
+            {
+                tipo = ventana.comboBoxTipoPieza.SelectedItem.ToString();
+            }
+            catch
+            {
+                MessageBox.Show(this.ventana, "Debe seleccionar un tipo", "Accion Invalida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             String periodo = ventana.textBoxPeriodoPieza.Text;
             String descripcion = ventana.textBoxDescripcionPieza.Text;
             DateTime fechaIngreso = DateTime.Today;
 
-            piezaNueva = new Pieza(0,2,1,fechaIngreso,descripcion,coleccionPieza, "En Bodega", nombrePieza,"pieza",anno,era,periodo,tipo);
-
-            //Consulta sql para insertar
-            this.InsertarPiezaBD(piezaNueva);
+            if (anno != -1 && (anno <= DateTime.Today.Year || ((anno > DateTime.Today.Year) && (era == "A.C."))) 
+                && era != null && tipo != null && !string.IsNullOrEmpty(nombrePieza)
+                && !string.IsNullOrEmpty(coleccionPieza) && !string.IsNullOrEmpty(periodo) && !string.IsNullOrWhiteSpace(nombrePieza)
+                && !string.IsNullOrWhiteSpace(coleccionPieza) && !string.IsNullOrWhiteSpace(periodo))
+            {
+                piezaNueva = new Pieza(0, 2, 1, fechaIngreso, descripcion, coleccionPieza, "En Bodega", nombrePieza, "Pieza", anno, era, periodo, tipo);
+                //Consulta sql para insertar
+                this.InsertarPiezaBD(piezaNueva);
+            }
+            else
+            {
+                if ((anno > DateTime.Today.Year) && (era == "D.C."))
+                {
+                    MessageBox.Show(this.ventana, "El objeto no puede tener un AÑO mayor al actual", "Accion Invalida",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(this.ventana, "Los campos Nombre, Coleccion y Periodo son obligatorios", "Accion Invalida",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         public void IncorporarVehiculo()
         {
             String nombreVehiculo = ventana.textBoxNombreVehiculo.Text;
             String coleccionVehiculo = ventana.textBoxColeccionVehiculo.Text;
-            int anno = Int32.Parse(ventana.textBoxAnnoVehiculo.Text);
-            String era = ventana.comboBoxEraVehiculo.SelectedItem.ToString();
+            int anno = -1;
+            try
+            {
+                anno = Int32.Parse(ventana.textBoxAnnoVehiculo.Text);
+            }
+            catch
+            {
+                MessageBox.Show(this.ventana, "No se puede Incorporar el objeto, el AÑO es invalido", "Accion Invalida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            String era = null;
+            try
+            {
+                era = ventana.comboBoxEraVehiculo.SelectedItem.ToString();
+            }
+            catch
+            {
+                MessageBox.Show(this.ventana, "Debe seleccionar una Era", "Accion Invalida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             String marca = ventana.textBoxMarcaVehiculo.Text;
             String modelo = ventana.textBoxModeloVehiculo.Text;
             String descripcion = ventana.textBoxDescripcionVehiculo.Text;
             DateTime fechaIngreso = DateTime.Today;
-
-            vehiculoNuevo = new Vehiculo(0,2,1,fechaIngreso,descripcion,coleccionVehiculo, "En Bodega",nombreVehiculo,"vehiculo",anno,era,marca,modelo);
-
-            //Consulta sql para insertar
-            this.InsertarVehiculoBD(vehiculoNuevo);
+            if (anno != -1 && (anno <= DateTime.Today.Year || ((anno > DateTime.Today.Year) && (era == "A.C."))) 
+                && era != null && !string.IsNullOrEmpty(nombreVehiculo)
+                && !string.IsNullOrEmpty(coleccionVehiculo) && !string.IsNullOrEmpty(marca) && !string.IsNullOrEmpty(modelo)
+                && !string.IsNullOrWhiteSpace(nombreVehiculo) && !string.IsNullOrWhiteSpace(coleccionVehiculo)
+                && !string.IsNullOrWhiteSpace(marca) && !string.IsNullOrWhiteSpace(modelo))
+            {
+                vehiculoNuevo = new Vehiculo(0, 2, 1, fechaIngreso, descripcion, coleccionVehiculo, "En Bodega", nombreVehiculo, "Vehiculo", anno, era, marca, modelo);
+                //Consulta sql para insertar
+                this.InsertarVehiculoBD(vehiculoNuevo);
+            }
+            else
+            {
+                if ((anno > DateTime.Today.Year) && (era=="D.C."))
+                {
+                    MessageBox.Show(this.ventana, "El objeto no puede tener un AÑO mayor al actual", "Accion Invalida",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(this.ventana, "Los campos Nombre, Coleccion, Marca y Modelo son obligatorios", "Accion Invalida",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private String FormatearFecha(DateTime fecha)

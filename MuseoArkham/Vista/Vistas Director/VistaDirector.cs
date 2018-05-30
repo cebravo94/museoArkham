@@ -75,6 +75,8 @@ namespace MuseoArkham.Vista
             else
             {
                 this.controlador.ExportarPdf(this.tablaDirector);
+
+                
             }
         }
     }

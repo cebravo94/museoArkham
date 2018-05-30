@@ -109,6 +109,7 @@
             this.buttonCancelarAsignarAdministrador.TabIndex = 1;
             this.buttonCancelarAsignarAdministrador.Text = "Cancelar";
             this.buttonCancelarAsignarAdministrador.UseVisualStyleBackColor = true;
+            this.buttonCancelarAsignarAdministrador.Click += new System.EventHandler(this.buttonCancelarAsignarAdministrador_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -158,6 +159,7 @@
             this.Padding = new System.Windows.Forms.Padding(3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VistaAsignarAdministrador";
+            this.Load += new System.EventHandler(this.VistaAsignarAdministrador_Load);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

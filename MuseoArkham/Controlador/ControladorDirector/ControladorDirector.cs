@@ -18,8 +18,12 @@ namespace MuseoArkham.Controlador.ControladorDirector
     {
         private VistaDirector ventana;
         private String consultaActual = "nada";
+        private String nombreDpto = "";
+        private String descrip;
+        private String administrador;
 
-        public ControladorDirector(VistaDirector ventana) {
+        public ControladorDirector(VistaDirector ventana)
+        {
             this.ventana = ventana;
         }
 
@@ -41,7 +45,7 @@ namespace MuseoArkham.Controlador.ControladorDirector
                     break;
                 case "Departamento":
                     Console.WriteLine("aaa");
-                    this.ReporteDepartamento(filtro,tabla);
+                    this.ReporteDepartamento(filtro, tabla);
                     break;
                 case "Colección":
                     this.ReporteColeccion(filtro, tabla);
@@ -61,19 +65,26 @@ namespace MuseoArkham.Controlador.ControladorDirector
             }
 
         }
-        
 
-        public void LlenarComboBox(String tipo , ComboBox combob ) {
+
+        public void LlenarComboBox(String tipo, ComboBox combob)
+        {
 
             MySqlDataReader reader;
 
-            switch (tipo){
+            switch (tipo)
+            {
                 case "Departamento":
-                   combob.Items.Clear();
-                   reader = this.RealizarConsulta("select * from departamento");
-                    while (reader.Read()) {
+                    combob.Items.Clear();
+                    reader = this.RealizarConsulta("select * from departamento");
+                    while (reader.Read())
+                    {
                         String depa = reader["nombre"].ToString();
-                        combob.Items.Add(depa);
+                        String estado = reader["estado"].ToString();
+                        if (depa != "default" && estado == "Activo")
+                        {
+                            combob.Items.Add(depa);
+                        }
                     }
                     this.CerrarConexion();
                     break;
@@ -122,7 +133,7 @@ namespace MuseoArkham.Controlador.ControladorDirector
                     this.CerrarConexion();
 
                     break;
-                    
+
                 case "Año de origen de objeto":
                     combob.Items.Clear();
                     reader = this.RealizarConsulta("select * from item group by item.anno");
@@ -134,15 +145,37 @@ namespace MuseoArkham.Controlador.ControladorDirector
                     this.CerrarConexion();
 
                     break;
-                    
+
             }
 
         }
-        public void ReporteDepartamento(string text,DataGridView tabla)
+        public void ReporteDepartamento(string text, DataGridView tabla)
         {
             MySqlDataReader read;
-            String consulta = "SELECT t2.nombre as Nombre, t2.descripcion  as Descripcion,t1.nombre as NombreItem , t4.nombre as NombreUsuario , t3.nombre as NombreSala FROM item as t1, departamento as t2, sala as t3 , usuario as t4 WHERE t2.nombre = '" + text + "' AND t2.id_dpto = t1.id_dpto AND t3.id_dpto = t2.id_dpto AND t4.id_usuario = t2.id_usuario";
+            String consulta = "SELECT t2.nombre , t2.descripcion, t4.nombre as nombreus FROM item as t1, departamento as t2, sala as t3 , usuario as t4 WHERE t2.nombre = '" + text + "' AND t2.id_dpto = t1.id_dpto AND t3.id_dpto = t2.id_dpto AND t4.id_usuario = t2.id_usuario";
             this.consultaActual = "Reporte general de departamento";
+            Console.WriteLine(consulta);
+            read = this.RealizarConsulta(consulta);
+            if (read == null)
+            {
+                MessageBox.Show(this.ventana, "No es posible generar reporte", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.ventana.botonPDF.Enabled = false;
+                this.CerrarConexion();
+                return;
+            }
+            read.Read();
+            this.ventana.botonPDF.Enabled = true;
+            this.nombreDpto = read["nombre"].ToString();
+            this.descrip = read["descripcion"].ToString();
+            this.administrador = read["nombreus"].ToString();
+            Console.WriteLine(this.nombreDpto);
+            Console.WriteLine(this.descrip);
+            Console.WriteLine(this.administrador);
+            this.CerrarConexion();
+
+            //consulta para obtener los datos de los items
+            consulta = "SELECT  t1.nombre as NombreItem, t1.descripcion as Descripcion, t1.coleccion as Coleccion, t1.anno as Año, era as Era , t3.nombre as NombreSala FROM item as t1, departamento as t2, sala as t3 , usuario as t4 WHERE t2.nombre = '" + text + "' AND t2.id_dpto = t1.id_dpto AND t3.id_dpto = t2.id_dpto AND t4.id_usuario = t2.id_usuario";
             read = this.RealizarConsulta(consulta);
             Console.WriteLine(consulta);
             if (read != null)
@@ -152,11 +185,13 @@ namespace MuseoArkham.Controlador.ControladorDirector
             this.CerrarConexion();
         }
 
-        public void ReporteInventario(DataGridView tabla) {
+        public void ReporteInventario(DataGridView tabla)
+        {
             MySqlDataReader read;
             this.consultaActual = "Reporte general de inventario";
             read = this.RealizarConsulta("select nombre as Nombre, fecha_ingreso as FechaIngreso, descripcion as Descripcion, coleccion as Coleccion, estado as Estado, tipo as Tipo, anno as Año, era as Era from item");
-            if (read != null){
+            if (read != null)
+            {
                 this.PoblarTabla(tabla, read);
             }
             this.CerrarConexion();
@@ -177,12 +212,12 @@ namespace MuseoArkham.Controlador.ControladorDirector
             }
             this.CerrarConexion();
         }
-    
+
 
         public void ReporteAnno(string text, DataGridView tabla)
         {
             MySqlDataReader read;
-          
+
             String consulta = "SELECT t2.nombre AS NombreDepartamento ,t3.nombre as NombreSala,t1.nombre as Nombre, t1.fecha_ingreso as FechaIngreso,  t1.coleccion as Coleccion, t1.estado as Estado, t1.tipo as Tipo, t1.anno as Año, t1.era as Era FROM item as t1, departamento as t2, sala as t3 WHERE t1.anno =" + text + " AND t2.id_dpto = t1.id_dpto AND t3.id_dpto = t2.id_dpto";
             this.consultaActual = "Reporte apartir de año de origen de un objeto";
             Console.WriteLine("consulta: " + consulta);
@@ -213,7 +248,7 @@ namespace MuseoArkham.Controlador.ControladorDirector
         {
             MySqlDataReader read;
 
-            String consulta = "SELECT t3.estilo as Estilo ,t1.nombre as Nombre, t1.fecha_ingreso as FechaIngreso,  t1.coleccion as Coleccion, t1.estado as Estado, t1.tipo as Tipo, t1.anno as Año, t1.era as Era FROM item as t1,departamento as t2,obra as t3 WHERE t3.id_item = t1.id_item and t3.estilo = '" + text +"' and t1.id_dpto = t2.id_dpto";
+            String consulta = "SELECT t3.estilo as Estilo ,t1.nombre as Nombre, t1.fecha_ingreso as FechaIngreso,  t1.coleccion as Coleccion, t1.estado as Estado, t1.tipo as Tipo, t1.anno as Año, t1.era as Era FROM item as t1,departamento as t2,obra as t3 WHERE t3.id_item = t1.id_item and t3.estilo = '" + text + "' and t1.id_dpto = t2.id_dpto";
             this.consultaActual = "Reporte a partir de un estilo artistico";
             Console.WriteLine("consulta: " + consulta);
             read = this.RealizarConsulta(consulta);
@@ -239,19 +274,22 @@ namespace MuseoArkham.Controlador.ControladorDirector
             this.CerrarConexion();
         }
 
-        public void ExportarPdf(DataGridView tabla) {
+        public void ExportarPdf(DataGridView tabla)
+        {
             Document doc = new Document(PageSize.A4.Rotate(), 10, 10, 10, 10);
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.InitialDirectory = @"C:";
             saveFileDialog1.Title = "Guardar Reporte";
             saveFileDialog1.DefaultExt = "pdf";
-            saveFileDialog1.Filter = "pdf Files (*.pdf)|*.pdf| All Files (*.*)|*.*";
+            saveFileDialog1.Filter = "pdf Files (*.pdf)|*.pdf";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
             string filename = "";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 filename = saveFileDialog1.FileName;
+                MessageBox.Show("El reporte se a creado satisfactoriamente.", "",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             if (filename.Trim() != "")
             {
@@ -261,7 +299,7 @@ namespace MuseoArkham.Controlador.ControladorDirector
                 FileShare.ReadWrite);
                 PdfWriter.GetInstance(doc, file);
                 doc.Open();
-               
+
                 string fecha = "Fecha: " + DateTime.Now.ToString();
 
                 Chunk chunk = new Chunk(this.consultaActual + ".", FontFactory.GetFont("ARIAL", 20, iTextSharp.text.Font.BOLD));
@@ -275,13 +313,24 @@ namespace MuseoArkham.Controlador.ControladorDirector
                 doc.Add(new Paragraph("                       "));
                 doc.Add(new Paragraph("                       "));
                 doc.Add(new Paragraph("                       "));
-                GenerarTabla(doc,tabla);
+                if (this.consultaActual == "Reporte general de departamento")
+                {
+                    doc.Add(new Paragraph("Nombre departamento: " + this.nombreDpto + "."));
+                    doc.Add(new Paragraph("Descripcion: " + this.descrip + "."));
+                    doc.Add(new Paragraph("Administrador: " + this.administrador + "."));
+                    doc.Add(new Paragraph("                       "));
+
+                    doc.Add(new Paragraph("Items del departamento:"));
+                    doc.Add(new Paragraph("                       "));
+
+                }
+                GenerarTabla(doc, tabla);
                 doc.AddCreationDate();
                 doc.Close();
             }
 
         }
-        private void GenerarTabla(Document document,DataGridView dataGridView1)
+        private void GenerarTabla(Document document, DataGridView dataGridView1)
         {
             int i, j;
             PdfPTable datatable = new PdfPTable(dataGridView1.ColumnCount);
@@ -312,19 +361,25 @@ namespace MuseoArkham.Controlador.ControladorDirector
         }
         private float[] GetTamañoColumnas(DataGridView dg)
         {
+
             float[] valor = new float[dg.ColumnCount];
             for (int i = 0; i < dg.ColumnCount; i++)
             {
-                valor[i] = (float)dg.Columns[i].Width;
+                valor[i] = (float)dg.Columns[i].Width + 2000;
             }
+
             return valor;
+
 
         }
 
-        public String ObtenrConsultaActual() {
+        public String ObtenrConsultaActual()
+        {
             return this.consultaActual;
 
         }
     }
-  }
+}
+
+
 

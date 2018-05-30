@@ -55,6 +55,7 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.buttonDeshabilitarUsuario = new System.Windows.Forms.Button();
             this.buttonAgregarUsuario = new System.Windows.Forms.Button();
+            this.buttonCambiarAdministrador = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -198,6 +199,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.buttonCambiarAdministrador);
             this.groupBox3.Controls.Add(this.buttonAsignarAdministrador);
             this.groupBox3.Controls.Add(this.buttonAsignarSalas);
             this.groupBox3.Controls.Add(this.buttonEliminarDepartamento);
@@ -419,6 +421,17 @@
             this.buttonAgregarUsuario.UseVisualStyleBackColor = true;
             this.buttonAgregarUsuario.Click += new System.EventHandler(this.buttonAgregarUsuario_Click);
             // 
+            // buttonCambiarAdministrador
+            // 
+            this.buttonCambiarAdministrador.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonCambiarAdministrador.Location = new System.Drawing.Point(5, 138);
+            this.buttonCambiarAdministrador.Name = "buttonCambiarAdministrador";
+            this.buttonCambiarAdministrador.Size = new System.Drawing.Size(123, 30);
+            this.buttonCambiarAdministrador.TabIndex = 4;
+            this.buttonCambiarAdministrador.Text = "Cambiar administrador";
+            this.buttonCambiarAdministrador.UseVisualStyleBackColor = true;
+            this.buttonCambiarAdministrador.Click += new System.EventHandler(this.buttonCambiarAdministrador_Click);
+            // 
             // VistaSecretaria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -493,5 +506,6 @@
         public System.Windows.Forms.DataGridView dataGridViewDepartamento;
         public System.Windows.Forms.DataGridView dataGridViewSalas;
         public System.Windows.Forms.DataGridView dataGridViewUsuarios;
+        private System.Windows.Forms.Button buttonCambiarAdministrador;
     }
 }

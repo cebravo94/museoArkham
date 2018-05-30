@@ -111,6 +111,7 @@
             this.buttonCancelar.TabIndex = 1;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -157,6 +158,7 @@
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Location = new System.Drawing.Point(103, 3);
+            this.textBox1.MaxLength = 100;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(292, 20);
             this.textBox1.TabIndex = 2;
@@ -165,6 +167,7 @@
             // 
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox2.Location = new System.Drawing.Point(103, 112);
+            this.textBox2.MaxLength = 100;
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.tableLayoutPanel3.SetRowSpan(this.textBox2, 2);

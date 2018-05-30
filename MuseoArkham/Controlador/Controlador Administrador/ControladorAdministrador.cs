@@ -11,6 +11,7 @@ using MuseoArkham.Modelo;
 using System.Diagnostics;
 using MuseoArkham.Vista.Vistas_Administrador;
 using MuseoArkham.Vista.VistasItem;
+using MuseoArkham.Vista.VistasCompartidas;
 
 namespace MuseoArkham.Controlador.Controlador_Administrador
 {
@@ -24,6 +25,96 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
             this.ventana = ventana;
             this.usuario = usuario;
             this.departamento = this.cargarDepartamento();
+            this.llenarComboBoxSolicitudes(this.ventana.comboBoxSolicitudes);
+            this.llenarComboBoxObjetos(this.ventana.comboBoxObjetos);
+        }
+        
+        public void aplicarFiltroSolicitudes() {
+            string opcion;
+            DataGridView data = this.ventana.dataGridViewSolicitudesTraslado;
+            switch (this.ventana.comboBoxSolicitudes.Text.ToString()) {
+                case "Pendiente":
+                    opcion = "Pendiente";
+                    break;
+                case "Aceptada":
+                    opcion = "Aceptada";
+                    break;
+                case "Rechazada":
+                    opcion = "Rechazada";
+                    break;
+                case "Despachada":
+                    opcion = "Despachada";
+                    break;
+                default:
+                    return;
+            }
+            data.MultiSelect = true;
+            foreach (DataGridViewRow item in data.Rows) {
+                if (item.Cells[4].Value.ToString() != opcion)
+                    data.Rows[item.Index].Selected = true; ;
+            }
+            foreach (DataGridViewRow row in data.SelectedRows) {
+                data.Rows.Remove(row);
+            }
+            data.MultiSelect = false;
+            data.Update();
+            this.ventana.dataGridViewSolicitudesTraslado.Refresh();
+            this.ventana.comboBoxSolicitudes.Enabled = false;
+            this.ventana.buttonAplicarFiltroSolicitudes.Enabled = false;
+            this.ventana.buttonCancelarFiltroSolicitudes.Enabled = true;
+
+        }
+
+        public void aplicarFiltroObjetos() {
+            string opcion;
+            DataGridView data = this.ventana.dataGridViewObjetos;
+            switch (this.ventana.comboBoxObjetos.Text.ToString()) {
+                case "Documento":
+                    opcion = "Documento";
+                    break;
+                case "Vehiculo":
+                    opcion = "Vehiculo";
+                    break;
+                case "Obra":
+                    opcion = "Obra";
+                    break;
+                case "Pieza":
+                    opcion = "Pieza";
+                    break;
+                default:
+                    return;
+            }
+            data.MultiSelect = true;
+            foreach (DataGridViewRow item in data.Rows) {
+                if (item.Cells[4].Value.ToString() != opcion)
+                    data.Rows[item.Index].Selected = true; ;
+            }
+            foreach (DataGridViewRow row in data.SelectedRows) {
+                data.Rows.Remove(row);
+            }
+            data.MultiSelect = false;
+            data.Update();
+            this.ventana.dataGridViewObjetos.Refresh();
+            this.ventana.comboBoxObjetos.Enabled = false;
+            this.ventana.buttonAplicarFiltroObjetos.Enabled = false;
+            this.ventana.buttonQuitarFiltroObjetos.Enabled = true;
+
+        }
+
+        private void llenarComboBoxSolicitudes(ComboBox combo) {
+            combo.Items.Add("Pendiente");
+            combo.Items.Add("Aceptada");
+            combo.Items.Add("Rechazada");
+            combo.Items.Add("Despachada");
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void llenarComboBoxObjetos(ComboBox combo) {
+            combo.Items.Add("Documento");
+            combo.Items.Add("Vehiculo");
+            combo.Items.Add("Pieza");
+            combo.Items.Add("Obra");
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         /**
@@ -34,6 +125,13 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
          */
         public void botonCancelarSolicitud() {
             if (this.ventana.dataGridViewSolicitudesTraslado.RowCount>0) {
+                int index = this.ventana.dataGridViewSolicitudesTraslado.CurrentCell.RowIndex;
+                DataGridViewRow data = this.ventana.dataGridViewSolicitudesTraslado.Rows[index];
+                string estado = data.Cells[4].Value.ToString();
+                if (estado!="Pendiente") {
+                    MessageBox.Show(this.ventana,"Solo se pueden Cancelar solicitudes con estado Pendiente","Error",MessageBoxButtons.OK);
+                    return;
+                }
                 int idSolicitud = this.obtenerIdSolicitud();
                 string consulta1 = "DELETE FROM itemsolicitado WHERE itemsolicitado.id_solicitud = " + idSolicitud;
                 this.RealizarConsultaNoQuery(consulta1);
@@ -65,6 +163,24 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
             if (this.ventana.dataGridViewObjetos.RowCount > 0) {
                 int index = this.obtenerIdItem();
                 VistaItem vista = new VistaItem(index);
+                vista.ShowDialog(this.ventana);
+            }
+        }
+
+        private int ObtenerIdRegistro()
+        {
+            int index = this.ventana.dataGridViewRegistros.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewRegistros.Rows[index];
+            int idRegistro = Int32.Parse(data.Cells[0].Value.ToString());
+            return idRegistro;
+        }
+
+        public void VerDetallesRegistros()
+        {
+            if (this.ventana.dataGridViewRegistros.RowCount > 0)
+            {
+                int index = this.ObtenerIdRegistro();
+                VistaVerRegistro vista = new VistaVerRegistro(index);
                 vista.ShowDialog(this.ventana);
             }
         }
@@ -106,14 +222,29 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
             switch (index) {
                 case 0:
                     this.cargarSolicitudes();
+                    this.recargarFiltroSolicitudes();
                     break;
                 case 1:
                     this.cargarItems();
+                    this.recargarFiltroObjetos();
                     break;
                 case 2:
                     this.cargarRegistros();
                     break;
             }
+        }
+
+
+        public void recargarFiltroObjetos() {
+            ventana.comboBoxObjetos.Enabled = true;
+            ventana.buttonAplicarFiltroObjetos.Enabled = true;
+            ventana.buttonQuitarFiltroObjetos.Enabled = false;
+        }
+
+        public void recargarFiltroSolicitudes() {
+            ventana.comboBoxSolicitudes.Enabled = true;
+            ventana.buttonAplicarFiltroSolicitudes.Enabled = true;
+            ventana.buttonCancelarFiltroSolicitudes.Enabled = false;
         }
 
         private void cargarSolicitudes() {
