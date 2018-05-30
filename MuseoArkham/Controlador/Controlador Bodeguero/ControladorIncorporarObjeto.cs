@@ -1,4 +1,5 @@
-﻿using MuseoArkham.Vista;
+﻿
+using MuseoArkham.Vista;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,7 +79,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
                 && !string.IsNullOrWhiteSpace(nombreDocumento)
                 && !string.IsNullOrWhiteSpace(coleccionDocumento) && !string.IsNullOrWhiteSpace(autor))
             {
-                documentoNuevo = new Documento(0, 2, 1, fechaIngreso, descripcion, coleccionDocumento, "En Bodega", nombreDocumento, "documento", anno, era, tipo, autor);
+                documentoNuevo = new Documento(0, 2, 1, fechaIngreso, descripcion, coleccionDocumento, "En Bodega", nombreDocumento, "Documento", anno, era, tipo, autor);
                 //Consulta sql para insertar
                 this.InsertarDocumentoBD(documentoNuevo);
             }
@@ -145,7 +146,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
                 && !string.IsNullOrWhiteSpace(nombreObra) && !string.IsNullOrWhiteSpace(coleccionObra) 
                 && !string.IsNullOrWhiteSpace(autor) && !string.IsNullOrWhiteSpace(material) && !string.IsNullOrWhiteSpace(estilo))
             {
-                obraNueva = new Obra(0, 2, 1, fechaIngreso, descripcion, coleccionObra, "En Bodega", nombreObra, "obra", anno, era, material, estilo, tipo, autor);
+                obraNueva = new Obra(0, 2, 1, fechaIngreso, descripcion, coleccionObra, "En Bodega", nombreObra, "Obra", anno, era, material, estilo, tipo, autor);
                 //Consulta sql para insertar
                 this.InsertarObraBD(obraNueva);
             }
@@ -209,7 +210,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
                 && !string.IsNullOrEmpty(coleccionPieza) && !string.IsNullOrEmpty(periodo) && !string.IsNullOrWhiteSpace(nombrePieza)
                 && !string.IsNullOrWhiteSpace(coleccionPieza) && !string.IsNullOrWhiteSpace(periodo))
             {
-                piezaNueva = new Pieza(0, 2, 1, fechaIngreso, descripcion, coleccionPieza, "En Bodega", nombrePieza, "pieza", anno, era, periodo, tipo);
+                piezaNueva = new Pieza(0, 2, 1, fechaIngreso, descripcion, coleccionPieza, "En Bodega", nombrePieza, "Pieza", anno, era, periodo, tipo);
                 //Consulta sql para insertar
                 this.InsertarPiezaBD(piezaNueva);
             }
@@ -263,7 +264,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
                 && !string.IsNullOrWhiteSpace(nombreVehiculo) && !string.IsNullOrWhiteSpace(coleccionVehiculo)
                 && !string.IsNullOrWhiteSpace(marca) && !string.IsNullOrWhiteSpace(modelo))
             {
-                vehiculoNuevo = new Vehiculo(0, 2, 1, fechaIngreso, descripcion, coleccionVehiculo, "En Bodega", nombreVehiculo, "vehiculo", anno, era, marca, modelo);
+                vehiculoNuevo = new Vehiculo(0, 2, 1, fechaIngreso, descripcion, coleccionVehiculo, "En Bodega", nombreVehiculo, "Vehiculo", anno, era, marca, modelo);
                 //Consulta sql para insertar
                 this.InsertarVehiculoBD(vehiculoNuevo);
             }

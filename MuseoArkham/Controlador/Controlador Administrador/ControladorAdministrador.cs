@@ -11,6 +11,7 @@ using MuseoArkham.Modelo;
 using System.Diagnostics;
 using MuseoArkham.Vista.Vistas_Administrador;
 using MuseoArkham.Vista.VistasItem;
+using MuseoArkham.Vista.VistasCompartidas;
 
 namespace MuseoArkham.Controlador.Controlador_Administrador
 {
@@ -166,6 +167,24 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
             }
         }
 
+        private int ObtenerIdRegistro()
+        {
+            int index = this.ventana.dataGridViewRegistros.CurrentCell.RowIndex;
+            DataGridViewRow data = this.ventana.dataGridViewRegistros.Rows[index];
+            int idRegistro = Int32.Parse(data.Cells[0].Value.ToString());
+            return idRegistro;
+        }
+
+        public void VerDetallesRegistros()
+        {
+            if (this.ventana.dataGridViewRegistros.RowCount > 0)
+            {
+                int index = this.ObtenerIdRegistro();
+                VistaVerRegistro vista = new VistaVerRegistro(index);
+                vista.ShowDialog(this.ventana);
+            }
+        }
+
         private int obtenerIdItem() {
             int index = this.ventana.dataGridViewObjetos.CurrentCell.RowIndex;
             DataGridViewRow data = this.ventana.dataGridViewObjetos.Rows[index];
@@ -203,14 +222,29 @@ namespace MuseoArkham.Controlador.Controlador_Administrador
             switch (index) {
                 case 0:
                     this.cargarSolicitudes();
+                    this.recargarFiltroSolicitudes();
                     break;
                 case 1:
                     this.cargarItems();
+                    this.recargarFiltroObjetos();
                     break;
                 case 2:
                     this.cargarRegistros();
                     break;
             }
+        }
+
+
+        public void recargarFiltroObjetos() {
+            ventana.comboBoxObjetos.Enabled = true;
+            ventana.buttonAplicarFiltroObjetos.Enabled = true;
+            ventana.buttonQuitarFiltroObjetos.Enabled = false;
+        }
+
+        public void recargarFiltroSolicitudes() {
+            ventana.comboBoxSolicitudes.Enabled = true;
+            ventana.buttonAplicarFiltroSolicitudes.Enabled = true;
+            ventana.buttonCancelarFiltroSolicitudes.Enabled = false;
         }
 
         private void cargarSolicitudes() {

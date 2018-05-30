@@ -57,6 +57,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.buttonVerDetallesRegistros = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dataGridViewRegistros = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -84,6 +87,8 @@
             this.groupBox7.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistros)).BeginInit();
             this.SuspendLayout();
             // 
@@ -434,23 +439,52 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridViewRegistros);
+            this.panel1.Controls.Add(this.groupBox9);
+            this.panel1.Controls.Add(this.groupBox8);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(812, 273);
             this.panel1.TabIndex = 0;
             // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.buttonVerDetallesRegistros);
+            this.groupBox9.Location = new System.Drawing.Point(679, 0);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(133, 273);
+            this.groupBox9.TabIndex = 1;
+            this.groupBox9.TabStop = false;
+            // 
+            // buttonVerDetallesRegistros
+            // 
+            this.buttonVerDetallesRegistros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonVerDetallesRegistros.Location = new System.Drawing.Point(3, 16);
+            this.buttonVerDetallesRegistros.Name = "buttonVerDetallesRegistros";
+            this.buttonVerDetallesRegistros.Size = new System.Drawing.Size(127, 30);
+            this.buttonVerDetallesRegistros.TabIndex = 0;
+            this.buttonVerDetallesRegistros.Text = "Ver Detalles";
+            this.buttonVerDetallesRegistros.UseVisualStyleBackColor = true;
+            this.buttonVerDetallesRegistros.Click += new System.EventHandler(this.buttonVerDetallesRegistros_Click);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.dataGridViewRegistros);
+            this.groupBox8.Location = new System.Drawing.Point(0, 0);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(675, 273);
+            this.groupBox8.TabIndex = 0;
+            this.groupBox8.TabStop = false;
+            // 
             // dataGridViewRegistros
             // 
             this.dataGridViewRegistros.AllowUserToAddRows = false;
             this.dataGridViewRegistros.AllowUserToDeleteRows = false;
             this.dataGridViewRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewRegistros.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewRegistros.Location = new System.Drawing.Point(6, 17);
             this.dataGridViewRegistros.Name = "dataGridViewRegistros";
             this.dataGridViewRegistros.ReadOnly = true;
-            this.dataGridViewRegistros.Size = new System.Drawing.Size(812, 273);
+            this.dataGridViewRegistros.Size = new System.Drawing.Size(665, 250);
             this.dataGridViewRegistros.TabIndex = 0;
             // 
             // VistaAdministrador
@@ -492,6 +526,8 @@
             this.groupBox7.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegistros)).EndInit();
             this.ResumeLayout(false);
 
@@ -517,9 +553,6 @@
         public System.Windows.Forms.DataGridView dataGridViewSolicitudesTraslado;
         private System.Windows.Forms.Button buttonVerSolicitud;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.DataGridView dataGridViewRegistros;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
         public System.Windows.Forms.ComboBox comboBoxSolicitudes;
@@ -528,5 +561,11 @@
         public System.Windows.Forms.Button buttonAplicarFiltroSolicitudes;
         public System.Windows.Forms.Button buttonQuitarFiltroObjetos;
         public System.Windows.Forms.Button buttonAplicarFiltroObjetos;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Button buttonVerDetallesRegistros;
+        public System.Windows.Forms.DataGridView dataGridViewRegistros;
     }
 }

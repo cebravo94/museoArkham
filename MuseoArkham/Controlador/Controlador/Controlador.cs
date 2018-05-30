@@ -73,7 +73,7 @@ namespace MuseoArkham.Controlador
                 dataTable.Load(reader);
                 tabla.DataSource = true;
                 tabla.DataSource = dataTable;
-                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                //tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
                 tabla.Refresh();
             }
         }

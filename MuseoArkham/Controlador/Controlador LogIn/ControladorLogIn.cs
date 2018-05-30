@@ -81,6 +81,7 @@ namespace MuseoArkham.Controlador
                     return personal;
                 }
             }
+            this.CerrarConexion();
             return null;
         }
     }

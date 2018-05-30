@@ -88,5 +88,10 @@ namespace MuseoArkham.Vista
             this.buttonQuitarFiltroObjetos.Enabled = false;
             this.comboBoxObjetos.Enabled = true;
         }
+
+        private void buttonVerDetallesRegistros_Click(object sender, EventArgs e)
+        {
+            this.controlador.VerDetallesRegistros();
+        }
     }
 }
