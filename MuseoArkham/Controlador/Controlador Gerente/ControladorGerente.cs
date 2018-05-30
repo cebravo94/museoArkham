@@ -167,13 +167,26 @@ namespace MuseoArkham.Controlador.Controlador_Gerente
             switch (index) {
                 case 0:
                     this.cargarSolicitudes();
+                    this.recargarFiltroSolicitudes();
                     break;
 
                 case 1:
                     this.cargarObjetos();
+                    this.recargarFiltroObjetos();
                     break;
-
             }
+        }
+
+        public void recargarFiltroObjetos() {
+            ventana.comboBoxObjetos.Enabled = true;
+            ventana.buttonAplicarFiltroObjetos.Enabled = true;
+            ventana.buttonQuitarFiltroObjetos.Enabled = false;
+        }
+
+        public void recargarFiltroSolicitudes() {
+            ventana.comboBoxSolicitudes.Enabled = true;
+            ventana.buttonAplicarFiltroSolicitudes.Enabled = true;
+            ventana.buttonCancelarFiltroSolicitudes.Enabled = false;
         }
 
         private void cargarObjetos() {

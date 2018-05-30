@@ -284,6 +284,7 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
             switch (index) {
                 case 0:
                     this.CargarItems();
+                    this.recargarFiltros();
                     break;
                 case 1:
                     this.CargarSolicitudes();
@@ -292,6 +293,12 @@ namespace MuseoArkham.Controlador.Controlador_Bodeguero
                     this.CargarRegistros();
                     break;
             }
+        }
+
+        public void recargarFiltros() {
+            ventana.comboBoxObjetos.Enabled = true;
+            ventana.buttonAplicarFiltroObjetos.Enabled = true;
+            ventana.buttonCancelarFiltroObjetos.Enabled = false;
         }
 
         private void CargarItems() {
