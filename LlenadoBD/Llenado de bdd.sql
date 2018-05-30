@@ -128,32 +128,32 @@ INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (21,'Oleo sobre tel
 
 /*insert en bodega*/
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2017-05-25','Archivos del soldado estadounidense de infanteria Peter While','Documentos historicos','Bodega',1945,'Documento','Archivos de white','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2017-05-25','Archivos del soldado estadounidense de infanteria Peter While','Documentos historicos','En Bodega',1945,'Documento','Archivos de white','D.C');
 INSERT INTO documento (id_item,tipo,autor) VALUES (22,'Documento historico','Peter white');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2017-05-25','Carta del futuro presidente de EEUU y comandante superomo de los aliados del frente occidental durante la segunda guerra mundial','Documentos historicos','Bodega',1945,'Documento','Carta presidente','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2017-05-25','Carta del futuro presidente de EEUU y comandante superomo de los aliados del frente occidental durante la segunda guerra mundial','Documentos historicos','En Bodega',1945,'Documento','Carta presidente','D.C');
 INSERT INTO documento (id_item,tipo,autor) VALUES (23,'Documento historico','Dwight Eisenhower');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13',' Con una de las miradas mes surrealistas este artista retomo uno de los capitulos mas importantes de el viaje al centro de la tierra','Obras desconicidas','Bodega',1939,'Obra','El despertar del bosque','d.C.');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13',' Con una de las miradas mes surrealistas este artista retomo uno de los capitulos mas importantes de el viaje al centro de la tierra','Obras desconicidas','En Bodega',1939,'Obra','El despertar del bosque','d.C.');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (24,'Oleo sobre tela','Oleo sobre tela','Pintura','Paul Delvaux');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13',' Cosiendo una vela','Obras','Bodega',1896,'Obra','Cosiendo una vela','d.C.');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13',' Cosiendo una vela','Obras','En Bodega',1896,'Obra','Cosiendo una vela','d.C.');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (25,'Oleo sobre tela','Oleo sobre tela','Pintura','Joaquin Sorolla');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2015-07-23','Se cree que pertenecía a la Real Fuerza Aérea Canadiense y su misión fue patrullar la Costa Este de EE.UU.','Vehiculos de guerra','Bodega',1973,'Vehiculo','Hawker Hurricane','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2015-07-23','Se cree que pertenecía a la Real Fuerza Aérea Canadiense y su misión fue patrullar la Costa Este de EE.UU.','Vehiculos de guerra','En Bodega',1973,'Vehiculo','Hawker Hurricane','D.C');
 INSERT INTO vehiculo (id_item,marca,modelo) VALUES (26,'N','Hawker Hurricane');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13','Casco de un soldado anónimo que participó en la batalla de Normandía en 1944','Piezas historicas','Bodega',1945,'Pieza','Casco de soldado anonimo','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13','Casco de un soldado anónimo que participó en la batalla de Normandía en 1944','Piezas historicas','En Bodega',1945,'Pieza','Casco de soldado anonimo','D.C');
 INSERT INTO pieza (id_item,periodo,tipo) VALUES (27,'Segunda guerra mundial','Pieza de guerra');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13','La colección incluía la Cruz Victoria, la condecoración militar más alta al valor frente al enemigo.','Piezas historicas','Bodega',1945,'Pieza','Condecoraciones de Edward Ted','D.C.');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13','La colección incluía la Cruz Victoria, la condecoración militar más alta al valor frente al enemigo.','Piezas historicas','En Bodega',1945,'Pieza','Condecoraciones de Edward Ted','D.C.');
 INSERT INTO pieza (id_item,periodo,tipo) VALUES (28,'Segunda guerra mundial','Pieza');
 
 INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13','Orillas del sena en argenteuil','Obras','Bodega',1878,'Obra','Orillas del sena en Argenteuil','D.C.');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (29,'Oleo sobre tela','Oleo sobre tela','Pintura','Claude Monet');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13','Nadie como Otto para darle nuevas dimensionalidades al cuerpo humano y esta obra es el ejemplo perfecto; con posiciones y gestos que buscaban la complejidad de las personas más allá de sus apariciones físicas','Obras desconocidas','Bodega',1925,'Obra','Tres prostituas en la calle','d.C.');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13','Nadie como Otto para darle nuevas dimensionalidades al cuerpo humano y esta obra es el ejemplo perfecto; con posiciones y gestos que buscaban la complejidad de las personas más allá de sus apariciones físicas','Obras desconocidas','En Bodega',1925,'Obra','Tres prostituas en la calle','d.C.');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (30,'Oleo sobre tela','Oleo sobre tela','Pintura','Otto Dix');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13',' El viaducto de Starruca','Obras','Bodega',1846,'Obra','El viaducto de Starruca','D.C.');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13',' El viaducto de Starruca','Obras','En Bodega',1846,'Obra','El viaducto de Starruca','D.C.');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (31,'Oleo sobre tela','Oleo sobre tela','Pintura','Jasper Francis');

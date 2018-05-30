@@ -77,7 +77,7 @@ namespace MuseoArkham.Vista
             }
             else
             {
-                MessageBox.Show("Departamento ya tiene administrador, eliga otro", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Departamento ya tiene administrador, elija otro", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
            
         }
