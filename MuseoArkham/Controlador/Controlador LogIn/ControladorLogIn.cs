@@ -160,6 +160,7 @@ namespace MuseoArkham.Controlador
                     return personal;
                 }
             }
+            this.CerrarConexion();
             return null;
         }
 
@@ -167,6 +168,9 @@ namespace MuseoArkham.Controlador
 
         public bool ValidaRut(string rut)
         {
+            rut = rut.Replace(" ", "");
+            if (rut.Length == 0) return false;
+            if (rut.StartsWith("0")) return false;
             rut = rut.Replace(".", "").ToUpper();
             Regex expresion = new Regex("^([0-9]+-[0-9K])$");
             string dv = rut.Substring(rut.Length - 1, 1);
