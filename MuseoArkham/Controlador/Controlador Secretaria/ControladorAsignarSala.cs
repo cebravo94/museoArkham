@@ -39,6 +39,7 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
                 string text = dataTable.Rows[i]["nombre"].ToString();
                 combo.Items.Add(text);
             }
+            combo.SelectedItem = 0;
             this.CerrarConexion();
         }
 
@@ -58,13 +59,16 @@ namespace MuseoArkham.Controlador.Controlador_Secretaria
 
         private string ObtenerSala(string nombre)
         {
-            string consulta = "SELECT sala.id_sala FROM sala WHERE sala.nombre = '" + nombre + "'";
 
+            string consulta = "SELECT sala.id_sala FROM sala WHERE sala.nombre = '" + nombre + "'";
+            Console.WriteLine(nombre);
+            Console.WriteLine(consulta);
             MySqlDataReader reader = this.RealizarConsulta(consulta);
             reader.Read();
             string valor = reader.GetString(0);
             this.CerrarConexion();
             return valor;
+
         }
 
         public void refrescarTablaPadre()

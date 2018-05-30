@@ -22,6 +22,7 @@ namespace MuseoArkham.Vista.Vistas_Secretaria
             InitializeComponent();
 
             this.controlador.RellenarComboBox(comboBoxSala);
+            this.comboBoxSala.SelectedIndex = 0;
         }
 
         private void buttonAsignarSala_Click(object sender, EventArgs e)
@@ -32,6 +33,16 @@ namespace MuseoArkham.Vista.Vistas_Secretaria
             string id = data.Cells[0].Value.ToString();
             this.controlador.AsignarSala(id,nombreSala);
             this.Close();
+        }
+
+        private void buttonCancelarAsignarSala_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void VistaAsignarSala_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

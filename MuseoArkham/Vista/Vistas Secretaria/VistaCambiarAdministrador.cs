@@ -23,6 +23,7 @@ namespace MuseoArkham.Vista.Vistas_Secretaria
             this.dataGrid = dataGrid;
             InitializeComponent();
             this.controlador.RellenarComboBox(dataGrid,comboBoxAdministrador);
+            this.comboBoxAdministrador.SelectedIndex = 0;
         }
 
         private void buttonAsignarAdministrador_Click(object sender, EventArgs e)
@@ -30,6 +31,11 @@ namespace MuseoArkham.Vista.Vistas_Secretaria
             string nombreAdmin = comboBoxAdministrador.GetItemText(comboBoxAdministrador.SelectedItem);
 
             this.controlador.CambiarAdministrador(this.dataGrid, nombreAdmin);
+            this.Close();
+        }
+
+        private void buttonCancelarAsignarAdministrador_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
