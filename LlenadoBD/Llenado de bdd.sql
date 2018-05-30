@@ -71,77 +71,77 @@ INSERT INTO documento (id_item,tipo,autor) VALUES (5,'Documento','Anonimo');
 INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (3,3,'2016-05-04','Acuerdo de Asistencia Mutua entre el Reino Unido y Polonia.','Documentos historicos','En Exhibicion',1939,'Documento','Acuerdo Anglo-Polaco de Ayuda Mutua','D.C');
 INSERT INTO documento (id_item,tipo,autor) VALUES (6,'Documento','Anonimo');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (3,3,'2015-06-13','Intercambio de notas diplomáticas entre el Secretario de Estado de Estados Unidos, Cordell Hull, y al Embajador Británico Marqués de Lothian, acordando el intercambio de destructores obsoletos por bases militares en las posesiones británicas.','Documentos historicos','En Exhibicion',1940,'Documento','Acuerdo de Bases por Destructores','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (3,3,'2015-06-13','Intercambio de notas diplomáticas entre el Secretario de Estado de Estados Unidos, Cordell Hull, y al Embajador Británico Marqués de Lothian, acordando el intercambio de destructores obsoletos por bases militares en las posesiones británicas.','Documentos historicos','En Exhibicion',1940,'Documento','Acuerdo de Bases por Destructores','D.C.');
 INSERT INTO documento (id_item,tipo,autor) VALUES (7,'Documento','Anonimo');
 
 /*insert de vehiculo*/
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (5,6,'2016-05-04','Era un pequeño vehículo sobre orugas y guiado por cable, utilizado por el Ejército alemán durante la Segunda Guerra Mundial. Entre las fuerzas Aliadas, era llamado tanque escarabajo','Vehiculos de guerra','En Exhibicion',1939,'Vehiculo','Goliath','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (5,6,'2016-05-04','Era un pequeño vehículo sobre orugas y guiado por cable, utilizado por el Ejército alemán durante la Segunda Guerra Mundial. Entre las fuerzas Aliadas, era llamado tanque escarabajo','Vehiculos de guerra','En Exhibicion',1939,'Vehiculo','Goliath','D.C.');
 INSERT INTO vehiculo (id_item,marca,modelo) VALUES (8,'Borgward','N/A');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (5,6,'2017-04-23','El Ectomobile o Ecto 1 es un Cadillac Miller “Lymo Style, Ambulance Conversión”. El diseño original del vehículo fue de Steven Dane; la conversión del vehículo tuvo un costo de $4,800 dólares.','Vehiculos famosos','En Exhibicion',1959,'Vehiculo','Ecto 1','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (5,6,'2017-04-23','El Ectomobile o Ecto 1 es un Cadillac Miller “Lymo Style, Ambulance Conversión”. El diseño original del vehículo fue de Steven Dane; la conversión del vehículo tuvo un costo de $4,800 dólares.','Vehiculos famosos','En Exhibicion',1959,'Vehiculo','Ecto 1','D.C.');
 INSERT INTO vehiculo (id_item,marca,modelo) VALUES (9,'Cadillac','Miller Meteor');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (5,6,'2015-07-23','El DeLorean original es un modelo creado por el constructor John DeLorean, con carrocería de acero inoxidable, el primer prototipo del auto se presentó en octubre de 1976','Vehiculos famosos','En Exhibicion',1981,'Vehiculo','Time Machine','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (5,6,'2015-07-23','El DeLorean original es un modelo creado por el constructor John DeLorean, con carrocería de acero inoxidable, el primer prototipo del auto se presentó en octubre de 1976','Vehiculos famosos','En Exhibicion',1981,'Vehiculo','Time Machine','D.C.');
 INSERT INTO vehiculo (id_item,marca,modelo) VALUES (10,'DeLorean','DMC12');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (5,7,'2015-07-23','Dentro de la historia, Herbie es un vochito de carreras con mente propia, cuenta con el número 53 y tiene placas vintage de California con las letras y dígitos: QFP 857.','Vehiculos famosos','En Exhibicion',1963,'Vehiculo','Herbie','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (5,7,'2015-07-23','Dentro de la historia, Herbie es un vochito de carreras con mente propia, cuenta con el número 53 y tiene placas vintage de California con las letras y dígitos: QFP 857.','Vehiculos famosos','En Exhibicion',1963,'Vehiculo','Herbie','D.C.');
 INSERT INTO vehiculo (id_item,marca,modelo) VALUES (11,'VW','Deluxe');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (5,7,'2015-07-23','Filme protagonizado por el legendario Steve Mc Queen, quien encarnó al policía Frank Bullitt. El filme fue estrenado el 17 de octubre de 1968. En el 2008 Ford Motor Company produjo un nuevo modelo para celebrar el 40 aniversario de la película.','Vehiculos famosos','En Exhibicion',1968,'Vehiculo','Mustang Bullit','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (5,7,'2015-07-23','Filme protagonizado por el legendario Steve Mc Queen, quien encarnó al policía Frank Bullitt. El filme fue estrenado el 17 de octubre de 1968. En el 2008 Ford Motor Company produjo un nuevo modelo para celebrar el 40 aniversario de la película.','Vehiculos famosos','En Exhibicion',1968,'Vehiculo','Mustang Bullit','D.C.');
 INSERT INTO vehiculo (id_item,marca,modelo) VALUES (12,'Ford','Mustang GT');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (5,7,'2015-07-23','El coche más memorable de la película, el Pursuit Special negro de Max, era una versión GT351 limitada del Ford XB Falcon Hardtop de 1973, modificado por el director artístico de la película, Jon Dowding.','Vehiculos famosos','En Exhibicion',1973,'Vehiculo','Pursuit Special','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (5,7,'2015-07-23','El coche más memorable de la película, el Pursuit Special negro de Max, era una versión GT351 limitada del Ford XB Falcon Hardtop de 1973, modificado por el director artístico de la película, Jon Dowding.','Vehiculos famosos','En Exhibicion',1973,'Vehiculo','Pursuit Special','D.C.');
 INSERT INTO vehiculo (id_item,marca,modelo) VALUES (13,'Ford','Falcon Interceptor');
 
 /*insert de piezas*/
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (6,10,'2016-07-13','Hacha del Faraón Ahmose, Egipto, 1539-1514 a.C.','Piezas historicas','En Exhibicion',1539,'Pieza','Hacha del Faraón Ahmose','a.C.');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (6,10,'2016-07-13','Hacha del Faraón Ahmose, Egipto, 1539-1514 a.C.','Piezas historicas','En Exhibicion',1539,'Pieza','Hacha del Faraón Ahmose','A.C.');
 INSERT INTO pieza (id_item,periodo,tipo) VALUES (14,'Antiguo egipto','Pieza egipcia');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (6,10,'2016-07-13','Dedo artificial proveniente del Antiguo Egipto, probablemente la primera prótesis médica.','Piezas historicas','En Exhibicion',1540,'Pieza','Dedo artificial egipcio','a.C.');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (6,10,'2016-07-13','Dedo artificial proveniente del Antiguo Egipto, probablemente la primera prótesis médica.','Piezas historicas','En Exhibicion',1540,'Pieza','Dedo artificial egipcio','A.C.');
 INSERT INTO pieza (id_item,periodo,tipo) VALUES (15,'Antiguo egipto','Pieza egipcia');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (6,11,'2016-07-13','Casco corintio de la Batalla de Maraton (490 a.C.), hallado en 1834 con la calavera en su interior.','Piezas historicas','En Exhibicion',1834,'Pieza','Casco corintio','a.C.');
-INSERT INTO pieza (id_item,periodo,tipo) VALUES (16,'490 a.C.','Pieza romana');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (6,11,'2016-07-13','Casco corintio de la Batalla de Maraton (490 a.C.), hallado en 1834 con la calavera en su interior.','Piezas historicas','En Exhibicion',1834,'Pieza','Casco corintio','A.C.');
+INSERT INTO pieza (id_item,periodo,tipo) VALUES (16,'490 A.C.','Pieza romana');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (6,11,'2016-07-13','Corona del Emperador Bizantino Constantino Monomachos, 1042 d.C.','Piezas historicas','En Exhibicion',1042,'Pieza','Corona del Emperador Bizantino ','d.C.');
-INSERT INTO pieza (id_item,periodo,tipo) VALUES (17,'1042 d.C.','Pieza');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (6,11,'2016-07-13','Corona del Emperador Bizantino Constantino Monomachos, 1042 d.C.','Piezas historicas','En Exhibicion',1042,'Pieza','Corona del Emperador Bizantino ','D.C.');
+INSERT INTO pieza (id_item,periodo,tipo) VALUES (17,'1042 A.C.','Pieza');
 
 /*insert de obras*/
 
 INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (4,4,'2016-07-13','Patrocinio de San José
-, 1744.','Obras chilenas','En Exhibicion',1744,'Obra','Patrocinio de San José','d.C.');
+, 1744.','Obras chilenas','En Exhibicion',1744,'Obra','Patrocinio de San José','D.C.');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (18,'Oleo sobre tela','Oleo sobre tela','Pintura','Gaspar Miguel de Berrio');
 
 INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (4,4,'2016-07-13','Bernardo O’Higgins, Director Supremo
-, 1821','Obras chilenas','En Exhibicion',1821,'Obra','Bernardo O’Higgins','d.C.');
+, 1821','Obras chilenas','En Exhibicion',1821,'Obra','Bernardo O’Higgins','D.C.');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (19,'Oleo sobre tela','Oleo sobre tela','Pintura','José Gil de Castro y Morales');
 
 INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (4,5,'2016-07-13',' El Huaso y la lavandera
-, 1835','Obras chilenas','En Exhibicion',1835,'Obra','El huaso y la lavandera','d.C.');
+, 1835','Obras chilenas','En Exhibicion',1835,'Obra','El huaso y la lavandera','D.C.');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (20,'Oleo sobre tela','Oleo sobre tela','Pintura','Johann Moritz Rugendas');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (4,5,'2016-07-13',' Retrato de Julia Codesido de Mora','Obras chilenas','En Exhibicion',1846,'Obra','Retrato de Julia Codesido de Mora','d.C.');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (4,5,'2016-07-13',' Retrato de Julia Codesido de Mora','Obras chilenas','En Exhibicion',1846,'Obra','Retrato de Julia Codesido de Mora','D.C.');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (21,'Oleo sobre tela','Oleo sobre tela','Pintura','Raymond Monvoisin');
 
 /*insert en bodega*/
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2017-05-25','Archivos del soldado estadounidense de infanteria Peter While','Documentos historicos','En Bodega',1945,'Documento','Archivos de white','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2017-05-25','Archivos del soldado estadounidense de infanteria Peter While','Documentos historicos','En Bodega',1945,'Documento','Archivos de white','D.C.');
 INSERT INTO documento (id_item,tipo,autor) VALUES (22,'Documento historico','Peter white');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2017-05-25','Carta del futuro presidente de EEUU y comandante superomo de los aliados del frente occidental durante la segunda guerra mundial','Documentos historicos','En Bodega',1945,'Documento','Carta presidente','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2017-05-25','Carta del futuro presidente de EEUU y comandante superomo de los aliados del frente occidental durante la segunda guerra mundial','Documentos historicos','En Bodega',1945,'Documento','Carta presidente','D.C.');
 INSERT INTO documento (id_item,tipo,autor) VALUES (23,'Documento historico','Dwight Eisenhower');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13',' Con una de las miradas mes surrealistas este artista retomo uno de los capitulos mas importantes de el viaje al centro de la tierra','Obras desconicidas','En Bodega',1939,'Obra','El despertar del bosque','d.C.');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13',' Con una de las miradas mes surrealistas este artista retomo uno de los capitulos mas importantes de el viaje al centro de la tierra','Obras desconicidas','En Bodega',1939,'Obra','El despertar del bosque','D.C.');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (24,'Oleo sobre tela','Oleo sobre tela','Pintura','Paul Delvaux');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13',' Cosiendo una vela','Obras','En Bodega',1896,'Obra','Cosiendo una vela','d.C.');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13',' Cosiendo una vela','Obras','En Bodega',1896,'Obra','Cosiendo una vela','D.C.');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (25,'Oleo sobre tela','Oleo sobre tela','Pintura','Joaquin Sorolla');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2015-07-23','Se cree que pertenecía a la Real Fuerza Aérea Canadiense y su misión fue patrullar la Costa Este de EE.UU.','Vehiculos de guerra','En Bodega',1973,'Vehiculo','Hawker Hurricane','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2015-07-23','Se cree que pertenecía a la Real Fuerza Aérea Canadiense y su misión fue patrullar la Costa Este de EE.UU.','Vehiculos de guerra','En Bodega',1973,'Vehiculo','Hawker Hurricane','D.C.');
 INSERT INTO vehiculo (id_item,marca,modelo) VALUES (26,'N','Hawker Hurricane');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13','Casco de un soldado anónimo que participó en la batalla de Normandía en 1944','Piezas historicas','En Bodega',1945,'Pieza','Casco de soldado anonimo','D.C');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13','Casco de un soldado anónimo que participó en la batalla de Normandía en 1944','Piezas historicas','En Bodega',1945,'Pieza','Casco de soldado anonimo','D.C.');
 INSERT INTO pieza (id_item,periodo,tipo) VALUES (27,'Segunda guerra mundial','Pieza de guerra');
 
 INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13','La colección incluía la Cruz Victoria, la condecoración militar más alta al valor frente al enemigo.','Piezas historicas','En Bodega',1945,'Pieza','Condecoraciones de Edward Ted','D.C.');
@@ -150,7 +150,7 @@ INSERT INTO pieza (id_item,periodo,tipo) VALUES (28,'Segunda guerra mundial','Pi
 INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13','Orillas del sena en argenteuil','Obras','Bodega',1878,'Obra','Orillas del sena en Argenteuil','D.C.');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (29,'Oleo sobre tela','Oleo sobre tela','Pintura','Claude Monet');
 
-INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13','Nadie como Otto para darle nuevas dimensionalidades al cuerpo humano y esta obra es el ejemplo perfecto; con posiciones y gestos que buscaban la complejidad de las personas más allá de sus apariciones físicas','Obras desconocidas','En Bodega',1925,'Obra','Tres prostituas en la calle','d.C.');
+INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13','Nadie como Otto para darle nuevas dimensionalidades al cuerpo humano y esta obra es el ejemplo perfecto; con posiciones y gestos que buscaban la complejidad de las personas más allá de sus apariciones físicas','Obras desconocidas','En Bodega',1925,'Obra','Tres prostituas en la calle','D.C.');
 INSERT INTO obra (id_item,material,estilo,tipo,autor) VALUES (30,'Oleo sobre tela','Oleo sobre tela','Pintura','Otto Dix');
 
 INSERT INTO item (id_dpto,id_sala,fecha_ingreso,descripcion,coleccion,estado,anno,tipo,nombre,era) VALUES (2,2,'2016-07-13',' El viaducto de Starruca','Obras','En Bodega',1846,'Obra','El viaducto de Starruca','D.C.');
